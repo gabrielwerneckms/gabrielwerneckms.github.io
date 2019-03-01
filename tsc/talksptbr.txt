@@ -1,0 +1,430 @@
+ {"c2dictionary":true,"data":{
+
+"level01-a1":"Seja bem vindo ao Castelo Totalmente Seguro",
+"level01-a2":"Tudo aqui foi feito pensando na sua diversão e tranquilidade.",
+"level01-a3":"Aproveite.",
+
+"level01-b1":"Nisso que dá ser ganancioso. Ahahah!",
+
+"level01-c1":"Acho que você foi longe de mais.",
+
+"level01-d1":"Vejo que você conheceu nosso maravilhoso pisca-pisca.",
+"level01-d2":"Ele é muito colorido e amigável.",
+
+"level01-f1":"O pisca-pisca está em todos os lugares - até no teto.",
+"level01-f2":"É tudo muito festivo.",
+
+"level01-g1":"Lembre-se sempre de seguir as setas e instruções.",
+"level01-g2":"Elas vão te ajudar bastante.",
+
+"level02-a1":"Conheça Barney, o Citrus.",
+"level02-a2":"Ele está aqui para te fazer companhia se você ficar solitário.",
+"level02-a3":"Vai lá dar um abraço nele.",
+
+"level02-b1":"Esta é a sala inescapável do confinamento eterno.",
+"level02-b2":"Não tem como escapar.",
+"level02-b3":"Tenha um bom dia.",
+
+"level02-c1":"É impossível escapar da sala inescapável do confinamento eterno.",
+"level02-c2":"Por isso que ela se chama sala inescapável do confinamento eterno.",
+"level02-c3":"Porque não dá pra escapar.",
+
+"level02-d1":"Não há nada que você possa fazer.",
+"level02-d2":"A parede à sua direita é sólida e firme como meus musculos.",
+
+"level02-e1":"Mesmo se você pulasse em direção à parede, por exemplo, nada aconteceria.",
+"level02-e2":"Não. Nada.",
+
+"level02-g1":"Hmm, alguém deixou a pilastra aberta.",
+"level02-g2":"Que irresponsável.",
+
+"level02-h1":"Barney! O que eu te disse sobre matar aventureiros?",
+"level02-h2":"Citrus mau! Ahahahah.",
+
+"level03-a1":"As moedas flutuantes com meu rosto nelas se chamam Shamladólares.",
+"level03-a2":"Elas não fazem nada, mas são muito atraentes.",
+
+"level03-b1": "(remove)",
+
+"level03-c1":"Agora você dará vários pulos totalmente seguros.",
+"level03-c2":"Pular é uma segura e sem nenhum perigo.",
+"level03-c3":"Mesmo se você cair num pisca pisca ou num Citrus furioso.",
+"level03-c4":"Não precisa se preocupar.",
+
+"level04-a1":"Caro aventureiro,",
+"level04-a2":"Para sua segurança, correr no castelo é estritamente proibido.",
+"level04-a3":"As salas foram pensadas para que você se divirta com calma e tranquilidade, então não tenha pressa.",
+
+"level04-b1":"Viu só? Eu disse pra não correr.",
+
+"level04-c1":"Não, não. Não corra. É perigoso. Ahahah.",
+
+"level04-d1":"Por que vocês aventureiros insistem em correr?",
+
+"level04-e1":"Se estiver com fome, talvez você queira uma de nossas maravilhosas tangerinas flutuantes.",
+"level04-e2":"Não se preocupe - eu as coloquei em lugares muito acessíveis.",
+"level04-e3":"Heheheheheheh. Heh.",
+
+"level05-a1":"Eu deixei vários presentes maravilhosos espalhados pelo castelo.",
+"level05-a2":"Eles são todos para vocês, meus queridos e cheirosos aventureiros.",
+"level05-a3":"Os presentes vermelhos são os melhores de todos!",
+
+"level05-b1":"É muito chato ter que abrir cada presente você mesmo.",
+"level05-b2":"Por isso, os presentes aqui se abrem sozinhos quando você pára perto deles.",
+"level05-b3":"Aqui no Castelo Totalmente Seguro, fazemos de tudo para melhorar sua estadia.",
+
+"level05-c1":"Cuidado pra não esquecer nenhum presente.",
+"level05-c2":"Eles sempre têm coisas maravilhosas dentro, como bolo ou pôneis!",
+
+"level05-d1":"Os presentes vermelhos são realmente uma explosão de alegria.",
+"level05-d2":"Ahahahah. Entendeu?",
+
+"level06-a1":"A decoração colorida do meu castelo está aqui para dar um clima festivo.",
+"level06-a2":"Eu fico ofendido quando você pula em minhas bexigas.",
+"level06-a3":"Alguma vez eu invadi sua casa para pisotear sua decoração?",
+
+"level06-b1":"Para deixar as coisas mais divertidas, algumas portas do castelo estão trancadas.",
+"level06-b2":"Mas não se preocupe, elas estão em lugares onde qualquer idiota consegue pegar.",
+"level06-b3":"Até você.",
+
+"level07-a1":"Lembre-se de abrir todas as portas no castelo.",
+"level07-a2":"Se não, você nunca saberá que atrações maravilhosas pode estar deixando pra trás.",
+
+"level07-b1":"Sabia que você pode pular na cabeça do Citrus para alcançar lugares distantes mais rápido?",
+"level07-b2":"Tudo bem, eles adoram quando pulam na cabeça deles.",
+
+"level07-c1":"Muito bem. Ótimo trabalho!",
+"level07-c2":"Agora pegue seus Shamladólares e continue para a próxima sala.",
+
+"level07-d1":"Ahahahahah.",
+"level07-d2":"Eu sou muito esperto.",
+
+"level07-e1":"Ahahah. Sabia que ia funcionar.",
+
+"level07-f1":"Eles sempre vão com tanta pressa.",
+
+"level07-g1":"De novo! Hehehehe.",
+
+"level07-h1":"Essa parte é totalmente segura.",
+"level07-h2":"Você só precisa ir devagar e com muita calma.",
+"level07-h3":"Não tem pressa.",
+
+"level07-i1":"Esse Citrus estava esperando ali há três anos.",
+"level07-i2":"Agora foi finalmente o momento dele. Ahahah.",
+
+"level08-a1":"Não preste atenção nesses grandes números ali em cima.",
+"level08-a2":"É meramente um contador de quantas vezes eu me diverti assistindo vocês aventureiros sofre-",
+"level08-a3":"... ahn, explorarem! Explorarem o castelo.",
+"level08-a4":"Só continua. Tá bom? Tá bom.",
+
+"level08-b1":"Eu só quero lembrar a vocês que, embora essa enorme bola com espinhos pareça ameaçadora,",
+"level08-b2":"Ela na verdade é macia e totalmente seguro.",
+"level08-b3":"Uma amiga minha costumava se pendurar numa dessas e cantar por aí.",
+
+"level08-f1":"Este é o Labirinto Compreensível.",
+"level08-f2":"Ele é muito compreensível e fácil de se compreender.",
+"level08-f3":"Você já deve compreender qual caminho deve ser tomado.",
+"level08-f4":"Então vá em frente. Vai ser bem fácil e seguro.",
+"level08-f5":"E compreensível.",
+
+"level08-c1":"Como eu sou amigável e solícito, lhe darei uma dica para esta parte",
+"level08-c2":"Caso pule nos balões do lado direito, você encontrará um obstáculo.",
+"level08-c3":"Em vez disso, suba com tudo nos balões da esquerda.",
+"level08-c4":"O lado esquerdo é totalmente seguro.",
+"level08-c5":"Vá pela esquerda.",
+
+"level08-d1":"Ahahah. Para o alto e avante.",
+
+"level09-a1":"Recentemente, percebi que havia um problema sério com nossa fiação.",
+"level09-a2":"Lamento muito pelo ocorrido.",
+"level09-a3":"A partir de agora, você pode tocar no pisca-pisca o quanto quiser, sem nenhum perigo.",
+
+"level09-b1":"Ainda bem que eu consertei o pisca pisca.",
+"level09-b2":"Senão essa parte ia ser bem difícil. Heheheheheh.",
+
+"level09-c1":"Não se esqueça do seu magnífico presente!",
+
+"level10-a1":"Caso você tenha perguntas, sugestões ou dúvidas sobre o Castelo Totalmente Seguro",
+"level10-a2":"pode colocá-los em qualquer um dos fogareiros na parede.",
+"level10-a3":"Suas opiniões irão direto para minha Gaveta de Se Importar Com Aventureiros,",
+"level10-a4":"que definitivamente existe.",
+
+"level11-a1":"Os Corredores Camaradas são maravilhosos para quem gosta de amizade ou companheirismo.",
+"level11-a2":"Eu decorei todos os cômodos com belíssimas e enormes estátuas da minha cabeça, para você não se sentir sozinho.",
+"level11-a3":"Você encontrará amigos novos em breve!",
+
+"level11-b1":"Os Citrus nos Corredores Camaradas tem um jeito meio tribal.",
+"level11-b2":"Mas não se preocupe. Eles são pacíficos e amigáveis como sempre.",
+
+"level12-a1":"Percebo que alguns de vocês não acham o castelo tão seguro assim.",
+"level12-a2":"Ficam dizendo que 'Ah, os desafios são injustos'. 'Ah, meu melhor amigo morreu'",
+"level12-a3":"Eu discordo. Pra mim é tudo totalmente seguro.",
+"level12-a4":"Mas como eu sou bonito e generoso, trago a vocês esta sala completamente livre de armadilhas.",
+ 
+"level12-b1":"Talvez você esteja pensando 'será que os botões no chão são armadilhas?'",
+"level12-b2":"Bom, é claro que não. Como você é burro.",
+"level12-b3":"Afinal, este é o Castelo Totalmente Seguro. E armadilhas não são seguras.",
+"level12-b4":"Portanto, é completamente impossível que haja armadilhas no castelo. Entendeu?",
+"level12-b5":"Deixe de burrice e siga em frente.",
+
+"level12-c1":"Ainda bem que você já sabe que esses botões não são armadilhas.",
+"level12-c2":"Senão essa sala podia ser bem perigosa.",
+
+"level13-a1":"Você deve ter percebido que minhas estátuas adoram  cuspir dardos venenosos.",
+"level13-a2":"É a maneira delas de expressar afeto.",
+
+"level13-b1":"Novamente, temos um botão totalmente seguro para você apertar.",
+"level13-b2":"Você pode sempre confiar na segurança dos botões e alavancas totalmente seguros do Castelo Totalmente Seguro.",
+"level13-b3":"Garanto que nada de perigoso acontecerá quando você apertá-lo.",
+
+"level13-c1":"Agora, além de pular em meus balões, vocês aventureiros acham que é engraçado subir em minhas estátuas.",
+"level13-c2":"É por isso que eu mato todos vocês!",
+"level13-c3":"Ahm, mato todos vocês de rir.",
+"level13-c4":"Ahahahh! Hah!",
+"level13-c5":"Com minhas piadas!",
+
+"level14-a1":"Fico altamente alegre em apresentá-lo os amigos aéroes.",
+"level14-a2":"Eles te esperam nas salas a seguir,",
+"level14-a3":"e estão ansiosos para te dar um abraço.",
+
+"level14-b1":"Preste bem atenção. Está vendo os amigos aéreos?",
+
+"level15-a1":"Nada é mais relaxante e tranquilo do que a natureza.",
+"level15-a2":"Já que os Corredores Camaradas estão cheios de vida selvagem,",
+"level15-a3":"Decidi decorá-los com minha flor favorita.",
+
+"level16-a1":"Não se preocupem, as Flores Fraternas nesta sala são vegetarianas.",
+"level16-a2":"Elas certamente não irão te morder.",
+
+"level17-a1":"As Cabeças Cordiais por aqui cospem dardos que vão pra cima e pra baixo.",
+"level17-a2":"É que nem uma gangorra, ou alguém pulando num trampolim e se machucando seriamente.",
+"level17-a3":"Não aqui no castelo, é claro.",
+"level17-a4":"O castelo é totalmente seguro",
+
+"level18-a1":"Percebo que diversos aventureiros tem dificuldade para pegar as chaves de ouro e prata.",
+"level18-a2":"Por isso, dessa vez elas estão aqui, prontinhas pra você pegar.",
+"level18-a3":"Você só precisa dar um pequeno, e terá todas as chaves que precisa!",
+
+"level19-a1":"Aqui é onde a maioria dos amigos aéreos moram.",
+"level19-a2":"Eles devem estar jogando truco e comendo amendoim, só esperando você chegar.",
+"level19-a3":"Imagina só quantos abraços eles te darão.",
+
+"level20-a1":"Aqui na última seção dos Corredores Camaradas, decidi juntar todo mundo e fazer uma social.",
+"level20-a2":"Tem as Cabeças Cordiais, os Amigos Aéreos, e até as Flores Fraternas.",
+"level20-a3":"Tá todo mundo aqui. Podem festejar.",
+
+"level21-a1":"Hmm. Você não deveria estar aqui.",
+"level21-a2":"Não era pra os Aposentos Amigáveis estarem abertos à visitação. ",
+"level21-a3":"Eu jurava que tinha encantado a última porta pra te jogar num poço...",
+"level21-a4":"Digo, digo, quer dizer, pra te... Ehm...",
+"level21-a5":"Nada .",
+
+"level21-b1":"Deixa eu te explicar.",
+"level21-b2":"Estes são os meus aposentos.",
+"level21-b3":"Você não deveria estar aqui.", 
+"level21-b4":"Meu sistema de segurança atirará em qualquer um que não seja tão estiloso quanto eu.",
+"level21-b5":"E ninguém é tão estiloso quanto eu.",
+"level21-b6":"Então vá embora.",
+
+"level22-a1":"Você está sendo muito rude, sabia?",
+"level22-a2":"Todo esse tempo eu só te dei diversão e alegria, e você faz isso.",
+"level22-a3":"Só porque a porta desaparece quando você entra, não é razão pra você se recusar a ir embora.",
+"level22-a4":"Vocês aventureiros são todos iguais. Não têm nenhum respeito.",
+
+"level22-b1":"Ah, quer saber? Faz o que você quiser, então.",
+"level22-b2":"Tomara que você seja acertado e morra.",
+
+"level23-a1":"Vamos ver como você se sai agora, senhor Eu-vou-onde-eu-quiser-não-quero-nem-saber",
+"level23-a2":"Olha pra mim, eu sou um aventureiro! Eu ignoro pedidos de magos incríveis!",
+
+"level24-a1":"Ahn, desculpa por ter ficado bravo.",
+"level24-a2":"Fica à vontade para explorar onde quiser.",
+"level24-a3":"Meus aposentos são seguros como o resto do castelo.",
+"level24-a4":"Veja esses blocos que somem, por exemplo.",
+"level24-a5":"Por que você não vai explorá-los mais de perto?",
+ 
+"level25-a1":"Essas pontes foram feitas para você poder prosseguir de maneira fácil e totalmente segura.",
+"level25-a2":"Elas sempre aparecem magicamente de baixo do seus pés.",
+"level25-a3":"Não se preocupe em acertar o ritmo ou ficar tentando acertar os blocos.",
+"level25-a4":"É só seguir e não hesitar.",
+
+"level25-b1":"Cuidado! Vai pra esquerda!",
+
+"level26-a1":"Já que você está indo tão bem, vou te contar um segredo:",
+"level26-a2":"Bate a cabeça num dos canhões dez vezes, ele vai parar de atirar.",
+"level26-a3":"É bem útil nessas situações.",
+
+"level26-b1":"Cuidado com os pisca-piscas no chão.",
+"level26-b2":"Ia ser terrível cair nelas por acidente, não é mesmo?",
+
+"level27-a1":"Seja bem-vindo ao labirinto da clareza de pensamento.",
+"level27-a2":"Esta é a região menos confusa do castelo.",
+"level27-a3":"Para abrir o caminho para a porta final, você precisa puxar a alavanca na sala dois.", 
+"level27-a4":"A sala dois é a terceira da esquerda para direita, entre o topo de fundo diagonalmente contando de cabeça pra baixo.",
+"level27-a5":"É só entrar nas duas últimas portas, a segunda primeiro e a primeira antes.",
+
+"level27-b1":"Cuidado para não esquecer de não desativar esse temporizador.",
+"level27-b2":"Caso contrário talvez você não se esqueça de se lembrar de não deixar de ir na sala três mais tarde.",
+
+"level27-c1":"As portas de bronze aqui vão todos pra esquerda, exceto a da esquerda que vai pra direta.",
+"level27-c2":"A porta de cima vai pra esquerda e a de baixo vai pra cima que volta pra direita.",
+"level27-c3":"Todas as portas de cima vão pra direita, então pra ir pra direita, pegue a porta de cima ou a de baixo do meio.",
+"level27-c4":"Mas não importa o que você faça, não entre em nenhuma porta.",
+
+"level27-d1":"Esta é a terceira sala de cima pra baixo. A sala número dezesseis.",
+"level27-d2":"Significa que ela é a primeira, e por isso você deve visitá-la por último, logo antes da sala quatro.",
+"level27-d3":"Por favor permaneça nessa sala até morrer de causas naturais.",
+
+"level27-e1":"Ah, sala sete. Essa é minha sala favorita.", 
+"level27-e2":"Venha para esta sala logo depois da sala três, mas não antes da sala cinco.",
+"level27-e3":"A sala oito vai te surpreender!",
+
+"level27-f1":"Se eu fosse você, não entraria por essa porta.",
+"level27-f2":"Em vez disso, eu iria pela passagem secreta ali perto dos balões.",
+"level27-f3":"Só dizendo.",
+
+"level28-a1":"Hmmm, ainda explorando meus aposentos.",
+"level28-a2":"Sabia que você, ahn, pode pular no chapéu do Citrus Chique?",
+"level28-a3":"É que nem um balão! Vai lá, pula. Pula logo!",
+
+"level29-a1":"Os blocos aqui somem e aparecem bem devagar.",
+"level29-a2":"Isso quer dizer que eles são totalmente seguros.",
+"level29-a3":"Só para em cima de um deles e medita um pouco. Vai ser ótimo.",
+
+"level30-a1":"Tá certo então. Vou parar com a atuação.",
+"level30-a2":"Não entendo como um aventureiro idiota como você sobreviveu a todas as minhas armadilhas.",
+"level30-a3":"Mas admiro sua persistência, então vou te dar uma chance de ser aniquilado por mim pessoalmente.",
+"level30-a4":"Venha para a arena da morte, e se conseguir me derrotar em combate, você terá sua liberdade.",
+"level30-a5":"É claro, você vai falhar. Muahahahahahah!",
+
+"tangerine1":"Tangerinas são maravilhosas. Lembre-se: Não tem nada mais pra comer por aqui.",
+"tangerine2":"Experimente minhas tangerinas! Eu mesmo as fiz, digo, colhi.",
+"tangerine3":"Quer um pouco de bolo? Que pena! Só tem tangerinas para comer no castelo.",
+"tangerine4":"Comer tangerinas é muito importante. Especialmente se você não tem opção.",
+"tangerine5":"Tangerinas fazem muito bem pra você.",
+"tangerine6":"Espero que você goste de tangerinas. Na verdade eu nem ligo.",
+"tangerine7":"Lembrem-se, aventureiros: Gente maneira come muita tangerina.",
+"tangerine8":"Ah, como eu adoro o cheiro de tangerinas pela manhã.",
+"tangerine9":"Tangerinas tem vitamina T. É a vitamina mais importante de todas.",
+"tangerine10":"Não se esqueça de comer suas tangerinas.",
+"tangerine11":"Tangerinas! A melhor fruta de todas.",
+"tangerine12":"Lembre-se: Nada no mundo é mais importante do que tangerinas.",
+"tangerine13":"Odeia morrer de fome? Melhor achar umas tangerinas!",
+"tangerine14":"O Castelo Totalmente Seguro tem as melhores tangerinas da cidade.",
+"tangerine15":"Tangerinas! Tangerinas! Tangerinas! Tangerinas.",
+"tangerine16":"Nada é melhor do que tangerinas. Exceto, talvez, tangerinas.",
+"tangerine17":"Tangerinas, ou paz mundial? Tangerinas, é claro.",
+"tangerine18":"Se eu tivesse três desejos, pediria três tangerinas.",
+"tangerine19":"Tangerinas são a melhor fruta de todas. Nenhuma outra se compara. Tá me ouvindo? NENHUMA OUTRA!!",
+"tangerine20":"Já viu uma tangerina? Elas são deliciosas e suculentas.",
+"tangerine21":"Você sabia que uma única tangerina tem nutrientes para você sobreviver por seis anos?",
+"tangerine22":"Eu adoro abacaxis. Mentira!! Tangerinas são as melhores.",
+"tangerine23":"As vezes me perguntam: Como você faz para ser tão belo? Meu segredo são as tangerinas.",
+"tangerine24":"É como eu sempre digo: Tangerinas.",
+"tangerine25":"Rosas são vermelhas, tangerinas são laranjas. Laranja a cor, não a fruta. A fruta é a tangerina.",
+"tangerine26":"Ah, tangerinas. Que fruta maravilhosa.",
+"tangerine27":"Já mencionei que eu gosto muito de tangerinas?",
+"tangerine28":"Não só as tangerinas são saudáveis, como também muito estilosas. Elas são a fruta perfeita.",
+"tangerine29":"Você acha que o leão é o rei da selva? ACHOU ERRADO! São as tangerinas.",
+"tangerine30":"Eu odeio aventureiros. Mas eu adoro tangerinas.",
+
+"dead1":"Uh-oh. Mais sorte da próxima vez.",
+"dead2":"Uh-oh. Ahahah.",
+"dead3":"Whoops. Ahahahah.",
+"dead4":"Isso deve ter doído.",
+"dead5":"Morreu!",
+"dead6":"Até mais tarde. Ou não.",
+"dead7":"Hm. Mais um.",
+"dead8":"Oh, você faleceu.",
+"dead9":"Morreu! Que pena. Ahahahah.",
+"dead10":"Passou dessa pra melhor.",
+"dead11":"Tchau, aventureiro!!",
+"dead12":"E este foi o fim de sua aventura.",
+"dead13":"Adeus.",
+"dead14":"Tchau tchau!",
+"dead15":"Descanse em paz.",
+"dead16":"Boa tentativa.",
+"dead17":"Não.",
+"dead18":"Nããão.",
+"dead19":"Pfft, chama isso de tentar?",
+"dead20":"Se foi. Ahahah.",
+"dead21":"Naah. Não.",
+"dead22":"Tchauzinho!",
+"dead23":"Adiós.",
+"dead24":"Hasta la vista!",
+"dead25":"Por que vocês morrem tanto? É tudo tão seguro.",
+"dead26":"Sayonara!",
+"dead27":"Mais um aventureiro.",
+"dead28":"Tchaau!",
+"dead29":"Isso foi terrível.",
+"dead30":"Mais um! Ahahah.",
+"dead31":"Valeu a tentativa.",
+"dead32":"Ahahahah!",
+"dead33":"Essa foi por pouco.",
+"dead34":"Ah. Ok.",
+"dead35":"Você morreu!",
+"dead36":"É, você morreu.",
+"dead37":"Você faleceu.",
+"dead38":"Você pereceu!",
+"dead39":"Não, não. Tudo errado.",
+"dead40":"Você falhou. Ahahah.",
+"dead41":"Que terrível.",
+"dead42":"Mandou mal, hein.",
+"dead43":"Boa! Ahahahah.",
+"dead44":"Ahahah, bom trabalho.",
+"dead45":"Tudo bem. Morrer faz parte da vida.",
+"dead46":"Minhas condolências.",
+"dead47":"Meus pêsames.",
+"dead48":"Ai!",
+"dead49":"Caramba. Ahahah.",
+"dead50":"Continuem tentando! Ahahah",
+"dead51":"Mais aventureiros! Mais!",
+"dead52":"Pois bem, valeu a tentativa.",
+"dead53":"O que você tava pensando?",
+"dead54":"Você morreu. Tudo bem. Acontece.",
+
+"deadguy1":"Eu devia ter mencionado que os Citrus são mestres de karatê.",
+"deadguy2":"Esse golpe se chama 'o mata-aventureiros'. Serve pra matar aventureiros.",
+"deadguy3":"Ai. Te pegou de jeito.",
+"deadguy4":"Isso, ataca!",
+"deadguy5":"Ahahah. Adoro violência.",
+"deadguy6":"Pega eles, Citrus! Ahahahah.",
+
+"deadboom1":"Boom! Ahahah. Os presentes vermelhos são os melhores.",
+"deadboom2":"Os presentes vermelhos são realmente uma explosão de diversão.",
+"deadboom3":"Kabooom! Adoro os presentes vermelhos.",
+"deadboom4":"Você tem uma personalidade bem explosiva. Ahahah.",
+"deadboom5":"Parece que você explodiu.",
+"deadboom6":"Ahahah! Essa foi uma explosão bem segura.",
+
+"deadlights1":"Chocante! Ahahah.",
+"deadlights2":"Se aventurar é uma experiência eletrizante!",
+"deadlights3":"Oh! Isso foi um choque pra mim.",
+"deadlights4":"Não se preocupe, choques elétricos na verdade são ótimos pra saúde.",
+"deadlights5":"Bzzz! Ahahahah.",
+"deadlights6":"Eles não páram de se eletrocutar. Heh.",
+"deadlights7":"O Castelo Totalmente Seguro oferece os choques mais seguros do mundo.",
+
+"deadplant1":"Parece que uma Flor Fraterna te comeu.",
+"deadplant2":"O que eu posso dizer? As Flores Fraternas estão famintas.",
+"deadplant3":"Ai. Essa foi uma boa mordidade",
+"deadplant4":"Ahahahah! As flores fraternas são as melhores.",
+
+"deadpoison1":"Parece que você foi envenenado.",
+"deadpoison2":"Não se preocupe. Nossos dardos usam venenos totalmente seguros.",
+"deadpoison3":"Você parece meio pálido! Ahahah.",
+"deadpoison4":"Você não parece muito saudável.",
+"deadpoison5":"Nossa. Esse veneno é bom mesmo.",
+
+"deadcrush1":"Parece que você foi esmagado.",
+"deadcrush2":"Meu castelo é um sucesso esmagador.",
+"deadcrush3":"Esmagado! Ahahah.",
+"deadcrush4":"Que aventureiro frágil.",
+"deadcrush5":"Dá pra escutar seus ossos quebrando! Ahahah.",
+
+"deadbroken1":"Você quebrou. Ahahah.",
+"deadbroken2":"Oh, parece que você tá meio despedaçado.",
+"deadbroken3":"Adoro quando eles quebram assim. Ahahah.",
+"deadbroken4":"Ahahah. As Grandes Bolas Com Espinhos são as melhores.",
+"deadbroken5":"Demolido!",
+"deadbroken6":"Um dia vou fazer meus próprios aventureiros com todas essas partes."}}
