@@ -47,13 +47,7 @@
 			"sid": 421969927484704
 		}
 	],
-	"behaviorTypes": [
-		{
-			"behaviorId": "DragnDrop",
-			"name": "DragDrop",
-			"sid": 310526815523177
-		}
-	],
+	"behaviorTypes": [],
 	"effectTypes": [
 		{
 			"effectId": "hsladjust",

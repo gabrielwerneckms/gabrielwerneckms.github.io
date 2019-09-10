@@ -586,14 +586,7 @@
 						"On": false,
 						"Type": "Trigger"
 					},
-					"behaviors": {
-						"DragDrop": {
-							"properties": {
-								"axes": "both",
-								"enabled": true
-							}
-						}
-					},
+					"behaviors": {},
 					"effects": {
 						"AdjustHSL": {
 							"parameters": {
@@ -643,14 +636,7 @@
 						"On": false,
 						"Type": "Trigger"
 					},
-					"behaviors": {
-						"DragDrop": {
-							"properties": {
-								"axes": "both",
-								"enabled": true
-							}
-						}
-					},
+					"behaviors": {},
 					"effects": {
 						"AdjustHSL": {
 							"parameters": {
@@ -925,6 +911,26 @@
 				"depth": 1
 			},
 			"uid": 16,
+			"instanceVariables": {}
+		},
+		{
+			"type": "TempArray",
+			"properties": {
+				"width": 10,
+				"height": 1,
+				"depth": 1
+			},
+			"uid": 60,
+			"instanceVariables": {}
+		},
+		{
+			"type": "LinksArray",
+			"properties": {
+				"width": 10,
+				"height": 1,
+				"depth": 1
+			},
+			"uid": 61,
 			"instanceVariables": {}
 		}
 	],

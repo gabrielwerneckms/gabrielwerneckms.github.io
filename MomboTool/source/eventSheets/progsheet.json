@@ -2660,6 +2660,46 @@
 											"sid": 732838971806707
 										},
 										{
+											"eventType": "variable",
+											"name": "MenuItemWidth",
+											"type": "number",
+											"initialValue": "160",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 712991028454739
+										},
+										{
+											"eventType": "variable",
+											"name": "MenuItemHeight",
+											"type": "number",
+											"initialValue": "30",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 972967740606181
+										},
+										{
+											"eventType": "variable",
+											"name": "MenuButtonType",
+											"type": "string",
+											"initialValue": "Toggle",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 732675544360388
+										},
+										{
+											"eventType": "variable",
+											"name": "MenuButtonLayer",
+											"type": "string",
+											"initialValue": "OverGreyout",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 399946189309066
+										},
+										{
 											"eventType": "block",
 											"conditions": [],
 											"actions": [
@@ -2675,7 +2715,7 @@
 												{
 													"id": "call-function",
 													"objectClass": "f",
-													"sid": 254754132075669,
+													"sid": 490252039061193,
 													"parameters": {
 														"name": "\"CreateMenu\"",
 														"parameter-n": [
@@ -2684,23 +2724,31 @@
 															"LevelRectCenterX",
 															"LevelRectCenterY",
 															"\"Left\"",
-															"MenuDistanceFromOrigin"
+															"MenuDistanceFromOrigin",
+															"MenuItemWidth",
+															"MenuItemHeight",
+															"MenuButtonType",
+															"MenuButtonLayer"
 														]
 													}
 												},
 												{
 													"id": "call-function",
 													"objectClass": "f",
-													"sid": 414854633767761,
+													"sid": 941173892627922,
 													"parameters": {
 														"name": "\"CreateMenu\"",
 														"parameter-n": [
-															"\"Types\"",
+															"\"Tags\"",
 															"TagsArray.AsJSON",
 															"LevelRectCenterX",
 															"LevelRectCenterY",
 															"\"Right\"",
-															"MenuDistanceFromOrigin"
+															"MenuDistanceFromOrigin",
+															"MenuItemWidth",
+															"MenuItemHeight",
+															"MenuButtonType",
+															"MenuButtonLayer"
 														]
 													}
 												}
@@ -6814,6 +6862,7 @@
 									"id": "invoke-download-of-string",
 									"objectClass": "Browser",
 									"sid": 251489576366181,
+									"disabled": true,
 									"parameters": {
 										"string": "CompleteProgressionData",
 										"mime-type": "\"\"",

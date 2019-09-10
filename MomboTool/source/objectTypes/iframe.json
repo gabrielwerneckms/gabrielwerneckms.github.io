@@ -1,0 +1,15 @@
+{
+	"name": "iframe",
+	"plugin-id": "iframe",
+	"sid": 126659040629112,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "TargetURL",
+			"type": "string",
+			"desc": "",
+			"sid": 660311510071240
+		}
+	],
+	"behaviorTypes": []
+}

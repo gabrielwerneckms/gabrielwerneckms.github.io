@@ -48,6 +48,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Function",
+			"name": "Function",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Keyboard",
 			"name": "Keyboard",
 			"author": "Scirra",
@@ -58,14 +66,6 @@
 			"type": "plugin",
 			"id": "Mouse",
 			"name": "Mouse",
-			"author": "Scirra",
-			"version": "r164.3",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Function",
-			"name": "Function",
 			"author": "Scirra",
 			"version": "r164.3",
 			"bundled": false
@@ -119,6 +119,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "iframe",
+			"name": "iframe",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "DragnDrop",
 			"name": "Drag & Drop",
@@ -163,8 +171,6 @@
 	"objectTypes": {
 		"items": [
 			"WholeText",
-			"Word",
-			"WordsArray",
 			"Browser",
 			"ProcessButton",
 			"9patch",
@@ -185,7 +191,10 @@
 			"AJAX",
 			"Origin",
 			"Sprite",
-			"Icon"
+			"Icon",
+			"iframe",
+			"TempArray",
+			"LinksArray"
 		],
 		"subfolders": [
 			{
@@ -203,35 +212,40 @@
 					"Board",
 					"Tooltip",
 					"TooltipText",
-					"FileChooserText"
+					"FileChooserText",
+					"f",
+					"Keyboard",
+					"Mouse",
+					"SpriteFontImporter",
+					"GridLineHorizontal",
+					"GridLineVertical"
 				],
 				"subfolders": [],
 				"name": "Prog"
 			},
 			{
-				"items": [
-					"SpriteFontImporter"
-				],
+				"items": [],
 				"subfolders": [
 					{
-						"items": [
-							"Keyboard",
-							"Mouse",
-							"f"
-						],
+						"items": [],
 						"subfolders": [],
 						"name": "Plugins"
 					},
 					{
-						"items": [
-							"GridLineHorizontal",
-							"GridLineVertical"
-						],
+						"items": [],
 						"subfolders": [],
 						"name": "Grid"
 					}
 				],
 				"name": "Common"
+			},
+			{
+				"items": [
+					"Word",
+					"WordsArray"
+				],
+				"subfolders": [],
+				"name": "Words"
 			}
 		]
 	},
@@ -278,7 +292,9 @@
 	},
 	"layouts": {
 		"items": [
-			"CommonLimbo"
+			"CommonLimbo",
+			"iFrames",
+			"iFramesLimbo"
 		],
 		"subfolders": [
 			{
@@ -301,23 +317,23 @@
 	},
 	"eventSheets": {
 		"items": [
-			"CommonSheet"
+			"CommonSheet",
+			"iFrames_Sheet"
 		],
 		"subfolders": [
 			{
 				"items": [
 					"ProgSheet"
 				],
-				"subfolders": [
-					{
-						"items": [
-							"RewriterSheet"
-						],
-						"subfolders": [],
-						"name": "Rewriter"
-					}
-				],
+				"subfolders": [],
 				"name": "Prog"
+			},
+			{
+				"items": [
+					"RewriterSheet"
+				],
+				"subfolders": [],
+				"name": "Rewriter"
 			}
 		]
 	},
@@ -394,7 +410,7 @@
 		"appId": "com.mycompany.myapp",
 		"pixelRounding": false,
 		"useLoaderLayout": false,
-		"fullscreenMode": "letterbox-scale",
+		"fullscreenMode": "scale-outer",
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",
 		"backgroundColor": [
@@ -431,5 +447,5 @@
 	},
 	"viewportWidth": 854,
 	"viewportHeight": 480,
-	"firstLayout": null
+	"firstLayout": "iFrames"
 }

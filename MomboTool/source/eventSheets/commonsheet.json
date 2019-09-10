@@ -5622,18 +5622,38 @@
 							"sid": 729755269446652
 						},
 						{
-							"eventType": "comment",
-							"text": ""
+							"eventType": "variable",
+							"name": "MenuButtonType",
+							"type": "string",
+							"initialValue": "Toggle",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 706176721789207
 						},
 						{
 							"eventType": "variable",
-							"name": "ButtonType",
+							"name": "MenuButtonLayer",
 							"type": "string",
-							"initialValue": "Toggle",
-							"comment": "temporarily, always 'toggle'. make it take the parameter later.",
+							"initialValue": "Main",
+							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
-							"sid": 897536192688480
+							"sid": 265139951162850
+						},
+						{
+							"eventType": "variable",
+							"name": "MenuButtonName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 100048265381504
+						},
+						{
+							"eventType": "comment",
+							"text": ""
 						},
 						{
 							"eventType": "variable",
@@ -5884,7 +5904,116 @@
 																	}
 																}
 															],
-															"sid": 483104361394822
+															"sid": 483104361394822,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 677276485594564,
+																			"parameters": {
+																				"first-value": "f.ParamCount",
+																				"comparison": 5,
+																				"second-value": "9"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 888188193187385,
+																			"parameters": {
+																				"variable": "MenuButtonType",
+																				"value": "f.Param(8)"
+																			}
+																		}
+																	],
+																	"sid": 104803005747617,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-two-values",
+																					"objectClass": "System",
+																					"sid": 342008815130909,
+																					"parameters": {
+																						"first-value": "f.ParamCount",
+																						"comparison": 5,
+																						"second-value": "10"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "set-eventvar-value",
+																					"objectClass": "System",
+																					"sid": 232903081617604,
+																					"parameters": {
+																						"variable": "MenuButtonLayer",
+																						"value": "f.Param(9)"
+																					}
+																				}
+																			],
+																			"sid": 311257902103284,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "compare-two-values",
+																							"objectClass": "System",
+																							"sid": 755230722435953,
+																							"parameters": {
+																								"first-value": "f.ParamCount",
+																								"comparison": 5,
+																								"second-value": "11"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "set-eventvar-value",
+																							"objectClass": "System",
+																							"sid": 775515500743403,
+																							"parameters": {
+																								"variable": "MenuButtonName",
+																								"value": "f.Param(10)"
+																							}
+																						}
+																					],
+																					"sid": 556337451403739
+																				},
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "else",
+																							"objectClass": "System",
+																							"sid": 674814619476179
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "set-eventvar-value",
+																							"objectClass": "System",
+																							"sid": 104925683094701,
+																							"parameters": {
+																								"variable": "MenuButtonName",
+																								"value": "Array.CurValue"
+																							}
+																						}
+																					],
+																					"sid": 988680138495792
+																				}
+																			]
+																		}
+																	]
+																}
+															]
 														}
 													]
 												}
@@ -6330,10 +6459,10 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 640492898671713,
+											"sid": 699029059794699,
 											"parameters": {
 												"object-to-create": "Button",
-												"layer": "\"OverGreyout\"",
+												"layer": "MenuButtonLayer",
 												"x": "OriginX",
 												"y": "OriginY"
 											}
@@ -6345,6 +6474,15 @@
 											"parameters": {
 												"instance-variable": "MenuName",
 												"value": "MenuName"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Button",
+											"sid": 356496160833786,
+											"parameters": {
+												"instance-variable": "Name",
+												"value": "MenuButtonName"
 											}
 										},
 										{
@@ -6380,7 +6518,7 @@
 											"sid": 965251688127854,
 											"parameters": {
 												"instance-variable": "Type",
-												"value": "ButtonType"
+												"value": "MenuButtonType"
 											}
 										},
 										{

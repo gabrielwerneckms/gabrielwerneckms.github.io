@@ -121,14 +121,7 @@
 						"On": false,
 						"Type": "Toggle"
 					},
-					"behaviors": {
-						"DragDrop": {
-							"properties": {
-								"axes": "both",
-								"enabled": true
-							}
-						}
-					},
+					"behaviors": {},
 					"effects": {
 						"AdjustHSL": {
 							"parameters": {

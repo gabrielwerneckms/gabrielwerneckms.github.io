@@ -1,0 +1,450 @@
+{
+	"name": "iFrames_Sheet",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "CommonSheet"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 579434705724773
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 466293357757912,
+					"parameters": {
+						"first-value": "LayoutName",
+						"comparison": 1,
+						"second-value": "\"iFrames\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 271633490512262,
+					"parameters": {
+						"layout": "iFrames"
+					}
+				}
+			],
+			"sid": 669064867831010
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 939995685349226
+				}
+			],
+			"actions": [
+				{
+					"id": "set-size",
+					"objectClass": "TempArray",
+					"sid": 271764693497424,
+					"parameters": {
+						"width": "0",
+						"height": "1",
+						"depth": "1"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "LinksArray",
+					"sid": 976540273573701,
+					"parameters": {
+						"width": "0",
+						"height": "1",
+						"depth": "1"
+					}
+				}
+			],
+			"sid": 681423190674149,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "push",
+							"objectClass": "TempArray",
+							"sid": 869652743129230,
+							"parameters": {
+								"where": "back",
+								"value": "\"ProgTool\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "TempArray",
+							"sid": 303952634094337,
+							"parameters": {
+								"where": "back",
+								"value": "\"GDD\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "TempArray",
+							"sid": 726391164447051,
+							"parameters": {
+								"where": "back",
+								"value": "\"Localization\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "TempArray",
+							"sid": 459099282422021,
+							"parameters": {
+								"where": "back",
+								"value": "\"Bugs\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "TempArray",
+							"sid": 543747621235160,
+							"parameters": {
+								"where": "back",
+								"value": "\"Cronograma\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LinksArray",
+							"sid": 214226387305638,
+							"parameters": {
+								"where": "back",
+								"value": "\"https://gabrielwerneckms.github.io/MomboTool/release/\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LinksArray",
+							"sid": 533035365619229,
+							"parameters": {
+								"where": "back",
+								"value": "\"https://docs.google.com/document/d/1P12__mAhj_7aUTon-i3x2TzWhWWf_vBtBJ9X_SedgSY/edit\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LinksArray",
+							"sid": 128603484405609,
+							"parameters": {
+								"where": "back",
+								"value": "\"https://docs.google.com/spreadsheets/d/1ih78XwH2mHZHfxe-s1QuE1uGJy2OKTi3R5R89Ng61xY/edit?usp=drive_web&ouid=101437137419722623485\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LinksArray",
+							"sid": 310150274909518,
+							"parameters": {
+								"where": "back",
+								"value": "\"https://docs.google.com/document/d/1KSyjt3EdFmkJENHANLaVFqLsJrGF_6Nc2HZQnmYAj8I/edit\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LinksArray",
+							"sid": 863572892749761,
+							"parameters": {
+								"where": "back",
+								"value": "\"https://docs.google.com/spreadsheets/d/1bBAcbUFH-3OXcJOiAu1SfPXh60oUv1bLDiTI26b4fA4/edit#gid=0\"",
+								"axis": "x"
+							}
+						}
+					],
+					"sid": 672222926364715
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "f",
+							"sid": 768273938757438,
+							"parameters": {
+								"name": "\"CreateMenu\"",
+								"parameter-n": [
+									"\"Frames\"",
+									"TempArray.AsJSON",
+									"50",
+									"50",
+									"\"Bottom\"",
+									"0",
+									"50",
+									"20",
+									"\"Trigger\"",
+									"\"HUD\""
+								]
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 563700837226642,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						}
+					],
+					"sid": 783809504116769,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-element",
+									"objectClass": "LinksArray",
+									"sid": 486346781006266,
+									"parameters": {
+										"axes": "x"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 210839899542511,
+									"parameters": {
+										"object-to-create": "iframe",
+										"layer": "\"Main\"",
+										"x": "100",
+										"y": "0"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "iframe",
+									"sid": 334529534500965,
+									"parameters": {
+										"width": "ScreenWidth-100",
+										"height": "ScreenHeight"
+									}
+								},
+								{
+									"id": "set-css-style",
+									"objectClass": "iframe",
+									"sid": 201321643416373,
+									"parameters": {
+										"property-name": "\"background\"",
+										"value": "\"white\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "iframe",
+									"sid": 589085799036146,
+									"parameters": {
+										"instance-variable": "TargetURL",
+										"value": "LinksArray.CurValue"
+									}
+								},
+								{
+									"id": "navigate-url",
+									"objectClass": "iframe",
+									"sid": 831607026936634,
+									"parameters": {
+										"url": "iframe.TargetURL"
+									}
+								},
+								{
+									"id": "set-css-style",
+									"objectClass": "iframe",
+									"sid": 697885704316877,
+									"parameters": {
+										"property-name": "\"visibility\"",
+										"value": "\"hidden\""
+									}
+								}
+							],
+							"sid": 447977284503135
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 744246679129984
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "pick-by-comparison",
+					"objectClass": "System",
+					"sid": 436813382695808,
+					"parameters": {
+						"object": "iframe",
+						"expression": "iframe.TargetURL",
+						"comparison": 0,
+						"value": "\"https://gabrielwerneckms.github.io/MomboTool/release/\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-css-style",
+					"objectClass": "iframe",
+					"sid": 952121578909447,
+					"parameters": {
+						"property-name": "\"visibility\"",
+						"value": "\"visible\""
+					}
+				}
+			],
+			"sid": 959652408195152
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Button",
+					"sid": 879073532219399,
+					"parameters": {
+						"instance-variable": "TargetX",
+						"value": "ScreenLeft+Button.Width/2"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "iframe",
+					"sid": 630532620749902,
+					"parameters": {
+						"x": "Button.TargetX+Button.Width*2.25-4",
+						"y": "0"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "iframe",
+					"sid": 125553432232188,
+					"parameters": {
+						"width": "ScreenWidth-Button.Width",
+						"height": "ScreenHeight"
+					}
+				},
+				{
+					"id": "set-x",
+					"objectClass": "Board",
+					"sid": 588280185818422,
+					"parameters": {
+						"x": "Button.X"
+					}
+				}
+			],
+			"sid": 504148297733515,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 748892317505096
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-click",
+					"objectClass": "Mouse",
+					"sid": 782428165800612
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 361667835518678,
+					"parameters": {
+						"object": "Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-css-style",
+					"objectClass": "iframe",
+					"sid": 980118772044659,
+					"parameters": {
+						"property-name": "\"visibility\"",
+						"value": "\"hidden\""
+					}
+				}
+			],
+			"sid": 828351771493542,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 477670773712706,
+							"parameters": {
+								"object": "iframe",
+								"expression": "iframe.IID",
+								"comparison": 0,
+								"value": "Button.IID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-css-style",
+							"objectClass": "iframe",
+							"sid": 576531489123402,
+							"parameters": {
+								"property-name": "\"visibility\"",
+								"value": "\"visible\""
+							}
+						}
+					],
+					"sid": 248367119166327
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-scale",
+					"objectClass": "ButtonText",
+					"sid": 615748103586642,
+					"parameters": {
+						"scale": "0.12"
+					}
+				}
+			],
+			"sid": 390075238335760
+		}
+	],
+	"sid": 114784838002635
+}
