@@ -1,0 +1,435 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 16403,
+	"name": "Prog",
+	"runtime": "c3",
+	"useWorker": false,
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Dictionary",
+			"name": "Dictionary",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Spritefont2",
+			"name": "Sprite font",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Function",
+			"name": "Function",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TextBox",
+			"name": "Text input",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Button",
+			"name": "Button",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "filechooser",
+			"name": "File chooser",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "DragnDrop",
+			"name": "Drag & Drop",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "NoSave",
+			"name": "No save",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Pin",
+			"name": "Pin",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "tint",
+			"name": "Tint",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "hsladjust",
+			"name": "Adjust HSL",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
+		}
+	],
+	"uniqueId": "1q8z1ykjhqkc9",
+	"objectTypes": {
+		"items": [
+			"WholeText",
+			"Word",
+			"WordsArray",
+			"Browser",
+			"ProcessButton",
+			"9patch",
+			"TextBox2",
+			"Run",
+			"Array",
+			"TextAreaBox",
+			"TextTextBox",
+			"LevelName",
+			"TempDictionary",
+			"TopResizeHandleVertical",
+			"TopResizeHandleHorizontal",
+			"DeleteCursor",
+			"ResizeTopCursor",
+			"ResizeBottomCursor",
+			"FileChooser",
+			"FileChooserBox",
+			"AJAX",
+			"Origin",
+			"Sprite",
+			"Icon"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"LevelInfo",
+					"Level",
+					"LevelTags",
+					"TagsArray",
+					"TypesArray",
+					"BottomResizeHandleHorizontal",
+					"Button",
+					"ButtonText",
+					"BottomResizeHandleVertical",
+					"WordHighLight",
+					"Board",
+					"Tooltip",
+					"TooltipText",
+					"FileChooserText"
+				],
+				"subfolders": [],
+				"name": "Prog"
+			},
+			{
+				"items": [
+					"SpriteFontImporter"
+				],
+				"subfolders": [
+					{
+						"items": [
+							"Keyboard",
+							"Mouse",
+							"f"
+						],
+						"subfolders": [],
+						"name": "Plugins"
+					},
+					{
+						"items": [
+							"GridLineHorizontal",
+							"GridLineVertical"
+						],
+						"subfolders": [],
+						"name": "Grid"
+					}
+				],
+				"name": "Common"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [
+		{
+			"members": [
+				"Level",
+				"LevelInfo",
+				"LevelName",
+				"LevelTags"
+			],
+			"selectMode": "normal"
+		},
+		{
+			"members": [
+				"Button",
+				"ButtonText"
+			],
+			"selectMode": "normal"
+		},
+		{
+			"members": [
+				"Word",
+				"WordHighLight"
+			],
+			"selectMode": "normal"
+		},
+		{
+			"members": [
+				"FileChooser",
+				"FileChooserBox"
+			],
+			"selectMode": "normal"
+		}
+	],
+	"families": {
+		"items": [
+			"TextBox",
+			"Text",
+			"ResizeHandles"
+		],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"CommonLimbo"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"ProgTool",
+					"ProgLimbo"
+				],
+				"subfolders": [],
+				"name": "Prog"
+			},
+			{
+				"items": [
+					"Rewriter",
+					"RewriterLimbo"
+				],
+				"subfolders": [],
+				"name": "Rewriter"
+			}
+		]
+	},
+	"eventSheets": {
+		"items": [
+			"CommonSheet"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"ProgSheet"
+				],
+				"subfolders": [
+					{
+						"items": [
+							"RewriterSheet"
+						],
+						"subfolders": [],
+						"name": "Rewriter"
+					}
+				],
+				"name": "Prog"
+			}
+		]
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png"
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png"
+				},
+				{
+					"name": "icon-114.png",
+					"type": "image/png"
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png"
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png"
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png"
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "oogabooga",
+		"version": "1.0.0.0",
+		"author": "",
+		"authorEmail": "",
+		"authorWebsite": "http://",
+		"appId": "com.mycompany.myapp",
+		"pixelRounding": false,
+		"useLoaderLayout": false,
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "any",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "progress-logo",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true
+	},
+	"viewportWidth": 854,
+	"viewportHeight": 480,
+	"firstLayout": null
+}

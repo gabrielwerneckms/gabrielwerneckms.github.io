@@ -1,0 +1,37 @@
+{
+	"name": "Board",
+	"plugin-id": "NinePatch",
+	"sid": 788175301940411,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "InitialX",
+			"type": "number",
+			"desc": "",
+			"sid": 582531759896428
+		},
+		{
+			"name": "Showing",
+			"type": "boolean",
+			"desc": "",
+			"sid": 620714331298665
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "hsladjust",
+			"name": "AdjustHSL"
+		}
+	],
+	"image": {
+		"width": 24,
+		"height": 24,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 10
+	}
+}

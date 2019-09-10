@@ -1,0 +1,24 @@
+{
+	"name": "TextBox",
+	"plugin-id": "TextBox",
+	"sid": 220681934410071,
+	"instanceVariables": [
+		{
+			"name": "Name",
+			"type": "string",
+			"desc": "",
+			"sid": 771410795363715
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 859499836378799
+		}
+	],
+	"members": [
+		"TextAreaBox",
+		"TextTextBox"
+	]
+}

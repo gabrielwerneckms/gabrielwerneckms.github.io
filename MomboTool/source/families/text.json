@@ -1,0 +1,15 @@
+{
+	"name": "Text",
+	"plugin-id": "Spritefont2",
+	"sid": 373093234518564,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"ButtonText",
+		"LevelName",
+		"TooltipText",
+		"Word",
+		"FileChooserText"
+	]
+}

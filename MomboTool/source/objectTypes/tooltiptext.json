@@ -1,0 +1,19 @@
+{
+	"name": "TooltipText",
+	"plugin-id": "Spritefont2",
+	"sid": 889763101140327,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 1024,
+		"height": 1024,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "C:\\Users\\User\\Documents\\Tools\\other\\fonts\\ArialWithAccents\\SpriteFont_Arial_Normal_(72)_[1,1,1,1]_72x85.png",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 3
+	}
+}

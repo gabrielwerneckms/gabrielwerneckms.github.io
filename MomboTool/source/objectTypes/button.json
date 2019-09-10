@@ -1,0 +1,73 @@
+{
+	"name": "Button",
+	"plugin-id": "NinePatch",
+	"sid": 801306078146734,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "TargetX",
+			"type": "number",
+			"desc": "",
+			"sid": 338836005731040
+		},
+		{
+			"name": "TargetY",
+			"type": "number",
+			"desc": "",
+			"sid": 582165538576408
+		},
+		{
+			"name": "MenuName",
+			"type": "string",
+			"desc": "",
+			"sid": 758508627205481
+		},
+		{
+			"name": "Name",
+			"type": "string",
+			"desc": "",
+			"sid": 849085239351941
+		},
+		{
+			"name": "Text",
+			"type": "string",
+			"desc": "",
+			"sid": 182038194383791
+		},
+		{
+			"name": "On",
+			"type": "boolean",
+			"desc": "",
+			"sid": 741646527103754
+		},
+		{
+			"name": "Type",
+			"type": "string",
+			"desc": "",
+			"sid": 421969927484704
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 310526815523177
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "hsladjust",
+			"name": "AdjustHSL"
+		}
+	],
+	"image": {
+		"width": 24,
+		"height": 24,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 8
+	}
+}

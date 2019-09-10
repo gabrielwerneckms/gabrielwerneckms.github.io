@@ -1,0 +1,61 @@
+{
+	"name": "Tooltip",
+	"plugin-id": "NinePatch",
+	"sid": 851363403230727,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "TargetX",
+			"type": "number",
+			"desc": "",
+			"sid": 485707743289471
+		},
+		{
+			"name": "TargetY",
+			"type": "number",
+			"desc": "",
+			"sid": 623737853575259
+		},
+		{
+			"name": "MenuName",
+			"type": "string",
+			"desc": "",
+			"sid": 202087598020493
+		},
+		{
+			"name": "Name",
+			"type": "string",
+			"desc": "",
+			"sid": 338911912347543
+		},
+		{
+			"name": "Text",
+			"type": "string",
+			"desc": "",
+			"sid": 480539148568778
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 224274695323032
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "hsladjust",
+			"name": "AdjustHSL"
+		}
+	],
+	"image": {
+		"width": 24,
+		"height": 24,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 11
+	}
+}

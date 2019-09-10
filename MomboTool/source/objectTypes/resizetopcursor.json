@@ -1,0 +1,48 @@
+{
+	"name": "ResizeTopCursor",
+	"plugin-id": "Sprite",
+	"sid": 485457944969709,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 17,
+						"height": 17,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 54,
+						"collisionPoly": {
+							"points": [
+								0.058823529411764705,
+								0.058823529411764705,
+								0.9411764705882353,
+								0.058823529411764705,
+								0.9411764705882353,
+								0.9411764705882353,
+								0.058823529411764705,
+								0.9411764705882353
+							]
+						},
+						"duration": 1
+					}
+				],
+				"sid": 349066124674791,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,27 @@
+{
+	"name": "ResizeHandles",
+	"plugin-id": "Sprite",
+	"sid": 363053576771676,
+	"instanceVariables": [
+		{
+			"name": "Position",
+			"type": "string",
+			"desc": "",
+			"sid": 891069612066801
+		},
+		{
+			"name": "Direction",
+			"type": "string",
+			"desc": "",
+			"sid": 794993817934799
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"BottomResizeHandleHorizontal",
+		"BottomResizeHandleVertical",
+		"TopResizeHandleHorizontal",
+		"TopResizeHandleVertical"
+	]
+}

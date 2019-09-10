@@ -1,0 +1,32 @@
+{
+	"name": "LevelName",
+	"plugin-id": "Spritefont2",
+	"sid": 641007342664860,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "TextWidthExposed",
+			"type": "number",
+			"desc": "Used to check the internal variable 'TextWidth' in the debug menu.",
+			"sid": 307851554148572
+		},
+		{
+			"name": "TextHeightExposed",
+			"type": "number",
+			"desc": "Used to check the internal variable 'TextHeight' in the debug menu.",
+			"sid": 674656497335877
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 1024,
+		"height": 1024,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "C:\\Users\\User\\Documents\\Tools\\other\\fonts\\ArialWithAccents\\SpriteFont_Arial_Normal_(72)_[1,1,1,1]_72x85.png",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 13
+	}
+}

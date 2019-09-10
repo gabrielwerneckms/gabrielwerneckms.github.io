@@ -1,0 +1,37 @@
+{
+	"name": "WordHighLight",
+	"plugin-id": "NinePatch",
+	"sid": 973468410099236,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Resizing",
+			"type": "boolean",
+			"desc": "",
+			"sid": 976159068416057
+		},
+		{
+			"name": "State",
+			"type": "string",
+			"desc": "",
+			"sid": 772470148243606
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "hsladjust",
+			"name": "AdjustHSL"
+		}
+	],
+	"image": {
+		"width": 24,
+		"height": 24,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 9
+	}
+}

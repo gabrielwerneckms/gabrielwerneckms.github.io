@@ -1,0 +1,2084 @@
+{
+	"name": "RewriterSheet",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "CommonSheet"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Input",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "ProcessButton",
+							"sid": 520401033200228
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Word",
+							"sid": 700931850652643
+						},
+						{
+							"id": "call-function",
+							"objectClass": "f",
+							"sid": 798675943747247,
+							"parameters": {
+								"name": "\"InitializeWordboard\"",
+								"parameter-n": [
+									"WholeText.Text"
+								]
+							}
+						}
+					],
+					"sid": 280800617119284
+				},
+				{
+					"eventType": "variable",
+					"name": "ScrollIncrement",
+					"type": "number",
+					"initialValue": "15",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 702412938256721
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-mouse-wheel",
+							"objectClass": "Mouse",
+							"sid": 388665248136070,
+							"parameters": {
+								"direction": "down"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 937858966405465,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 148557596995094,
+									"parameters": {
+										"key": 16
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "scroll-to-y",
+									"objectClass": "System",
+									"sid": 329675430292334,
+									"parameters": {
+										"y": "scrolly+ScrollIncrement*5"
+									}
+								}
+							],
+							"sid": 762578308763982
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 996872549893906
+								}
+							],
+							"actions": [
+								{
+									"id": "scroll-to-y",
+									"objectClass": "System",
+									"sid": 345719775805888,
+									"parameters": {
+										"y": "scrolly+ScrollIncrement"
+									}
+								}
+							],
+							"sid": 255550006782133
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-mouse-wheel",
+							"objectClass": "Mouse",
+							"sid": 622352277440005,
+							"parameters": {
+								"direction": "up"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 620804792327780,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 334729551827714,
+									"parameters": {
+										"key": 16
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "scroll-to-y",
+									"objectClass": "System",
+									"sid": 645572084786414,
+									"parameters": {
+										"y": "scrolly-ScrollIncrement*5"
+									}
+								}
+							],
+							"sid": 258700190833595
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 659876669045865
+								}
+							],
+							"actions": [
+								{
+									"id": "scroll-to-y",
+									"objectClass": "System",
+									"sid": 826312871910744,
+									"parameters": {
+										"y": "scrolly-ScrollIncrement"
+									}
+								}
+							],
+							"sid": 774071291759465
+						}
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "WordDragging",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "OriginalX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 839710785549624
+						},
+						{
+							"eventType": "variable",
+							"name": "OriginalY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 118529087232417
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-dragging",
+									"objectClass": "Word",
+									"sid": 666331301509851,
+									"behaviorType": "DragDrop"
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position-to-another-object",
+									"objectClass": "WordHighLight",
+									"sid": 655957443275995,
+									"parameters": {
+										"object": "Word",
+										"image-point-optional": "0"
+									}
+								},
+								{
+									"id": "move-to-top",
+									"objectClass": "Word",
+									"sid": 840129326145433
+								},
+								{
+									"id": "move-to-top",
+									"objectClass": "WordHighLight",
+									"sid": 433398248281999
+								}
+							],
+							"sid": 916777135231371
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-drag-start",
+									"objectClass": "Word",
+									"sid": 569886688783393,
+									"behaviorType": "DragDrop"
+								}
+							],
+							"actions": [],
+							"sid": 339923546418682,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 398286055376747,
+											"parameters": {
+												"variable": "OriginalX",
+												"value": "Word.X"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 351322523009382,
+											"parameters": {
+												"variable": "OriginalY",
+												"value": "Word.Y"
+											}
+										}
+									],
+									"sid": 811637674003887
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-drop",
+									"objectClass": "Word",
+									"sid": 999036358653540,
+									"behaviorType": "DragDrop"
+								}
+							],
+							"actions": [],
+							"sid": 360838279153298,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "DraggedWord",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 185035043960104
+								},
+								{
+									"eventType": "variable",
+									"name": "WordDroppedOn",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 367507209017000
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-all",
+											"objectClass": "System",
+											"sid": 314551013706067,
+											"parameters": {
+												"object": "WordHighLight"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "WordHighLight",
+											"sid": 235927847369776,
+											"parameters": {
+												"instance-variable": "State",
+												"comparison": 0,
+												"value": "\"Mouseover\""
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 466732466544550,
+											"parameters": {
+												"first-value": "Word.PickedCount",
+												"comparison": 0,
+												"second-value": "2"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 298965988749403,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-topbottom",
+													"objectClass": "Word",
+													"sid": 316125959200762,
+													"parameters": {
+														"which": "top"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 461552527669116,
+													"parameters": {
+														"variable": "DraggedWord",
+														"value": "Word.IID"
+													}
+												}
+											],
+											"sid": 481229370017706
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-topbottom",
+													"objectClass": "Word",
+													"sid": 252916500725133,
+													"parameters": {
+														"which": "bottom"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 919035858483490,
+													"parameters": {
+														"variable": "WordDroppedOn",
+														"value": "Word.IID"
+													}
+												}
+											],
+											"sid": 338681395117453
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "f",
+													"sid": 361830333667420,
+													"parameters": {
+														"name": "\"SwitchWords\"",
+														"parameter-n": [
+															"DraggedWord",
+															"WordDroppedOn"
+														]
+													}
+												}
+											],
+											"sid": 952487224407735
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Word",
+											"sid": 135003296013206,
+											"parameters": {
+												"x": "OriginalX",
+												"y": "OriginalY"
+											}
+										},
+										{
+											"id": "set-position-to-another-object",
+											"objectClass": "WordHighLight",
+											"sid": 765213060987311,
+											"parameters": {
+												"object": "Word",
+												"image-point-optional": "0"
+											}
+										}
+									],
+									"sid": 186546611881830
+								}
+							]
+						}
+					],
+					"sid": 868427151865301
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "f",
+							"sid": 691881869942529,
+							"parameters": {
+								"name": "\"SwitchWords\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 339486658723613,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "WordOneID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 181754159557426
+						},
+						{
+							"eventType": "variable",
+							"name": "WordTwoID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 128003921075705
+						},
+						{
+							"eventType": "variable",
+							"name": "WordOne",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 647531117133885
+						},
+						{
+							"eventType": "variable",
+							"name": "WordTwo",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 292944850178122
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 747479000448778,
+									"parameters": {
+										"variable": "WordOneID",
+										"value": "f.Param(0)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 773364933349321,
+									"parameters": {
+										"variable": "WordTwoID",
+										"value": "f.Param(1)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 657909660426718,
+									"parameters": {
+										"variable": "WordOne",
+										"value": "WordsArray.At(WordOneID)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 127693126955698,
+									"parameters": {
+										"variable": "WordTwo",
+										"value": "WordsArray.At(WordTwoID)"
+									}
+								}
+							],
+							"sid": 304466341572673
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "f",
+									"sid": 432997161310123,
+									"parameters": {
+										"name": "\"UpdateWord\"",
+										"parameter-n": [
+											"WordOneID",
+											"WordTwo"
+										]
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "f",
+									"sid": 212405225738657,
+									"parameters": {
+										"name": "\"UpdateWord\"",
+										"parameter-n": [
+											"WordTwoID",
+											"WordOne"
+										]
+									}
+								}
+							],
+							"sid": 957894755489735
+						}
+					]
+				},
+				{
+					"eventType": "variable",
+					"name": "WordID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 223012529136023
+				},
+				{
+					"eventType": "variable",
+					"name": "Word",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 550980454852837
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "f",
+							"sid": 811489475088826,
+							"parameters": {
+								"name": "\"UpdateWord\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 425726581797273,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 292801311427002,
+									"parameters": {
+										"variable": "WordID",
+										"value": "f.Param(0)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 583094842628406,
+									"parameters": {
+										"variable": "Word",
+										"value": "f.Param(1)"
+									}
+								}
+							],
+							"sid": 559237707053581
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 374110447920888,
+									"parameters": {
+										"object": "Word",
+										"expression": "Word.IID",
+										"comparison": 0,
+										"value": "WordID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Word",
+									"sid": 534985967538873,
+									"parameters": {
+										"text": "Word"
+									}
+								},
+								{
+									"id": "set-at-x",
+									"objectClass": "WordsArray",
+									"sid": 558034514655877,
+									"parameters": {
+										"x": "WordID",
+										"value": "Word"
+									}
+								}
+							],
+							"sid": 290390815845524
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "f",
+									"sid": 803891658609665,
+									"parameters": {
+										"name": "\"OrderWords\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 873382730202753
+						}
+					]
+				},
+				{
+					"eventType": "variable",
+					"name": "TextBoxWordID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 709334353959225
+				},
+				{
+					"eventType": "variable",
+					"name": "MouseOverWordID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 141261444121701
+				},
+				{
+					"eventType": "variable",
+					"name": "MouseMoved",
+					"type": "string",
+					"initialValue": "false",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 464736541099461
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 758191638972064,
+							"parameters": {
+								"variable": "MouseMoved",
+								"comparison": 0,
+								"value": "\"false\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 854738043028628,
+							"parameters": {
+								"cursor-style": "crosshair"
+							}
+						}
+					],
+					"sid": 894270516500761,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "LastMouseX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 421032291024122
+						},
+						{
+							"eventType": "variable",
+							"name": "LastMouseY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 299368303623096
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 116097661827709,
+									"parameters": {
+										"first-value": "Mouse.X",
+										"comparison": 1,
+										"second-value": "LastMouseX"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 425576419690769,
+									"parameters": {
+										"first-value": "Mouse.Y",
+										"comparison": 1,
+										"second-value": "LastMouseY"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 883530736153176,
+									"parameters": {
+										"variable": "LastMouseX",
+										"value": "Mouse.X"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 595915547283979,
+									"parameters": {
+										"variable": "LastMouseY",
+										"value": "Mouse.Y"
+									}
+								}
+							],
+							"sid": 290727525679202,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 450272037994785,
+											"parameters": {
+												"variable": "MouseMoved",
+												"value": "\"true\""
+											}
+										}
+									],
+									"sid": 333244552136285
+								}
+							],
+							"isOrBlock": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 498699405226955,
+							"parameters": {
+								"variable": "MouseMoved",
+								"comparison": 0,
+								"value": "\"true\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 315613523169734,
+							"parameters": {
+								"cursor-style": "normal"
+							}
+						}
+					],
+					"sid": 308612859274034,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 354865770504395,
+									"parameters": {
+										"object": "Word"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 236195571302672,
+									"parameters": {
+										"variable": "MouseMoved",
+										"value": "\"false\""
+									}
+								}
+							],
+							"sid": 284839912838974,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 582112995907541,
+											"parameters": {
+												"variable": "MouseOverWordID",
+												"value": "Word.IID"
+											}
+										}
+									],
+									"sid": 415985214333778
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 991914931712450,
+											"parameters": {
+												"variable": "TextBoxWordID",
+												"comparison": 1,
+												"value": "MouseOverWordID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "TextBox2",
+											"sid": 417219245694075,
+											"parameters": {
+												"text": "Word.Text"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 478111183175360,
+											"parameters": {
+												"variable": "TextBoxWordID",
+												"value": "Word.IID"
+											}
+										}
+									],
+									"sid": 850292768941785
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 553680062869490
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "TextBox2",
+									"sid": 286435033213264,
+									"parameters": {
+										"mode": "disabled"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "TextBox2",
+									"sid": 216135875727223,
+									"parameters": {
+										"text": "\"\""
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "TextBox2",
+									"sid": 501214997964704,
+									"parameters": {
+										"mode": "enabled"
+									}
+								}
+							],
+							"sid": 896870435238432
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 763279078687379
+						}
+					],
+					"actions": [],
+					"sid": 525044481057892,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "PressedKey",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 606252212153592
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 735863356983299,
+									"parameters": {
+										"variable": "PressedKey",
+										"value": "Keyboard.StringFromKeyCode(Keyboard.LastKeyCode)"
+									}
+								}
+							],
+							"sid": 293261308717456
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 637844730430517,
+									"parameters": {
+										"first-value": "PressedKey",
+										"comparison": 0,
+										"second-value": "\"del\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-focused",
+									"objectClass": "TextBox2",
+									"sid": 811000126873143
+								},
+								{
+									"id": "set-text",
+									"objectClass": "TextBox2",
+									"sid": 424094460019719,
+									"parameters": {
+										"text": "\"\""
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "f",
+									"sid": 309865876214938,
+									"parameters": {
+										"name": "\"UpdateWord\"",
+										"parameter-n": [
+											"TextBoxWordID",
+											"TextBox2.Text"
+										]
+									}
+								}
+							],
+							"sid": 812757051586710
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 752680857162132
+								}
+							],
+							"actions": [],
+							"sid": 546286447537268,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 258722304420835,
+											"parameters": {
+												"first-value": "PressedKey",
+												"comparison": 1,
+												"second-value": "\"→\""
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 608758652819100,
+											"parameters": {
+												"first-value": "PressedKey",
+												"comparison": 1,
+												"second-value": "\"↑\""
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 285351564492969,
+											"parameters": {
+												"first-value": "PressedKey",
+												"comparison": 1,
+												"second-value": "\"←\""
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 739453524278955,
+											"parameters": {
+												"first-value": "PressedKey",
+												"comparison": 1,
+												"second-value": "\"↓\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-focused",
+											"objectClass": "TextBox2",
+											"sid": 131357744382291
+										}
+									],
+									"sid": 425178102206874
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 225483977124263,
+							"parameters": {
+								"key": 13
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "TextBox2",
+							"sid": 454411015790911,
+							"parameters": {
+								"mode": "disabled"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "TextBox2",
+							"sid": 675303983535990,
+							"parameters": {
+								"mode": "enabled"
+							}
+						}
+					],
+					"sid": 658851654084542
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-text-changed",
+							"objectClass": "TextBox2",
+							"sid": 846496081368298
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "f",
+							"sid": 452740046609810,
+							"parameters": {
+								"name": "\"UpdateWord\"",
+								"parameter-n": [
+									"TextBoxWordID",
+									"TextBox2.Text"
+								]
+							}
+						}
+					],
+					"sid": 349891292587514
+				}
+			],
+			"sid": 549725772149277
+		},
+		{
+			"eventType": "variable",
+			"name": "SelectedWordIndex",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 690979684832826
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Selecting",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "WordHighLight",
+							"sid": 550407610236144,
+							"parameters": {
+								"instance-variable": "State",
+								"value": "\"None\""
+							}
+						}
+					],
+					"sid": 678568095246117
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 533194766643940,
+							"parameters": {
+								"object": "WordHighLight"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "WordHighLight",
+							"sid": 485825544395675,
+							"parameters": {
+								"instance-variable": "State",
+								"value": "\"Mouseover\""
+							}
+						}
+					],
+					"sid": 243229989719775
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "WordHighLight",
+							"sid": 514380387674540,
+							"parameters": {
+								"instance-variable": "State",
+								"comparison": 0,
+								"value": "\"Mouseover\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "WordHighLight",
+							"sid": 987281490849371,
+							"parameters": {
+								"opacity": "30"
+							}
+						}
+					],
+					"sid": 976036908913478
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "WordHighLight",
+							"sid": 355514959521461,
+							"parameters": {
+								"instance-variable": "State",
+								"comparison": 0,
+								"value": "\"None\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "WordHighLight",
+							"sid": 891983756491744,
+							"parameters": {
+								"opacity": "10"
+							}
+						}
+					],
+					"sid": 727857623498004
+				}
+			],
+			"sid": 192068032402781
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 592800279727483
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "WholeText",
+					"sid": 368109050825905,
+					"parameters": {
+						"text": "\"Installing or repairing your roof is one of the more critical projects a property owner will undertake. Finding a roofing contractor you can depend on and trust for your new roofing system or roof repair project can be difficult. \""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "WholeText",
+					"sid": 649331116055117,
+					"disabled": true,
+					"parameters": {
+						"text": "\"Hi ooga booga booga. Hey. Hi ooga booga booga. Hey. Hi ooga booga booga. Hey. Hi ooga booga booga. Hey.\""
+					}
+				}
+			],
+			"sid": 560354455198942,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "f",
+							"sid": 904388418234277,
+							"parameters": {
+								"name": "\"InitializeWordboard\"",
+								"parameter-n": [
+									"WholeText.Text"
+								]
+							}
+						}
+					],
+					"sid": 530087914730210
+				}
+			]
+		},
+		{
+			"eventType": "variable",
+			"name": "CurrentText",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 394708128686477
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "f",
+					"sid": 464337291131736,
+					"parameters": {
+						"name": "\"InitializeWordboard\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 139943048476597,
+					"parameters": {
+						"variable": "CurrentText",
+						"value": "f.Param(0)"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 866800091499217,
+					"parameters": {
+						"variable": "CurrentText",
+						"value": "f.Call(\"TurnLineBreaksIntoText\",f.Param(0))"
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "f",
+					"sid": 797269204493600,
+					"parameters": {
+						"name": "\"SeparateWordsInArray\"",
+						"parameter-n": [
+							"CurrentText"
+						]
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "f",
+					"sid": 892160297343242,
+					"parameters": {
+						"name": "\"CreateWordsFromArray\"",
+						"parameter-n": []
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "f",
+					"sid": 788798956242451,
+					"parameters": {
+						"name": "\"OrderWords\"",
+						"parameter-n": []
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "f",
+					"sid": 982598502660997,
+					"parameters": {
+						"name": "\"OrderHighLights\"",
+						"parameter-n": []
+					}
+				}
+			],
+			"sid": 600525060472322
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "f",
+					"sid": 237145167892943,
+					"parameters": {
+						"name": "\"TurnLineBreaksIntoText\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-return-value",
+					"objectClass": "f",
+					"sid": 724055443025778,
+					"parameters": {
+						"value": "replace(f.Param(0),newline,\" <|newline|> \")"
+					}
+				}
+			],
+			"sid": 652119801709924
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "f",
+					"sid": 940633034756381,
+					"parameters": {
+						"name": "\"SeparateWordsInArray\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-size",
+					"objectClass": "WordsArray",
+					"sid": 461551012689589,
+					"parameters": {
+						"width": "0",
+						"height": "1",
+						"depth": "1"
+					}
+				}
+			],
+			"sid": 624930647986208,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "Regex",
+					"type": "string",
+					"initialValue": "\\n|[^\\s].*?[\\s]",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 925012200294111
+				},
+				{
+					"eventType": "variable",
+					"name": "Text",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 627896313583886
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 298030252824818,
+							"parameters": {
+								"variable": "Text",
+								"value": "f.Param(0)"
+							}
+						}
+					],
+					"sid": 768708580346269,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 302160617576489,
+									"parameters": {
+										"name": "\"\"",
+										"start-index": "0",
+										"end-index": "RegexMatchCount(Text,Regex,\"gms\")-1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "push",
+									"objectClass": "WordsArray",
+									"sid": 177986789083078,
+									"parameters": {
+										"where": "back",
+										"value": "RegexMatchAt(Text,Regex,\"gms\",loopindex)",
+										"axis": "x"
+									}
+								}
+							],
+							"sid": 552957014549375
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "f",
+					"sid": 769854150184636,
+					"parameters": {
+						"name": "\"CreateWordsFromArray\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 410925404622597,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-element",
+							"objectClass": "WordsArray",
+							"sid": 896269633135917,
+							"parameters": {
+								"axes": "x"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 690340388890736,
+							"parameters": {
+								"object-to-create": "Word",
+								"layer": "0",
+								"x": "0",
+								"y": "0"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Word",
+							"sid": 836005939474890,
+							"parameters": {
+								"text": "trim(WordsArray.CurValue)"
+							}
+						}
+					],
+					"sid": 326994057331746
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "f",
+					"sid": 133272991656388,
+					"parameters": {
+						"name": "\"OrderWords\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 165117085757274,
+					"parameters": {
+						"seconds": "0.1"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Word",
+					"sid": 194327478361467,
+					"parameters": {
+						"width": "1000",
+						"height": "1000"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Word",
+					"sid": 820213941054865,
+					"parameters": {
+						"width": "self.TextWidth",
+						"height": "self.TextHeight"
+					}
+				}
+			],
+			"sid": 398018300571153,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "CurrentLineY",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 814685396877683
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 911611998569409,
+							"parameters": {
+								"variable": "CurrentLineY",
+								"value": "TextStartY"
+							}
+						}
+					],
+					"sid": 882150427020451
+				},
+				{
+					"eventType": "variable",
+					"name": "LineHeight",
+					"type": "number",
+					"initialValue": "20",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 920008644487719
+				},
+				{
+					"eventType": "variable",
+					"name": "SpaceWidth",
+					"type": "number",
+					"initialValue": "5",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 981019504521201
+				},
+				{
+					"eventType": "variable",
+					"name": "TextStartX",
+					"type": "number",
+					"initialValue": "100",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 273287313725861
+				},
+				{
+					"eventType": "variable",
+					"name": "TextStartY",
+					"type": "number",
+					"initialValue": "100",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 304269567625188
+				},
+				{
+					"eventType": "variable",
+					"name": "TextCutOffX",
+					"type": "number",
+					"initialValue": "500",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 606190883404585
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 315923525945061,
+							"parameters": {
+								"object": "Word",
+								"expression": "Word.IID",
+								"order": "ascending"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 688113826719519,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 383387625601594,
+									"parameters": {
+										"first-value": "Word.IID",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Word",
+									"sid": 334815110453617,
+									"parameters": {
+										"x": "TextStartX",
+										"y": "TextStartY"
+									}
+								}
+							],
+							"sid": 619459766580300
+						},
+						{
+							"eventType": "variable",
+							"name": "PreviousWordEndX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 673292038000523
+						},
+						{
+							"eventType": "variable",
+							"name": "PreviousWordY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 262986350834272
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 145413232175593,
+									"parameters": {
+										"variable": "PreviousWordEndX",
+										"value": "f.Call(\"GetWordEndX\",Word.IID-1)"
+									}
+								}
+							],
+							"sid": 382160733662317
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 874783185483715,
+									"parameters": {
+										"first-value": "Word.IID",
+										"comparison": 0,
+										"second-value": "0"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 353522781836420,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-text",
+											"objectClass": "Word",
+											"sid": 413168525055538,
+											"parameters": {
+												"text-to-compare": "\"<|newline|>\"",
+												"case-sensitivity": "ignore-case"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 322326043952757,
+											"parameters": {
+												"variable": "CurrentLineY",
+												"value": "LineHeight"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "Word",
+											"sid": 950103779149890,
+											"parameters": {
+												"x": "TextStartX",
+												"y": "CurrentLineY"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Word",
+											"sid": 651779322665707,
+											"parameters": {
+												"text": "\" \""
+											}
+										},
+										{
+											"id": "set-width",
+											"objectClass": "Word",
+											"sid": 377597538485151,
+											"parameters": {
+												"width": "SpaceWidth"
+											}
+										}
+									],
+									"sid": 592439153534114
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 426700698552530
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Word",
+											"sid": 716206731393719,
+											"parameters": {
+												"x": "PreviousWordEndX+SpaceWidth",
+												"y": "CurrentLineY"
+											}
+										},
+										{
+											"id": "alert",
+											"objectClass": "Browser",
+											"sid": 901864232452468,
+											"disabled": true,
+											"parameters": {
+												"message": "\"Word \" & Word.Text & newline & \"at \" & PreviousWordEndX+SpaceWidth & \", \" & PreviousWordY"
+											}
+										}
+									],
+									"sid": 309844136051462,
+									"children": [
+										{
+											"eventType": "variable",
+											"name": "WordEndX",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 516526594239506
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 811454639083561,
+													"parameters": {
+														"variable": "WordEndX",
+														"value": "f.Call(\"GetWordEndX\",Word.IID)"
+													}
+												}
+											],
+											"sid": 907217161842403
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 750463285901251,
+													"parameters": {
+														"first-value": "WordEndX",
+														"comparison": 4,
+														"second-value": "TextCutOffX"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 173294129276144,
+													"parameters": {
+														"variable": "CurrentLineY",
+														"value": "LineHeight"
+													}
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Word",
+													"sid": 674130752072384,
+													"parameters": {
+														"x": "TextStartX",
+														"y": "CurrentLineY"
+													}
+												}
+											],
+											"sid": 471575953182671
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "f",
+							"sid": 532054229032481,
+							"parameters": {
+								"name": "\"OrderHighLights\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 255042507266254
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "f",
+					"sid": 730899728635496,
+					"parameters": {
+						"name": "\"OrderHighLights\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 379982399142842,
+					"parameters": {
+						"seconds": "0.1"
+					}
+				}
+			],
+			"sid": 642071588494290,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 961511457955218,
+							"parameters": {
+								"object": "WordHighLight"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "WordHighLight",
+							"sid": 151498831784995,
+							"parameters": {
+								"width": "Word.Width",
+								"height": "Word.Height*0.75"
+							}
+						},
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "WordHighLight",
+							"sid": 585210608851311,
+							"parameters": {
+								"object": "Word",
+								"image-point-optional": "0"
+							}
+						}
+					],
+					"sid": 679192836788979
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "f",
+					"sid": 429381197572853,
+					"parameters": {
+						"name": "\"GetWordEndX\""
+					}
+				},
+				{
+					"id": "pick-by-comparison",
+					"objectClass": "System",
+					"sid": 335107156155610,
+					"parameters": {
+						"object": "Word",
+						"expression": "Word.IID",
+						"comparison": 0,
+						"value": "f.Param(0)"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-return-value",
+					"objectClass": "f",
+					"sid": 364951985645386,
+					"parameters": {
+						"value": "Word.X+Word.Width"
+					}
+				}
+			],
+			"sid": 153545848425131
+		}
+	],
+	"sid": 547240894071207
+}

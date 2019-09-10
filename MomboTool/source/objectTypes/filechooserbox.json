@@ -1,0 +1,24 @@
+{
+	"name": "FileChooserBox",
+	"plugin-id": "NinePatch",
+	"sid": 650220757101781,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "hsladjust",
+			"name": "AdjustHSL"
+		}
+	],
+	"image": {
+		"width": 50,
+		"height": 50,
+		"originX": 0.52,
+		"originY": 0.52,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 15
+	}
+}

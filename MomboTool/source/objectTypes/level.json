@@ -1,0 +1,43 @@
+{
+	"name": "Level",
+	"plugin-id": "NinePatch",
+	"sid": 304203859349924,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Resizing",
+			"type": "boolean",
+			"desc": "",
+			"sid": 505773588190846
+		},
+		{
+			"name": "ResizingDirection",
+			"type": "string",
+			"desc": "",
+			"sid": 134559729288098
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 896753237383551
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "tint",
+			"name": "Tint"
+		}
+	],
+	"image": {
+		"width": 50,
+		"height": 50,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 7
+	}
+}

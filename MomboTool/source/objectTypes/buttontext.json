@@ -1,0 +1,38 @@
+{
+	"name": "ButtonText",
+	"plugin-id": "Spritefont2",
+	"sid": 737312133044948,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "TargetY",
+			"type": "number",
+			"desc": "",
+			"sid": 539373012675855
+		},
+		{
+			"name": "TargetX",
+			"type": "number",
+			"desc": "",
+			"sid": 565716397624142
+		},
+		{
+			"name": "MenuName",
+			"type": "string",
+			"desc": "",
+			"sid": 148711543012538
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 1024,
+		"height": 1024,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "C:\\Users\\User\\Documents\\Tools\\other\\fonts\\ArialWithAccents\\SpriteFont_Arial_Normal_(72)_[1,1,1,1]_72x85.png",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 1
+	}
+}
