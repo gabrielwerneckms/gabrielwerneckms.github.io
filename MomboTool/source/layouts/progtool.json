@@ -28,7 +28,7 @@
 							1,
 							1,
 							1,
-							1
+							0
 						],
 						"angle": 0,
 						"zElevation": 0
@@ -547,8 +547,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 1001,
-						"y": 13,
+						"x": 2138,
+						"y": 1030,
 						"width": 200,
 						"height": 30,
 						"originX": 0.5,

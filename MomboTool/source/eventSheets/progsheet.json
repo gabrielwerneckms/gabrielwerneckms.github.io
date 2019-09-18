@@ -3979,10 +3979,10 @@
 																		{
 																			"id": "set-eventvar-value",
 																			"objectClass": "System",
-																			"sid": 689246049504861,
+																			"sid": 506424694968511,
 																			"parameters": {
 																				"variable": "ButtonWidth",
-																				"value": "45"
+																				"value": "20"
 																			}
 																		},
 																		{
@@ -4093,10 +4093,10 @@
 																				{
 																					"id": "set-instvar-value",
 																					"objectClass": "Button",
-																					"sid": 291292842001591,
+																					"sid": 200731498559758,
 																					"parameters": {
 																						"instance-variable": "TargetY",
-																						"value": "MenuEndY"
+																						"value": "MenuEndY+2"
 																					}
 																				}
 																			],
@@ -4384,10 +4384,10 @@
 																				{
 																					"id": "set-eventvar-value",
 																					"objectClass": "System",
-																					"sid": 288930393232334,
+																					"sid": 327362927726583,
 																					"parameters": {
 																						"variable": "ButtonWidth",
-																						"value": "45"
+																						"value": "20"
 																					}
 																				},
 																				{
@@ -4498,10 +4498,10 @@
 																						{
 																							"id": "set-instvar-value",
 																							"objectClass": "Button",
-																							"sid": 240923835917051,
+																							"sid": 243609949607877,
 																							"parameters": {
 																								"instance-variable": "TargetY",
-																								"value": "MenuEndY"
+																								"value": "MenuEndY+2"
 																							}
 																						}
 																					],
@@ -5164,6 +5164,29 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "TextBox",
+											"sid": 975184231359869,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"NewTypeName\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "TextBox",
+											"sid": 743541351958062
+										}
+									],
+									"sid": 780017127577273
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TextBox",
 											"sid": 591623044770856,
 											"parameters": {
 												"instance-variable": "Name",
@@ -5348,6 +5371,24 @@
 													"id": "set-focused",
 													"objectClass": "TextBox",
 													"sid": 913007864368758
+												},
+												{
+													"id": "set-css-style",
+													"objectClass": "TextBox",
+													"sid": 246758812457984,
+													"parameters": {
+														"property-name": "\"font-size\"",
+														"value": "\"20pt\""
+													}
+												},
+												{
+													"id": "set-css-style",
+													"objectClass": "TextBox",
+													"sid": 429157717109159,
+													"parameters": {
+														"property-name": "\"align\"",
+														"value": "\"center\""
+													}
 												}
 											],
 											"sid": 594856626691843
@@ -5498,6 +5539,29 @@
 									"isStatic": false,
 									"isConstant": false,
 									"sid": 914370322046472
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TextBox",
+											"sid": 553984789814439,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"NewTagName\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "TextBox",
+											"sid": 195955032374366
+										}
+									],
+									"sid": 141954668695212
 								},
 								{
 									"eventType": "block",
@@ -5689,6 +5753,24 @@
 													"id": "set-focused",
 													"objectClass": "TextBox",
 													"sid": 834631896453626
+												},
+												{
+													"id": "set-css-style",
+													"objectClass": "TextBox",
+													"sid": 522893431433918,
+													"parameters": {
+														"property-name": "\"font-size\"",
+														"value": "\"20pt\""
+													}
+												},
+												{
+													"id": "set-css-style",
+													"objectClass": "TextBox",
+													"sid": 349604389388908,
+													"parameters": {
+														"property-name": "\"text-align\"",
+														"value": "\"center\""
+													}
 												}
 											],
 											"sid": 454784222838681
@@ -5886,6 +5968,81 @@
 										}
 									],
 									"sid": 406414511877940
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-text-changed",
+									"objectClass": "TextBox",
+									"sid": 376234153057156
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 625406027666378,
+									"parameters": {
+										"seconds": "0"
+									}
+								}
+							],
+							"sid": 853585354765594,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TextBox",
+											"sid": 511959561164638,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"NewTagName\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "TextBox",
+											"sid": 761636148032624,
+											"parameters": {
+												"text": "f.Call(\"StripCharacters\",TextBox.Text,\":;\",\"true\")"
+											}
+										}
+									],
+									"sid": 805934033111668
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TextBox",
+											"sid": 816569979681047,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"NewTypeName\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "TextBox",
+											"sid": 265971992449108,
+											"parameters": {
+												"text": "f.Call(\"StripCharacters\",TextBox.Text,\":;\",\"true\")"
+											}
+										}
+									],
+									"sid": 897830568445552
 								}
 							]
 						},

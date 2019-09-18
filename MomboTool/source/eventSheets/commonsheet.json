@@ -6938,6 +6938,292 @@
 						{
 							"id": "on-function",
 							"objectClass": "f",
+							"sid": 576621643378658,
+							"parameters": {
+								"name": "\"StripCharacters\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 903087727639164,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "OriginalString",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 789059280534756
+						},
+						{
+							"eventType": "variable",
+							"name": "CharactersToStrip",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 610320688586268
+						},
+						{
+							"eventType": "variable",
+							"name": "Complain",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 968734165948413
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 978639834100837,
+									"parameters": {
+										"variable": "OriginalString",
+										"value": "f.Param(0)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 699136030023576,
+									"parameters": {
+										"variable": "CharactersToStrip",
+										"value": "f.Param(1)"
+									}
+								},
+								{
+									"id": "alert",
+									"objectClass": "Browser",
+									"sid": 293853678019686,
+									"disabled": true,
+									"parameters": {
+										"message": "f.Param(0) & \"  \" & f.Param(1) & \"  \" & f.Param(2)"
+									}
+								}
+							],
+							"sid": 438367803226789,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-parameter",
+											"objectClass": "f",
+											"sid": 120058198847546,
+											"parameters": {
+												"index": "2",
+												"comparison": 0,
+												"value": "\"true\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 934170777347129,
+											"parameters": {
+												"variable": "Complain",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 506068139179408
+								},
+								{
+									"eventType": "variable",
+									"name": "StringBeingProcessed",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 887523942734027
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 934461216979156,
+											"parameters": {
+												"variable": "StringBeingProcessed",
+												"value": "OriginalString"
+											}
+										}
+									],
+									"sid": 942694398190658
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 506002450923421,
+											"parameters": {
+												"name": "\"\"",
+												"start-index": "0",
+												"end-index": "len(CharactersToStrip)-1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 980670068786866,
+									"children": [
+										{
+											"eventType": "variable",
+											"name": "CurrentCharacter",
+											"type": "string",
+											"initialValue": "",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 822191260796475
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 143819222958318,
+													"parameters": {
+														"variable": "CurrentCharacter",
+														"value": "mid(CharactersToStrip,loopindex,1)"
+													}
+												},
+												{
+													"id": "alert",
+													"objectClass": "Browser",
+													"sid": 286610960872620,
+													"disabled": true,
+													"parameters": {
+														"message": "CurrentCharacter"
+													}
+												}
+											],
+											"sid": 478702141366148
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 505356230386645,
+													"parameters": {
+														"first-value": "find(StringBeingProcessed,CurrentCharacter)",
+														"comparison": 1,
+														"second-value": "-1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 606310912442987,
+													"parameters": {
+														"variable": "StringBeingProcessed",
+														"value": "replace(StringBeingProcessed,CurrentCharacter,\"\")"
+													}
+												},
+												{
+													"id": "alert",
+													"objectClass": "Browser",
+													"sid": 998311981768350,
+													"disabled": true,
+													"parameters": {
+														"message": "find(StringBeingProcessed,CurrentCharacter)"
+													}
+												}
+											],
+											"sid": 554975977110957,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 412972386883552,
+															"parameters": {
+																"variable": "Complain"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "alert",
+															"objectClass": "Browser",
+															"sid": 532128708241895,
+															"parameters": {
+																"message": "\"Character \" & \"\"\"\" & CurrentCharacter & \"\"\"\" &  \" not allowed in this field!\""
+															}
+														}
+													],
+													"sid": 879127435825014
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "variable",
+									"name": "StringWithCharactersStripped",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 305498745209990
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 858264714993819,
+											"parameters": {
+												"variable": "StringWithCharactersStripped",
+												"value": "StringBeingProcessed"
+											}
+										},
+										{
+											"id": "set-return-value",
+											"objectClass": "f",
+											"sid": 753493836960042,
+											"parameters": {
+												"value": "StringWithCharactersStripped"
+											}
+										}
+									],
+									"sid": 527113834358418
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "f",
 							"sid": 912391839283466,
 							"parameters": {
 								"name": "\"CutCharsFromEnd\""

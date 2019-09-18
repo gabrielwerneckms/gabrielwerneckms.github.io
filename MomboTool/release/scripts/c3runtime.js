@@ -808,9 +808,10 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Dictionary.Acts.SetKey,
 		C3.Plugins.NinePatch.Cnds.OnCreated,
 		C3.Plugins.Dictionary.Cnds.HasKey,
+		C3.Plugins.TextBox.Acts.Destroy,
 		C3.Plugins.System.Cnds.PickLastCreated,
 		C3.Plugins.TextBox.Acts.SetEnabled,
-		C3.Plugins.TextBox.Acts.Destroy,
+		C3.Plugins.TextBox.Acts.SetCSSStyle,
 		C3.Plugins.Mouse.Cnds.OnClick,
 		C3.Behaviors.DragnDrop.Cnds.OnDrop,
 		C3.Behaviors.DragnDrop.Cnds.OnDragStart,
@@ -843,7 +844,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Mouse.Cnds.OnWheel,
 		C3.Plugins.System.Acts.SetLayoutScale,
 		C3.Plugins.System.Exps.layoutscale,
-		C3.Plugins.TextBox.Acts.SetCSSStyle,
 		C3.Behaviors.Pin.Acts.Pin,
 		C3.Plugins.filechooser.Cnds.OnChanged,
 		C3.Plugins.AJAX.Acts.Request,
@@ -912,7 +912,10 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.TextBox.Acts.SetPlaceholder,
 		C3.Plugins.Spritefont2.Acts.SetPosToObject,
 		C3.Plugins.NinePatch.Acts.SetEffectParam,
+		C3.Plugins.Function.Cnds.CompareParam,
 		C3.Plugins.System.Exps.len,
+		C3.Plugins.System.Exps.mid,
+		C3.Plugins.System.Exps.find,
 		C3.Plugins.System.Exps.left,
 		C3.Plugins.System.Exps.right,
 		C3.Plugins.System.Acts.SetLayerOpacity,
@@ -1158,6 +1161,11 @@ self.C3_JsPropNameTable = [
 	{MenuStartY: 0},
 	{BlockWidth: 0},
 	{OriginalString: 0},
+	{CharactersToStrip: 0},
+	{Complain: 0},
+	{StringBeingProcessed: 0},
+	{CurrentCharacter: 0},
+	{StringWithCharactersStripped: 0},
 	{CharsToRemove: 0},
 	{OriginalCharacterCount: 0},
 	{TargetCharacterCount: 0},
@@ -1497,10 +1505,13 @@ self.C3_JsPropNameTable = [
 			return () => (n0.ExpInstVar() + n1.ExpObject());
 		},
 		() => "AddType",
-		() => 45,
 		() => 20,
 		() => "+",
 		() => "CreateButton",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (v0.GetValue() + 2);
+		},
 		() => "Right",
 		() => "AddTag",
 		() => "ButtonClicked",
@@ -1516,10 +1527,20 @@ self.C3_JsPropNameTable = [
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject("Type");
 		},
+		() => "NewTypeName",
 		() => "NewTagName",
 		() => 30,
-		() => "NewTypeName",
+		() => "font-size",
+		() => "20pt",
+		() => "align",
+		() => "center",
+		() => "text-align",
 		() => "DestroyMenu",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			return () => f0("StripCharacters", n1.ExpObject(), ":;", "true");
+		},
 		() => "ChangingData",
 		() => "CreateMenusFromBlock",
 		() => "Moving",
@@ -1625,8 +1646,6 @@ self.C3_JsPropNameTable = [
 		() => "Sidebar",
 		() => "FileName",
 		() => "FileExtension",
-		() => "text-align",
-		() => "center",
 		() => "background",
 		() => "#6400bb",
 		() => "color",
@@ -1635,7 +1654,6 @@ self.C3_JsPropNameTable = [
 		() => "border-box",
 		() => "border",
 		() => "solid 5px #6400bb",
-		() => "font-size",
 		() => "13pt",
 		() => "solid 10px #6400bb",
 		() => "SidebarLevelName",
@@ -2137,17 +2155,39 @@ self.C3_JsPropNameTable = [
 		() => "AdjustHSL",
 		() => 90,
 		() => "Toggle",
-		() => "CutCharsFromEnd",
+		() => "StripCharacters",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const v1 = p._GetNode(1).GetVar();
-			return () => f0(v1.GetValue());
+			return () => (f0(v1.GetValue()) - 1);
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			const f2 = p._GetNode(2).GetBoundMethod();
+			return () => f0(v1.GetValue(), f2(), 1);
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const v1 = p._GetNode(1).GetVar();
 			const v2 = p._GetNode(2).GetVar();
 			return () => f0(v1.GetValue(), v2.GetValue());
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			return () => f0(v1.GetValue(), v2.GetValue(), "");
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (((("Character " + "\"") + v0.GetValue()) + "\"") + " not allowed in this field!");
+		},
+		() => "CutCharsFromEnd",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			return () => f0(v1.GetValue());
 		},
 		() => "CutCharsFromStart",
 		p => {
