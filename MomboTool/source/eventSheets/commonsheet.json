@@ -6577,9 +6577,13 @@
 							}
 						},
 						{
-							"id": "move-to-top",
+							"id": "move-to-object",
 							"objectClass": "ButtonText",
-							"sid": 637761614499990
+							"sid": 230833288989214,
+							"parameters": {
+								"where": "in-front",
+								"object": "Button"
+							}
 						}
 					],
 					"sid": 858309464342995
@@ -6701,16 +6705,7 @@
 									}
 								}
 							],
-							"actions": [
-								{
-									"id": "toggle-boolean-instvar",
-									"objectClass": "Button",
-									"sid": 108529164595474,
-									"parameters": {
-										"instance-variable": "On"
-									}
-								}
-							],
+							"actions": [],
 							"sid": 666265536754416,
 							"children": [
 								{
@@ -6727,21 +6722,11 @@
 									],
 									"actions": [
 										{
-											"id": "set-effect-parameter",
-											"objectClass": "Button",
-											"sid": 965851979835518,
-											"parameters": {
-												"effect": "\"AdjustHSL\"",
-												"parameter-index": "1",
-												"value": "100"
-											}
-										},
-										{
 											"id": "call-function",
 											"objectClass": "f",
-											"sid": 258514026475220,
+											"sid": 818400632286827,
 											"parameters": {
-												"name": "\"ButtonOn\"",
+												"name": "\"ButtonOff\"",
 												"parameter-n": [
 													"Button.UID"
 												]
@@ -6754,39 +6739,25 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "Button",
-											"sid": 163353686103158,
-											"parameters": {
-												"instance-variable": "On"
-											},
-											"isInverted": true
+											"id": "else",
+											"objectClass": "System",
+											"sid": 997532447039468
 										}
 									],
 									"actions": [
 										{
-											"id": "set-effect-parameter",
-											"objectClass": "Button",
-											"sid": 224370742805235,
-											"parameters": {
-												"effect": "\"AdjustHSL\"",
-												"parameter-index": "1",
-												"value": "10"
-											}
-										},
-										{
 											"id": "call-function",
 											"objectClass": "f",
-											"sid": 939947909343930,
+											"sid": 972278950401209,
 											"parameters": {
-												"name": "\"ButtonOff\"",
+												"name": "\"ButtonOn\"",
 												"parameter-n": [
 													"Button.UID"
 												]
 											}
 										}
 									],
-									"sid": 321038504461482
+									"sid": 238891281316770
 								}
 							]
 						},
@@ -6837,6 +6808,98 @@
 							"sid": 162623309215155
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 512366894506190
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "f",
+							"sid": 814969085628528,
+							"parameters": {
+								"name": "\"ButtonOn\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Button",
+							"sid": 992301614382999,
+							"parameters": {
+								"unique-id": "f.Param(0)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-effect-parameter",
+							"objectClass": "Button",
+							"sid": 458922605272103,
+							"parameters": {
+								"effect": "\"AdjustHSL\"",
+								"parameter-index": "1",
+								"value": "100"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Button",
+							"sid": 758828708580677,
+							"parameters": {
+								"instance-variable": "On",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 824170717468034
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "f",
+							"sid": 463755016869226,
+							"parameters": {
+								"name": "\"ButtonOff\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Button",
+							"sid": 590260793397003,
+							"parameters": {
+								"unique-id": "f.Param(0)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-effect-parameter",
+							"objectClass": "Button",
+							"sid": 775044444253711,
+							"parameters": {
+								"effect": "\"AdjustHSL\"",
+								"parameter-index": "1",
+								"value": "10"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Button",
+							"sid": 377891685195106,
+							"parameters": {
+								"instance-variable": "On",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 568882547176408
 				},
 				{
 					"eventType": "block",

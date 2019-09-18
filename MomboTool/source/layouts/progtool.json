@@ -827,7 +827,7 @@
 					"world": {
 						"x": 793.1175238203842,
 						"y": 6.5592780953789145,
-						"width": 57.62025063302821,
+						"width": 45.321419700226166,
 						"height": 17.673126221,
 						"originX": 0,
 						"originY": 0,
@@ -931,6 +931,24 @@
 				"depth": 1
 			},
 			"uid": 61,
+			"instanceVariables": {}
+		},
+		{
+			"type": "GlobalTagDictionary",
+			"properties": {},
+			"uid": 63,
+			"instanceVariables": {}
+		},
+		{
+			"type": "LevelTagDictionary",
+			"properties": {},
+			"uid": 64,
+			"instanceVariables": {}
+		},
+		{
+			"type": "GlobalTypesDictionary",
+			"properties": {},
+			"uid": 65,
 			"instanceVariables": {}
 		}
 	],

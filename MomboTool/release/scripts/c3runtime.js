@@ -547,6 +547,18 @@ self["C3_Shaders"]["hsladjust"] = {
 
 "use strict";{const a=new C3.Rect,b=new C3.Quad,c=new C3.Color,d=new Set(["left","center","right"]),e=new Set(["top","center","bottom"]),f=new Set(["word","character"]);self.SpriteFontText=class{constructor(a){this._spriteFont=a,this._cssWidth=0,this._cssHeight=0,this._text="",this._isBBcodeEnabled=!1,this._bbString=null,this._wrappedText=C3.New(C3.WordWrap),this._wrapMode="word",this._wrapChanged=!1,this._horizontalAlign="left",this._verticalAlign="top",this._scale=1,this._spacing=0,this._lineHeight=0,this._color=C3.New(C3.Color),this._drawMaxCharCount=-1,this._drawCharCount=0,this._measureTextCallback=(a,b)=>this._MeasureText(a,b),this._spriteFont._AddSpriteFontText(this)}Release(){this._spriteFont._RemoveSpriteFontText(this),this._color=null,this._measureTextCallback=null,this._wrappedText.Clear(),this._wrappedText=null,this._spriteFont=null,this._bbString=null}_MeasureText(a,b){const c=this._GetStyleTag(b,"scale"),d=c?parseFloat(c.param):this._scale,e=this._GetStyleTag(b,"scalex"),f=(e?parseFloat(e.param):1)*d,g=this._GetStyleTag(b,"scaley"),h=(g?parseFloat(g.param):1)*d,i=this._spriteFont.GetCharacterHeight()*h,j=this._lineHeight,k=i+j,l=this.GetSpriteFont(),m=l.GetCharacterWidth()*f,n=this.GetSpacing();if(l.HasAnyCustomWidths()){let b=0,c=0;for(const d of a){let a=m;const e=l.GetCharacter(d);e?a=e.GetDisplayWidth()*f:" "===d&&(a=l.GetSpaceWidth()*f),c+=a,++b}return{width:c+b*n,height:k}}else{const b=[...a].length,c=Math.max(b,0);return{width:m*b+c*n,height:k}}}_SetWrapChanged(){this._wrapChanged=!0,this._wrappedText.Clear()}SetSize(a,b){0>=a||0>=b||this._cssWidth===a&&this._cssHeight===b||(this._cssWidth!==a&&this._SetWrapChanged(),this._cssWidth=a,this._cssHeight=b)}SetDrawMaxCharacterCount(a){this._drawMaxCharCount=Math.floor(a)}GetDrawMaxCharacterCount(){return this._drawMaxCharCount}_GetStyleTag(a,b){for(let c=a.length-1;0<=c;--c){const d=a[c];if(d.tag===b)return d}return null}_HasStyleTag(a,b){return!!this._GetStyleTag(a,b)}_MaybeWrapText(){if(this._wrapChanged){this._isBBcodeEnabled&&(!this._bbString||this._bbString.toString()!==this._text)&&(this._bbString=new C3.BBString(this._text,{noEscape:!0}));const a=-this.GetSpacing();this._wrappedText.WordWrap(this._isBBcodeEnabled?this._bbString.toFragmentList():this._text,this._measureTextCallback,this._cssWidth,this._wrapMode,a),this._wrapChanged=!1}}Draw(a,b,c,d){var e=Math.floor,f=Math.max;this._MaybeWrapText(),this._drawCharCount=0;let g=0;const h=this._spriteFont.GetCharacterHeight()*this._scale,j=this._lineHeight,i=h+j,k=C3.cloneArray(this._wrappedText.GetLines()),l=Math.sin(d),m=Math.cos(d);"center"===this._verticalAlign?g=f(e(this._cssHeight/2-k.length*i/2),0):"bottom"===this._verticalAlign&&(g=f(e(this._cssHeight-k.length*i),0));for(let h=0,i=k.length;h<i;++h){const d=k[h],i=d.height;if(0<h&&g>this._cssHeight-(i-j))break;let n=0;"center"===this._horizontalAlign?n=f(e((this._cssWidth-d.width)/2),0):"right"===this._horizontalAlign&&(n=f(e(this._cssWidth-d.width),0)),this._DrawLine(a,d,b,c,n,g,l,m),g+=i}}_DrawLine(a,b,c,d,e,f,g,h){const i=b.height;for(const j of b.fragments)this._DrawFragment(a,j,c,d,e,f,g,h,i),e+=j.width}_DrawFragment(d,e,f,g,h,i,j,k,l){let m=e.text,n=e.width;const o=e.styles;if(-1!==this._drawMaxCharCount){if(this._drawCharCount>=this._drawMaxCharCount)return;this._drawCharCount+m.length>this._drawMaxCharCount&&(m=m.substr(0,this._drawMaxCharCount-this._drawCharCount),n=this._MeasureText(m,o).width),this._drawCharCount+=m.length}const p=this._GetStyleTag(o,"background");if(!(C3.IsStringAllWhitespace(m)&&!p||this._HasStyleTag(o,"hide"))){const e=this._GetStyleTag(o,"scale"),q=e?parseFloat(e.param):this._scale,r=this._GetStyleTag(o,"scalex"),s=(r?parseFloat(r.param):1)*q,t=this._GetStyleTag(o,"scaley"),u=(t?parseFloat(t.param):1)*q,v=this._spriteFont.GetCharacterHeight()*u,w=this._lineHeight;i+=l-w-v;const x=this._GetStyleTag(o,"offsetx");h+=x?parseFloat(x.param):0;const y=this._GetStyleTag(o,"offsety");i+=y?parseFloat(y.param):0,p&&(d.SetColorFillMode(),c.parseString(p.param),c.setA(1),d.SetColor(c),a.set(h,i,h+n,i+v),a.getRight()>this._cssWidth&&a.setRight(this._cssWidth),b.setFromRotatedRectPrecalc(a,j,k),b.offset(f,g),d.Quad(b),d.SetTextureFillMode());const z=this._GetStyleTag(o,"color");z?(c.parseString(z.param),c.setA(this._color.getA())):c.copy(this._color);const A=this._GetStyleTag(o,"opacity");A&&c.setA(c.getA()*parseFloat(A.param)/100),c.premultiply(),d.SetColor(c);const B=this._spriteFont.GetCharacterWidth()*s,C=Math.abs(this.GetSpacing());for(const c of m){const e=this._spriteFont.GetCharacter(c);if(e){const c=e.GetDisplayWidth()*s;if(h+c>this._cssWidth+C+1e-5)return;a.set(h,i,h+B,i+v),b.setFromRotatedRectPrecalc(a,j,k),b.offset(f,g),d.Quad3(b,e.GetTexRect()),h+=c+this._spacing}else h+=this._spriteFont.GetSpaceWidth()*s+this._spacing}}}GetSpriteFont(){return this._spriteFont}SetBBCodeEnabled(a){a=!!a;this._isBBcodeEnabled===a||(this._isBBcodeEnabled=a,this._SetWrapChanged())}IsBBCodeEnabled(){return this._isBBcodeEnabled}SetText(a){this._text===a||(this._text=a,this._SetWrapChanged())}SetWordWrapMode(a){if(!f.has(a))throw new Error("invalid word wrap mode");this._wrapMode===a||(this._wrapMode=a,this._SetWrapChanged())}SetHorizontalAlign(b){if(!d.has(b))throw new Error("invalid alignment");this._horizontalAlign=b}SetVerticalAlign(b){if(!e.has(b))throw new Error("invalid alignment");this._verticalAlign=b}SetScale(a){this._scale===a||(this._scale=a,this._SetWrapChanged())}GetScale(){return this._scale}SetSpacing(a){this._spacing===a||(this._spacing=a,this._SetWrapChanged())}GetSpacing(){return this._spacing}SetLineHeight(a){this._lineHeight=a,this._SetWrapChanged()}GetLineHeight(){return this._lineHeight}SetColor(a){this._color.equals(a)||this._color.copy(a)}GetColor(){return this._color}GetTextWidth(){return this._MaybeWrapText(),this._wrappedText.GetMaxLineWidth()}GetTextHeight(){this._MaybeWrapText();const a=this._spriteFont.GetCharacterHeight()*this._scale,b=this._lineHeight;return this._wrappedText.GetLineCount()*(a+b)-b}}}
 
+"use strict";C3.Plugins.Function=class extends C3.SDKPluginBase{constructor(a){super(a)}Release(){super.Release()}};
+
+"use strict";C3.Plugins.Function.Type=class extends C3.SDKTypeBase{constructor(a){super(a)}Release(){super.Release()}OnCreate(){}};
+
+"use strict";{class a{constructor(){this.name="",this.retVal=0,this.params=[]}}C3.Plugins.Function.Instance=class extends C3.SDKInstanceBase{constructor(a){super(a),this._isPreview=this._runtime.IsPreview(),this._funcStackPtr=-1,this._funcStack=[];const b=(a,b)=>this._InvokeFromJS(a,b);self["c2_callFunction"]=b,self["c3_callFunction"]=b}Release(){super.Release()}Push(){const b=this._funcStack,c=++this._funcStackPtr;return c===b.length&&b.push(new a),b[c]}Pop(){--this._funcStackPtr}GetCurrent(){const a=this._funcStackPtr;return 0>a?null:this._funcStack[a]}GetOneAbove(){const a=this._funcStack;if(!a.length)return null;const b=Math.min(this._funcStackPtr+1,a.length-1);return a[b]}_CallFunction(a,b){const c=this.Push();c.name=a.toLowerCase(),c.retVal=0,C3.shallowAssignArray(c.params,b);const d=this.FastTrigger(C3.Plugins.Function.Cnds.OnFunction,c.name);this._isPreview&&!d&&console.warn(`[Construct 3] Function object: called function '${a}' but no event was triggered. Is the function call spelt incorrectly or no longer used?`),this.Pop()}*_DebugCallFunction(a,b){const c=this.Push();c.name=a.toLowerCase(),c.retVal=0,C3.shallowAssignArray(c.params,b);const d=yield*this.DebugFastTrigger(C3.Plugins.Function.Cnds.OnFunction,c.name);this._isPreview&&!d&&console.warn(`[Construct 3] Function object: called function '${a}' but no event was triggered. Is the function call spelt incorrectly or no longer used?`),this.Pop()}_InvokeFromJS(a,b){const c=this.Push();return c.name=a.toLowerCase(),c.retVal=0,c.params=(b||[]).map((a)=>"number"==typeof a||"string"==typeof a?a:"boolean"==typeof a?a?1:0:0),this.FastTrigger(C3.Plugins.Function.Cnds.OnFunction,c.name),this.Pop(),c.retVal}}}
+
+"use strict";C3.Plugins.Function.Cnds={OnFunction(){return!0},CompareParam(a,b,c){const d=this.GetCurrent();if(!d)return this._isPreview&&console.warn(`[Construct 3] Function object: used 'Compare parameter' condition when not in a function call`),!1;const e=d.params;a=Math.floor(a);let f=0;return 0>a||a>=e.length?this._isPreview&&console.warn(`[Construct 3] Function object: in function '${d.name}', compared parameter out of bounds (accessed index ${a} of ${e.length})`):f=e[a],C3.compare(f,b,c)}};
+
+"use strict";C3.Plugins.Function.Acts={CallFunction(a,b){return this._runtime.IsDebugging()?this._DebugCallFunction(a,b):void this._CallFunction(a,b)},SetReturnValue(a){const b=this.GetCurrent();b?b.retVal=a:this._isPreview&&console.warn(`[Construct 3] Function object: used 'Set return value' when not in a function call`)},CallExpression(){}};
+
+"use strict";C3.Plugins.Function.Exps={ReturnValue(){const a=this.GetOneAbove();return a?a.retVal:0},ParamCount(){const a=this.GetCurrent();return a?a.params.length:(this._isPreview&&console.warn(`[Construct 3] Function object: used 'ParamCount' expression when not in a function call`),0)},Param(a){a=Math.floor(a);const b=this.GetCurrent();if(b){const c=b.params;return 0<=a&&a<c.length?c[a]:(this._isPreview&&console.warn(`[Construct 3] Function object: in function '${b.name}', accessed parameter out of bounds (accessed index ${a} of ${c.length})`),0)}return this._isPreview&&console.warn(`[Construct 3] Function object: used 'Param' expression when not in a function call`),0},Call(a,...b){const c=this.Push();c.name=a.toLowerCase(),c.retVal=0,c.params=b;const d=this.FastTrigger(C3.Plugins.Function.Cnds.OnFunction,c.name);return this._isPreview&&!d&&console.warn(`[Construct 3] Function object: expression Function.Call("${a}" ...) was used, but no event was triggered. Is the function call spelt incorrectly or no longer used?`),this.Pop(),c.retVal}};
+
 "use strict";C3.Plugins.Keyboard=class extends C3.SDKPluginBase{constructor(a){super(a)}Release(){super.Release()}};
 
 "use strict";{function a(){return b.GetSingleGlobalInstance().GetSdkInstance()}C3.Plugins.Keyboard.Type=class extends C3.SDKTypeBase{constructor(a){super(a)}Release(){super.Release()}OnCreate(){}GetScriptInterfaceClass(){return IKeyboardObjectType}};let b=null;self.IKeyboardObjectType=class extends IObjectClass{constructor(a){super(a),b=a,a.GetRuntime()._GetCommonScriptInterfaces().keyboard=this}isKeyDown(b){const c=a();if("string"==typeof b)return c.IsKeyDown(b);if("number"==typeof b)return c.IsKeyCodeDown(b);throw new TypeError("expected string or number")}}}
@@ -570,18 +582,6 @@ self["C3_Shaders"]["hsladjust"] = {
 "use strict";{let a=null;const b=["auto","pointer","text","crosshair","move","help","wait","none"];C3.Plugins.Mouse.Acts={SetCursor(d){const c=b[d];a===c||(a=c,this.PostToDOM("cursor",c))},SetCursorSprite(b){if(C3.Platform.IsMobile||!b)return;const c=b.GetFirstPicked();if(!c)return;const d=c.GetWorldInfo(),e=c.GetCurrentImageInfo();d&&e&&a!==e&&(a=e,e.ExtractImageToCanvas().then((a)=>C3.CanvasToBlob(a)).then((a)=>{var b=Math.round;const c=URL.createObjectURL(a),f=`url(${c}) ${b(d.GetOriginX()*e.GetWidth())} ${b(d.GetOriginY()*e.GetHeight())}, auto`;this.PostToDOM("cursor",""),this.PostToDOM("cursor",f)}))}}}
 
 "use strict";C3.Plugins.Mouse.Exps={X(a){return this.GetMousePositionForLayer(a,!0)},Y(a){return this.GetMousePositionForLayer(a,!1)},AbsoluteX(){return this._mouseXcanvas},AbsoluteY(){return this._mouseYcanvas}};
-
-"use strict";C3.Plugins.Function=class extends C3.SDKPluginBase{constructor(a){super(a)}Release(){super.Release()}};
-
-"use strict";C3.Plugins.Function.Type=class extends C3.SDKTypeBase{constructor(a){super(a)}Release(){super.Release()}OnCreate(){}};
-
-"use strict";{class a{constructor(){this.name="",this.retVal=0,this.params=[]}}C3.Plugins.Function.Instance=class extends C3.SDKInstanceBase{constructor(a){super(a),this._isPreview=this._runtime.IsPreview(),this._funcStackPtr=-1,this._funcStack=[];const b=(a,b)=>this._InvokeFromJS(a,b);self["c2_callFunction"]=b,self["c3_callFunction"]=b}Release(){super.Release()}Push(){const b=this._funcStack,c=++this._funcStackPtr;return c===b.length&&b.push(new a),b[c]}Pop(){--this._funcStackPtr}GetCurrent(){const a=this._funcStackPtr;return 0>a?null:this._funcStack[a]}GetOneAbove(){const a=this._funcStack;if(!a.length)return null;const b=Math.min(this._funcStackPtr+1,a.length-1);return a[b]}_CallFunction(a,b){const c=this.Push();c.name=a.toLowerCase(),c.retVal=0,C3.shallowAssignArray(c.params,b);const d=this.FastTrigger(C3.Plugins.Function.Cnds.OnFunction,c.name);this._isPreview&&!d&&console.warn(`[Construct 3] Function object: called function '${a}' but no event was triggered. Is the function call spelt incorrectly or no longer used?`),this.Pop()}*_DebugCallFunction(a,b){const c=this.Push();c.name=a.toLowerCase(),c.retVal=0,C3.shallowAssignArray(c.params,b);const d=yield*this.DebugFastTrigger(C3.Plugins.Function.Cnds.OnFunction,c.name);this._isPreview&&!d&&console.warn(`[Construct 3] Function object: called function '${a}' but no event was triggered. Is the function call spelt incorrectly or no longer used?`),this.Pop()}_InvokeFromJS(a,b){const c=this.Push();return c.name=a.toLowerCase(),c.retVal=0,c.params=(b||[]).map((a)=>"number"==typeof a||"string"==typeof a?a:"boolean"==typeof a?a?1:0:0),this.FastTrigger(C3.Plugins.Function.Cnds.OnFunction,c.name),this.Pop(),c.retVal}}}
-
-"use strict";C3.Plugins.Function.Cnds={OnFunction(){return!0},CompareParam(a,b,c){const d=this.GetCurrent();if(!d)return this._isPreview&&console.warn(`[Construct 3] Function object: used 'Compare parameter' condition when not in a function call`),!1;const e=d.params;a=Math.floor(a);let f=0;return 0>a||a>=e.length?this._isPreview&&console.warn(`[Construct 3] Function object: in function '${d.name}', compared parameter out of bounds (accessed index ${a} of ${e.length})`):f=e[a],C3.compare(f,b,c)}};
-
-"use strict";C3.Plugins.Function.Acts={CallFunction(a,b){return this._runtime.IsDebugging()?this._DebugCallFunction(a,b):void this._CallFunction(a,b)},SetReturnValue(a){const b=this.GetCurrent();b?b.retVal=a:this._isPreview&&console.warn(`[Construct 3] Function object: used 'Set return value' when not in a function call`)},CallExpression(){}};
-
-"use strict";C3.Plugins.Function.Exps={ReturnValue(){const a=this.GetOneAbove();return a?a.retVal:0},ParamCount(){const a=this.GetCurrent();return a?a.params.length:(this._isPreview&&console.warn(`[Construct 3] Function object: used 'ParamCount' expression when not in a function call`),0)},Param(a){a=Math.floor(a);const b=this.GetCurrent();if(b){const c=b.params;return 0<=a&&a<c.length?c[a]:(this._isPreview&&console.warn(`[Construct 3] Function object: in function '${b.name}', accessed parameter out of bounds (accessed index ${a} of ${c.length})`),0)}return this._isPreview&&console.warn(`[Construct 3] Function object: used 'Param' expression when not in a function call`),0},Call(a,...b){const c=this.Push();c.name=a.toLowerCase(),c.retVal=0,c.params=b;const d=this.FastTrigger(C3.Plugins.Function.Cnds.OnFunction,c.name);return this._isPreview&&!d&&console.warn(`[Construct 3] Function object: expression Function.Call("${a}" ...) was used, but no event was triggered. Is the function call spelt incorrectly or no longer used?`),this.Pop(),c.retVal}};
 
 "use strict";C3.Plugins.TiledBg=class extends C3.SDKPluginBase{constructor(a){super(a)}Release(){super.Release()}};
 
@@ -655,6 +655,18 @@ self["C3_Shaders"]["hsladjust"] = {
 
 "use strict";C3.Plugins.AJAX.Exps={LastData(){return this._lastData},Progress(){return this._progress},Tag(){return this._curTag}};
 
+"use strict";{C3.Plugins.iframe=class extends C3.SDKDOMPluginBase{constructor(a){super(a,"iframe")}Release(){super.Release()}}}
+
+"use strict";C3.Plugins.iframe.Type=class extends C3.SDKTypeBase{constructor(a){super(a)}Release(){super.Release()}OnCreate(){}};
+
+"use strict";{C3.Plugins.iframe.Instance=class extends C3.SDKDOMInstanceBase{constructor(a,b){super(a,"iframe"),this._url="";let c="";this._id="",this._allowAttrib="",this._enableSandbox=!1,this._sandboxAttrib="",b&&(this._url=b[0],c=b[1],this.GetWorldInfo().SetVisible(b[2]),this._id=b[3],this._allowAttrib=b[4],this._enableSandbox=b[5],this._sandboxAttrib=b[6]),this.CreateElement({"url":"","html":c,"id":this._id,"allow":this._allowAttrib,"enableSandbox":this._enableSandbox,"sandbox":this._sandboxAttrib}),this._url&&this.GetUrl().then((a)=>{this.PostToDOMElement("navigate-url",{"url":a})})}Release(){super.Release()}GetElementState(){return{}}async GetUrl(a){return await this._runtime.GetAssetManager().GetProjectFileUrl(a||this._url)}Draw(){}SaveToJson(){return{"url":this._url,"id":this._id}}LoadFromJson(a){this._url=a["url"],this._id=a["id"],this.UpdateElementState()}GetDebuggerProperties(){const a=C3.Plugins.iframe.Acts;return[{title:"plugins.iframe.name",properties:[{name:"plugins.iframe.properties.url.name",value:this._url,onedit:(b)=>this.CallAction(a.NavigateURL,b)}]}]}}}
+
+"use strict";C3.Plugins.iframe.Cnds={};
+
+"use strict";C3.Plugins.iframe.Acts={SetVisible(a){const b=this.GetWorldInfo();a=0!==a;b.IsVisible()===a||b.SetVisible(a)},SetCSSStyle(a,b){this.SetElementCSSStyle(a,b)},async NavigateURL(a){const b=await this.GetUrl(a);this.PostToDOMElement("navigate-url",{"url":b})},DisplayHTMLString(a){this.PostToDOMElement("display-html",{"html":a})}};
+
+"use strict";C3.Plugins.iframe.Exps={};
+
 "use strict";C3.Behaviors.DragnDrop=class extends C3.SDKBehaviorBase{constructor(a){super(a);const b=this._runtime.Dispatcher();this._disposables=new C3.CompositeDisposable(C3.Disposable.From(b,"pointerdown",(a)=>this._OnPointerDown(a.data)),C3.Disposable.From(b,"pointermove",(a)=>this._OnPointerMove(a.data)),C3.Disposable.From(b,"pointerup",(a)=>this._OnPointerUp(a.data,!1)),C3.Disposable.From(b,"pointercancel",(a)=>this._OnPointerUp(a.data,!0)))}Release(){this._disposables.Release(),this._disposables=null,super.Release()}_OnPointerDown(a){this._OnInputDown(a["pointerId"].toString(),a["clientX"]-this._runtime.GetCanvasClientX(),a["clientY"]-this._runtime.GetCanvasClientY())}_OnPointerMove(a){this._OnInputMove(a["pointerId"].toString(),a["clientX"]-this._runtime.GetCanvasClientX(),a["clientY"]-this._runtime.GetCanvasClientY())}_OnPointerUp(a){this._OnInputUp(a["pointerId"].toString())}async _OnInputDown(a,b,c){const d=this.GetInstances();let e=null,f=null,g=0,h=0;for(const i of d){const a=i.GetBehaviorSdkInstanceFromCtor(C3.Behaviors.DragnDrop);if(!a.IsEnabled()||a.IsDragging())continue;const d=i.GetWorldInfo(),j=d.GetLayer(),[k,l]=j.CanvasCssToLayer(b,c,d.GetTotalZElevation());if(!d.ContainsPoint(k,l))continue;if(!e){e=i,f=a,g=k,h=l;continue}const m=e.GetWorldInfo();(j.GetIndex()>m.GetLayer().GetIndex()||j.GetIndex()===m.GetLayer().GetIndex()&&d.GetZIndex()>m.GetZIndex())&&(e=i,f=a,g=k,h=l)}e&&(await f._OnDown(a,g,h))}_OnInputMove(a,b,c){const d=this.GetInstances();for(const e of d){const d=e.GetBehaviorSdkInstanceFromCtor(C3.Behaviors.DragnDrop);if(!d.IsEnabled()||!d.IsDragging()||d.IsDragging()&&d.GetDragSource()!==a)continue;const f=e.GetWorldInfo(),g=f.GetLayer(),[h,i]=g.CanvasCssToLayer(b,c,f.GetTotalZElevation());d._OnMove(h,i)}}async _OnInputUp(a){const b=this.GetInstances();for(const c of b){const b=c.GetBehaviorSdkInstanceFromCtor(C3.Behaviors.DragnDrop);b.IsDragging()&&b.GetDragSource()===a&&(await b._OnUp())}}};
 
 "use strict";C3.Behaviors.DragnDrop.Type=class extends C3.SDKBehaviorTypeBase{constructor(a){super(a)}Release(){super.Release()}OnCreate(){}};
@@ -700,9 +712,9 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Arr,
 		C3.Plugins.Sprite,
 		C3.Plugins.Spritefont2,
+		C3.Plugins.Function,
 		C3.Plugins.Keyboard,
 		C3.Plugins.Mouse,
-		C3.Plugins.Function,
 		C3.Plugins.TiledBg,
 		C3.Behaviors.NoSave,
 		C3.Plugins.TextBox,
@@ -710,124 +722,103 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Button,
 		C3.Plugins.filechooser,
 		C3.Plugins.AJAX,
+		C3.Plugins.iframe,
 		C3.Behaviors.Pin,
 		C3.Plugins.System.Cnds.IsGroupActive,
-		C3.Plugins.Button.Cnds.OnClicked,
-		C3.Plugins.Spritefont2.Acts.Destroy,
-		C3.Plugins.Function.Acts.CallFunction,
-		C3.Plugins.TextBox.Exps.Text,
-		C3.Plugins.Mouse.Cnds.OnWheel,
-		C3.Plugins.Keyboard.Cnds.IsKeyDown,
-		C3.Plugins.System.Acts.ScrollY,
-		C3.Plugins.System.Exps.scrolly,
-		C3.Plugins.System.Cnds.Else,
-		C3.Behaviors.DragnDrop.Cnds.IsDragging,
-		C3.Plugins.NinePatch.Acts.SetPosToObject,
-		C3.Plugins.Spritefont2.Acts.MoveToTop,
-		C3.Plugins.NinePatch.Acts.MoveToTop,
-		C3.Behaviors.DragnDrop.Cnds.OnDragStart,
-		C3.Plugins.System.Acts.SetVar,
-		C3.Plugins.Spritefont2.Exps.X,
-		C3.Plugins.Spritefont2.Exps.Y,
-		C3.Behaviors.DragnDrop.Cnds.OnDrop,
-		C3.Plugins.System.Cnds.PickAll,
-		C3.Plugins.NinePatch.Cnds.CompareInstanceVar,
-		C3.Plugins.System.Cnds.Compare,
-		C3.Plugins.Spritefont2.Exps.PickedCount,
-		C3.Plugins.Spritefont2.Cnds.PickTopBottom,
-		C3.Plugins.Spritefont2.Exps.IID,
-		C3.Plugins.Spritefont2.Acts.SetPos,
-		C3.Plugins.Function.Cnds.OnFunction,
-		C3.Plugins.Function.Exps.Param,
-		C3.Plugins.Arr.Exps.At,
-		C3.Plugins.System.Cnds.PickByComparison,
-		C3.Plugins.Spritefont2.Acts.SetText,
-		C3.Plugins.Arr.Acts.SetX,
-		C3.Plugins.System.Cnds.CompareVar,
-		C3.Plugins.Mouse.Acts.SetCursor,
-		C3.Plugins.Mouse.Exps.X,
-		C3.Plugins.Mouse.Exps.Y,
-		C3.Plugins.Mouse.Cnds.IsOverObject,
-		C3.Plugins.TextBox.Acts.SetText,
-		C3.Plugins.Spritefont2.Exps.Text,
-		C3.Plugins.TextBox.Acts.SetEnabled,
-		C3.Plugins.Keyboard.Cnds.OnAnyKey,
-		C3.Plugins.Keyboard.Exps.StringFromKeyCode,
-		C3.Plugins.Keyboard.Exps.LastKeyCode,
-		C3.Plugins.TextBox.Acts.SetFocus,
-		C3.Plugins.Keyboard.Cnds.OnKey,
-		C3.Plugins.TextBox.Cnds.OnTextChanged,
-		C3.Plugins.NinePatch.Acts.SetInstanceVar,
-		C3.Plugins.NinePatch.Acts.SetOpacity,
 		C3.Plugins.System.Cnds.OnLayoutStart,
-		C3.Plugins.Function.Exps.Call,
+		C3.Plugins.Dictionary.Acts.AddKey,
+		C3.Plugins.Function.Cnds.OnFunction,
 		C3.Plugins.Function.Acts.SetReturnValue,
-		C3.Plugins.System.Exps.replace,
-		C3.Plugins.Arr.Acts.SetSize,
-		C3.Plugins.System.Cnds.For,
-		C3.Plugins.System.Exps.regexmatchcount,
-		C3.Plugins.Arr.Acts.Push,
-		C3.Plugins.System.Exps.regexmatchat,
-		C3.Plugins.System.Exps.loopindex,
-		C3.Plugins.Arr.Cnds.ArrForEach,
-		C3.Plugins.System.Acts.CreateObject,
-		C3.Plugins.System.Exps.trim,
-		C3.Plugins.Arr.Exps.CurValue,
-		C3.Plugins.System.Acts.Wait,
-		C3.Plugins.Spritefont2.Acts.SetSize,
-		C3.Plugins.Spritefont2.Exps.TextWidth,
-		C3.Plugins.Spritefont2.Exps.TextHeight,
-		C3.Plugins.System.Cnds.ForEachOrdered,
-		C3.Plugins.Spritefont2.Cnds.CompareText,
-		C3.Plugins.System.Acts.AddVar,
-		C3.Plugins.Spritefont2.Acts.SetWidth,
-		C3.Plugins.System.Cnds.ForEach,
-		C3.Plugins.NinePatch.Acts.SetSize,
-		C3.Plugins.Spritefont2.Exps.Width,
-		C3.Plugins.Spritefont2.Exps.Height,
+		C3.Plugins.Function.Exps.Param,
 		C3.Plugins.NinePatch.Cnds.PickByUID,
 		C3.Plugins.NinePatch.Acts.SetPos,
+		C3.Plugins.Function.Exps.Call,
 		C3.Plugins.NinePatch.Exps.X,
 		C3.Plugins.NinePatch.Exps.Y,
+		C3.Plugins.NinePatch.Acts.SetSize,
 		C3.Plugins.NinePatch.Exps.Width,
 		C3.Plugins.NinePatch.Exps.Height,
+		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.NinePatch.Acts.MoveToLayer,
+		C3.Plugins.NinePatch.Acts.SetOpacity,
+		C3.Plugins.Function.Acts.CallFunction,
 		C3.Plugins.NinePatch.Exps.UID,
+		C3.Plugins.System.Cnds.PickAll,
+		C3.Plugins.System.Cnds.PickByComparison,
+		C3.Behaviors.DragnDrop.Cnds.IsDragging,
 		C3.Plugins.NinePatch.Cnds.IsBoolInstanceVarSet,
 		C3.Plugins.Spritefont2.Acts.SetOpacity,
 		C3.Plugins.Spritefont2.Exps.Opacity,
 		C3.Plugins.NinePatch.Exps.Opacity,
+		C3.Plugins.System.Cnds.Else,
 		C3.Plugins.NinePatch.Acts.SetWidth,
 		C3.Plugins.Dictionary.Exps.Get,
 		C3.Plugins.NinePatch.Acts.SetHeight,
 		C3.Plugins.NinePatch.Acts.SetX,
 		C3.Plugins.NinePatch.Acts.SetY,
+		C3.Plugins.System.Cnds.ForEach,
 		C3.Plugins.Spritefont2.Cnds.CompareX,
 		C3.Plugins.Spritefont2.Cnds.CompareY,
+		C3.Plugins.Spritefont2.Acts.SetPos,
 		C3.Plugins.Spritefont2.Acts.MoveToLayer,
 		C3.Plugins.NinePatch.Exps.LayerName,
 		C3.Plugins.Spritefont2.Acts.ZMoveToObject,
+		C3.Plugins.System.Cnds.Compare,
 		C3.Plugins.Function.Exps.ParamCount,
 		C3.Plugins.Browser.Acts.Alert,
+		C3.Plugins.Spritefont2.Acts.SetText,
+		C3.Plugins.Spritefont2.Acts.SetSize,
 		C3.Plugins.Spritefont2.Acts.SetScale,
 		C3.Plugins.Spritefont2.Acts.SetInstanceVar,
+		C3.Plugins.Spritefont2.Exps.TextWidth,
+		C3.Plugins.Spritefont2.Exps.TextHeight,
+		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.System.Exps.dt,
+		C3.Plugins.Spritefont2.Exps.Width,
+		C3.Plugins.Spritefont2.Exps.Height,
 		C3.Plugins.Spritefont2.Exps.CharacterScale,
 		C3.Plugins.Mouse.Cnds.OnAnyClick,
+		C3.Plugins.Mouse.Cnds.IsOverObject,
+		C3.Plugins.System.Cnds.CompareVar,
+		C3.Plugins.Keyboard.Cnds.OnKey,
 		C3.Plugins.Mouse.Cnds.OnObjectClicked,
 		C3.Plugins.TextBox.Cnds.CompareInstanceVar,
 		C3.Plugins.TextBox.Exps.Height,
 		C3.Plugins.NinePatch.Cnds.IsOnLayer,
 		C3.Plugins.TextBox.Cnds.OnCreated,
-		C3.Plugins.Dictionary.Acts.AddKey,
+		C3.Plugins.TextBox.Acts.SetText,
+		C3.Plugins.TextBox.Acts.SetFocus,
+		C3.Plugins.TextBox.Cnds.OnTextChanged,
+		C3.Plugins.TextBox.Exps.Text,
+		C3.Plugins.NinePatch.Cnds.CompareInstanceVar,
+		C3.Plugins.NinePatch.Acts.Destroy,
+		C3.Plugins.Arr.Acts.SetSize,
+		C3.Plugins.Arr.Acts.Push,
 		C3.Plugins.Arr.Exps.AsJSON,
-		C3.Plugins.Mouse.Cnds.OnClick,
+		C3.Plugins.Mouse.Exps.X,
+		C3.Plugins.Mouse.Exps.Y,
+		C3.Plugins.Dictionary.Cnds.ForEachKey,
+		C3.Plugins.Dictionary.Exps.CurrentKey,
+		C3.Plugins.Arr.Acts.Sort,
+		C3.Plugins.System.Cnds.ForEachOrdered,
+		C3.Plugins.System.Acts.StopLoop,
+		C3.Plugins.NinePatch.Acts.SetInstanceVar,
+		C3.Plugins.Dictionary.Acts.DeleteKey,
 		C3.Plugins.Dictionary.Exps.AsJSON,
-		C3.Plugins.Dictionary.Acts.JSONLoad,
+		C3.Plugins.Dictionary.Acts.SetKey,
 		C3.Plugins.NinePatch.Cnds.OnCreated,
+		C3.Plugins.Dictionary.Cnds.HasKey,
+		C3.Plugins.System.Cnds.PickLastCreated,
+		C3.Plugins.TextBox.Acts.SetEnabled,
+		C3.Plugins.TextBox.Acts.Destroy,
+		C3.Plugins.Mouse.Cnds.OnClick,
+		C3.Behaviors.DragnDrop.Cnds.OnDrop,
+		C3.Behaviors.DragnDrop.Cnds.OnDragStart,
+		C3.Plugins.Keyboard.Cnds.IsKeyDown,
+		C3.Plugins.System.Acts.CreateObject,
+		C3.Plugins.Dictionary.Acts.JSONLoad,
 		C3.Plugins.Dictionary.Cnds.IsEmpty,
 		C3.Plugins.NinePatch.Cnds.PickTopBottom,
-		C3.Plugins.NinePatch.Acts.Destroy,
 		C3.Plugins.NinePatch.Acts.SetBoolInstanceVar,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
 		C3.Plugins.Mouse.Cnds.OnRelease,
@@ -840,6 +831,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Acts.ZMoveToObject,
 		C3.Plugins.Mouse.Acts.SetCursorSprite,
 		C3.Behaviors.DragnDrop.Acts.SetEnabled,
+		C3.Plugins.Mouse.Acts.SetCursor,
 		C3.Plugins.System.Exps.layoutname,
 		C3.Plugins.System.Acts.GoToLayout,
 		C3.Plugins.Mouse.Exps.AbsoluteX,
@@ -847,6 +839,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Mouse.Cnds.IsButtonDown,
 		C3.Plugins.System.Acts.Scroll,
 		C3.Plugins.System.Exps.scrollx,
+		C3.Plugins.System.Exps.scrolly,
+		C3.Plugins.Mouse.Cnds.OnWheel,
 		C3.Plugins.System.Acts.SetLayoutScale,
 		C3.Plugins.System.Exps.layoutscale,
 		C3.Plugins.TextBox.Acts.SetCSSStyle,
@@ -856,18 +850,44 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.filechooser.Exps.FileURLAt,
 		C3.Plugins.AJAX.Cnds.OnComplete,
 		C3.Plugins.AJAX.Exps.LastData,
+		C3.Plugins.System.Cnds.For,
 		C3.Plugins.System.Exps.tokencount,
 		C3.Plugins.System.Exps.tokenat,
+		C3.Plugins.System.Exps.loopindex,
 		C3.Plugins.filechooser.Acts.Destroy,
 		C3.Plugins.System.Acts.RecreateInitialObjects,
 		C3.Plugins.TextBox.Cnds.CompareText,
 		C3.Plugins.Browser.Acts.InvokeDownloadString,
 		C3.Plugins.TextBox.Exps.PickedCount,
-		C3.Plugins.TextBox.Acts.Destroy,
+		C3.Plugins.Spritefont2.Cnds.CompareText,
+		C3.Plugins.Spritefont2.Acts.Destroy,
+		C3.Plugins.Arr.Acts.SetX,
 		C3.Plugins.System.Exps.int,
 		C3.Plugins.NinePatch.Cnds.OnDestroyed,
 		C3.Plugins.TiledBg.Acts.Destroy,
-		C3.Plugins.System.Acts.StopLoop,
+		C3.Plugins.Button.Cnds.OnClicked,
+		C3.Plugins.System.Acts.ScrollY,
+		C3.Plugins.NinePatch.Acts.SetPosToObject,
+		C3.Plugins.Spritefont2.Acts.MoveToTop,
+		C3.Plugins.NinePatch.Acts.MoveToTop,
+		C3.Plugins.Spritefont2.Exps.X,
+		C3.Plugins.Spritefont2.Exps.Y,
+		C3.Plugins.Spritefont2.Exps.PickedCount,
+		C3.Plugins.Spritefont2.Cnds.PickTopBottom,
+		C3.Plugins.Spritefont2.Exps.IID,
+		C3.Plugins.Arr.Exps.At,
+		C3.Plugins.Spritefont2.Exps.Text,
+		C3.Plugins.Keyboard.Cnds.OnAnyKey,
+		C3.Plugins.Keyboard.Exps.StringFromKeyCode,
+		C3.Plugins.Keyboard.Exps.LastKeyCode,
+		C3.Plugins.System.Exps.replace,
+		C3.Plugins.System.Exps.regexmatchcount,
+		C3.Plugins.System.Exps.regexmatchat,
+		C3.Plugins.Arr.Cnds.ArrForEach,
+		C3.Plugins.System.Exps.trim,
+		C3.Plugins.Arr.Exps.CurValue,
+		C3.Plugins.System.Acts.AddVar,
+		C3.Plugins.Spritefont2.Acts.SetWidth,
 		C3.Plugins.Browser.Cnds.OnUpdateFound,
 		C3.Plugins.System.Exps.viewportleft,
 		C3.Plugins.System.Exps.viewportright,
@@ -892,21 +912,25 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.TextBox.Acts.SetPlaceholder,
 		C3.Plugins.Spritefont2.Acts.SetPosToObject,
 		C3.Plugins.NinePatch.Acts.SetEffectParam,
-		C3.Plugins.NinePatch.Acts.ToggleBoolInstanceVar,
 		C3.Plugins.System.Exps.len,
 		C3.Plugins.System.Exps.left,
 		C3.Plugins.System.Exps.right,
 		C3.Plugins.System.Acts.SetLayerOpacity,
 		C3.Plugins.System.Cnds.LayerCmpOpacity,
 		C3.Plugins.System.Exps.layeropacity,
-		C3.Plugins.Dictionary.Cnds.ForEachKey,
-		C3.Plugins.Dictionary.Exps.CurrentKey,
 		C3.Plugins.Dictionary.Exps.CurrentValue,
 		C3.Plugins.Dictionary.Acts.Clear,
 		C3.Plugins.filechooser.Cnds.OnCreated,
 		C3.Plugins.filechooser.Acts.SetCSSStyle,
 		C3.Plugins.filechooser.Acts.SetPosToObject,
-		C3.Plugins.filechooser.Acts.SetSize
+		C3.Plugins.filechooser.Acts.SetSize,
+		C3.Plugins.iframe.Acts.SetSize,
+		C3.Plugins.iframe.Acts.SetCSSStyle,
+		C3.Plugins.iframe.Acts.SetInstanceVar,
+		C3.Plugins.iframe.Acts.NavigateURL,
+		C3.Plugins.iframe.Acts.SetPos,
+		C3.Plugins.iframe.Exps.IID,
+		C3.Plugins.NinePatch.Exps.IID
 	];
 };
 self.C3_JsPropNameTable = [
@@ -938,15 +962,18 @@ self.C3_JsPropNameTable = [
 	{Tooltip: 0},
 	{TooltipText: 0},
 	{FileChooserText: 0},
+	{f: 0},
 	{Keyboard: 0},
 	{Mouse: 0},
-	{f: 0},
+	{SpriteFontImporter: 0},
 	{GridLineHorizontal: 0},
 	{GridLineVertical: 0},
-	{SpriteFontImporter: 0},
-	{WholeText: 0},
+	{GlobalTagDictionary: 0},
+	{LevelTagDictionary: 0},
+	{GlobalTypesDictionary: 0},
 	{Word: 0},
 	{WordsArray: 0},
+	{WholeText: 0},
 	{Browser: 0},
 	{ProcessButton: 0},
 	{"9patch": 0},
@@ -970,36 +997,12 @@ self.C3_JsPropNameTable = [
 	{Origin: 0},
 	{Sprite: 0},
 	{Icon: 0},
+	{TargetURL: 0},
+	{iframe: 0},
+	{TempArray: 0},
+	{LinksArray: 0},
 	{TextBox: 0},
 	{ResizeHandles: 0},
-	{ScrollIncrement: 0},
-	{OriginalX: 0},
-	{OriginalY: 0},
-	{DraggedWord: 0},
-	{WordDroppedOn: 0},
-	{WordOneID: 0},
-	{WordTwoID: 0},
-	{WordOne: 0},
-	{WordTwo: 0},
-	{WordID: 0},
-	{TextBoxWordID: 0},
-	{MouseOverWordID: 0},
-	{MouseMoved: 0},
-	{LastMouseX: 0},
-	{LastMouseY: 0},
-	{PressedKey: 0},
-	{SelectedWordIndex: 0},
-	{CurrentText: 0},
-	{Regex: 0},
-	{CurrentLineY: 0},
-	{LineHeight: 0},
-	{SpaceWidth: 0},
-	{TextStartX: 0},
-	{TextStartY: 0},
-	{TextCutOffX: 0},
-	{PreviousWordEndX: 0},
-	{PreviousWordY: 0},
-	{WordEndX: 0},
 	{GridTileHeight: 0},
 	{GridTileWidth: 0},
 	{MaxLevelHeightInScreens: 0},
@@ -1020,9 +1023,24 @@ self.C3_JsPropNameTable = [
 	{LayerName: 0},
 	{PlaceholderText: 0},
 	{NameBoxHeight: 0},
+	{ArrayAsJSON: 0},
+	{MenuDistance: 0},
+	{MenuItemWidth: 0},
+	{MenuItemHeight: 0},
+	{MenuButtonType: 0},
+	{MenuButtonLayer: 0},
+	{MenuButtonName: 0},
 	{LevelRectCenterX: 0},
 	{LevelRectCenterY: 0},
 	{MenuDistanceFromOrigin: 0},
+	{MenuEndX: 0},
+	{MenuEndY: 0},
+	{ButtonName: 0},
+	{ButtonDistance: 0},
+	{ButtonWidth: 0},
+	{ButtonHeight: 0},
+	{ButtonLayerName: 0},
+	{ButtonType: 0},
 	{DictionaryJSON: 0},
 	{LowestPossibleX: 0},
 	{LowestPossibleY: 0},
@@ -1031,6 +1049,8 @@ self.C3_JsPropNameTable = [
 	{HandleThickness: 0},
 	{MouseOverLevelUID: 0},
 	{MouseOver: 0},
+	{LastMouseX: 0},
+	{LastMouseY: 0},
 	{CurMouseX: 0},
 	{CurMouseY: 0},
 	{DiffMouseX: 0},
@@ -1051,12 +1071,6 @@ self.C3_JsPropNameTable = [
 	{CompleteProgressionData: 0},
 	{FileExtension: 0},
 	{FileName: 0},
-	{ButtonName: 0},
-	{ButtonDistance: 0},
-	{ButtonWidth: 0},
-	{ButtonHeight: 0},
-	{ButtonLayerName: 0},
-	{ButtonType: 0},
 	{LowestX: 0},
 	{LowestY: 0},
 	{HighestX: 0},
@@ -1065,6 +1079,32 @@ self.C3_JsPropNameTable = [
 	{LowestY_InTiles: 0},
 	{HighesX_InTiles: 0},
 	{HighestY_InTiles: 0},
+	{ScrollIncrement: 0},
+	{OriginalX: 0},
+	{OriginalY: 0},
+	{DraggedWord: 0},
+	{WordDroppedOn: 0},
+	{WordOneID: 0},
+	{WordTwoID: 0},
+	{WordOne: 0},
+	{WordTwo: 0},
+	{WordID: 0},
+	{TextBoxWordID: 0},
+	{MouseOverWordID: 0},
+	{MouseMoved: 0},
+	{PressedKey: 0},
+	{SelectedWordIndex: 0},
+	{CurrentText: 0},
+	{Regex: 0},
+	{CurrentLineY: 0},
+	{LineHeight: 0},
+	{SpaceWidth: 0},
+	{TextStartX: 0},
+	{TextStartY: 0},
+	{TextCutOffX: 0},
+	{PreviousWordEndX: 0},
+	{PreviousWordY: 0},
+	{WordEndX: 0},
 	{ScreenLeft: 0},
 	{ScreenRight: 0},
 	{ScreenTop: 0},
@@ -1111,10 +1151,6 @@ self.C3_JsPropNameTable = [
 	{PaddingOffsetX: 0},
 	{PaddingOffsetY: 0},
 	{StandardType: 0},
-	{ArrayAsJSON: 0},
-	{MenuDistance: 0},
-	{MenuItemWidth: 0},
-	{MenuItemHeight: 0},
 	{TotalMenuHeight: 0},
 	{BorderSize: 0},
 	{MenuItemHeightMinusBorders: 0},
@@ -1234,141 +1270,14 @@ self.C3_JsPropNameTable = [
 	}
 
 	self.C3_ExpressionFuncs = [
-		() => "Input",
-		() => "InitializeWordboard",
-		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpObject();
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const v1 = p._GetNode(1).GetVar();
-			return () => (f0() + (v1.GetValue() * 5));
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const v1 = p._GetNode(1).GetVar();
-			return () => (f0() + v1.GetValue());
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const v1 = p._GetNode(1).GetVar();
-			return () => (f0() - (v1.GetValue() * 5));
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const v1 = p._GetNode(1).GetVar();
-			return () => (f0() - v1.GetValue());
-		},
-		() => "WordDragging",
-		() => 0,
-		() => "Mouseover",
-		() => 2,
-		() => "SwitchWords",
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => v0.GetValue();
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0(0);
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0(1);
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			const v1 = p._GetNode(1).GetVar();
-			return () => n0.ExpObject(v1.GetValue());
-		},
-		() => "UpdateWord",
-		() => "OrderWords",
-		() => "false",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0();
-		},
-		() => "true",
-		() => "",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const f1 = p._GetNode(1).GetBoundMethod();
-			return () => f0(f1());
-		},
-		() => "del",
-		() => "→",
-		() => "↑",
-		() => "←",
-		() => "↓",
-		() => "Selecting",
-		() => "None",
-		() => 30,
-		() => 10,
-		() => "Installing or repairing your roof is one of the more critical projects a property owner will undertake. Finding a roofing contractor you can depend on and trust for your new roofing system or roof repair project can be difficult. ",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const f1 = p._GetNode(1).GetBoundMethod();
-			return () => f0("TurnLineBreaksIntoText", f1(0));
-		},
-		() => "SeparateWordsInArray",
-		() => "CreateWordsFromArray",
-		() => "OrderHighLights",
-		() => "TurnLineBreaksIntoText",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const f1 = p._GetNode(1).GetBoundMethod();
-			return () => f0(f1(0), "\n", " <|newline|> ");
-		},
-		() => 1,
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const v1 = p._GetNode(1).GetVar();
-			const v2 = p._GetNode(2).GetVar();
-			return () => (f0(v1.GetValue(), v2.GetValue(), "gms") - 1);
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const v1 = p._GetNode(1).GetVar();
-			const v2 = p._GetNode(2).GetVar();
-			const f3 = p._GetNode(3).GetBoundMethod();
-			return () => f0(v1.GetValue(), v2.GetValue(), "gms", f3());
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const n1 = p._GetNode(1);
-			return () => f0(n1.ExpObject());
-		},
-		() => 0.1,
-		() => 1000,
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const n1 = p._GetNode(1);
-			return () => f0("GetWordEndX", (n1.ExpObject() - 1));
-		},
-		() => "<|newline|>",
-		() => " ",
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			const v1 = p._GetNode(1).GetVar();
-			return () => (v0.GetValue() + v1.GetValue());
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const n1 = p._GetNode(1);
-			return () => f0("GetWordEndX", n1.ExpObject());
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			return () => (n0.ExpObject() * 0.75);
-		},
-		() => "GetWordEndX",
-		p => {
-			const n0 = p._GetNode(0);
-			const n1 = p._GetNode(1);
-			return () => (n0.ExpObject() + n1.ExpObject());
-		},
 		() => "Initializing",
+		() => "#Cool",
+		() => 0,
+		() => "#Bad",
+		() => "#Weird",
+		() => "Arena",
+		() => "Platform",
+		() => "Challenge",
 		() => "Functions",
 		() => "Round/Ceil/Floor",
 		() => "Round",
@@ -1381,6 +1290,10 @@ self.C3_JsPropNameTable = [
 		},
 		() => "RoundY",
 		() => "RoundPosition",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0(0);
+		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const n1 = p._GetNode(1);
@@ -1439,6 +1352,14 @@ self.C3_JsPropNameTable = [
 		() => "Main",
 		() => 100,
 		() => "SelectLevel",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject();
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => v0.GetValue();
+		},
 		() => "OverGreyout",
 		() => "LevelManipulation",
 		p => {
@@ -1482,11 +1403,20 @@ self.C3_JsPropNameTable = [
 			return () => (n0.ExpObject() + (n1.ExpObject() / 2));
 		},
 		() => "UpdateLevelNameText",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0(1);
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0();
+		},
 		() => 3,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0(2);
 		},
+		() => 2,
 		() => "Wrong number of parameters for UpdateLevelNameText!",
 		() => "CheckIfTextIsTooBig",
 		p => {
@@ -1514,6 +1444,7 @@ self.C3_JsPropNameTable = [
 		() => 150,
 		() => 25,
 		() => 12,
+		() => "",
 		() => "CreateTextbox",
 		() => "LevelDescription",
 		() => "TextArea",
@@ -1533,16 +1464,62 @@ self.C3_JsPropNameTable = [
 		() => "Name",
 		() => "Description",
 		() => "Menus",
+		() => "Tags",
+		() => "TagEditing",
+		() => "CreateTagEditingMenu",
+		() => "Types",
+		() => "TypeEditing",
+		() => "CreateTypeEditingMenu",
+		() => 1,
+		() => "Rename",
+		() => "Delete",
+		() => "Set Icon",
+		() => "BottomRight",
+		() => 80,
+		() => "Trigger",
+		() => "CreateMenu",
+		() => "Set Color",
 		() => "CreateLevelMenus",
 		p => {
 			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
 			return () => ((n0.ExpObject() / 2) + (v1.GetValue() / 2));
 		},
-		() => "CreateMenu",
-		() => "Types",
 		() => "Left",
+		() => 0.1,
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpInstVar();
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => (n0.ExpInstVar() + n1.ExpObject());
+		},
+		() => "AddType",
+		() => 45,
+		() => 20,
+		() => "+",
+		() => "CreateButton",
 		() => "Right",
+		() => "AddTag",
+		() => "ButtonClicked",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			return () => f0("SerializeDictionary", n1.ExpObject(), ";|;", ":|:");
+		},
+		() => "Type",
+		() => "ButtonOff",
+		() => "ButtonOn",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("Type");
+		},
+		() => "NewTagName",
+		() => 30,
+		() => "NewTypeName",
+		() => "DestroyMenu",
 		() => "ChangingData",
 		() => "CreateMenusFromBlock",
 		() => "Moving",
@@ -1552,17 +1529,26 @@ self.C3_JsPropNameTable = [
 		() => "CreateLevelFromDictionaryJSON",
 		() => -9999,
 		() => "SetLevelFromDictionaryJSON",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			return () => f0("DeSerializeDictionary", n1.ExpObject("Tags"), ";|;", ":|:");
+		},
 		() => "SetLevelSizeFromItsDictionary",
 		() => "SetLevelPositionFromItsDictionary",
 		() => "Creating",
 		() => "EmptySpace",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			return () => (f0() - v1.GetValue());
+		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue() * 2);
 		},
 		() => "(no name)",
 		() => "(no description)",
-		() => "Type",
 		() => "WriteLevelHeightToItsDictionary",
 		() => "WriteLevelWidthToItsDictionary",
 		() => "Deleting",
@@ -1580,6 +1566,11 @@ self.C3_JsPropNameTable = [
 			const v2 = p._GetNode(2).GetVar();
 			const v3 = p._GetNode(3).GetVar();
 			return () => C3.clamp(n0.ExpObject(), (v1.GetValue() * 2), ((v2.GetValue() * v3.GetValue()) * 2));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => (n0.ExpObject() + n1.ExpObject());
 		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -1610,11 +1601,13 @@ self.C3_JsPropNameTable = [
 		() => "ProgTool",
 		() => "Screen",
 		() => "Dragging",
+		() => "true",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			const v1 = p._GetNode(1).GetVar();
 			return () => (v0.GetValue() - v1.GetValue());
 		},
+		() => "false",
 		() => "Zooming",
 		() => "TargetedZoom",
 		() => "Out",
@@ -1679,10 +1672,6 @@ self.C3_JsPropNameTable = [
 			return () => ("Y: " + (n0.ExpObject("ZeroAdjustedY")).toString());
 		},
 		() => "SidebarLevelType",
-		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpObject("Type");
-		},
 		() => "SidebarTags",
 		() => "#Tag1 #Tag2 #Tag3 #Tag4",
 		() => "ClearSidebarInfo",
@@ -1719,9 +1708,6 @@ self.C3_JsPropNameTable = [
 		() => "DestroyExportBox",
 		() => "DestroyDownloadButton",
 		() => "DestroyTextBox",
-		() => "DestroyMenu",
-		() => "Tags",
-		() => "ButtonClicked",
 		() => "Save",
 		() => "DownloadProgression",
 		p => {
@@ -1731,6 +1717,11 @@ self.C3_JsPropNameTable = [
 			return () => ((and(v0.GetValue(), f1("SerializeDictionary", n2.ExpObject())) + "\n") + "\n");
 		},
 		() => "progression",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			return () => (v0.GetValue() + v1.GetValue());
+		},
 		() => "CreateExportBox",
 		() => "CreateDownloadButton",
 		() => "Download",
@@ -1741,8 +1732,6 @@ self.C3_JsPropNameTable = [
 		},
 		() => 160,
 		() => "HUD",
-		() => "Trigger",
-		() => "CreateButton",
 		() => "Center",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -1844,6 +1833,97 @@ self.C3_JsPropNameTable = [
 			const v1 = p._GetNode(1).GetVar();
 			return () => add(n0.ExpObject("InvertedY"), v1.GetValue());
 		},
+		() => "Input",
+		() => "InitializeWordboard",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			return () => (f0() + (v1.GetValue() * 5));
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			return () => (f0() + v1.GetValue());
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			return () => (f0() - (v1.GetValue() * 5));
+		},
+		() => "WordDragging",
+		() => "Mouseover",
+		() => "SwitchWords",
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			return () => n0.ExpObject(v1.GetValue());
+		},
+		() => "UpdateWord",
+		() => "OrderWords",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => f0(f1());
+		},
+		() => "del",
+		() => "→",
+		() => "↑",
+		() => "←",
+		() => "↓",
+		() => "Selecting",
+		() => "None",
+		() => 10,
+		() => "Installing or repairing your roof is one of the more critical projects a property owner will undertake. Finding a roofing contractor you can depend on and trust for your new roofing system or roof repair project can be difficult. ",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => f0("TurnLineBreaksIntoText", f1(0));
+		},
+		() => "SeparateWordsInArray",
+		() => "CreateWordsFromArray",
+		() => "OrderHighLights",
+		() => "TurnLineBreaksIntoText",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => f0(f1(0), "\n", " <|newline|> ");
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			return () => (f0(v1.GetValue(), v2.GetValue(), "gms") - 1);
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			const f3 = p._GetNode(3).GetBoundMethod();
+			return () => f0(v1.GetValue(), v2.GetValue(), "gms", f3());
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			return () => f0(n1.ExpObject());
+		},
+		() => 1000,
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			return () => f0("GetWordEndX", (n1.ExpObject() - 1));
+		},
+		() => "<|newline|>",
+		() => " ",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			return () => f0("GetWordEndX", n1.ExpObject());
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpObject() * 0.75);
+		},
+		() => "GetWordEndX",
 		() => "Updates",
 		() => "Uma nova versão da ferramenta está disponível. Atualize a página para começar a usá-la.",
 		p => {
@@ -1988,7 +2068,6 @@ self.C3_JsPropNameTable = [
 			return () => (-v0.GetValue());
 		},
 		() => "TopRight",
-		() => "BottomRight",
 		() => "BottomLeft",
 		() => "TopLeft",
 		() => "Invalid TextBox direction! Oh no!",
@@ -2004,10 +2083,6 @@ self.C3_JsPropNameTable = [
 		},
 		() => "Invalid TextBox type! Oh no!",
 		() => "Buttons",
-		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpInstVar();
-		},
 		() => "Bad call! CreateButton requires at least three parameters.",
 		() => 5,
 		() => 7,
@@ -2037,6 +2112,7 @@ self.C3_JsPropNameTable = [
 			return () => ((v0.GetValue() - v1.GetValue()) - v2.GetValue());
 		},
 		() => "Bad call! CreateMenu requires at least three parameters.",
+		() => 11,
 		p => {
 			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
@@ -2061,8 +2137,6 @@ self.C3_JsPropNameTable = [
 		() => "AdjustHSL",
 		() => 90,
 		() => "Toggle",
-		() => "ButtonOn",
-		() => "ButtonOff",
 		() => "CutCharsFromEnd",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -2124,7 +2198,42 @@ self.C3_JsPropNameTable = [
 			return () => f0(v1.GetValue(), 1, v2.GetValue());
 		},
 		() => "FileChooser",
-		() => "opacity"
+		() => "opacity",
+		() => "iFrames",
+		() => "GDD",
+		() => "Localization",
+		() => "Bugs",
+		() => "Cronograma",
+		() => "https://gabrielwerneckms.github.io/MomboTool/release/",
+		() => "https://docs.google.com/document/d/1P12__mAhj_7aUTon-i3x2TzWhWWf_vBtBJ9X_SedgSY/edit",
+		() => "https://docs.google.com/spreadsheets/d/1ih78XwH2mHZHfxe-s1QuE1uGJy2OKTi3R5R89Ng61xY/edit?usp=drive_web&ouid=101437137419722623485",
+		() => "https://docs.google.com/document/d/1KSyjt3EdFmkJENHANLaVFqLsJrGF_6Nc2HZQnmYAj8I/edit",
+		() => "https://docs.google.com/spreadsheets/d/1bBAcbUFH-3OXcJOiAu1SfPXh60oUv1bLDiTI26b4fA4/edit#gid=0",
+		() => "Frames",
+		() => 50,
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (v0.GetValue() - 100);
+		},
+		() => "visibility",
+		() => "hidden",
+		() => "visible",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const n1 = p._GetNode(1);
+			return () => (v0.GetValue() + (n1.ExpObject() / 2));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => ((n0.ExpInstVar() + (n1.ExpObject() * 2.25)) - 4);
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const n1 = p._GetNode(1);
+			return () => (v0.GetValue() - n1.ExpObject());
+		},
+		() => 0.12
 	];
 }
 

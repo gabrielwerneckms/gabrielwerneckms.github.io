@@ -218,7 +218,10 @@
 					"Mouse",
 					"SpriteFontImporter",
 					"GridLineHorizontal",
-					"GridLineVertical"
+					"GridLineVertical",
+					"GlobalTagDictionary",
+					"LevelTagDictionary",
+					"GlobalTypesDictionary"
 				],
 				"subfolders": [],
 				"name": "Prog"
@@ -256,6 +259,7 @@
 				"Level",
 				"LevelInfo",
 				"LevelName",
+				"LevelTagDictionary",
 				"LevelTags"
 			],
 			"selectMode": "normal"
@@ -435,7 +439,7 @@
 		"useHighDpi": true,
 		"orientations": "any",
 		"enableWebGL": true,
-		"gpuPreference": "high-performance",
+		"gpuPreference": "default",
 		"compositingMode": "standard",
 		"sampling": "trilinear",
 		"downscaling": "medium",
