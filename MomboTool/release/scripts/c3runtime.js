@@ -2199,7 +2199,6 @@ self.C3_JsPropNameTable = [
 		},
 		() => "FileChooser",
 		() => "opacity",
-		() => "iFrames",
 		() => "GDD",
 		() => "Localization",
 		() => "Bugs",
