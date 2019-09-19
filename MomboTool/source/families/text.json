@@ -9,7 +9,6 @@
 		"ButtonText",
 		"LevelName",
 		"TooltipText",
-		"Word",
-		"FileChooserText"
+		"Word"
 	]
 }

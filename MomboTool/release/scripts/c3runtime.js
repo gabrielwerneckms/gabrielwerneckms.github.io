@@ -804,7 +804,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.StopLoop,
 		C3.Plugins.NinePatch.Acts.SetInstanceVar,
 		C3.Plugins.Dictionary.Acts.DeleteKey,
-		C3.Plugins.Dictionary.Exps.AsJSON,
 		C3.Plugins.Dictionary.Acts.SetKey,
 		C3.Plugins.NinePatch.Cnds.OnCreated,
 		C3.Plugins.Dictionary.Cnds.HasKey,
@@ -812,10 +811,12 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.PickLastCreated,
 		C3.Plugins.TextBox.Acts.SetEnabled,
 		C3.Plugins.TextBox.Acts.SetCSSStyle,
+		C3.Plugins.Dictionary.Cnds.CompareValue,
 		C3.Plugins.Mouse.Cnds.OnClick,
 		C3.Behaviors.DragnDrop.Cnds.OnDrop,
 		C3.Behaviors.DragnDrop.Cnds.OnDragStart,
 		C3.Plugins.Keyboard.Cnds.IsKeyDown,
+		C3.Plugins.Dictionary.Exps.AsJSON,
 		C3.Plugins.System.Acts.CreateObject,
 		C3.Plugins.Dictionary.Acts.JSONLoad,
 		C3.Plugins.Dictionary.Cnds.IsEmpty,
@@ -850,18 +851,18 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.filechooser.Exps.FileURLAt,
 		C3.Plugins.AJAX.Cnds.OnComplete,
 		C3.Plugins.AJAX.Exps.LastData,
+		C3.Plugins.System.Exps.tokenat,
 		C3.Plugins.System.Cnds.For,
 		C3.Plugins.System.Exps.tokencount,
-		C3.Plugins.System.Exps.tokenat,
 		C3.Plugins.System.Exps.loopindex,
 		C3.Plugins.filechooser.Acts.Destroy,
 		C3.Plugins.System.Acts.RecreateInitialObjects,
 		C3.Plugins.TextBox.Cnds.CompareText,
 		C3.Plugins.Browser.Acts.InvokeDownloadString,
+		C3.Plugins.Dictionary.Acts.Clear,
 		C3.Plugins.TextBox.Exps.PickedCount,
 		C3.Plugins.Spritefont2.Cnds.CompareText,
 		C3.Plugins.Spritefont2.Acts.Destroy,
-		C3.Plugins.Arr.Acts.SetX,
 		C3.Plugins.System.Exps.int,
 		C3.Plugins.NinePatch.Cnds.OnDestroyed,
 		C3.Plugins.TiledBg.Acts.Destroy,
@@ -876,6 +877,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Spritefont2.Cnds.PickTopBottom,
 		C3.Plugins.Spritefont2.Exps.IID,
 		C3.Plugins.Arr.Exps.At,
+		C3.Plugins.Arr.Acts.SetX,
 		C3.Plugins.Spritefont2.Exps.Text,
 		C3.Plugins.Keyboard.Cnds.OnAnyKey,
 		C3.Plugins.Keyboard.Exps.StringFromKeyCode,
@@ -908,6 +910,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Arr.Exps.Depth,
 		C3.Plugins.Arr.Exps.Width,
 		C3.Plugins.TextBox.Acts.SetSize,
+		C3.Plugins.TextBox.Acts.SetPos,
 		C3.Plugins.TextBox.Acts.SetInstanceVar,
 		C3.Plugins.TextBox.Acts.SetPlaceholder,
 		C3.Plugins.Spritefont2.Acts.SetPosToObject,
@@ -922,7 +925,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.LayerCmpOpacity,
 		C3.Plugins.System.Exps.layeropacity,
 		C3.Plugins.Dictionary.Exps.CurrentValue,
-		C3.Plugins.Dictionary.Acts.Clear,
 		C3.Plugins.filechooser.Cnds.OnCreated,
 		C3.Plugins.filechooser.Acts.SetCSSStyle,
 		C3.Plugins.filechooser.Acts.SetPosToObject,
@@ -941,8 +943,6 @@ self.C3_JsPropNameTable = [
 	{Resizing: 0},
 	{ResizingDirection: 0},
 	{Level: 0},
-	{LevelTags: 0},
-	{TagsArray: 0},
 	{TypesArray: 0},
 	{Position: 0},
 	{Direction: 0},
@@ -964,7 +964,6 @@ self.C3_JsPropNameTable = [
 	{Board: 0},
 	{Tooltip: 0},
 	{TooltipText: 0},
-	{FileChooserText: 0},
 	{f: 0},
 	{Keyboard: 0},
 	{Mouse: 0},
@@ -1004,6 +1003,7 @@ self.C3_JsPropNameTable = [
 	{iframe: 0},
 	{TempArray: 0},
 	{LinksArray: 0},
+	{TempDictionary2: 0},
 	{TextBox: 0},
 	{ResizeHandles: 0},
 	{GridTileHeight: 0},
@@ -1026,6 +1026,8 @@ self.C3_JsPropNameTable = [
 	{LayerName: 0},
 	{PlaceholderText: 0},
 	{NameBoxHeight: 0},
+	{LastTypeRightClicked: 0},
+	{LastTagRightClicked: 0},
 	{ArrayAsJSON: 0},
 	{MenuDistance: 0},
 	{MenuItemWidth: 0},
@@ -1044,6 +1046,8 @@ self.C3_JsPropNameTable = [
 	{ButtonHeight: 0},
 	{ButtonLayerName: 0},
 	{ButtonType: 0},
+	{OriginalName: 0},
+	{NewName: 0},
 	{DictionaryJSON: 0},
 	{LowestPossibleX: 0},
 	{LowestPossibleY: 0},
@@ -1068,12 +1072,21 @@ self.C3_JsPropNameTable = [
 	{MouseXDifference: 0},
 	{MouseYDifference: 0},
 	{ZoomDirection: 0},
-	{ProgressionData: 0},
-	{CurrentLevelSerialized: 0},
+	{CompleteData: 0},
+	{SerializedTagsDictionary: 0},
+	{SerializedTypesDictionary: 0},
+	{HeaderData: 0},
+	{LevelsData: 0},
+	{HeaderLevelSeparator: 0},
 	{LevelSeparator: 0},
+	{CurrentLevelSerialized: 0},
 	{CompleteProgressionData: 0},
 	{FileExtension: 0},
 	{FileName: 0},
+	{LevelsDataBeingProcessed: 0},
+	{CompleteHeaderData: 0},
+	{CompleteLevelsData: 0},
+	{HeaderAndLevelDataSeparator: 0},
 	{LowestX: 0},
 	{LowestY: 0},
 	{HighestX: 0},
@@ -1473,6 +1486,10 @@ self.C3_JsPropNameTable = [
 		() => "Description",
 		() => "Menus",
 		() => "Tags",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpInstVar();
+		},
 		() => "TagEditing",
 		() => "CreateTagEditingMenu",
 		() => "Types",
@@ -1481,13 +1498,12 @@ self.C3_JsPropNameTable = [
 		() => 1,
 		() => "Rename",
 		() => "Delete",
-		() => "Set Icon",
 		() => "BottomRight",
 		() => 80,
 		() => "Trigger",
 		() => "CreateMenu",
-		() => "Set Color",
 		() => "CreateLevelMenus",
+		() => "DestroyMenu",
 		p => {
 			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
@@ -1495,10 +1511,6 @@ self.C3_JsPropNameTable = [
 		},
 		() => "Left",
 		() => 0.1,
-		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpInstVar();
-		},
 		p => {
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
@@ -1515,11 +1527,7 @@ self.C3_JsPropNameTable = [
 		() => "Right",
 		() => "AddTag",
 		() => "ButtonClicked",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const n1 = p._GetNode(1);
-			return () => f0("SerializeDictionary", n1.ExpObject(), ";|;", ":|:");
-		},
+		() => "WriteLevelTagsToItsDictionary",
 		() => "Type",
 		() => "ButtonOff",
 		() => "ButtonOn",
@@ -1535,12 +1543,17 @@ self.C3_JsPropNameTable = [
 		() => "align",
 		() => "center",
 		() => "text-align",
-		() => "DestroyMenu",
+		() => "RenameTag",
+		() => "RenameType",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const n1 = p._GetNode(1);
 			return () => f0("StripCharacters", n1.ExpObject(), ":;", "true");
 		},
+		() => "NewLevelTag",
+		() => "NewLevelType",
+		() => "DeleteLevelTag",
+		() => "DeleteLevelType",
 		() => "ChangingData",
 		() => "CreateMenusFromBlock",
 		() => "Moving",
@@ -1691,7 +1704,11 @@ self.C3_JsPropNameTable = [
 		},
 		() => "SidebarLevelType",
 		() => "SidebarTags",
-		() => "#Tag1 #Tag2 #Tag3 #Tag4",
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => ((n0.ExpObject() + n1.ExpObject()) + " ");
+		},
 		() => "ClearSidebarInfo",
 		() => "Import",
 		() => "LevelFile",
@@ -1700,6 +1717,33 @@ self.C3_JsPropNameTable = [
 			return () => n0.ExpObject(0);
 		},
 		() => "\n\n",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			return () => f0(v1.GetValue(), 0, v2.GetValue());
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			return () => f0(v1.GetValue(), 1, v2.GetValue());
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			return () => f0("DeSerializeDictionary", v1.GetValue());
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			return () => f0("DeSerializeDictionary", n1.ExpObject("ListOfAllTags"), ";", ":");
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			return () => f0("DeSerializeDictionary", n1.ExpObject("ListOfAllTypes"), ";", ":");
+		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const v1 = p._GetNode(1).GetVar();
@@ -1713,11 +1757,6 @@ self.C3_JsPropNameTable = [
 			const v3 = p._GetNode(3).GetVar();
 			return () => f0(v1.GetValue(), f2(), v3.GetValue());
 		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const v1 = p._GetNode(1).GetVar();
-			return () => f0("DeSerializeDictionary", v1.GetValue());
-		},
 		() => -99999,
 		() => 99999,
 		() => "UpdateGrid",
@@ -1726,19 +1765,37 @@ self.C3_JsPropNameTable = [
 		() => "DestroyExportBox",
 		() => "DestroyDownloadButton",
 		() => "DestroyTextBox",
+		() => "progression",
 		() => "Save",
-		() => "DownloadProgression",
+		() => "SerializeProgression",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			return () => (v0.GetValue() + v1.GetValue());
+		},
+		() => "ListOfAllTags",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			return () => f0("SerializeDictionary", n1.ExpObject(), ";", ":");
+		},
+		() => "ListOfAllTypes",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			return () => f0("SerializeDictionary", n1.ExpObject());
+		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			const f1 = p._GetNode(1).GetBoundMethod();
 			const n2 = p._GetNode(2);
 			return () => ((and(v0.GetValue(), f1("SerializeDictionary", n2.ExpObject())) + "\n") + "\n");
 		},
-		() => "progression",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			const v1 = p._GetNode(1).GetVar();
-			return () => (v0.GetValue() + v1.GetValue());
+			const v2 = p._GetNode(2).GetVar();
+			return () => ((((((v0.GetValue() + "\n") + "\n") + v1.GetValue()) + "\n") + "\n") + v2.GetValue());
 		},
 		() => "CreateExportBox",
 		() => "CreateDownloadButton",
@@ -1759,24 +1816,9 @@ self.C3_JsPropNameTable = [
 			const n0 = p._GetNode(0);
 			return () => n0.ExpInstVar_Family();
 		},
-		p => {
-			const n0 = p._GetNode(0);
-			const f1 = p._GetNode(1).GetBoundMethod();
-			const n2 = p._GetNode(2);
-			return () => ((and(n0.ExpObject(), f1("SerializeDictionary", n2.ExpObject())) + "\n") + "\n");
-		},
 		() => "application/json",
 		() => "level.mql",
 		() => "TagsAndTypes",
-		() => "Tag1",
-		() => "Tag2",
-		() => "Tag3",
-		() => "Tag4",
-		() => 4,
-		() => "Tag5",
-		() => "Type1",
-		() => "Type2",
-		() => "Type3",
 		() => "Cursors",
 		() => "Coordinates",
 		() => "SetLevelWidthFromItsDictionary",
@@ -1828,6 +1870,11 @@ self.C3_JsPropNameTable = [
 		},
 		() => "Width",
 		() => "Height",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			return () => f0("SerializeDictionary", n1.ExpObject(), ";|;", ":|:");
+		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			const v1 = p._GetNode(1).GetVar();
@@ -1959,6 +2006,7 @@ self.C3_JsPropNameTable = [
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0(3);
 		},
+		() => 4,
 		() => 6,
 		() => "Wrong number of parameters for CreateGrid!",
 		p => {
@@ -2225,18 +2273,6 @@ self.C3_JsPropNameTable = [
 		},
 		() => "DeSerializeDictionary",
 		() => "Wrong number of parameters for DeSerializeDictionary function!",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const v1 = p._GetNode(1).GetVar();
-			const v2 = p._GetNode(2).GetVar();
-			return () => f0(v1.GetValue(), 0, v2.GetValue());
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const v1 = p._GetNode(1).GetVar();
-			const v2 = p._GetNode(2).GetVar();
-			return () => f0(v1.GetValue(), 1, v2.GetValue());
-		},
 		() => "FileChooser",
 		() => "opacity",
 		() => "GDD",

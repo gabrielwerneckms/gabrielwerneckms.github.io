@@ -2542,6 +2542,26 @@
 					"isActiveOnStart": true,
 					"children": [
 						{
+							"eventType": "variable",
+							"name": "LastTypeRightClicked",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 118600915254351
+						},
+						{
+							"eventType": "variable",
+							"name": "LastTagRightClicked",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 138948492057578
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -2568,6 +2588,22 @@
 							"actions": [],
 							"sid": 307240100208691,
 							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 656997041605341,
+											"parameters": {
+												"variable": "LastTagRightClicked",
+												"value": "Button.Text"
+											}
+										}
+									],
+									"sid": 786916562070156
+								},
 								{
 									"eventType": "block",
 									"conditions": [
@@ -2646,6 +2682,22 @@
 							"actions": [],
 							"sid": 568403272442746,
 							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 448128090370566,
+											"parameters": {
+												"variable": "LastTypeRightClicked",
+												"value": "Button.Text"
+											}
+										}
+									],
+									"sid": 979826373397453
+								},
 								{
 									"eventType": "block",
 									"conditions": [
@@ -2890,6 +2942,7 @@
 											"id": "push",
 											"objectClass": "TempArray",
 											"sid": 841098406658284,
+											"disabled": true,
 											"parameters": {
 												"where": "front",
 												"value": "\"Set Icon\"",
@@ -3211,6 +3264,7 @@
 											"id": "push",
 											"objectClass": "TempArray",
 											"sid": 869382822404321,
+											"disabled": true,
 											"parameters": {
 												"where": "front",
 												"value": "\"Set Color\"",
@@ -3435,6 +3489,28 @@
 								{
 									"id": "call-function",
 									"objectClass": "f",
+									"sid": 936796381956374,
+									"parameters": {
+										"name": "\"DestroyMenu\"",
+										"parameter-n": [
+											"\"Tags\""
+										]
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "f",
+									"sid": 375829067828211,
+									"parameters": {
+										"name": "\"DestroyMenu\"",
+										"parameter-n": [
+											"\"Types\""
+										]
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "f",
 									"sid": 143074185524497,
 									"parameters": {
 										"name": "\"Greyout\"",
@@ -3444,132 +3520,6 @@
 							],
 							"sid": 318534025557784,
 							"children": [
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [],
-									"sid": 920758179540026,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"id": "set-size",
-													"objectClass": "TagsArray",
-													"sid": 847035460796277,
-													"parameters": {
-														"width": "0",
-														"height": "1",
-														"depth": "1"
-													}
-												}
-											],
-											"sid": 627199968383512
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "for-each-key",
-													"objectClass": "GlobalTagDictionary",
-													"sid": 966162306828044
-												}
-											],
-											"actions": [
-												{
-													"id": "push",
-													"objectClass": "TagsArray",
-													"sid": 378148548117595,
-													"parameters": {
-														"where": "back",
-														"value": "GlobalTagDictionary.CurrentKey",
-														"axis": "x"
-													}
-												}
-											],
-											"sid": 517000405395637
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"id": "sort",
-													"objectClass": "TagsArray",
-													"sid": 992087206311851,
-													"parameters": {
-														"axis": "x"
-													}
-												}
-											],
-											"sid": 886343366960859
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [],
-									"sid": 541141295432055,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"id": "set-size",
-													"objectClass": "TypesArray",
-													"sid": 482909105841910,
-													"parameters": {
-														"width": "0",
-														"height": "1",
-														"depth": "1"
-													}
-												}
-											],
-											"sid": 375842934895816
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "for-each-key",
-													"objectClass": "GlobalTypesDictionary",
-													"sid": 561019830567990
-												}
-											],
-											"actions": [
-												{
-													"id": "push",
-													"objectClass": "TypesArray",
-													"sid": 960242400944509,
-													"parameters": {
-														"where": "back",
-														"value": "GlobalTypesDictionary.CurrentKey",
-														"axis": "x"
-													}
-												}
-											],
-											"sid": 446426157798126
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"id": "sort",
-													"objectClass": "TypesArray",
-													"sid": 228989025998614,
-													"parameters": {
-														"axis": "x"
-													}
-												}
-											],
-											"sid": 689763972645065
-										}
-									]
-								},
 								{
 									"eventType": "variable",
 									"name": "LevelUID",
@@ -3654,6 +3604,63 @@
 									"sid": 369135356333768,
 									"children": [
 										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-size",
+													"objectClass": "TempArray",
+													"sid": 612670318209218,
+													"parameters": {
+														"width": "0",
+														"height": "1",
+														"depth": "1"
+													}
+												}
+											],
+											"sid": 740683405902273,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "for-each-key",
+															"objectClass": "GlobalTypesDictionary",
+															"sid": 808180151018194
+														}
+													],
+													"actions": [
+														{
+															"id": "push",
+															"objectClass": "TempArray",
+															"sid": 229261188715115,
+															"parameters": {
+																"where": "back",
+																"value": "GlobalTypesDictionary.CurrentKey",
+																"axis": "x"
+															}
+														}
+													],
+													"sid": 909355231101554
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "sort",
+															"objectClass": "TempArray",
+															"sid": 846482762228360,
+															"parameters": {
+																"axis": "x"
+															}
+														}
+													],
+													"sid": 636692030319904
+												}
+											]
+										},
+										{
 											"eventType": "variable",
 											"name": "MenuDistanceFromOrigin",
 											"type": "number",
@@ -3724,7 +3731,7 @@
 														"name": "\"CreateMenu\"",
 														"parameter-n": [
 															"\"Types\"",
-															"TypesArray.AsJSON",
+															"TempArray.AsJSON",
 															"LevelRectCenterX",
 															"LevelRectCenterY",
 															"\"Left\"",
@@ -4107,407 +4114,464 @@
 															]
 														}
 													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-size",
+													"objectClass": "TempArray",
+													"sid": 996334116162241,
+													"parameters": {
+														"width": "0",
+														"height": "1",
+														"depth": "1"
+													}
+												}
+											],
+											"sid": 849864555753001,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "for-each-key",
+															"objectClass": "GlobalTagDictionary",
+															"sid": 988247485178583
+														}
+													],
+													"actions": [
+														{
+															"id": "push",
+															"objectClass": "TempArray",
+															"sid": 634124814222773,
+															"parameters": {
+																"where": "back",
+																"value": "GlobalTagDictionary.CurrentKey",
+																"axis": "x"
+															}
+														}
+													],
+													"sid": 203125829862739
 												},
 												{
 													"eventType": "block",
 													"conditions": [],
 													"actions": [
 														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 499020536970366,
+															"id": "sort",
+															"objectClass": "TempArray",
+															"sid": 291216350517205,
 															"parameters": {
-																"variable": "MenuDistanceFromOrigin",
-																"value": "Level.Width/2 + GridTileWidth/2"
-															}
-														},
-														{
-															"id": "call-function",
-															"objectClass": "f",
-															"sid": 672436181574612,
-															"parameters": {
-																"name": "\"CreateMenu\"",
-																"parameter-n": [
-																	"\"Tags\"",
-																	"TagsArray.AsJSON",
-																	"LevelRectCenterX",
-																	"LevelRectCenterY",
-																	"\"Right\"",
-																	"MenuDistanceFromOrigin",
-																	"MenuItemWidth",
-																	"MenuItemHeight",
-																	"MenuButtonType",
-																	"MenuButtonLayer"
-																]
-															}
-														},
-														{
-															"id": "wait",
-															"objectClass": "System",
-															"sid": 274732292125277,
-															"parameters": {
-																"seconds": "0.1"
+																"axis": "x"
 															}
 														}
 													],
-													"sid": 886093008587467,
+													"sid": 785580441737682
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 499020536970366,
+													"parameters": {
+														"variable": "MenuDistanceFromOrigin",
+														"value": "Level.Width/2 + GridTileWidth/2"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "f",
+													"sid": 672436181574612,
+													"parameters": {
+														"name": "\"CreateMenu\"",
+														"parameter-n": [
+															"\"Tags\"",
+															"TempArray.AsJSON",
+															"LevelRectCenterX",
+															"LevelRectCenterY",
+															"\"Right\"",
+															"MenuDistanceFromOrigin",
+															"MenuItemWidth",
+															"MenuItemHeight",
+															"MenuButtonType",
+															"MenuButtonLayer"
+														]
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 274732292125277,
+													"parameters": {
+														"seconds": "0.1"
+													}
+												}
+											],
+											"sid": 886093008587467,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 963500150136810,
+															"parameters": {
+																"object": "Button",
+																"expression": "Button.MenuName",
+																"comparison": 0,
+																"value": "\"Tags\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 281171981128341,
 													"children": [
 														{
 															"eventType": "block",
 															"conditions": [
 																{
-																	"id": "pick-by-comparison",
+																	"id": "for-each-ordered",
 																	"objectClass": "System",
-																	"sid": 963500150136810,
+																	"sid": 233744110447373,
 																	"parameters": {
 																		"object": "Button",
-																		"expression": "Button.MenuName",
-																		"comparison": 0,
-																		"value": "\"Tags\""
+																		"expression": "Button.Y",
+																		"order": "descending"
 																	}
 																}
 															],
 															"actions": [],
-															"sid": 281171981128341,
+															"sid": 366115950410242,
 															"children": [
 																{
+																	"eventType": "variable",
+																	"name": "MenuEndX",
+																	"type": "number",
+																	"initialValue": "0",
+																	"comment": "",
+																	"isStatic": false,
+																	"isConstant": false,
+																	"sid": 798681812683496
+																},
+																{
+																	"eventType": "variable",
+																	"name": "MenuEndY",
+																	"type": "number",
+																	"initialValue": "0",
+																	"comment": "",
+																	"isStatic": false,
+																	"isConstant": false,
+																	"sid": 775516574811465
+																},
+																{
 																	"eventType": "block",
-																	"conditions": [
+																	"conditions": [],
+																	"actions": [
 																		{
-																			"id": "for-each-ordered",
+																			"id": "set-eventvar-value",
 																			"objectClass": "System",
-																			"sid": 233744110447373,
+																			"sid": 887995851730543,
 																			"parameters": {
-																				"object": "Button",
-																				"expression": "Button.Y",
-																				"order": "descending"
+																				"variable": "MenuEndX",
+																				"value": "Button.TargetX"
+																			}
+																		},
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 523745394756098,
+																			"parameters": {
+																				"variable": "MenuEndY",
+																				"value": "Button.TargetY+Button.Height"
 																			}
 																		}
 																	],
-																	"actions": [],
-																	"sid": 366115950410242,
+																	"sid": 337526991850361
+																},
+																{
+																	"eventType": "variable",
+																	"name": "ButtonName",
+																	"type": "string",
+																	"initialValue": "",
+																	"comment": "",
+																	"isStatic": false,
+																	"isConstant": false,
+																	"sid": 715635114574276
+																},
+																{
+																	"eventType": "variable",
+																	"name": "OriginX",
+																	"type": "number",
+																	"initialValue": "0",
+																	"comment": "",
+																	"isStatic": false,
+																	"isConstant": false,
+																	"sid": 389227445196498
+																},
+																{
+																	"eventType": "variable",
+																	"name": "OriginY",
+																	"type": "number",
+																	"initialValue": "0",
+																	"comment": "",
+																	"isStatic": false,
+																	"isConstant": false,
+																	"sid": 996454845278159
+																},
+																{
+																	"eventType": "variable",
+																	"name": "Direction",
+																	"type": "string",
+																	"initialValue": "Center",
+																	"comment": "",
+																	"isStatic": false,
+																	"isConstant": false,
+																	"sid": 991849960907001
+																},
+																{
+																	"eventType": "variable",
+																	"name": "ButtonDistance",
+																	"type": "number",
+																	"initialValue": "0",
+																	"comment": "",
+																	"isStatic": false,
+																	"isConstant": false,
+																	"sid": 710034732260631
+																},
+																{
+																	"eventType": "variable",
+																	"name": "ButtonWidth",
+																	"type": "number",
+																	"initialValue": "160",
+																	"comment": "",
+																	"isStatic": false,
+																	"isConstant": false,
+																	"sid": 402878454660689
+																},
+																{
+																	"eventType": "variable",
+																	"name": "ButtonHeight",
+																	"type": "number",
+																	"initialValue": "30",
+																	"comment": "",
+																	"isStatic": false,
+																	"isConstant": false,
+																	"sid": 987563306129278
+																},
+																{
+																	"eventType": "variable",
+																	"name": "ButtonLayerName",
+																	"type": "string",
+																	"initialValue": "Main",
+																	"comment": "",
+																	"isStatic": false,
+																	"isConstant": false,
+																	"sid": 294432783212823
+																},
+																{
+																	"eventType": "variable",
+																	"name": "ButtonText",
+																	"type": "string",
+																	"initialValue": "",
+																	"comment": "",
+																	"isStatic": false,
+																	"isConstant": false,
+																	"sid": 638473722187052
+																},
+																{
+																	"eventType": "variable",
+																	"name": "ButtonType",
+																	"type": "string",
+																	"initialValue": "",
+																	"comment": "",
+																	"isStatic": false,
+																	"isConstant": false,
+																	"sid": 417683404852626
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 343480640804579,
+																			"parameters": {
+																				"variable": "ButtonName",
+																				"value": "\"AddTag\""
+																			}
+																		},
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 776963033005775,
+																			"parameters": {
+																				"variable": "OriginX",
+																				"value": "LevelRectCenterX"
+																			}
+																		},
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 322693493278182,
+																			"parameters": {
+																				"variable": "OriginY",
+																				"value": "LevelRectCenterY"
+																			}
+																		},
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 437789801456186,
+																			"parameters": {
+																				"variable": "Direction",
+																				"value": "\"Bottom\""
+																			}
+																		},
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 601789755766967,
+																			"parameters": {
+																				"variable": "ButtonDistance",
+																				"value": "0"
+																			}
+																		},
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 327362927726583,
+																			"parameters": {
+																				"variable": "ButtonWidth",
+																				"value": "20"
+																			}
+																		},
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 263690894972078,
+																			"parameters": {
+																				"variable": "ButtonHeight",
+																				"value": "20"
+																			}
+																		},
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 214197055593987,
+																			"parameters": {
+																				"variable": "ButtonLayerName",
+																				"value": "\"OverGreyout\""
+																			}
+																		},
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 281239093857228,
+																			"parameters": {
+																				"variable": "ButtonText",
+																				"value": "\"+\""
+																			}
+																		},
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 827756260083099,
+																			"parameters": {
+																				"variable": "ButtonType",
+																				"value": "\"Trigger\""
+																			}
+																		},
+																		{
+																			"id": "call-function",
+																			"objectClass": "f",
+																			"sid": 820117265284616,
+																			"parameters": {
+																				"name": "\"CreateButton\"",
+																				"parameter-n": [
+																					"ButtonName",
+																					"OriginX",
+																					"OriginY",
+																					"Direction",
+																					"ButtonDistance",
+																					"ButtonWidth",
+																					"ButtonHeight",
+																					"ButtonLayerName",
+																					"ButtonText",
+																					"ButtonType"
+																				]
+																			}
+																		},
+																		{
+																			"id": "stop-loop",
+																			"objectClass": "System",
+																			"sid": 930851446216106
+																		},
+																		{
+																			"id": "wait",
+																			"objectClass": "System",
+																			"sid": 886005985243021,
+																			"parameters": {
+																				"seconds": "0"
+																			}
+																		}
+																	],
+																	"sid": 826030369800638,
 																	"children": [
 																		{
-																			"eventType": "variable",
-																			"name": "MenuEndX",
-																			"type": "number",
-																			"initialValue": "0",
-																			"comment": "",
-																			"isStatic": false,
-																			"isConstant": false,
-																			"sid": 798681812683496
-																		},
-																		{
-																			"eventType": "variable",
-																			"name": "MenuEndY",
-																			"type": "number",
-																			"initialValue": "0",
-																			"comment": "",
-																			"isStatic": false,
-																			"isConstant": false,
-																			"sid": 775516574811465
-																		},
-																		{
 																			"eventType": "block",
-																			"conditions": [],
-																			"actions": [
+																			"conditions": [
 																				{
-																					"id": "set-eventvar-value",
+																					"id": "pick-all",
 																					"objectClass": "System",
-																					"sid": 887995851730543,
+																					"sid": 511942055616175,
 																					"parameters": {
-																						"variable": "MenuEndX",
-																						"value": "Button.TargetX"
+																						"object": "Button"
 																					}
 																				},
 																				{
-																					"id": "set-eventvar-value",
+																					"id": "pick-by-comparison",
 																					"objectClass": "System",
-																					"sid": 523745394756098,
+																					"sid": 446957328704417,
 																					"parameters": {
-																						"variable": "MenuEndY",
-																						"value": "Button.TargetY+Button.Height"
-																					}
-																				}
-																			],
-																			"sid": 337526991850361
-																		},
-																		{
-																			"eventType": "variable",
-																			"name": "ButtonName",
-																			"type": "string",
-																			"initialValue": "",
-																			"comment": "",
-																			"isStatic": false,
-																			"isConstant": false,
-																			"sid": 715635114574276
-																		},
-																		{
-																			"eventType": "variable",
-																			"name": "OriginX",
-																			"type": "number",
-																			"initialValue": "0",
-																			"comment": "",
-																			"isStatic": false,
-																			"isConstant": false,
-																			"sid": 389227445196498
-																		},
-																		{
-																			"eventType": "variable",
-																			"name": "OriginY",
-																			"type": "number",
-																			"initialValue": "0",
-																			"comment": "",
-																			"isStatic": false,
-																			"isConstant": false,
-																			"sid": 996454845278159
-																		},
-																		{
-																			"eventType": "variable",
-																			"name": "Direction",
-																			"type": "string",
-																			"initialValue": "Center",
-																			"comment": "",
-																			"isStatic": false,
-																			"isConstant": false,
-																			"sid": 991849960907001
-																		},
-																		{
-																			"eventType": "variable",
-																			"name": "ButtonDistance",
-																			"type": "number",
-																			"initialValue": "0",
-																			"comment": "",
-																			"isStatic": false,
-																			"isConstant": false,
-																			"sid": 710034732260631
-																		},
-																		{
-																			"eventType": "variable",
-																			"name": "ButtonWidth",
-																			"type": "number",
-																			"initialValue": "160",
-																			"comment": "",
-																			"isStatic": false,
-																			"isConstant": false,
-																			"sid": 402878454660689
-																		},
-																		{
-																			"eventType": "variable",
-																			"name": "ButtonHeight",
-																			"type": "number",
-																			"initialValue": "30",
-																			"comment": "",
-																			"isStatic": false,
-																			"isConstant": false,
-																			"sid": 987563306129278
-																		},
-																		{
-																			"eventType": "variable",
-																			"name": "ButtonLayerName",
-																			"type": "string",
-																			"initialValue": "Main",
-																			"comment": "",
-																			"isStatic": false,
-																			"isConstant": false,
-																			"sid": 294432783212823
-																		},
-																		{
-																			"eventType": "variable",
-																			"name": "ButtonText",
-																			"type": "string",
-																			"initialValue": "",
-																			"comment": "",
-																			"isStatic": false,
-																			"isConstant": false,
-																			"sid": 638473722187052
-																		},
-																		{
-																			"eventType": "variable",
-																			"name": "ButtonType",
-																			"type": "string",
-																			"initialValue": "",
-																			"comment": "",
-																			"isStatic": false,
-																			"isConstant": false,
-																			"sid": 417683404852626
-																		},
-																		{
-																			"eventType": "block",
-																			"conditions": [],
-																			"actions": [
-																				{
-																					"id": "set-eventvar-value",
-																					"objectClass": "System",
-																					"sid": 343480640804579,
-																					"parameters": {
-																						"variable": "ButtonName",
+																						"object": "Button",
+																						"expression": "Button.Name",
+																						"comparison": 0,
 																						"value": "\"AddTag\""
 																					}
-																				},
+																				}
+																			],
+																			"actions": [
 																				{
-																					"id": "set-eventvar-value",
-																					"objectClass": "System",
-																					"sid": 776963033005775,
+																					"id": "set-instvar-value",
+																					"objectClass": "Button",
+																					"sid": 353931994832796,
 																					"parameters": {
-																						"variable": "OriginX",
-																						"value": "LevelRectCenterX"
+																						"instance-variable": "TargetX",
+																						"value": "MenuEndX"
 																					}
 																				},
 																				{
-																					"id": "set-eventvar-value",
-																					"objectClass": "System",
-																					"sid": 322693493278182,
+																					"id": "set-instvar-value",
+																					"objectClass": "Button",
+																					"sid": 243609949607877,
 																					"parameters": {
-																						"variable": "OriginY",
-																						"value": "LevelRectCenterY"
-																					}
-																				},
-																				{
-																					"id": "set-eventvar-value",
-																					"objectClass": "System",
-																					"sid": 437789801456186,
-																					"parameters": {
-																						"variable": "Direction",
-																						"value": "\"Bottom\""
-																					}
-																				},
-																				{
-																					"id": "set-eventvar-value",
-																					"objectClass": "System",
-																					"sid": 601789755766967,
-																					"parameters": {
-																						"variable": "ButtonDistance",
-																						"value": "0"
-																					}
-																				},
-																				{
-																					"id": "set-eventvar-value",
-																					"objectClass": "System",
-																					"sid": 327362927726583,
-																					"parameters": {
-																						"variable": "ButtonWidth",
-																						"value": "20"
-																					}
-																				},
-																				{
-																					"id": "set-eventvar-value",
-																					"objectClass": "System",
-																					"sid": 263690894972078,
-																					"parameters": {
-																						"variable": "ButtonHeight",
-																						"value": "20"
-																					}
-																				},
-																				{
-																					"id": "set-eventvar-value",
-																					"objectClass": "System",
-																					"sid": 214197055593987,
-																					"parameters": {
-																						"variable": "ButtonLayerName",
-																						"value": "\"OverGreyout\""
-																					}
-																				},
-																				{
-																					"id": "set-eventvar-value",
-																					"objectClass": "System",
-																					"sid": 281239093857228,
-																					"parameters": {
-																						"variable": "ButtonText",
-																						"value": "\"+\""
-																					}
-																				},
-																				{
-																					"id": "set-eventvar-value",
-																					"objectClass": "System",
-																					"sid": 827756260083099,
-																					"parameters": {
-																						"variable": "ButtonType",
-																						"value": "\"Trigger\""
-																					}
-																				},
-																				{
-																					"id": "call-function",
-																					"objectClass": "f",
-																					"sid": 820117265284616,
-																					"parameters": {
-																						"name": "\"CreateButton\"",
-																						"parameter-n": [
-																							"ButtonName",
-																							"OriginX",
-																							"OriginY",
-																							"Direction",
-																							"ButtonDistance",
-																							"ButtonWidth",
-																							"ButtonHeight",
-																							"ButtonLayerName",
-																							"ButtonText",
-																							"ButtonType"
-																						]
-																					}
-																				},
-																				{
-																					"id": "stop-loop",
-																					"objectClass": "System",
-																					"sid": 930851446216106
-																				},
-																				{
-																					"id": "wait",
-																					"objectClass": "System",
-																					"sid": 886005985243021,
-																					"parameters": {
-																						"seconds": "0"
+																						"instance-variable": "TargetY",
+																						"value": "MenuEndY+2"
 																					}
 																				}
 																			],
-																			"sid": 826030369800638,
-																			"children": [
-																				{
-																					"eventType": "block",
-																					"conditions": [
-																						{
-																							"id": "pick-all",
-																							"objectClass": "System",
-																							"sid": 511942055616175,
-																							"parameters": {
-																								"object": "Button"
-																							}
-																						},
-																						{
-																							"id": "pick-by-comparison",
-																							"objectClass": "System",
-																							"sid": 446957328704417,
-																							"parameters": {
-																								"object": "Button",
-																								"expression": "Button.Name",
-																								"comparison": 0,
-																								"value": "\"AddTag\""
-																							}
-																						}
-																					],
-																					"actions": [
-																						{
-																							"id": "set-instvar-value",
-																							"objectClass": "Button",
-																							"sid": 353931994832796,
-																							"parameters": {
-																								"instance-variable": "TargetX",
-																								"value": "MenuEndX"
-																							}
-																						},
-																						{
-																							"id": "set-instvar-value",
-																							"objectClass": "Button",
-																							"sid": 243609949607877,
-																							"parameters": {
-																								"instance-variable": "TargetY",
-																								"value": "MenuEndY+2"
-																							}
-																						}
-																					],
-																					"sid": 315985332317027
-																				}
-																			]
+																			"sid": 315985332317027
 																		}
 																	]
 																}
@@ -4626,12 +4690,14 @@
 									"conditions": [],
 									"actions": [
 										{
-											"id": "add-key",
-											"objectClass": "LevelInfo",
-											"sid": 312226234940568,
+											"id": "call-function",
+											"objectClass": "f",
+											"sid": 308672956394588,
 											"parameters": {
-												"key": "\"Tags\"",
-												"value": "f.Call(\"SerializeDictionary\",LevelTagDictionary.AsJSON,\";|;\",\":|:\")"
+												"name": "\"WriteLevelTagsToItsDictionary\"",
+												"parameter-n": [
+													"Level.UID"
+												]
 											}
 										}
 									],
@@ -5855,6 +5921,29 @@
 									"conditions": [
 										{
 											"id": "compare-instance-variable",
+											"objectClass": "TextBox",
+											"sid": 640695164460480,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"RenameTag\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "TextBox",
+											"sid": 185221461511093
+										}
+									],
+									"sid": 214626533992563
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
 											"objectClass": "Button",
 											"sid": 449849043521393,
 											"parameters": {
@@ -5945,6 +6034,29 @@
 										}
 									],
 									"sid": 512284096277757
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TextBox",
+											"sid": 488075045791247,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"RenameType\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "TextBox",
+											"sid": 824741718457021
+										}
+									],
+									"sid": 886667217352917
 								},
 								{
 									"eventType": "block",
@@ -6043,6 +6155,58 @@
 										}
 									],
 									"sid": 897830568445552
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TextBox",
+											"sid": 181100318872647,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"RenameTag\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "TextBox",
+											"sid": 158313265332610,
+											"parameters": {
+												"text": "f.Call(\"StripCharacters\",TextBox.Text,\":;\",\"true\")"
+											}
+										}
+									],
+									"sid": 233528115356584
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TextBox",
+											"sid": 603711476526518,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"RenameType\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "TextBox",
+											"sid": 658686984724484,
+											"parameters": {
+												"text": "f.Call(\"StripCharacters\",TextBox.Text,\":;\",\"true\")"
+											}
+										}
+									],
+									"sid": 521937717100580
 								}
 							]
 						},
@@ -6070,12 +6234,14 @@
 							],
 							"actions": [
 								{
-									"id": "add-key",
-									"objectClass": "GlobalTagDictionary",
-									"sid": 141712589774384,
+									"id": "call-function",
+									"objectClass": "f",
+									"sid": 280222522819506,
 									"parameters": {
-										"key": "TextBox.Text",
-										"value": "0"
+										"name": "\"NewLevelTag\"",
+										"parameter-n": [
+											"TextBox.Text"
+										]
 									}
 								},
 								{
@@ -6093,11 +6259,6 @@
 											"SelectedLevelUID"
 										]
 									}
-								},
-								{
-									"id": "destroy",
-									"objectClass": "Button",
-									"sid": 820932466879599
 								},
 								{
 									"id": "wait",
@@ -6134,12 +6295,14 @@
 							],
 							"actions": [
 								{
-									"id": "add-key",
-									"objectClass": "GlobalTypesDictionary",
-									"sid": 749982334176111,
+									"id": "call-function",
+									"objectClass": "f",
+									"sid": 239522514301421,
 									"parameters": {
-										"key": "TextBox.Text",
-										"value": "0"
+										"name": "\"NewLevelType\"",
+										"parameter-n": [
+											"TextBox.Text"
+										]
 									}
 								},
 								{
@@ -6159,11 +6322,6 @@
 									}
 								},
 								{
-									"id": "destroy",
-									"objectClass": "Button",
-									"sid": 642389336710744
-								},
-								{
 									"id": "wait",
 									"objectClass": "System",
 									"sid": 134082710777589,
@@ -6173,6 +6331,1406 @@
 								}
 							],
 							"sid": 135073553681884
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 544382601183478,
+									"parameters": {
+										"key": 13
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TextBox",
+									"sid": 610266684516751,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "\"RenameTag\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "f",
+									"sid": 595823017504700,
+									"parameters": {
+										"name": "\"RenameTag\"",
+										"parameter-n": [
+											"LastTagRightClicked",
+											"TextBox.Text"
+										]
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "TextBox",
+									"sid": 861619308175595
+								},
+								{
+									"id": "call-function",
+									"objectClass": "f",
+									"sid": 814315887721702,
+									"parameters": {
+										"name": "\"CreateLevelMenus\"",
+										"parameter-n": [
+											"SelectedLevelUID"
+										]
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 900785535617527,
+									"parameters": {
+										"seconds": "0"
+									}
+								}
+							],
+							"sid": 661819475826439
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 766880639840809,
+									"parameters": {
+										"key": 13
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TextBox",
+									"sid": 216997390657089,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "\"RenameType\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "f",
+									"sid": 877848301079634,
+									"parameters": {
+										"name": "\"RenameType\"",
+										"parameter-n": [
+											"LastTypeRightClicked",
+											"TextBox.Text"
+										]
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "TextBox",
+									"sid": 324213436986270
+								},
+								{
+									"id": "call-function",
+									"objectClass": "f",
+									"sid": 823306501047753,
+									"parameters": {
+										"name": "\"CreateLevelMenus\"",
+										"parameter-n": [
+											"SelectedLevelUID"
+										]
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 875274144920572,
+									"parameters": {
+										"seconds": "0"
+									}
+								}
+							],
+							"sid": 518101022545658
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "f",
+									"sid": 958724129414042,
+									"parameters": {
+										"name": "\"NewLevelType\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-key",
+									"objectClass": "GlobalTypesDictionary",
+									"sid": 452502582583220,
+									"parameters": {
+										"key": "f.Param(0)",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 928778486816742
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "f",
+									"sid": 750426225696296,
+									"parameters": {
+										"name": "\"NewLevelTag\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-key",
+									"objectClass": "GlobalTagDictionary",
+									"sid": 291483777019297,
+									"parameters": {
+										"key": "f.Param(0)",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 885788702052218
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "f",
+									"sid": 766715472930901,
+									"parameters": {
+										"name": "\"RenameTag\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 989507678035760,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "OriginalName",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 327461848781000
+								},
+								{
+									"eventType": "variable",
+									"name": "NewName",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 194031983987443
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 770710859422572,
+											"parameters": {
+												"variable": "OriginalName",
+												"value": "f.Param(0)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 466611362701164,
+											"parameters": {
+												"variable": "NewName",
+												"value": "f.Param(1)"
+											}
+										}
+									],
+									"sid": 915096491929104
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "f",
+											"sid": 408868773456123,
+											"parameters": {
+												"name": "\"NewLevelTag\"",
+												"parameter-n": [
+													"NewName"
+												]
+											}
+										}
+									],
+									"sid": 830774032492356,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 734783677797744,
+													"parameters": {
+														"object": "LevelTagDictionary"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 218327190654243,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "has-key",
+															"objectClass": "LevelTagDictionary",
+															"sid": 491252683984976,
+															"parameters": {
+																"key": "OriginalName"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "delete-key",
+															"objectClass": "LevelTagDictionary",
+															"sid": 513573766666467,
+															"parameters": {
+																"key": "OriginalName"
+															}
+														},
+														{
+															"id": "add-key",
+															"objectClass": "LevelTagDictionary",
+															"sid": 136941405108514,
+															"parameters": {
+																"key": "NewName",
+																"value": "0"
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "f",
+															"sid": 666145728554862,
+															"parameters": {
+																"name": "\"WriteLevelTagsToItsDictionary\"",
+																"parameter-n": [
+																	"Level.UID"
+																]
+															}
+														},
+														{
+															"id": "alert",
+															"objectClass": "Browser",
+															"sid": 657637473573242,
+															"disabled": true,
+															"parameters": {
+																"message": "Level.UID"
+															}
+														}
+													],
+													"sid": 166140516814137
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "f",
+													"sid": 529290176051017,
+													"parameters": {
+														"name": "\"DeleteLevelTag\"",
+														"parameter-n": [
+															"OriginalName"
+														]
+													}
+												}
+											],
+											"sid": 995291288967271
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "f",
+									"sid": 734343024154494,
+									"parameters": {
+										"name": "\"RenameType\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 220997763321176,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "OriginalName",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 504799286490938
+								},
+								{
+									"eventType": "variable",
+									"name": "NewName",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 174168962268916
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 864791589194084,
+											"parameters": {
+												"variable": "OriginalName",
+												"value": "f.Param(0)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 454823198702434,
+											"parameters": {
+												"variable": "NewName",
+												"value": "f.Param(1)"
+											}
+										}
+									],
+									"sid": 914152594913955
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "f",
+											"sid": 226724967300620,
+											"parameters": {
+												"name": "\"NewLevelType\"",
+												"parameter-n": [
+													"NewName"
+												]
+											}
+										}
+									],
+									"sid": 870722793976428,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 249641391970666,
+													"parameters": {
+														"object": "LevelInfo"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 561534722451318,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-value",
+															"objectClass": "LevelInfo",
+															"sid": 140354271851599,
+															"parameters": {
+																"key": "\"Type\"",
+																"comparison": 0,
+																"value": "OriginalName"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-key",
+															"objectClass": "LevelInfo",
+															"sid": 130719622484876,
+															"parameters": {
+																"key": "\"Type\"",
+																"value": "NewName"
+															}
+														}
+													],
+													"sid": 960725454078353
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "f",
+													"sid": 324648555269306,
+													"parameters": {
+														"name": "\"DeleteLevelType\"",
+														"parameter-n": [
+															"OriginalName"
+														]
+													}
+												}
+											],
+											"sid": 778817899769036
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "f",
+									"sid": 704804609329275,
+									"parameters": {
+										"name": "\"ButtonClicked\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 786293584119756,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Button",
+											"sid": 590116185369898,
+											"parameters": {
+												"unique-id": "f.Param(0)"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 756665739956309,
+											"parameters": {
+												"instance-variable": "MenuName",
+												"comparison": 0,
+												"value": "\"TagEditing\""
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 483033455146788,
+											"parameters": {
+												"instance-variable": "Text",
+												"comparison": 0,
+												"value": "\"Delete\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "f",
+											"sid": 591555893586527,
+											"parameters": {
+												"name": "\"DeleteLevelTag\"",
+												"parameter-n": [
+													"LastTagRightClicked"
+												]
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "f",
+											"sid": 438340478943519,
+											"parameters": {
+												"name": "\"CreateLevelMenus\"",
+												"parameter-n": [
+													"SelectedLevelUID"
+												]
+											}
+										}
+									],
+									"sid": 158848558803039
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Button",
+											"sid": 800443543512206,
+											"parameters": {
+												"unique-id": "f.Param(0)"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 686018060731932,
+											"parameters": {
+												"instance-variable": "MenuName",
+												"comparison": 0,
+												"value": "\"TypeEditing\""
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 271007908865449,
+											"parameters": {
+												"instance-variable": "Text",
+												"comparison": 0,
+												"value": "\"Delete\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "f",
+											"sid": 317812193250844,
+											"parameters": {
+												"name": "\"DeleteLevelType\"",
+												"parameter-n": [
+													"LastTypeRightClicked"
+												]
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "f",
+											"sid": 755411900308025,
+											"parameters": {
+												"name": "\"CreateLevelMenus\"",
+												"parameter-n": [
+													"SelectedLevelUID"
+												]
+											}
+										}
+									],
+									"sid": 787027043143542
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "f",
+									"sid": 716928280959986,
+									"parameters": {
+										"name": "\"ButtonClicked\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 892939707525484,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Button",
+											"sid": 585133784199033,
+											"parameters": {
+												"unique-id": "f.Param(0)"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 176472709410776,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Button",
+													"sid": 197839100473591,
+													"parameters": {
+														"instance-variable": "MenuName",
+														"comparison": 0,
+														"value": "\"TagEditing\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Button",
+													"sid": 797051122940118,
+													"parameters": {
+														"instance-variable": "MenuName",
+														"comparison": 0,
+														"value": "\"TypeEditing\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 468034625825060,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-all",
+															"objectClass": "System",
+															"sid": 409294415930716,
+															"parameters": {
+																"object": "Button"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 175800926059048,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Button",
+																	"sid": 998992825318082,
+																	"parameters": {
+																		"instance-variable": "MenuName",
+																		"comparison": 0,
+																		"value": "\"TagEditing\""
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Button",
+																	"sid": 235423980577594,
+																	"parameters": {
+																		"instance-variable": "MenuName",
+																		"comparison": 0,
+																		"value": "\"TypeEditing\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "destroy",
+																	"objectClass": "Button",
+																	"sid": 500564658324311
+																}
+															],
+															"sid": 550963613048642,
+															"isOrBlock": true
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Button",
+															"sid": 666050873797575,
+															"parameters": {
+																"instance-variable": "Text",
+																"comparison": 0,
+																"value": "\"Rename\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 684796571802924,
+													"children": [
+														{
+															"eventType": "variable",
+															"name": "Name",
+															"type": "string",
+															"initialValue": "",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 512269720092189
+														},
+														{
+															"eventType": "variable",
+															"name": "Type",
+															"type": "string",
+															"initialValue": "",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 117685727745226
+														},
+														{
+															"eventType": "variable",
+															"name": "OriginX",
+															"type": "number",
+															"initialValue": "0",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 358533580979608
+														},
+														{
+															"eventType": "variable",
+															"name": "OriginY",
+															"type": "number",
+															"initialValue": "0",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 547628752747488
+														},
+														{
+															"eventType": "variable",
+															"name": "Direction",
+															"type": "string",
+															"initialValue": "",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 740484846614596
+														},
+														{
+															"eventType": "variable",
+															"name": "Offset",
+															"type": "number",
+															"initialValue": "0",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 769504959852612
+														},
+														{
+															"eventType": "variable",
+															"name": "Width",
+															"type": "number",
+															"initialValue": "0",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 444805873339128
+														},
+														{
+															"eventType": "variable",
+															"name": "Height",
+															"type": "number",
+															"initialValue": "0",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 865274143948934
+														},
+														{
+															"eventType": "variable",
+															"name": "FontSize",
+															"type": "number",
+															"initialValue": "0",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 797800685775790
+														},
+														{
+															"eventType": "variable",
+															"name": "LayerName",
+															"type": "string",
+															"initialValue": "",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 230458284639798
+														},
+														{
+															"eventType": "variable",
+															"name": "PlaceholderText",
+															"type": "string",
+															"initialValue": "",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 560897519387777
+														},
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 385370519507046,
+																	"parameters": {
+																		"variable": "Type",
+																		"value": "\"TextArea\""
+																	}
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 443781295549747,
+																	"parameters": {
+																		"variable": "Direction",
+																		"value": "\"Bottom\""
+																	}
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 840909913664852,
+																	"parameters": {
+																		"variable": "Offset",
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 932775378727316,
+																	"parameters": {
+																		"variable": "Width",
+																		"value": "150"
+																	}
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 802297150624118,
+																	"parameters": {
+																		"variable": "Height",
+																		"value": "25"
+																	}
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 955658187081557,
+																	"parameters": {
+																		"variable": "FontSize",
+																		"value": "12"
+																	}
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 654541784499865,
+																	"parameters": {
+																		"variable": "LayerName",
+																		"value": "\"OverGreyout\""
+																	}
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 446050075225530,
+																	"parameters": {
+																		"variable": "PlaceholderText",
+																		"value": "\"\""
+																	}
+																}
+															],
+															"sid": 147572092845865,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Button",
+																			"sid": 566900453657251,
+																			"parameters": {
+																				"instance-variable": "MenuName",
+																				"comparison": 0,
+																				"value": "\"TagEditing\""
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 822194237770203,
+																			"parameters": {
+																				"variable": "Name",
+																				"value": "\"RenameTag\""
+																			}
+																		}
+																	],
+																	"sid": 246921060038399,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "pick-all",
+																					"objectClass": "System",
+																					"sid": 572987797632763,
+																					"parameters": {
+																						"object": "Button"
+																					}
+																				},
+																				{
+																					"id": "pick-by-comparison",
+																					"objectClass": "System",
+																					"sid": 641418640329598,
+																					"parameters": {
+																						"object": "Button",
+																						"expression": "Button.Text",
+																						"comparison": 0,
+																						"value": "LastTagRightClicked"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "set-eventvar-value",
+																					"objectClass": "System",
+																					"sid": 569270791443606,
+																					"parameters": {
+																						"variable": "OriginX",
+																						"value": "Button.X"
+																					}
+																				},
+																				{
+																					"id": "set-eventvar-value",
+																					"objectClass": "System",
+																					"sid": 344081120595291,
+																					"parameters": {
+																						"variable": "OriginY",
+																						"value": "Button.Y"
+																					}
+																				}
+																			],
+																			"sid": 735869460083695
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-instance-variable",
+																					"objectClass": "TextBox",
+																					"sid": 965412527420613,
+																					"parameters": {
+																						"instance-variable": "Name",
+																						"comparison": 0,
+																						"value": "\"RenameTag\""
+																					}
+																				}
+																			],
+																			"actions": [],
+																			"sid": 317713062872757
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 612143338712489
+																				}
+																			],
+																			"actions": [],
+																			"sid": 837542512393207
+																		}
+																	]
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Button",
+																			"sid": 733567971643210,
+																			"parameters": {
+																				"instance-variable": "MenuName",
+																				"comparison": 0,
+																				"value": "\"TypeEditing\""
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 351676758254409,
+																			"parameters": {
+																				"variable": "Name",
+																				"value": "\"RenameType\""
+																			}
+																		}
+																	],
+																	"sid": 877833796698749,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "pick-all",
+																					"objectClass": "System",
+																					"sid": 749797719171162,
+																					"parameters": {
+																						"object": "Button"
+																					}
+																				},
+																				{
+																					"id": "pick-by-comparison",
+																					"objectClass": "System",
+																					"sid": 643873609404072,
+																					"parameters": {
+																						"object": "Button",
+																						"expression": "Button.Text",
+																						"comparison": 0,
+																						"value": "LastTypeRightClicked"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "set-eventvar-value",
+																					"objectClass": "System",
+																					"sid": 173025481411563,
+																					"parameters": {
+																						"variable": "OriginX",
+																						"value": "Button.X"
+																					}
+																				},
+																				{
+																					"id": "set-eventvar-value",
+																					"objectClass": "System",
+																					"sid": 878887075501501,
+																					"parameters": {
+																						"variable": "OriginY",
+																						"value": "Button.Y"
+																					}
+																				}
+																			],
+																			"sid": 838383494235147
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-instance-variable",
+																					"objectClass": "TextBox",
+																					"sid": 165362588213057,
+																					"parameters": {
+																						"instance-variable": "Name",
+																						"comparison": 0,
+																						"value": "\"RenameType\""
+																					}
+																				}
+																			],
+																			"actions": [],
+																			"sid": 135210061581444
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 504975286234786
+																				}
+																			],
+																			"actions": [],
+																			"sid": 359738986553185
+																		}
+																	]
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "TextBox",
+																			"sid": 839494991529870,
+																			"parameters": {
+																				"instance-variable": "Name",
+																				"comparison": 0,
+																				"value": "\"RenameTag\""
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "TextBox",
+																			"sid": 271428947578402,
+																			"parameters": {
+																				"instance-variable": "Name",
+																				"comparison": 0,
+																				"value": "\"RenameType\""
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "destroy",
+																			"objectClass": "TextBox",
+																			"sid": 430548728864467
+																		}
+																	],
+																	"sid": 424745183077984,
+																	"isOrBlock": true
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "call-function",
+																			"objectClass": "f",
+																			"sid": 323422742064411,
+																			"parameters": {
+																				"name": "\"CreateTextbox\"",
+																				"parameter-n": [
+																					"Name",
+																					"Type",
+																					"OriginX",
+																					"OriginY",
+																					"Direction",
+																					"Offset",
+																					"Width",
+																					"Height",
+																					"FontSize",
+																					"LayerName",
+																					"PlaceholderText"
+																				]
+																			}
+																		},
+																		{
+																			"id": "wait",
+																			"objectClass": "System",
+																			"sid": 576792919976571,
+																			"parameters": {
+																				"seconds": "0.1"
+																			}
+																		}
+																	],
+																	"sid": 516696551252183,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "pick-last-created",
+																					"objectClass": "System",
+																					"sid": 123420427870650,
+																					"parameters": {
+																						"object": "TextBox"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "set-enabled",
+																					"objectClass": "TextBox",
+																					"sid": 242873907485646,
+																					"parameters": {
+																						"mode": "enabled"
+																					}
+																				},
+																				{
+																					"id": "set-focused",
+																					"objectClass": "TextBox",
+																					"sid": 126017670736465
+																				},
+																				{
+																					"id": "set-css-style",
+																					"objectClass": "TextBox",
+																					"sid": 709655612537083,
+																					"parameters": {
+																						"property-name": "\"font-size\"",
+																						"value": "\"20pt\""
+																					}
+																				},
+																				{
+																					"id": "set-css-style",
+																					"objectClass": "TextBox",
+																					"sid": 592917104400979,
+																					"parameters": {
+																						"property-name": "\"text-align\"",
+																						"value": "\"center\""
+																					}
+																				}
+																			],
+																			"sid": 893094282058217
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											],
+											"isOrBlock": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "f",
+									"sid": 857574319785017,
+									"parameters": {
+										"name": "\"DeleteLevelTag\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "delete-key",
+									"objectClass": "GlobalTagDictionary",
+									"sid": 677615982213701,
+									"parameters": {
+										"key": "f.Param(0)"
+									}
+								}
+							],
+							"sid": 896986894357664,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 686474263139729,
+											"parameters": {
+												"object": "LevelTagDictionary"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "delete-key",
+											"objectClass": "LevelTagDictionary",
+											"sid": 396000256702779,
+											"parameters": {
+												"key": "f.Param(0)"
+											}
+										}
+									],
+									"sid": 988809042941476
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "f",
+											"sid": 784780933932349,
+											"parameters": {
+												"name": "\"WriteLevelTagsToItsDictionary\"",
+												"parameter-n": [
+													"Level.UID"
+												]
+											}
+										}
+									],
+									"sid": 136240073900409
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "f",
+									"sid": 521666744523667,
+									"parameters": {
+										"name": "\"DeleteLevelType\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "delete-key",
+									"objectClass": "GlobalTypesDictionary",
+									"sid": 797206430453199,
+									"parameters": {
+										"key": "f.Param(0)"
+									}
+								}
+							],
+							"sid": 296237746801370,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 103603410196186,
+											"parameters": {
+												"object": "LevelInfo"
+											}
+										},
+										{
+											"id": "compare-value",
+											"objectClass": "LevelInfo",
+											"sid": 832667484272663,
+											"parameters": {
+												"key": "\"Type\"",
+												"comparison": 0,
+												"value": "f.Param(0)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-key",
+											"objectClass": "LevelInfo",
+											"sid": 811188133044110,
+											"parameters": {
+												"key": "\"Type\"",
+												"value": "\"\""
+											}
+										}
+									],
+									"sid": 294677166573185
+								}
+							]
 						}
 					],
 					"sid": 628827803891239
@@ -9513,13 +11071,36 @@
 										{
 											"id": "set-text",
 											"objectClass": "TextBox",
-											"sid": 410832111289612,
+											"sid": 841898850602621,
 											"parameters": {
-												"text": "\"#Tag1 #Tag2 #Tag3 #Tag4\""
+												"text": "\"\""
 											}
 										}
 									],
-									"sid": 113064816815647
+									"sid": 113064816815647,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each-key",
+													"objectClass": "LevelTagDictionary",
+													"sid": 588678035170317
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "TextBox",
+													"sid": 246619733387919,
+													"parameters": {
+														"text": "TextBox.Text & LevelTagDictionary.CurrentKey & \" \""
+													}
+												}
+											],
+											"sid": 485099682346172
+										}
+									]
 								}
 							]
 						}
@@ -9831,7 +11412,47 @@
 					"children": [
 						{
 							"eventType": "variable",
-							"name": "ProgressionData",
+							"name": "CompleteData",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 611401536100641
+						},
+						{
+							"eventType": "variable",
+							"name": "SerializedTagsDictionary",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 799876494431098
+						},
+						{
+							"eventType": "variable",
+							"name": "SerializedTypesDictionary",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 809420775291621
+						},
+						{
+							"eventType": "variable",
+							"name": "HeaderData",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 694545124848753
+						},
+						{
+							"eventType": "variable",
+							"name": "LevelsData",
 							"type": "string",
 							"initialValue": "",
 							"comment": "",
@@ -9841,13 +11462,13 @@
 						},
 						{
 							"eventType": "variable",
-							"name": "CurrentLevelSerialized",
+							"name": "HeaderLevelSeparator",
 							"type": "string",
-							"initialValue": "",
+							"initialValue": "---",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
-							"sid": 789267489142347
+							"sid": 939877713001603
 						},
 						{
 							"eventType": "variable",
@@ -9857,7 +11478,7 @@
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
-							"sid": 158058667797346
+							"sid": 614111063173760
 						},
 						{
 							"eventType": "block",
@@ -9875,14 +11496,75 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 918091960382710,
+									"sid": 814511884265414,
 									"parameters": {
-										"variable": "ProgressionData",
+										"variable": "CompleteData",
 										"value": "AJAX.LastData"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 532173097846294,
+									"parameters": {
+										"variable": "HeaderData",
+										"value": "tokenat(CompleteData,0,HeaderLevelSeparator)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 843194957135625,
+									"parameters": {
+										"variable": "LevelsData",
+										"value": "tokenat(CompleteData,1,HeaderLevelSeparator)"
 									}
 								}
 							],
-							"sid": 987731707197095
+							"sid": 987731707197095,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "load",
+											"objectClass": "TempDictionary2",
+											"sid": 881526162794467,
+											"parameters": {
+												"json": "f.Call(\"DeSerializeDictionary\",HeaderData)"
+											}
+										},
+										{
+											"id": "load",
+											"objectClass": "GlobalTagDictionary",
+											"sid": 951523222691074,
+											"parameters": {
+												"json": "f.Call(\"DeSerializeDictionary\",TempDictionary2.Get(\"ListOfAllTags\"),\";\",\":\")"
+											}
+										},
+										{
+											"id": "load",
+											"objectClass": "GlobalTypesDictionary",
+											"sid": 394731289249919,
+											"parameters": {
+												"json": "f.Call(\"DeSerializeDictionary\",TempDictionary2.Get(\"ListOfAllTypes\"),\";\",\":\")"
+											}
+										}
+									],
+									"sid": 751590304580581
+								}
+							]
+						},
+						{
+							"eventType": "variable",
+							"name": "CurrentLevelSerialized",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 162076175258314
 						},
 						{
 							"eventType": "block",
@@ -9894,7 +11576,7 @@
 									"parameters": {
 										"name": "\"\"",
 										"start-index": "0",
-										"end-index": "tokencount(ProgressionData,LevelSeparator)-2"
+										"end-index": "tokencount(LevelsData,LevelSeparator)-2"
 									}
 								}
 							],
@@ -9905,22 +11587,42 @@
 									"sid": 988117158136482,
 									"parameters": {
 										"variable": "CurrentLevelSerialized",
-										"value": "tokenat(ProgressionData,loopindex,LevelSeparator)"
-									}
-								},
-								{
-									"id": "call-function",
-									"objectClass": "f",
-									"sid": 706146258409256,
-									"parameters": {
-										"name": "\"CreateLevelFromDictionaryJSON\"",
-										"parameter-n": [
-											"f.Call(\"DeSerializeDictionary\",CurrentLevelSerialized)"
-										]
+										"value": "tokenat(LevelsData,loopindex,LevelSeparator)"
 									}
 								}
 							],
-							"sid": 201057531150775
+							"sid": 201057531150775,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 210631152605114,
+											"parameters": {
+												"first-value": "CurrentLevelSerialized",
+												"comparison": 1,
+												"second-value": "\"\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "f",
+											"sid": 192638033191731,
+											"parameters": {
+												"name": "\"CreateLevelFromDictionaryJSON\"",
+												"parameter-n": [
+													"f.Call(\"DeSerializeDictionary\",CurrentLevelSerialized)"
+												]
+											}
+										}
+									],
+									"sid": 130757130252958
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -10098,6 +11800,16 @@
 					"sid": 325973481523744
 				},
 				{
+					"eventType": "variable",
+					"name": "CompleteProgressionData",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 635346734498788
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -10125,6 +11837,93 @@
 							"conditions": [
 								{
 									"id": "compare-instance-variable",
+									"objectClass": "TextBox",
+									"sid": 788810753335277,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "\"FileName\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 680990290057915,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-text",
+											"objectClass": "TextBox",
+											"sid": 501521991760959,
+											"parameters": {
+												"text": "\"\"",
+												"case": "case-insensitive"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 641350260399398,
+											"parameters": {
+												"variable": "FileName",
+												"value": "\"progression\""
+											}
+										}
+									],
+									"sid": 397886041123405
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 141839446404539
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 529371861734874,
+											"parameters": {
+												"variable": "FileName",
+												"value": "TextBox.Text"
+											}
+										}
+									],
+									"sid": 518100511303087
+								}
+							]
+						},
+						{
+							"eventType": "variable",
+							"name": "FileExtension",
+							"type": "string",
+							"initialValue": ".smqprog",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 355368916993166
+						},
+						{
+							"eventType": "variable",
+							"name": "FileName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 230861815860667
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
 									"objectClass": "Button",
 									"sid": 370334821588096,
 									"parameters": {
@@ -10138,10 +11937,20 @@
 								{
 									"id": "call-function",
 									"objectClass": "f",
-									"sid": 111485736224027,
+									"sid": 497883594703183,
 									"parameters": {
-										"name": "\"DownloadProgression\"",
+										"name": "\"SerializeProgression\"",
 										"parameter-n": []
+									}
+								},
+								{
+									"id": "invoke-download-of-string",
+									"objectClass": "Browser",
+									"sid": 535409353062557,
+									"parameters": {
+										"string": "CompleteProgressionData",
+										"mime-type": "\"\"",
+										"filename": "FileName & FileExtension"
 									}
 								}
 							],
@@ -10155,24 +11964,103 @@
 						{
 							"id": "on-function",
 							"objectClass": "f",
-							"sid": 390168333706957,
+							"sid": 770802279914723,
 							"parameters": {
-								"name": "\"DownloadProgression\""
+								"name": "\"SerializeProgression\""
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 398949142625722,
+							"parameters": {
+								"variable": "CompleteProgressionData",
+								"value": "\"\""
+							}
+						}
+					],
 					"sid": 253925603718882,
 					"children": [
 						{
 							"eventType": "variable",
-							"name": "CompleteProgressionData",
+							"name": "LevelsDataBeingProcessed",
 							"type": "string",
 							"initialValue": "",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
-							"sid": 196099686875530
+							"sid": 900941474347191
+						},
+						{
+							"eventType": "variable",
+							"name": "CompleteHeaderData",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 389609396042960
+						},
+						{
+							"eventType": "variable",
+							"name": "CompleteLevelsData",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 400151859903583
+						},
+						{
+							"eventType": "variable",
+							"name": "HeaderAndLevelDataSeparator",
+							"type": "string",
+							"initialValue": "---",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 368492762356892
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "clear",
+									"objectClass": "TempDictionary",
+									"sid": 356449992650174
+								},
+								{
+									"id": "add-key",
+									"objectClass": "TempDictionary2",
+									"sid": 209954921266343,
+									"parameters": {
+										"key": "\"ListOfAllTags\"",
+										"value": "f.Call(\"SerializeDictionary\",GlobalTagDictionary.AsJSON,\";\",\":\")"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "TempDictionary2",
+									"sid": 312208205702952,
+									"parameters": {
+										"key": "\"ListOfAllTypes\"",
+										"value": "f.Call(\"SerializeDictionary\",GlobalTypesDictionary.AsJSON,\";\",\":\")"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 489223904501423,
+									"parameters": {
+										"variable": "CompleteHeaderData",
+										"value": "f.Call(\"SerializeDictionary\",TempDictionary2.AsJSON)"
+									}
+								}
+							],
+							"sid": 982279280382378
 						},
 						{
 							"eventType": "block",
@@ -10190,118 +12078,46 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 564802505096846,
+									"sid": 969329626211105,
 									"parameters": {
-										"variable": "CompleteProgressionData",
-										"value": "CompleteProgressionData & f.Call(\"SerializeDictionary\",LevelInfo.AsJSON) & newline & newline"
+										"variable": "LevelsDataBeingProcessed",
+										"value": "LevelsDataBeingProcessed & f.Call(\"SerializeDictionary\",LevelInfo.AsJSON) & newline & newline"
 									}
 								}
 							],
 							"sid": 255375557244640
 						},
 						{
-							"eventType": "variable",
-							"name": "FileExtension",
-							"type": "string",
-							"initialValue": ".smqprog",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 532124845769515
-						},
-						{
-							"eventType": "variable",
-							"name": "FileName",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 675474394860840
-						},
-						{
 							"eventType": "block",
-							"conditions": [
+							"conditions": [],
+							"actions": [
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "TextBox",
-									"sid": 608858861467219,
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 622458905861759,
 									"parameters": {
-										"instance-variable": "Name",
-										"comparison": 0,
-										"value": "\"FileName\""
+										"variable": "CompleteLevelsData",
+										"value": "LevelsDataBeingProcessed"
 									}
 								}
 							],
-							"actions": [],
-							"sid": 216401642643335,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-text",
-											"objectClass": "TextBox",
-											"sid": 218926102533047,
-											"parameters": {
-												"text": "\"\"",
-												"case": "case-insensitive"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 348526173042565,
-											"parameters": {
-												"variable": "FileName",
-												"value": "\"progression\""
-											}
-										}
-									],
-									"sid": 137582882443686
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 340990817938214
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 505621305127697,
-											"parameters": {
-												"variable": "FileName",
-												"value": "TextBox.Text"
-											}
-										}
-									],
-									"sid": 605049811068441
-								}
-							]
+							"sid": 552236797807544
 						},
 						{
 							"eventType": "block",
 							"conditions": [],
 							"actions": [
 								{
-									"id": "invoke-download-of-string",
-									"objectClass": "Browser",
-									"sid": 251489576366181,
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 485260345617115,
 									"parameters": {
-										"string": "CompleteProgressionData",
-										"mime-type": "\"\"",
-										"filename": "FileName & FileExtension"
+										"variable": "CompleteProgressionData",
+										"value": "CompleteHeaderData & newline & newline & HeaderAndLevelDataSeparator & newline & newline & CompleteLevelsData"
 									}
 								}
 							],
-							"sid": 438182568655781
+							"sid": 980606396861267
 						}
 					]
 				},
@@ -10978,34 +12794,26 @@
 									}
 								}
 							],
-							"actions": [],
-							"sid": 226987293666054,
-							"children": [
+							"actions": [
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "for-each",
-											"objectClass": "System",
-											"sid": 113178795940317,
-											"parameters": {
-												"object": "Level"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-text",
-											"objectClass": "TextBox",
-											"sid": 284027922322044,
-											"parameters": {
-												"text": "TextBox.Text & f.Call(\"SerializeDictionary\",LevelInfo.AsJSON) & newline & newline"
-											}
-										}
-									],
-									"sid": 878437454262136
+									"id": "call-function",
+									"objectClass": "f",
+									"sid": 743996013333958,
+									"parameters": {
+										"name": "\"SerializeProgression\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "TextBox",
+									"sid": 152096222556977,
+									"parameters": {
+										"text": "CompleteProgressionData"
+									}
 								}
-							]
+							],
+							"sid": 226987293666054
 						}
 					]
 				},
@@ -11121,93 +12929,7 @@
 			"title": "TagsAndTypes",
 			"description": "",
 			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 143456223059508
-						}
-					],
-					"actions": [
-						{
-							"id": "set-at-x",
-							"objectClass": "TagsArray",
-							"sid": 756958169688767,
-							"parameters": {
-								"x": "0",
-								"value": "\"Tag1\""
-							}
-						},
-						{
-							"id": "set-at-x",
-							"objectClass": "TagsArray",
-							"sid": 412440892623553,
-							"parameters": {
-								"x": "1",
-								"value": "\"Tag2\""
-							}
-						},
-						{
-							"id": "set-at-x",
-							"objectClass": "TagsArray",
-							"sid": 423882143383630,
-							"parameters": {
-								"x": "2",
-								"value": "\"Tag3\""
-							}
-						},
-						{
-							"id": "set-at-x",
-							"objectClass": "TagsArray",
-							"sid": 304658452481142,
-							"parameters": {
-								"x": "3",
-								"value": "\"Tag4\""
-							}
-						},
-						{
-							"id": "set-at-x",
-							"objectClass": "TagsArray",
-							"sid": 655472090717794,
-							"parameters": {
-								"x": "4",
-								"value": "\"Tag5\""
-							}
-						},
-						{
-							"id": "set-at-x",
-							"objectClass": "TypesArray",
-							"sid": 574429116269467,
-							"parameters": {
-								"x": "0",
-								"value": "\"Type1\""
-							}
-						},
-						{
-							"id": "set-at-x",
-							"objectClass": "TypesArray",
-							"sid": 386478268378102,
-							"parameters": {
-								"x": "1",
-								"value": "\"Type2\""
-							}
-						},
-						{
-							"id": "set-at-x",
-							"objectClass": "TypesArray",
-							"sid": 762395780443971,
-							"parameters": {
-								"x": "2",
-								"value": "\"Type3\""
-							}
-						}
-					],
-					"sid": 266171618024442
-				}
-			],
+			"children": [],
 			"sid": 836538498357436
 		},
 		{
@@ -12071,6 +13793,80 @@
 								}
 							],
 							"sid": 684966084693432
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "f",
+							"sid": 422922737546549,
+							"parameters": {
+								"name": "\"WriteLevelTagsToItsDictionary\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 642057455269559,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "LevelUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 815106525954370
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 274660226678093,
+									"parameters": {
+										"variable": "LevelUID",
+										"value": "f.Param(0)"
+									}
+								}
+							],
+							"sid": 491784270210135
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Level",
+									"sid": 665087518262372,
+									"parameters": {
+										"unique-id": "LevelUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-key",
+									"objectClass": "LevelInfo",
+									"sid": 312226234940568,
+									"parameters": {
+										"key": "\"Tags\"",
+										"value": "f.Call(\"SerializeDictionary\",LevelTagDictionary.AsJSON,\";|;\",\":|:\")"
+									}
+								}
+							],
+							"sid": 381195645145696
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 214101016747142
 						}
 					]
 				},

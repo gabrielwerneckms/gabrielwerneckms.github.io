@@ -526,44 +526,6 @@
 					}
 				},
 				{
-					"type": "FileChooserText",
-					"properties": {
-						"text": "OogaBooga",
-						"enable-bbcode": false,
-						"character-width": 72,
-						"character-height": 85,
-						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzáéíóúàèìòùâêîôûãõÁÉÍÓÚÀÈÌÒÙÂÊÎÔÛÃÕ0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%",
-						"spacing-data": "",
-						"scale": 0.2,
-						"character-spacing": 0,
-						"line-height": 0,
-						"horizontal-alignment": "center",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top"
-					},
-					"uid": 49,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 2138,
-						"y": 1030,
-						"width": 200,
-						"height": 30,
-						"originX": 0.5,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "Button",
 					"properties": {
 						"left-margin": 2,
@@ -868,16 +830,6 @@
 	"sid": 163672464987642,
 	"nonworld-instances": [
 		{
-			"type": "TagsArray",
-			"properties": {
-				"width": 5,
-				"height": 1,
-				"depth": 1
-			},
-			"uid": 10,
-			"instanceVariables": {}
-		},
-		{
 			"type": "TypesArray",
 			"properties": {
 				"width": 3,
@@ -891,16 +843,6 @@
 			"type": "LevelInfo",
 			"properties": {},
 			"uid": 13,
-			"instanceVariables": {}
-		},
-		{
-			"type": "LevelTags",
-			"properties": {
-				"width": 1,
-				"height": 1,
-				"depth": 1
-			},
-			"uid": 14,
 			"instanceVariables": {}
 		},
 		{
@@ -949,6 +891,12 @@
 			"type": "GlobalTypesDictionary",
 			"properties": {},
 			"uid": 65,
+			"instanceVariables": {}
+		},
+		{
+			"type": "TempDictionary2",
+			"properties": {},
+			"uid": 10,
 			"instanceVariables": {}
 		}
 	],

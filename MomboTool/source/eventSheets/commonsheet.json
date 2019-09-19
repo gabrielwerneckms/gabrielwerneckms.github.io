@@ -2473,45 +2473,6 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 810212167018205
-						}
-					],
-					"actions": [
-						{
-							"id": "load",
-							"objectClass": "TypesArray",
-							"sid": 643560908614239,
-							"parameters": {
-								"json": "f.Call(\"GenerateArray\",\"5\")"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "Run",
-							"sid": 359602234755079,
-							"disabled": true,
-							"parameters": {
-								"text": "f.Call(\"SerializeArray\",TypesArray.AsJSON)"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "Run",
-							"sid": 906672408192992,
-							"parameters": {
-								"text": "TypesArray.AsJSON"
-							}
-						}
-					],
-					"sid": 237847436207614,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
 							"id": "on-key-pressed",
 							"objectClass": "Keyboard",
 							"sid": 935794546488982,
@@ -4396,12 +4357,12 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 472941303059354,
+									"sid": 535424169717587,
 									"parameters": {
 										"object-to-create": "TextTextBox",
 										"layer": "LayerName",
-										"x": "OriginX+AnchorOffsetX+PaddingOffsetX",
-										"y": "OriginY+AnchorOffsetY+PaddingOffsetY"
+										"x": "-99999",
+										"y": "-99999"
 									}
 								},
 								{
@@ -4411,6 +4372,15 @@
 									"parameters": {
 										"width": "Width",
 										"height": "Height"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "TextTextBox",
+									"sid": 608054381169280,
+									"parameters": {
+										"x": "OriginX+AnchorOffsetX+PaddingOffsetX",
+										"y": "OriginY+AnchorOffsetY+PaddingOffsetY"
 									}
 								},
 								{
@@ -4460,12 +4430,12 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 654806657778077,
+									"sid": 993610360043811,
 									"parameters": {
 										"object-to-create": "TextAreaBox",
 										"layer": "LayerName",
-										"x": "OriginX+AnchorOffsetX+PaddingOffsetX",
-										"y": "OriginY+AnchorOffsetY+PaddingOffsetY"
+										"x": "-99999",
+										"y": "-99999"
 									}
 								},
 								{
@@ -4475,6 +4445,15 @@
 									"parameters": {
 										"width": "Width",
 										"height": "Height"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "TextAreaBox",
+									"sid": 404840645937709,
+									"parameters": {
+										"x": "OriginX+AnchorOffsetX+PaddingOffsetX",
+										"y": "OriginY+AnchorOffsetY+PaddingOffsetY"
 									}
 								},
 								{
@@ -6645,20 +6624,13 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-click",
+							"id": "on-object-clicked",
 							"objectClass": "Mouse",
-							"sid": 227637589250220,
+							"sid": 840252642770064,
 							"parameters": {
 								"mouse-button": "left",
-								"click-type": "clicked"
-							}
-						},
-						{
-							"id": "cursor-is-over-object",
-							"objectClass": "Mouse",
-							"sid": 243609655734084,
-							"parameters": {
-								"object": "Button"
+								"click-type": "clicked",
+								"object-clicked": "Button"
 							}
 						},
 						{
@@ -8094,7 +8066,7 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 247915217747457,
+									"sid": 451163158987051,
 									"parameters": {
 										"variable": "SerializedDictionary",
 										"value": "f.Param(0)"
@@ -8317,7 +8289,18 @@
 										},
 										{
 											"eventType": "block",
-											"conditions": [],
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 302713347316392,
+													"parameters": {
+														"first-value": "CurrentKey",
+														"comparison": 1,
+														"second-value": "\"\""
+													}
+												}
+											],
 											"actions": [
 												{
 													"id": "add-key",
@@ -8349,6 +8332,101 @@
 								}
 							],
 							"sid": 337348909019270
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "f",
+							"sid": 170180323337591,
+							"parameters": {
+								"name": "\"TrimLineBreaks\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 495885582501877,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Does NOT work. Not sure why. Usually it's the regex' fault."
+						},
+						{
+							"eventType": "variable",
+							"name": "OriginalString",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 316513891838355
+						},
+						{
+							"eventType": "variable",
+							"name": "StringWithoutLineBreaksAtStart",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 563538884675393
+						},
+						{
+							"eventType": "variable",
+							"name": "StringWithoutLineBreaksAtStartOrEnd",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 690813105234377
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 192836951891410,
+									"parameters": {
+										"variable": "OriginalString",
+										"value": "f.Param(0)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 594665689516821,
+									"parameters": {
+										"variable": "StringWithoutLineBreaksAtStart",
+										"value": "RegexReplace(OriginalString,\"^(/r/n)*\",\"\",\"\")"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 157209109036178,
+									"parameters": {
+										"variable": "StringWithoutLineBreaksAtStartOrEnd",
+										"value": "RegexReplace(StringWithoutLineBreaksAtStartOrEnd,\"(/r/n)*$\",\"\",\"\")"
+									}
+								},
+								{
+									"id": "set-return-value",
+									"objectClass": "f",
+									"sid": 592056074765381,
+									"parameters": {
+										"value": "StringWithoutLineBreaksAtStartOrEnd"
+									}
+								}
+							],
+							"sid": 693103177217133,
+							"disabled": true
 						}
 					]
 				}
