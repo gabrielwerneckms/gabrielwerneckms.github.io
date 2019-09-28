@@ -738,6 +738,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.Dictionary.Acts.AddKey,
 		C3.Behaviors.Pin.Acts.Pin,
+		C3.Plugins.Sprite.Acts.SetSize,
 		C3.Plugins.Sprite.Acts.SetPos,
 		C3.Plugins.Function.Cnds.OnFunction,
 		C3.Plugins.Function.Acts.SetReturnValue,
@@ -762,6 +763,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Spritefont2.Acts.SetOpacity,
 		C3.Plugins.Spritefont2.Exps.Opacity,
 		C3.Plugins.NinePatch.Exps.Opacity,
+		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
+		C3.Plugins.Sprite.Acts.Destroy,
 		C3.Plugins.System.Cnds.TriggerOnce,
 		C3.Plugins.System.Cnds.Else,
 		C3.Plugins.NinePatch.Acts.SetWidth,
@@ -842,8 +845,9 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Exps.tokenat,
 		C3.Plugins.NinePatch.Acts.SetEffectParam,
 		C3.Plugins.System.Exps.rgbex255,
-		C3.Plugins.Spritefont2.Acts.SetEffectEnabled,
 		C3.Plugins.System.Cnds.IsNaN,
+		C3.Plugins.Spritefont2.Acts.SetEffectEnabled,
+		C3.Plugins.Spritefont2.Acts.SetPosToObject,
 		C3.Plugins.Mouse.Cnds.OnClick,
 		C3.Behaviors.DragnDrop.Cnds.OnDrop,
 		C3.Behaviors.DragnDrop.Cnds.OnDragStart,
@@ -853,7 +857,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.NinePatch.Cnds.PickTopBottom,
 		C3.Plugins.NinePatch.Cnds.OnDestroyed,
 		C3.Plugins.NinePatch.Acts.SetBoolInstanceVar,
-		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
 		C3.Plugins.Mouse.Cnds.OnRelease,
 		C3.Plugins.Sprite.Acts.SetWidth,
 		C3.Plugins.Sprite.Acts.SetHeight,
@@ -864,6 +867,14 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Mouse.Acts.SetCursor,
 		C3.Plugins.System.Exps.layoutname,
 		C3.Plugins.System.Acts.GoToLayout,
+		C3.Plugins.Sprite.Exps.X,
+		C3.Plugins.Sprite.Acts.SetInstanceVar,
+		C3.Plugins.Sprite.Cnds.IsOverlappingOffset,
+		C3.Plugins.System.Exps.loopindex,
+		C3.Plugins.Sprite.Acts.SetEffectParam,
+		C3.Plugins.Sprite.Exps.Width,
+		C3.Plugins.System.Exps.max,
+		C3.Plugins.System.Exps.min,
 		C3.Plugins.Mouse.Exps.AbsoluteX,
 		C3.Plugins.Mouse.Exps.AbsoluteY,
 		C3.Plugins.Mouse.Cnds.IsButtonDown,
@@ -874,17 +885,13 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.SetLayoutScale,
 		C3.Plugins.System.Exps.layoutscale,
 		C3.Plugins.System.Acts.AddVar,
-		C3.Plugins.Spritefont2.Acts.SetPosToObject,
 		C3.Plugins.Spritefont2.Acts.SetHAlign,
-		C3.Plugins.NinePatch.Acts.SetVisible,
-		C3.Plugins.Spritefont2.Acts.SetVisible,
 		C3.Plugins.Spritefont2.Cnds.CompareOpacity,
 		C3.Plugins.filechooser.Cnds.OnChanged,
 		C3.Plugins.AJAX.Acts.Request,
 		C3.Plugins.filechooser.Exps.FileURLAt,
 		C3.Plugins.System.Cnds.For,
 		C3.Plugins.System.Exps.tokencount,
-		C3.Plugins.System.Exps.loopindex,
 		C3.Plugins.filechooser.Acts.Destroy,
 		C3.Plugins.System.Acts.RecreateInitialObjects,
 		C3.Plugins.Browser.Acts.InvokeDownloadString,
@@ -965,6 +972,9 @@ self.C3_JsPropNameTable = [
 	{LevelInfo: 0},
 	{Resizing: 0},
 	{ResizingDirection: 0},
+	{Red: 0},
+	{Green: 0},
+	{Blue: 0},
 	{Level: 0},
 	{TypesArray: 0},
 	{Position: 0},
@@ -1029,9 +1039,6 @@ self.C3_JsPropNameTable = [
 	{TempArray: 0},
 	{LinksArray: 0},
 	{TempDictionary2: 0},
-	{Red: 0},
-	{Green: 0},
-	{Blue: 0},
 	{SolidColor: 0},
 	{Location: 0},
 	{TagName: 0},
@@ -1040,6 +1047,12 @@ self.C3_JsPropNameTable = [
 	{PickableColor: 0},
 	{ColorBoard: 0},
 	{TagTypeBoard: 0},
+	{TypeName: 0},
+	{LevelColorIndicator: 0},
+	{CurrentLevelUID: 0},
+	{LevelFinder: 0},
+	{RightExit: 0},
+	{LeftExit: 0},
 	{TextBox: 0},
 	{ResizeHandles: 0},
 	{GridTileHeight: 0},
@@ -1088,15 +1101,19 @@ self.C3_JsPropNameTable = [
 	{CurrentChangingTag: 0},
 	{TagLetterToSet: 0},
 	{TagColorToSet: 0},
-	{TagIconColor: 0},
-	{TagIconLetters: 0},
+	{CurrentChangingType: 0},
+	{TypeColorToSet: 0},
+	{TypeColor: 0},
 	{UpperCaseColorString: 0},
 	{RGBString: 0},
 	{TagIconRGBString: 0},
 	{CSSColorParameter: 0},
 	{RequestedKey: 0},
-	{CompleteKeyValue: 0},
+	{RGBColor: 0},
 	{TextBeforeFirstDash: 0},
+	{TagIconLetters: 0},
+	{TagIconColor: 0},
+	{CompleteKeyValue: 0},
 	{TextAfterFirstDash: 0},
 	{DictionaryJSON: 0},
 	{LowestPossibleX: 0},
@@ -1106,6 +1123,21 @@ self.C3_JsPropNameTable = [
 	{HandleThickness: 0},
 	{MouseOverLevelUID: 0},
 	{MouseOver: 0},
+	{FirstLevelEndY: 0},
+	{FirstLevelStartY: 0},
+	{SecondLevelStartY: 0},
+	{SecondLevelEndY: 0},
+	{IntersectionStartY: 0},
+	{IntersectionEndY: 0},
+	{IntersectionHeight: 0},
+	{FirstStart: 0},
+	{FirstEnd: 0},
+	{SecondStart: 0},
+	{SecondEnd: 0},
+	{IntersectionStart: 0},
+	{IntersectionEnd: 0},
+	{IntersectionCenter: 0},
+	{IntersectionSize: 0},
 	{LastMouseX: 0},
 	{LastMouseY: 0},
 	{CurMouseX: 0},
@@ -1350,14 +1382,19 @@ self.C3_JsPropNameTable = [
 		() => "#Cool",
 		() => "Cl-255,0,0",
 		() => "#Bad",
-		() => "Bd-200,200,0",
+		() => "Bd-255,255,0",
 		() => "#Weird",
-		() => "Wd-0,220,0",
+		() => "Wd-255,0,255",
+		() => "Padrão",
+		() => "160,100,255",
 		() => "Arena",
-		() => 0,
+		() => "255,0,0",
 		() => "Platform",
+		() => "0,255,0",
 		() => "Challenge",
+		() => "0,0,255",
 		() => "ColorPicker",
+		() => 17,
 		() => -9999,
 		() => "Functions",
 		() => "Round/Ceil/Floor",
@@ -1515,6 +1552,7 @@ self.C3_JsPropNameTable = [
 		() => "NameDesc",
 		() => "Greyout",
 		() => "CreateNameBox",
+		() => 0,
 		() => "CreateDescriptionBox",
 		() => "Text",
 		() => "Bottom",
@@ -1592,6 +1630,7 @@ self.C3_JsPropNameTable = [
 		() => "ButtonClicked",
 		() => "WriteLevelTagsToItsDictionary",
 		() => "Type",
+		() => "UpdateTypeColorVisuals",
 		() => "ButtonOff",
 		() => "ButtonOn",
 		p => {
@@ -1610,6 +1649,7 @@ self.C3_JsPropNameTable = [
 		() => "RenameType",
 		() => "TagColor",
 		() => "TagLetters",
+		() => "TypeColor",
 		() => "Sample",
 		() => "TagList",
 		() => "SideBar",
@@ -1641,6 +1681,10 @@ self.C3_JsPropNameTable = [
 		},
 		p => {
 			const n0 = p._GetNode(0);
+			return () => (n0.ExpObject() + 11);
+		},
+		p => {
+			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() + 17);
 		},
 		p => {
@@ -1654,6 +1698,14 @@ self.C3_JsPropNameTable = [
 		},
 		() => "A",
 		() => "UpdateTagIconVisuals",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpObject() - 140);
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => ((n0.ExpObject() + 1) - 70);
+		},
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpInstVar_Family();
@@ -1670,9 +1722,15 @@ self.C3_JsPropNameTable = [
 			const v1 = p._GetNode(1).GetVar();
 			return () => f0("GetTagIconColor", v1.GetValue());
 		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			return () => f0("GetTypeColor", v1.GetValue());
+		},
 		() => "TagColors",
 		() => "HTMLColors",
 		() => "UpdateTagIconFromTextboxes",
+		() => "UpdateTypeColorFromTextboxes",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const n1 = p._GetNode(1);
@@ -1684,6 +1742,7 @@ self.C3_JsPropNameTable = [
 			return () => f0(n1.ExpObject(), 2);
 		},
 		() => "ChangeTagIconInfo",
+		() => "ChangeTypeColorInfo",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const v1 = p._GetNode(1).GetVar();
@@ -1693,11 +1752,6 @@ self.C3_JsPropNameTable = [
 			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
 			return () => n0.ExpObject(v1.GetValue());
-		},
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			const v1 = p._GetNode(1).GetVar();
-			return () => ((v0.GetValue() + "-") + v1.GetValue());
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -1729,7 +1783,6 @@ self.C3_JsPropNameTable = [
 			return () => (and((and((and("rgb(", n0.ExpInstVar()) + ","), n1.ExpInstVar()) + ","), n2.ExpInstVar()) + ")");
 		},
 		() => "background",
-		() => "Inverse",
 		() => "color",
 		() => "black",
 		() => "border-color",
@@ -1737,15 +1790,23 @@ self.C3_JsPropNameTable = [
 		() => "white",
 		() => 255,
 		() => "lightgray",
+		() => "Inverse",
+		() => "UpdateExits",
+		() => "GetTypeColor",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (("No. Wrong. " + v0.GetValue()) + " doesn't seem to be a valid tag.");
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			return () => ((v0.GetValue() + "-") + v1.GetValue());
+		},
 		() => "GetTagIconLetters",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const v1 = p._GetNode(1).GetVar();
 			return () => f0(v1.GetValue(), 0, "-");
-		},
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => (("No. Wrong. " + v0.GetValue()) + " doesn't seem to be a valid tag.");
 		},
 		() => "GetTagIconColor",
 		p => {
@@ -1832,14 +1893,66 @@ self.C3_JsPropNameTable = [
 		() => "UpdateSidebarInfo",
 		() => "Debug",
 		() => "ProgTool",
-		() => "Screen",
-		() => "Dragging",
-		() => "true",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpObject() + 2);
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpObject() - 4);
+		},
+		() => -3,
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => (f0() + 1);
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpObject() - 2);
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => (((n0.ExpObject() - 2) + n1.ExpObject()) + 4);
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			const v3 = p._GetNode(3).GetVar();
+			const v4 = p._GetNode(4).GetVar();
+			return () => f0("FindCenterOfIntersection", v1.GetValue(), v2.GetValue(), v3.GetValue(), v4.GetValue());
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => ((n0.ExpObject() + n1.ExpObject()) + 2);
+		},
+		() => 0.25,
+		() => "FindCenterOfIntersection",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0(3);
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			return () => f0(v1.GetValue(), v2.GetValue());
+		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			const v1 = p._GetNode(1).GetVar();
 			return () => (v0.GetValue() - v1.GetValue());
 		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			return () => (v0.GetValue() + (v1.GetValue() / 2));
+		},
+		() => "Screen",
+		() => "Dragging",
+		() => "true",
 		() => "false",
 		() => "Zooming",
 		() => "TargetedZoom",
@@ -1885,21 +1998,11 @@ self.C3_JsPropNameTable = [
 		},
 		p => {
 			const n0 = p._GetNode(0);
-			return () => (n0.ExpObject() + 5);
-		},
-		p => {
-			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() + 50);
 		},
-		() => 70,
+		() => 60,
 		() => "Toggle",
 		() => "HUD",
-		p => {
-			const n0 = p._GetNode(0);
-			return () => (n0.ExpObject() + 100);
-		},
-		() => 60,
-		() => 0.2,
 		p => {
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
@@ -1910,6 +2013,11 @@ self.C3_JsPropNameTable = [
 			const n1 = p._GetNode(1);
 			return () => (n0.ExpInstVar() + (n1.ExpObject() / 2));
 		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpObject() + 100);
+		},
+		() => 0.2,
 		() => 50,
 		() => "SidebarLevelName",
 		() => "SidebarLevelDescription",
@@ -2222,17 +2330,8 @@ self.C3_JsPropNameTable = [
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0("HUD");
 		},
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			const v1 = p._GetNode(1).GetVar();
-			return () => (v0.GetValue() + (v1.GetValue() / 2));
-		},
 		() => "CreateGrid",
 		() => "SettingGridParameters",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0(3);
-		},
 		() => 4,
 		() => 6,
 		() => "Wrong number of parameters for CreateGrid!",
@@ -2435,12 +2534,6 @@ self.C3_JsPropNameTable = [
 			const v1 = p._GetNode(1).GetVar();
 			const f2 = p._GetNode(2).GetBoundMethod();
 			return () => f0(v1.GetValue(), f2(), 1);
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const v1 = p._GetNode(1).GetVar();
-			const v2 = p._GetNode(2).GetVar();
-			return () => f0(v1.GetValue(), v2.GetValue());
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
