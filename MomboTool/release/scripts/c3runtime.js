@@ -827,6 +827,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.PickLastCreated,
 		C3.Plugins.TextBox.Acts.SetEnabled,
 		C3.Plugins.TextBox.Acts.SetCSSStyle,
+		C3.Plugins.NinePatch.Cnds.OnDestroyed,
 		C3.Plugins.TextBox.Cnds.CompareText,
 		C3.Plugins.System.Exps.left,
 		C3.Plugins.Dictionary.Cnds.CompareValue,
@@ -855,7 +856,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Dictionary.Exps.AsJSON,
 		C3.Plugins.Dictionary.Cnds.IsEmpty,
 		C3.Plugins.NinePatch.Cnds.PickTopBottom,
-		C3.Plugins.NinePatch.Cnds.OnDestroyed,
 		C3.Plugins.NinePatch.Acts.SetBoolInstanceVar,
 		C3.Plugins.Mouse.Cnds.OnRelease,
 		C3.Plugins.Sprite.Acts.SetWidth,
@@ -1793,10 +1793,6 @@ self.C3_JsPropNameTable = [
 		() => "Inverse",
 		() => "UpdateExits",
 		() => "GetTypeColor",
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => (("No. Wrong. " + v0.GetValue()) + " doesn't seem to be a valid tag.");
-		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			const v1 = p._GetNode(1).GetVar();
