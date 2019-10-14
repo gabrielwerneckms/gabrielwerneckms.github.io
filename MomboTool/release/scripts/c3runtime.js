@@ -907,7 +907,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Spritefont2.Cnds.CompareText,
 		C3.Plugins.Spritefont2.Acts.Destroy,
 		C3.Plugins.System.Exps.int,
-		C3.Plugins.System.Exps.float,
 		C3.Plugins.TiledBg.Acts.Destroy,
 		C3.Plugins.Button.Cnds.OnClicked,
 		C3.Plugins.System.Acts.ScrollY,
@@ -2217,13 +2216,6 @@ self.C3_JsPropNameTable = [
 			const v2 = p._GetNode(2).GetVar();
 			return () => (f0(n1.ExpObject("Y")) * v2.GetValue());
 		},
-		p => {
-			const n0 = p._GetNode(0);
-			const f1 = p._GetNode(1).GetBoundMethod();
-			const n2 = p._GetNode(2);
-			const v3 = p._GetNode(3).GetVar();
-			return () => (n0.ExpObject() - (f1(n2.ExpObject("Height")) * v3.GetValue()));
-		},
 		() => "X",
 		p => {
 			const n0 = p._GetNode(0);
@@ -2231,12 +2223,6 @@ self.C3_JsPropNameTable = [
 			return () => (n0.ExpObject() / v1.GetValue());
 		},
 		() => "Y",
-		p => {
-			const n0 = p._GetNode(0);
-			const v1 = p._GetNode(1).GetVar();
-			const n2 = p._GetNode(2);
-			return () => add((n0.ExpObject() / v1.GetValue()), n2.ExpObject("Height"));
-		},
 		() => "Width",
 		() => "Height",
 		p => {
@@ -2256,10 +2242,16 @@ self.C3_JsPropNameTable = [
 			const v1 = p._GetNode(1).GetVar();
 			return () => subtract(n0.ExpObject("X"), v1.GetValue());
 		},
+		() => "BottomY",
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => add(n0.ExpObject("Y"), n1.ExpObject("Height"));
+		},
 		() => "InvertedY",
 		p => {
 			const n0 = p._GetNode(0);
-			return () => unaryminus(n0.ExpObject("Y"));
+			return () => unaryminus(n0.ExpObject("BottomY"));
 		},
 		() => "ZeroAdjustedY",
 		p => {

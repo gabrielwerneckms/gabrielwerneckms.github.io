@@ -16323,6 +16323,14 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 172796705435655,
+									"parameters": {
+										"object": "Level"
+									}
+								},
+								{
 									"id": "compare-instance-variable",
 									"objectClass": "TextTextBox",
 									"sid": 603712840647288,
@@ -21027,6 +21035,7 @@
 											"id": "set-y",
 											"objectClass": "Level",
 											"sid": 654666680116631,
+											"disabled": true,
 											"parameters": {
 												"y": "Self.Y-float(LevelInfo.Get(\"Height\"))*GridTileHeight"
 											}
@@ -21163,10 +21172,10 @@
 								{
 									"id": "add-key",
 									"objectClass": "LevelInfo",
-									"sid": 250231705161419,
+									"sid": 984184480914850,
 									"parameters": {
 										"key": "\"Y\"",
-										"value": "(Level.Y/GridTileHeight)+LevelInfo.Get(\"Height\")"
+										"value": "(Level.Y/GridTileHeight)"
 									}
 								}
 							],
@@ -21716,10 +21725,10 @@
 								{
 									"id": "add-key",
 									"objectClass": "LevelInfo",
-									"sid": 552740593090424,
+									"sid": 894417926401839,
 									"parameters": {
 										"key": "\"Y\"",
-										"value": "(Level.Y/GridTileHeight)+LevelInfo.Get(\"Height\")"
+										"value": "(Level.Y/GridTileHeight)"
 									}
 								},
 								{
@@ -21742,10 +21751,19 @@
 								{
 									"id": "add-key",
 									"objectClass": "LevelInfo",
-									"sid": 266558291698010,
+									"sid": 550658052248925,
+									"parameters": {
+										"key": "\"BottomY\"",
+										"value": "LevelInfo.Get(\"Y\")+LevelInfo.Get(\"Height\")"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "LevelInfo",
+									"sid": 126190077819883,
 									"parameters": {
 										"key": "\"InvertedY\"",
-										"value": "-LevelInfo.Get(\"Y\")"
+										"value": "-LevelInfo.Get(\"BottomY\")"
 									}
 								},
 								{
