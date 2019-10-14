@@ -18,7 +18,12 @@
 		}
 	],
 	"behaviorTypes": [],
-	"effectTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "inverse",
+			"name": "Inverse"
+		}
+	],
 	"image": {
 		"width": 1024,
 		"height": 1024,

@@ -1,0 +1,60 @@
+{
+	"name": "LeftExit",
+	"plugin-id": "Sprite",
+	"sid": 118873854446782,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "ParentLevelUID",
+			"type": "number",
+			"desc": "",
+			"sid": 294695135705139
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "tint",
+			"name": "Tint"
+		}
+	],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 90,
+						"originX": 0,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 75,
+						"collisionPoly": {
+							"points": [
+								1,
+								1,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0
+							]
+						},
+						"duration": 1
+					}
+				],
+				"sid": 557101465090385,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,55 @@
+{
+	"name": "LevelColorIndicator",
+	"plugin-id": "NinePatch",
+	"sid": 343175174471940,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Red",
+			"type": "number",
+			"desc": "",
+			"sid": 153275532041501
+		},
+		{
+			"name": "Green",
+			"type": "number",
+			"desc": "",
+			"sid": 247896550046575
+		},
+		{
+			"name": "Blue",
+			"type": "number",
+			"desc": "",
+			"sid": 530576585059106
+		},
+		{
+			"name": "Location",
+			"type": "string",
+			"desc": "",
+			"sid": 647265369024899
+		},
+		{
+			"name": "TypeName",
+			"type": "string",
+			"desc": "",
+			"sid": 319647321822060
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "tint",
+			"name": "Tint"
+		}
+	],
+	"image": {
+		"width": 24,
+		"height": 24,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 0
+	}
+}

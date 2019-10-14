@@ -165,6 +165,14 @@
 			"author": "Scirra",
 			"version": "r164.3",
 			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "inverse",
+			"name": "Inverse",
+			"author": "Scirra",
+			"version": "r164.3",
+			"bundled": false
 		}
 	],
 	"uniqueId": "1q8z1ykjhqkc9",
@@ -195,7 +203,16 @@
 			"iframe",
 			"TempArray",
 			"LinksArray",
-			"TempDictionary2"
+			"TempDictionary2",
+			"SolidColor",
+			"TagIcon",
+			"PickableColor",
+			"ColorBoard",
+			"TagTypeBoard",
+			"LevelColorIndicator",
+			"LevelFinder",
+			"RightExit",
+			"LeftExit"
 		],
 		"subfolders": [
 			{
@@ -208,7 +225,7 @@
 					"ButtonText",
 					"BottomResizeHandleVertical",
 					"WordHighLight",
-					"Board",
+					"PropertiesBoard",
 					"Tooltip",
 					"TooltipText",
 					"f",
@@ -219,7 +236,10 @@
 					"GridLineVertical",
 					"GlobalTagDictionary",
 					"LevelTagDictionary",
-					"GlobalTypesDictionary"
+					"GlobalTypesDictionary",
+					"TagText",
+					"HTMLColors",
+					"LevelsToCreateTempArray"
 				],
 				"subfolders": [],
 				"name": "Prog"
@@ -281,6 +301,13 @@
 				"FileChooserBox"
 			],
 			"selectMode": "normal"
+		},
+		{
+			"members": [
+				"TagIcon",
+				"TagText"
+			],
+			"selectMode": "normal"
 		}
 	],
 	"families": {
@@ -301,7 +328,8 @@
 			{
 				"items": [
 					"ProgTool",
-					"ProgLimbo"
+					"ProgLimbo",
+					"TestPlace"
 				],
 				"subfolders": [],
 				"name": "Prog"
@@ -319,7 +347,8 @@
 	"eventSheets": {
 		"items": [
 			"CommonSheet",
-			"iFrames_Sheet"
+			"iFrames_Sheet",
+			"TestPlaceSheet"
 		],
 		"subfolders": [
 			{
@@ -389,7 +418,16 @@
 			"subfolders": []
 		},
 		"general": {
-			"items": [],
+			"items": [
+				{
+					"name": "New Array.json",
+					"type": "application/json"
+				},
+				{
+					"name": "HTML Colors.json",
+					"type": "application/json"
+				}
+			],
 			"subfolders": []
 		}
 	},
@@ -428,9 +466,9 @@
 		],
 		"useThemeColor": false,
 		"themeColor": [
-			1,
-			1,
-			1,
+			0.25098039215686274,
+			0,
+			0.25098039215686274,
 			0
 		],
 		"useHighDpi": true,
@@ -438,10 +476,10 @@
 		"enableWebGL": true,
 		"gpuPreference": "default",
 		"compositingMode": "standard",
-		"sampling": "trilinear",
+		"sampling": "bilinear",
 		"downscaling": "medium",
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "progress-logo",
+		"loaderStyle": "splash",
 		"preloadSounds": true,
 		"clearBackground": true,
 		"enhancedAccelerationPrecision": true

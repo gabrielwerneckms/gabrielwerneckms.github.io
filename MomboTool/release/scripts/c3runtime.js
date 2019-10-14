@@ -892,8 +892,11 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.filechooser.Exps.FileURLAt,
 		C3.Plugins.System.Cnds.For,
 		C3.Plugins.System.Exps.tokencount,
+		C3.Plugins.System.Cnds.Repeat,
+		C3.Plugins.Arr.Exps.Width,
 		C3.Plugins.filechooser.Acts.Destroy,
 		C3.Plugins.System.Acts.RecreateInitialObjects,
+		C3.Plugins.Arr.Exps.At,
 		C3.Plugins.Browser.Acts.InvokeDownloadString,
 		C3.Plugins.Dictionary.Acts.Clear,
 		C3.Plugins.TextBox.Exps.PickedCount,
@@ -911,7 +914,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Spritefont2.Exps.PickedCount,
 		C3.Plugins.Spritefont2.Cnds.PickTopBottom,
 		C3.Plugins.Spritefont2.Exps.IID,
-		C3.Plugins.Arr.Exps.At,
 		C3.Plugins.Arr.Acts.SetX,
 		C3.Plugins.Spritefont2.Exps.Text,
 		C3.Plugins.Keyboard.Cnds.OnAnyKey,
@@ -942,7 +944,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Arr.Exps.CurY,
 		C3.Plugins.Arr.Exps.CurZ,
 		C3.Plugins.Arr.Exps.Depth,
-		C3.Plugins.Arr.Exps.Width,
 		C3.Plugins.TextBox.Acts.SetSize,
 		C3.Plugins.TextBox.Acts.SetPos,
 		C3.Plugins.TextBox.Acts.SetInstanceVar,
@@ -1008,6 +1009,7 @@ self.C3_JsPropNameTable = [
 	{GlobalTypesDictionary: 0},
 	{TagText: 0},
 	{HTMLColors: 0},
+	{LevelsToCreateTempArray: 0},
 	{Word: 0},
 	{WordsArray: 0},
 	{WholeText: 0},
@@ -1167,6 +1169,7 @@ self.C3_JsPropNameTable = [
 	{HeaderLevelSeparator: 0},
 	{LevelSeparator: 0},
 	{CurrentLevelSerialized: 0},
+	{ArrayIndex: 0},
 	{CompleteProgressionData: 0},
 	{FileExtension: 0},
 	{FileName: 0},
@@ -2103,9 +2106,20 @@ self.C3_JsPropNameTable = [
 			const v3 = p._GetNode(3).GetVar();
 			return () => f0(v1.GetValue(), f2(), v3.GetValue());
 		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => (f0() * (1 / 45));
+		},
+		() => "CreateNextLevel",
+		() => "UpdateGrid",
 		() => -99999,
 		() => 99999,
-		() => "UpdateGrid",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			const v2 = p._GetNode(2).GetVar();
+			return () => f0("DeSerializeDictionary", n1.ExpObject(v2.GetValue()));
+		},
 		() => "Export",
 		() => "GreyoutOff",
 		() => "DestroyExportBox",

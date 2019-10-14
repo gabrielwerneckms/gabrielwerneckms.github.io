@@ -1,0 +1,37 @@
+{
+	"name": "TagTypeBoard",
+	"plugin-id": "NinePatch",
+	"sid": 110453695002244,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "InitialX",
+			"type": "number",
+			"desc": "",
+			"sid": 466549888526247
+		},
+		{
+			"name": "Showing",
+			"type": "boolean",
+			"desc": "",
+			"sid": 967559326935466
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "hsladjust",
+			"name": "AdjustHSL"
+		}
+	],
+	"image": {
+		"width": 24,
+		"height": 24,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 24
+	}
+}

@@ -354,7 +354,7 @@
 				},
 				{
 					"id": "set-x",
-					"objectClass": "Board",
+					"objectClass": "PropertiesBoard",
 					"sid": 588280185818422,
 					"parameters": {
 						"x": "Button.X"

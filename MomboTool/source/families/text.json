@@ -9,6 +9,7 @@
 		"ButtonText",
 		"LevelName",
 		"TooltipText",
-		"Word"
+		"Word",
+		"TagText"
 	]
 }

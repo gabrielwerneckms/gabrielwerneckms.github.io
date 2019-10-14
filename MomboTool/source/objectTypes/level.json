@@ -15,6 +15,24 @@
 			"type": "string",
 			"desc": "",
 			"sid": 134559729288098
+		},
+		{
+			"name": "Red",
+			"type": "number",
+			"desc": "",
+			"sid": 919635374717921
+		},
+		{
+			"name": "Green",
+			"type": "number",
+			"desc": "",
+			"sid": 801885509539728
+		},
+		{
+			"name": "Blue",
+			"type": "number",
+			"desc": "",
+			"sid": 275395063853865
 		}
 	],
 	"behaviorTypes": [
@@ -31,13 +49,13 @@
 		}
 	],
 	"image": {
-		"width": 50,
-		"height": 50,
+		"width": 48,
+		"height": 48,
 		"originX": 0.5,
 		"originY": 0.5,
 		"originalSource": "",
 		"exportFormat": "png",
 		"exportQuality": 0.8,
-		"imageSpriteId": 7
+		"imageSpriteId": 79
 	}
 }

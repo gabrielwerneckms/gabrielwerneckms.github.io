@@ -1,0 +1,48 @@
+{
+	"name": "RightExit",
+	"plugin-id": "Sprite",
+	"sid": 882019794274454,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "ParentLevelUID",
+			"type": "number",
+			"desc": "",
+			"sid": 342970274588589
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "tint",
+			"name": "Tint"
+		}
+	],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 90,
+						"originX": 1,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 74,
+						"duration": 1
+					}
+				],
+				"sid": 622526627183324,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

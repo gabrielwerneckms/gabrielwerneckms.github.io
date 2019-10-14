@@ -6634,6 +6634,15 @@
 							}
 						},
 						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 327977872624148,
+							"parameters": {
+								"object": "TextBox"
+							},
+							"isInverted": true
+						},
+						{
 							"id": "pick-topbottom",
 							"objectClass": "Button",
 							"sid": 983194158371139,

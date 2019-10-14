@@ -1,0 +1,55 @@
+{
+	"name": "SolidColor",
+	"plugin-id": "Sprite",
+	"sid": 360195594985535,
+	"isGlobal": true,
+	"instanceVariables": [
+		{
+			"name": "Red",
+			"type": "number",
+			"desc": "",
+			"sid": 400377316972839
+		},
+		{
+			"name": "Green",
+			"type": "number",
+			"desc": "",
+			"sid": 545639730819960
+		},
+		{
+			"name": "Blue",
+			"type": "number",
+			"desc": "",
+			"sid": 596937933089679
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 18,
+						"duration": 1
+					}
+				],
+				"sid": 617849945181194,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

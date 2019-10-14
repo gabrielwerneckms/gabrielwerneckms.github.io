@@ -90,7 +90,7 @@
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "Board",
+					"type": "PropertiesBoard",
 					"properties": {
 						"left-margin": 2,
 						"right-margin": 2,

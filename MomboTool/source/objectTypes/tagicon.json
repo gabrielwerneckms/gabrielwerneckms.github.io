@@ -1,0 +1,61 @@
+{
+	"name": "TagIcon",
+	"plugin-id": "NinePatch",
+	"sid": 636368249710634,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Red",
+			"type": "number",
+			"desc": "",
+			"sid": 431629160402512
+		},
+		{
+			"name": "Green",
+			"type": "number",
+			"desc": "",
+			"sid": 510767755997564
+		},
+		{
+			"name": "Blue",
+			"type": "number",
+			"desc": "",
+			"sid": 220384528192838
+		},
+		{
+			"name": "Location",
+			"type": "string",
+			"desc": "",
+			"sid": 107816596384510
+		},
+		{
+			"name": "TagName",
+			"type": "string",
+			"desc": "",
+			"sid": 335906118511500
+		},
+		{
+			"name": "ParentLevelUID",
+			"type": "number",
+			"desc": "",
+			"sid": 730376261153124
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "tint",
+			"name": "Tint"
+		}
+	],
+	"image": {
+		"width": 24,
+		"height": 24,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 30
+	}
+}
