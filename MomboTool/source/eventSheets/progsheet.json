@@ -16297,6 +16297,61 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "on-created",
+							"objectClass": "Level",
+							"sid": 130397050295886
+						},
+						{
+							"id": "on-destroyed",
+							"objectClass": "Level",
+							"sid": 523409253591008
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 131543262639072,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						}
+					],
+					"sid": 394453153506671,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TextTextBox",
+									"sid": 603712840647288,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "\"LevelCounter\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "TextTextBox",
+									"sid": 181158200991540,
+									"parameters": {
+										"text": "Level.Count & \" levels in this progression.\""
+									}
+								}
+							],
+							"sid": 294657575997760
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "on-function",
 							"objectClass": "f",
 							"sid": 102172201660394,
@@ -20971,9 +21026,9 @@
 										{
 											"id": "set-y",
 											"objectClass": "Level",
-											"sid": 908441638757408,
+											"sid": 654666680116631,
 											"parameters": {
-												"y": "Self.Y-LevelInfo.Get(\"Height\")*GridTileHeight"
+												"y": "Self.Y-float(LevelInfo.Get(\"Height\"))*GridTileHeight"
 											}
 										}
 									],
