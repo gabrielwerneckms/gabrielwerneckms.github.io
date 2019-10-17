@@ -14983,100 +14983,320 @@
 														"offset-x": "-3",
 														"offset-y": "0"
 													}
-												},
-												{
-													"id": "for-each",
-													"objectClass": "System",
-													"sid": 397315587903975,
-													"parameters": {
-														"object": "Level"
-													}
-												},
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 866383878292127,
-													"parameters": {
-														"first-value": "loopindex+1",
-														"comparison": 3,
-														"second-value": "2"
-													}
-												},
-												{
-													"id": "is-dragging",
-													"objectClass": "Level",
-													"sid": 870883406306304,
-													"behaviorType": "DragDrop",
-													"isInverted": true
 												}
 											],
-											"actions": [
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 756711484662667,
-													"parameters": {
-														"variable": "FirstLevelStartY",
-														"value": "LevelFinder.Y-2"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 443812225464782,
-													"parameters": {
-														"variable": "FirstLevelEndY",
-														"value": "LevelFinder.Y-2+LevelFinder.Height+4"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 279386708118642,
-													"parameters": {
-														"variable": "SecondLevelStartY",
-														"value": "Level.Y"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 913203118248439,
-													"parameters": {
-														"variable": "SecondLevelEndY",
-														"value": "Level.Y+Level.Height"
-													}
-												},
-												{
-													"id": "create-object",
-													"objectClass": "System",
-													"sid": 852532441328547,
-													"parameters": {
-														"object-to-create": "LeftExit",
-														"layer": "\"Main\"",
-														"x": "LevelFinder.X-2",
-														"y": "f.Call(\"FindCenterOfIntersection\",FirstLevelStartY,FirstLevelEndY,SecondLevelStartY,SecondLevelEndY)"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "LeftExit",
-													"sid": 555944274390639,
-													"parameters": {
-														"instance-variable": "ParentLevelUID",
-														"value": "LevelFinder.CurrentLevelUID"
-													}
-												}
-											],
+											"actions": [],
 											"sid": 366941372899286,
 											"children": [
 												{
 													"eventType": "block",
 													"conditions": [
 														{
+															"id": "for-each",
+															"objectClass": "System",
+															"sid": 747155121143139,
+															"parameters": {
+																"object": "Level"
+															}
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 835381668018414,
+															"parameters": {
+																"first-value": "loopindex+1",
+																"comparison": 3,
+																"second-value": "2"
+															}
+														},
+														{
+															"id": "is-dragging",
+															"objectClass": "Level",
+															"sid": 828295294924915,
+															"behaviorType": "DragDrop",
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 498096506873397,
+															"parameters": {
+																"variable": "FirstLevelStartY",
+																"value": "LevelFinder.Y-2"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 206230709522115,
+															"parameters": {
+																"variable": "FirstLevelEndY",
+																"value": "LevelFinder.Y-2+LevelFinder.Height+4"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 399185231297141,
+															"parameters": {
+																"variable": "SecondLevelStartY",
+																"value": "Level.Y"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 372201620487598,
+															"parameters": {
+																"variable": "SecondLevelEndY",
+																"value": "Level.Y+Level.Height"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 476576980983198,
+															"parameters": {
+																"object-to-create": "LeftExit",
+																"layer": "\"Main\"",
+																"x": "LevelFinder.X-2",
+																"y": "f.Call(\"FindCenterOfIntersection\",FirstLevelStartY,FirstLevelEndY,SecondLevelStartY,SecondLevelEndY)"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "LeftExit",
+															"sid": 377026870839548,
+															"parameters": {
+																"instance-variable": "ParentLevelUID",
+																"value": "LevelFinder.CurrentLevelUID"
+															}
+														}
+													],
+													"sid": 315908036697814,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-all",
+																	"objectClass": "System",
+																	"sid": 148767823599535,
+																	"parameters": {
+																		"object": "Level"
+																	}
+																},
+																{
+																	"id": "pick-by-comparison",
+																	"objectClass": "System",
+																	"sid": 343537848884154,
+																	"parameters": {
+																		"object": "Level",
+																		"expression": "Level.UID",
+																		"comparison": 0,
+																		"value": "LevelFinder.CurrentLevelUID"
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 128635671836083,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "set-effect-parameter",
+																			"objectClass": "LeftExit",
+																			"sid": 530662336366827,
+																			"parameters": {
+																				"effect": "\"Tint\"",
+																				"parameter-index": "0",
+																				"value": "rgbEx255(Level.Red,Level.Green,Level.Blue)"
+																			}
+																		}
+																	],
+																	"sid": 804312368115185
+																}
+															]
+														}
+													]
+												},
+												{
+													"eventType": "variable",
+													"name": "TopLeftExitName",
+													"type": "string",
+													"initialValue": "",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 481581090150086
+												},
+												{
+													"eventType": "variable",
+													"name": "BottomLeftExitName",
+													"type": "string",
+													"initialValue": "",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 307010779617845
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 645345356695354,
+															"parameters": {
+																"first-value": "Level.PickedCount",
+																"comparison": 0,
+																"second-value": "2"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 853285658359768,
+													"children": [
+														{
+															"eventType": "variable",
+															"name": "CurrentLevel",
+															"type": "string",
+															"initialValue": "Top",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 711042305349896
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "for-each-ordered",
+																	"objectClass": "System",
+																	"sid": 286940000366078,
+																	"parameters": {
+																		"object": "Level",
+																		"expression": "Level.Y",
+																		"order": "ascending"
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 365791358600049,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 794188398233517,
+																			"parameters": {
+																				"variable": "CurrentLevel",
+																				"comparison": 0,
+																				"value": "\"Bottom\""
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 251678537832447,
+																			"parameters": {
+																				"variable": "BottomLeftExitName",
+																				"value": "LevelInfo.Get(\"Name\")"
+																			}
+																		}
+																	],
+																	"sid": 980103756109311
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 866058405726706,
+																			"parameters": {
+																				"variable": "CurrentLevel",
+																				"comparison": 0,
+																				"value": "\"Top\""
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 110964654961998,
+																			"parameters": {
+																				"variable": "TopLeftExitName",
+																				"value": "LevelInfo.Get(\"Name\")"
+																			}
+																		},
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 896168065281300,
+																			"parameters": {
+																				"variable": "CurrentLevel",
+																				"value": "\"Bottom\""
+																			}
+																		}
+																	],
+																	"sid": 395219853020780
+																}
+															]
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 932483608102916,
+															"parameters": {
+																"first-value": "Level.PickedCount",
+																"comparison": 0,
+																"second-value": "1"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 315270354812202,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 417676261676222,
+																	"parameters": {
+																		"variable": "TopLeftExitName",
+																		"value": "LevelInfo.Get(\"Name\")"
+																	}
+																}
+															],
+															"sid": 539711706063295
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
 															"id": "pick-all",
 															"objectClass": "System",
-															"sid": 587415351458106,
+															"sid": 833504273421350,
 															"parameters": {
 																"object": "Level"
 															}
@@ -15084,7 +15304,7 @@
 														{
 															"id": "pick-by-comparison",
 															"objectClass": "System",
-															"sid": 916037695212052,
+															"sid": 300589393741632,
 															"parameters": {
 																"object": "Level",
 																"expression": "Level.UID",
@@ -15094,24 +15314,61 @@
 														}
 													],
 													"actions": [],
-													"sid": 629510486559472,
+													"sid": 366284025671519,
 													"children": [
 														{
 															"eventType": "block",
-															"conditions": [],
-															"actions": [
+															"conditions": [
 																{
-																	"id": "set-effect-parameter",
-																	"objectClass": "LeftExit",
-																	"sid": 836247916965787,
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 570404581271813,
 																	"parameters": {
-																		"effect": "\"Tint\"",
-																		"parameter-index": "0",
-																		"value": "rgbEx255(Level.Red,Level.Green,Level.Blue)"
+																		"first-value": "TopLeftExitName",
+																		"comparison": 1,
+																		"second-value": "\"\""
 																	}
 																}
 															],
-															"sid": 284605755338893
+															"actions": [
+																{
+																	"id": "add-key",
+																	"objectClass": "LevelInfo",
+																	"sid": 177412000798364,
+																	"parameters": {
+																		"key": "\"TopLeftExit\"",
+																		"value": "TopLeftExitName"
+																	}
+																}
+															],
+															"sid": 404029936758269
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 324839500427140,
+																	"parameters": {
+																		"first-value": "BottomLeftExitName",
+																		"comparison": 1,
+																		"second-value": "\"\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "add-key",
+																	"objectClass": "LevelInfo",
+																	"sid": 292981666804873,
+																	"parameters": {
+																		"key": "\"BottomLeftExit\"",
+																		"value": "BottomLeftExitName"
+																	}
+																}
+															],
+															"sid": 877034758436090
 														}
 													]
 												}
@@ -15148,100 +15405,345 @@
 														"offset-x": "3",
 														"offset-y": "0"
 													}
-												},
-												{
-													"id": "for-each",
-													"objectClass": "System",
-													"sid": 620907928916917,
-													"parameters": {
-														"object": "Level"
-													}
-												},
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 248957412825170,
-													"parameters": {
-														"first-value": "loopindex+1",
-														"comparison": 3,
-														"second-value": "2"
-													}
-												},
-												{
-													"id": "is-dragging",
-													"objectClass": "Level",
-													"sid": 804764488656516,
-													"behaviorType": "DragDrop",
-													"isInverted": true
 												}
 											],
-											"actions": [
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 239355026623337,
-													"parameters": {
-														"variable": "FirstLevelStartY",
-														"value": "LevelFinder.Y-2"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 874329229813364,
-													"parameters": {
-														"variable": "FirstLevelEndY",
-														"value": "LevelFinder.Y-2+LevelFinder.Height+4"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 231486211750947,
-													"parameters": {
-														"variable": "SecondLevelStartY",
-														"value": "Level.Y"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 698109160072857,
-													"parameters": {
-														"variable": "SecondLevelEndY",
-														"value": "Level.Y+Level.Height"
-													}
-												},
-												{
-													"id": "create-object",
-													"objectClass": "System",
-													"sid": 660936611311925,
-													"parameters": {
-														"object-to-create": "RightExit",
-														"layer": "\"Main\"",
-														"x": "LevelFinder.X+LevelFinder.Width+2",
-														"y": "f.Call(\"FindCenterOfIntersection\",FirstLevelStartY,FirstLevelEndY,SecondLevelStartY,SecondLevelEndY)"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "RightExit",
-													"sid": 682926398396925,
-													"parameters": {
-														"instance-variable": "ParentLevelUID",
-														"value": "LevelFinder.CurrentLevelUID"
-													}
-												}
-											],
+											"actions": [],
 											"sid": 512110444042179,
 											"children": [
 												{
 													"eventType": "block",
 													"conditions": [
 														{
+															"id": "for-each",
+															"objectClass": "System",
+															"sid": 935149583262928,
+															"parameters": {
+																"object": "Level"
+															}
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 496080112218469,
+															"parameters": {
+																"first-value": "loopindex+1",
+																"comparison": 3,
+																"second-value": "2"
+															}
+														},
+														{
+															"id": "is-dragging",
+															"objectClass": "Level",
+															"sid": 944905228718255,
+															"behaviorType": "DragDrop",
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 111467123294725,
+															"parameters": {
+																"variable": "FirstLevelStartY",
+																"value": "LevelFinder.Y-2"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 478636460220914,
+															"parameters": {
+																"variable": "FirstLevelEndY",
+																"value": "LevelFinder.Y-2+LevelFinder.Height+4"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 832012427160600,
+															"parameters": {
+																"variable": "SecondLevelStartY",
+																"value": "Level.Y"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 415022095373621,
+															"parameters": {
+																"variable": "SecondLevelEndY",
+																"value": "Level.Y+Level.Height"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 979641535262297,
+															"parameters": {
+																"object-to-create": "RightExit",
+																"layer": "\"Main\"",
+																"x": "LevelFinder.X+LevelFinder.Width+2",
+																"y": "f.Call(\"FindCenterOfIntersection\",FirstLevelStartY,FirstLevelEndY,SecondLevelStartY,SecondLevelEndY)"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "RightExit",
+															"sid": 211173557283517,
+															"parameters": {
+																"instance-variable": "ParentLevelUID",
+																"value": "LevelFinder.CurrentLevelUID"
+															}
+														}
+													],
+													"sid": 152271402833429,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-all",
+																	"objectClass": "System",
+																	"sid": 314219925066360,
+																	"parameters": {
+																		"object": "Level"
+																	}
+																},
+																{
+																	"id": "pick-by-comparison",
+																	"objectClass": "System",
+																	"sid": 584979719230038,
+																	"parameters": {
+																		"object": "Level",
+																		"expression": "Level.UID",
+																		"comparison": 0,
+																		"value": "LevelFinder.CurrentLevelUID"
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 950836117574187,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "set-effect-parameter",
+																			"objectClass": "RightExit",
+																			"sid": 490294962122294,
+																			"parameters": {
+																				"effect": "\"Tint\"",
+																				"parameter-index": "0",
+																				"value": "rgbEx255(Level.Red,Level.Green,Level.Blue)"
+																			}
+																		}
+																	],
+																	"sid": 892296232405844
+																}
+															]
+														}
+													]
+												},
+												{
+													"eventType": "variable",
+													"name": "TopRightExitName",
+													"type": "string",
+													"initialValue": "",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 731208487846307
+												},
+												{
+													"eventType": "variable",
+													"name": "BottomRightExitName",
+													"type": "string",
+													"initialValue": "",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 605314617508534
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 996810951611878,
+															"parameters": {
+																"first-value": "Level.PickedCount",
+																"comparison": 0,
+																"second-value": "2"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 789463959112749,
+													"children": [
+														{
+															"eventType": "variable",
+															"name": "CurrentLevel",
+															"type": "string",
+															"initialValue": "Top",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 377032700706510
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "for-each-ordered",
+																	"objectClass": "System",
+																	"sid": 287650866227309,
+																	"parameters": {
+																		"object": "Level",
+																		"expression": "Level.Y",
+																		"order": "ascending"
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 467510820403222,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 441369231597911,
+																			"parameters": {
+																				"variable": "CurrentLevel",
+																				"comparison": 0,
+																				"value": "\"Bottom\""
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 137857897043127,
+																			"parameters": {
+																				"variable": "BottomRightExitName",
+																				"value": "LevelInfo.Get(\"Name\")"
+																			}
+																		}
+																	],
+																	"sid": 452662193683358
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 382590818632838,
+																			"parameters": {
+																				"variable": "CurrentLevel",
+																				"comparison": 0,
+																				"value": "\"Top\""
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 741341409831822,
+																			"parameters": {
+																				"variable": "TopRightExitName",
+																				"value": "LevelInfo.Get(\"Name\")"
+																			}
+																		},
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 769785387610719,
+																			"parameters": {
+																				"variable": "CurrentLevel",
+																				"value": "\"Bottom\""
+																			}
+																		}
+																	],
+																	"sid": 823413344393608
+																}
+															]
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 265816401932139,
+															"parameters": {
+																"first-value": "Level.PickedCount",
+																"comparison": 0,
+																"second-value": "1"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 269382005745853,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 804654436097744,
+																	"parameters": {
+																		"variable": "TopRightExitName",
+																		"value": "LevelInfo.Get(\"Name\")"
+																	}
+																}
+															],
+															"sid": 979812666351048
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 491282419720620,
+															"parameters": {
+																"first-value": "Level.PickedCount",
+																"comparison": 0,
+																"second-value": "0"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 797355913152587,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [],
+															"sid": 745563561156893
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
 															"id": "pick-all",
 															"objectClass": "System",
-															"sid": 748853853904722,
+															"sid": 148053909288821,
 															"parameters": {
 																"object": "Level"
 															}
@@ -15249,7 +15751,7 @@
 														{
 															"id": "pick-by-comparison",
 															"objectClass": "System",
-															"sid": 825329511821927,
+															"sid": 223351656926251,
 															"parameters": {
 																"object": "Level",
 																"expression": "Level.UID",
@@ -15259,24 +15761,61 @@
 														}
 													],
 													"actions": [],
-													"sid": 950903013522364,
+													"sid": 140512676931388,
 													"children": [
 														{
 															"eventType": "block",
-															"conditions": [],
-															"actions": [
+															"conditions": [
 																{
-																	"id": "set-effect-parameter",
-																	"objectClass": "RightExit",
-																	"sid": 639653649559194,
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 235141539942413,
 																	"parameters": {
-																		"effect": "\"Tint\"",
-																		"parameter-index": "0",
-																		"value": "rgbEx255(Level.Red,Level.Green,Level.Blue)"
+																		"first-value": "TopRightExitName",
+																		"comparison": 1,
+																		"second-value": "\"\""
 																	}
 																}
 															],
-															"sid": 920175226895016
+															"actions": [
+																{
+																	"id": "add-key",
+																	"objectClass": "LevelInfo",
+																	"sid": 413081670918163,
+																	"parameters": {
+																		"key": "\"TopRightExit\"",
+																		"value": "TopRightExitName"
+																	}
+																}
+															],
+															"sid": 937478775870430
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 109960662475036,
+																	"parameters": {
+																		"first-value": "BottomRightExitName",
+																		"comparison": 1,
+																		"second-value": "\"\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "add-key",
+																	"objectClass": "LevelInfo",
+																	"sid": 449584935553083,
+																	"parameters": {
+																		"key": "\"BottomRightExit\"",
+																		"value": "BottomRightExitName"
+																	}
+																}
+															],
+															"sid": 301172914201867
 														}
 													]
 												}
@@ -19682,44 +20221,12 @@
 							],
 							"actions": [
 								{
-									"id": "set-object",
-									"objectClass": "JSON",
-									"sid": 870294476354975,
-									"parameters": {
-										"path": "\"region\""
-									}
-								},
-								{
 									"id": "set-value",
 									"objectClass": "JSON",
 									"sid": 171297110914712,
 									"parameters": {
 										"path": "\"region\"",
 										"value": "0"
-									}
-								},
-								{
-									"id": "set-object",
-									"objectClass": "JSON",
-									"sid": 641005257442132,
-									"parameters": {
-										"path": "\"roomPosition\""
-									}
-								},
-								{
-									"id": "set-object",
-									"objectClass": "JSON",
-									"sid": 561777506613157,
-									"parameters": {
-										"path": "\"roomPosition.x\""
-									}
-								},
-								{
-									"id": "set-object",
-									"objectClass": "JSON",
-									"sid": 355973243863198,
-									"parameters": {
-										"path": "\"roomPosition.y\""
 									}
 								},
 								{
@@ -19738,30 +20245,6 @@
 									"parameters": {
 										"path": "\"roomPosition.y\"",
 										"value": "LevelInfo.Get(\"ZeroAdjustedY\")"
-									}
-								},
-								{
-									"id": "set-object",
-									"objectClass": "JSON",
-									"sid": 586686003893427,
-									"parameters": {
-										"path": "\"roomSize\""
-									}
-								},
-								{
-									"id": "set-object",
-									"objectClass": "JSON",
-									"sid": 669511268920717,
-									"parameters": {
-										"path": "\"roomSize.x\""
-									}
-								},
-								{
-									"id": "set-object",
-									"objectClass": "JSON",
-									"sid": 116722667336354,
-									"parameters": {
-										"path": "\"roomSize.y\""
 									}
 								},
 								{
@@ -19789,17 +20272,242 @@
 									"parameters": {
 										"path": "\"\""
 									}
-								},
-								{
-									"id": "set-return-value",
-									"objectClass": "f",
-									"sid": 434228372526751,
-									"parameters": {
-										"value": "JSON.ToCompactString"
-									}
 								}
 							],
-							"sid": 559626790054500
+							"sid": 559626790054500,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-key",
+											"objectClass": "LevelInfo",
+											"sid": 146915526976145,
+											"parameters": {
+												"key": "\"TopLeftExit\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 391307007041959,
+											"parameters": {
+												"path": "\"exitLeftTop\"",
+												"value": "LevelInfo.Get(\"TopLeftExit\")"
+											}
+										}
+									],
+									"sid": 866997400085288
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 510137460562245
+										}
+									],
+									"actions": [
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 847093141206467,
+											"parameters": {
+												"path": "\"exitLeftTop\"",
+												"value": "\"none\""
+											}
+										}
+									],
+									"sid": 413663394700560
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-key",
+											"objectClass": "LevelInfo",
+											"sid": 211312164034675,
+											"parameters": {
+												"key": "\"BottomLeftExit\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 219481263891312,
+											"parameters": {
+												"path": "\"exitLeftBottom\"",
+												"value": "LevelInfo.Get(\"BottomLeftExit\")"
+											}
+										}
+									],
+									"sid": 518551048330634
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 129775567958811
+										}
+									],
+									"actions": [
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 169019319203479,
+											"parameters": {
+												"path": "\"exitLeftBottom\"",
+												"value": "\"none\""
+											}
+										}
+									],
+									"sid": 833641502794093
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-key",
+											"objectClass": "LevelInfo",
+											"sid": 753885064899023,
+											"parameters": {
+												"key": "\"TopRightExit\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 914542715558679,
+											"parameters": {
+												"path": "\"exitRightTop\"",
+												"value": "LevelInfo.Get(\"TopRightExit\")"
+											}
+										}
+									],
+									"sid": 868491158765887
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 835838670526772
+										}
+									],
+									"actions": [
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 790655057711387,
+											"parameters": {
+												"path": "\"exitRightTop\"",
+												"value": "\"none\""
+											}
+										}
+									],
+									"sid": 586835148120585
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-key",
+											"objectClass": "LevelInfo",
+											"sid": 800965066967869,
+											"parameters": {
+												"key": "\"BottomRightExit\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 445904801599280,
+											"parameters": {
+												"path": "\"exitRightBottom\"",
+												"value": "LevelInfo.Get(\"BottomRightExit\")"
+											}
+										}
+									],
+									"sid": 344456935293000
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 537625564183104
+										}
+									],
+									"actions": [
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 386437277392867,
+											"parameters": {
+												"path": "\"exitRightBottom\"",
+												"value": "\"none\""
+											}
+										}
+									],
+									"sid": 346148831317581
+								},
+								{
+									"eventType": "variable",
+									"name": "JSON",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 513278153851189
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 774814530982003,
+											"parameters": {
+												"variable": "JSON",
+												"value": "LevelInfo.Get(\"Name\") & \"=\" & JSON.ToCompactString"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 326332378326918,
+											"parameters": {
+												"variable": "JSON",
+												"value": "replace(JSON,\",\",\", \")"
+											}
+										},
+										{
+											"id": "set-return-value",
+											"objectClass": "f",
+											"sid": 795608293676259,
+											"parameters": {
+												"value": "JSON"
+											}
+										}
+									],
+									"sid": 334832856993764
+								}
+							]
 						}
 					]
 				},

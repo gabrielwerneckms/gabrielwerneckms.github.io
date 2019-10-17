@@ -680,6 +680,18 @@ self["C3_Shaders"]["inverse"] = {
 
 "use strict";C3.Plugins.iframe.Exps={};
 
+"use strict";C3.Plugins.Json=class extends C3.SDKPluginBase{constructor(a){super(a)}Release(){super.Release()}};
+
+"use strict";C3.Plugins.Json.Type=class extends C3.SDKTypeBase{constructor(a){super(a)}Release(){super.Release()}OnCreate(){}};
+
+"use strict";C3.Plugins.Json.Instance=class extends C3.SDKInstanceBase{constructor(a){super(a),this._valueCache=[null,null],this._locationCache=[null,null],this._data={},this._path=[],this._currentKey="",this._currentValue=0}Release(){super.Release()}_InvalidateValueCache(){this._valueCache[0]=null,this._valueCache[1]=null}_HasValueCache(a){return null!==a&&null!==this._valueCache[0]&&(this._valueCache[0]===a||C3.arraysEqual(this._valueCache[0],a))}_GetValueCache(){return this._valueCache[1]}_UpdateValueCache(a,b){this._valueCache[0]=a,this._valueCache[1]=b}_InvalidateLocationCache(){this._locationCache[0]=null,this._locationCache[1]=null}_HasLocationCache(a){return this._locationCache[0]===a}_GetLocationCache(){return this._locationCache[1]}_UpdateLocationCache(a,b){this._locationCache[0]=a,this._locationCache[1]=b}_SetData(a){this._data=a,this._InvalidateValueCache()}_SetPath(a){this._path=this._ParsePathUnsafe(a),this._InvalidateLocationCache()}_ParsePath(a){return C3.cloneArray(this._ParsePathUnsafe(a))}_ParsePathUnsafe(a){const b=[];let d,e=!1;if(this._HasLocationCache(a))return this._GetLocationCache();"."===a[0]?(d=C3.cloneArray(this._path),a=a.slice(1)):d=[];for(const f of a)e?(b.push(f),e=!1):"\\"===f?e=!0:"."===f?(d.push(b.join("")),C3.clearArray(b)):b.push(f);return 0!==b.length&&d.push(b.join("")),this._UpdateLocationCache(a,d),d}_GetValueAtFullPath(a,b){if(this._HasValueCache(a))return this._GetValueCache();let c=this._data;for(const d of a)if(Array.isArray(c)){const a=parseInt(d,10);if(0>a||a>=c.length||!isFinite(a)){c=null;break}c=c[a]}else if("object"!=typeof c||null===c){c=null;break}else if(c.hasOwnProperty(d))c=c[d];else if(b){const a={};c[d]=a,c=a}else{c=null;break}return this._UpdateValueCache(a,c),c}_GetValue(a){const b=this._ParsePath(a);if(!b.length)return this._data;const c=b.pop(),d=this._GetValueAtFullPath(b,!1);if(Array.isArray(d)){const a=parseInt(c,10);return 0<=a&&a<d.length?d[a]:null}return"object"==typeof d&&null!==d?d.hasOwnProperty(c)?d[c]:null:null}_JSONTypeOf(a){return null===a?"null":Array.isArray(a)?"array":typeof a}_GetTypeOf(a){const b=this._GetValue(a);return this._JSONTypeOf(b)}_ToSafeValue(a){const b=typeof a;return"number"==b||"string"==b?a:"boolean"==b?a?1:0:0}_GetSafeValue(a){return this._ToSafeValue(this._GetValue(a))}_HasKey(a){const b=this._ParsePath(a);if(!b.length)return!1;const c=b.pop(),d=this._GetValueAtFullPath(b,!1);if(Array.isArray(d)){const a=parseInt(c,10);return 0<=a&&a<d.length}return"object"==typeof d&&null!==d&&d.hasOwnProperty(c)}_SetValue(a,b){const c=this._ParsePath(a);if(!c.length)return!1;this._HasValueCache(c)&&this._InvalidateValueCache();const d=c.pop(),e=this._GetValueAtFullPath(c,!0);if(Array.isArray(e)){const a=parseInt(d,10);return!(!isFinite(a)||0>a||a>=e.length)&&(e[a]=b,!0)}return"object"==typeof e&&null!==e&&(e[d]=b,!0)}_DeleteKey(a){const b=this._ParsePath(a);if(!b.length)return!1;this._HasValueCache(b)&&this._InvalidateValueCache();const c=b.pop(),d=this._GetValueAtFullPath(b,!1);return!Array.isArray(d)&&"object"==typeof d&&null!==d&&(delete d[c],!0)}_SanitizeValue(a){return"number"==typeof a?isFinite(a)?a:0:"object"==typeof a?JSON.stringify(a):a+""}GetDebuggerProperties(){let a;try{a=this._SanitizeValue(this._data)}catch(b){a="\"invalid\""}return[{title:"plugins.json.debugger.title",properties:[{name:"plugins.json.debugger.data",value:a,onedit:(a)=>{try{const b=JSON.parse(a);this._SetData(b)}catch(a){}}},{name:"plugins.json.debugger.path",value:this._path.map((a)=>a.replace(/\./g,"\\.")).join(".")}]}]}};
+
+"use strict";{const a=["null","boolean","number","string","object","array"];C3.Plugins.Json.Cnds={HasKey(a){return this._HasKey(a)},CompareType(b,c){return this._GetTypeOf(b)===a[c]},CompareValue(a,b,c){return C3.compare(this._GetSafeValue(a),b,c)},ForEach(a){const b=this._GetValue(a);if("object"!=typeof b||null===b)return!1;const c=this._runtime,d=c.GetEventSheetManager(),e=c.GetCurrentEvent(),f=e.GetSolModifiers(),g=c.GetEventStack(),h=g.GetCurrentStackFrame(),i=g.Push(e),j=this._path,k=this._currentKey,l=this._currentValue,m=this._ParsePathUnsafe(a);c.SetDebuggingEnabled(!1);for(const[c,g]of Object.entries(b))this._path=C3.cloneArray(m),this._path.push(c),this._currentKey=c,this._currentValue=g,d.PushCopySol(f),e.Retrigger(h,i),d.PopSol(f);return c.SetDebuggingEnabled(!0),this._path=j,this._currentKey=k,this._currentValue=l,g.Pop(),!1},OnParseError(){return!0}}}
+
+"use strict";C3.Plugins.Json.Acts={Parse(a){try{this._SetData(JSON.parse(a))}catch(a){console.warn("[JSON plugin] Failed to parse JSON data: ",a),this._SetData({}),this.Trigger(C3.Plugins.Json.Cnds.OnParseError)}},SetPath(a){this._SetPath(a)},SetValue(a,b){this._SetValue(a,b)},SetArray(a,b){let c=this._GetValue(a);Array.isArray(c)?C3.resizeArray(c,b,0):(c=[],C3.extendArray(c,b,0),this._SetValue(a,c))},SetObject(a){this._SetValue(a,{})},SetJSON(a,b){let c=null;try{c=JSON.parse(b)}catch(a){console.warn("[JSON plugin] Failed to parse JSON data: ",a),this.Trigger(C3.Plugins.Json.Cnds.OnParseError)}this._SetValue(a,c)},SetNull(a){this._SetValue(a,null)},SetBoolean(a,b){this._SetValue(a,0!==b)},DeleteKey(a){this._DeleteKey(a)},PushValue(a,b,c){const d=this._GetValue(b);Array.isArray(d)&&(0===a?d.push(c):d.unshift(c))},PopValue(a,b){const c=this._GetValue(b);Array.isArray(c)&&(0===a?c.pop():c.shift())}};
+
+"use strict";C3.Plugins.Json.Exps={ToCompactString(){try{return JSON.stringify(this._data)}catch(a){return""}},ToBeautifiedString(){try{return JSON.stringify(this._data,null,4)}catch(a){return""}},Get(a){return this._GetSafeValue(a)},Front(a){const b=this._GetValue(a);if(Array.isArray(b)){const a=b[0];return this._ToSafeValue(a)}return-1},Back(a){const b=this._GetValue(a);if(Array.isArray(b)){const a=b[b.length-1];return this._ToSafeValue(a)}return-1},Type(a){return this._GetTypeOf(a)},ArraySize(a){const b=this._GetValue(a);return Array.isArray(b)?b.length:-1},Path(){return this._path.map((a)=>a.replace(/\./g,"\\.")).join(".")},CurrentKey(){return this._currentKey},CurrentValue(){return this._ToSafeValue(this._currentValue)},CurrentType(){return this._JSONTypeOf(this._currentValue)}};
+
 "use strict";C3.Behaviors.DragnDrop=class extends C3.SDKBehaviorBase{constructor(a){super(a);const b=this._runtime.Dispatcher();this._disposables=new C3.CompositeDisposable(C3.Disposable.From(b,"pointerdown",(a)=>this._OnPointerDown(a.data)),C3.Disposable.From(b,"pointermove",(a)=>this._OnPointerMove(a.data)),C3.Disposable.From(b,"pointerup",(a)=>this._OnPointerUp(a.data,!1)),C3.Disposable.From(b,"pointercancel",(a)=>this._OnPointerUp(a.data,!0)))}Release(){this._disposables.Release(),this._disposables=null,super.Release()}_OnPointerDown(a){this._OnInputDown(a["pointerId"].toString(),a["clientX"]-this._runtime.GetCanvasClientX(),a["clientY"]-this._runtime.GetCanvasClientY())}_OnPointerMove(a){this._OnInputMove(a["pointerId"].toString(),a["clientX"]-this._runtime.GetCanvasClientX(),a["clientY"]-this._runtime.GetCanvasClientY())}_OnPointerUp(a){this._OnInputUp(a["pointerId"].toString())}async _OnInputDown(a,b,c){const d=this.GetInstances();let e=null,f=null,g=0,h=0;for(const i of d){const a=i.GetBehaviorSdkInstanceFromCtor(C3.Behaviors.DragnDrop);if(!a.IsEnabled()||a.IsDragging())continue;const d=i.GetWorldInfo(),j=d.GetLayer(),[k,l]=j.CanvasCssToLayer(b,c,d.GetTotalZElevation());if(!d.ContainsPoint(k,l))continue;if(!e){e=i,f=a,g=k,h=l;continue}const m=e.GetWorldInfo();(j.GetIndex()>m.GetLayer().GetIndex()||j.GetIndex()===m.GetLayer().GetIndex()&&d.GetZIndex()>m.GetZIndex())&&(e=i,f=a,g=k,h=l)}e&&(await f._OnDown(a,g,h))}_OnInputMove(a,b,c){const d=this.GetInstances();for(const e of d){const d=e.GetBehaviorSdkInstanceFromCtor(C3.Behaviors.DragnDrop);if(!d.IsEnabled()||!d.IsDragging()||d.IsDragging()&&d.GetDragSource()!==a)continue;const f=e.GetWorldInfo(),g=f.GetLayer(),[h,i]=g.CanvasCssToLayer(b,c,f.GetTotalZElevation());d._OnMove(h,i)}}async _OnInputUp(a){const b=this.GetInstances();for(const c of b){const b=c.GetBehaviorSdkInstanceFromCtor(C3.Behaviors.DragnDrop);b.IsDragging()&&b.GetDragSource()===a&&(await b._OnUp())}}};
 
 "use strict";C3.Behaviors.DragnDrop.Type=class extends C3.SDKBehaviorTypeBase{constructor(a){super(a)}Release(){super.Release()}OnCreate(){}};
@@ -737,6 +749,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.AJAX,
 		C3.Plugins.iframe,
 		C3.Behaviors.Pin,
+		C3.Plugins.Json,
 		C3.Plugins.System.Cnds.IsGroupActive,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.Dictionary.Acts.AddKey,
@@ -875,6 +888,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Cnds.IsOverlappingOffset,
 		C3.Plugins.System.Exps.loopindex,
 		C3.Plugins.Sprite.Acts.SetEffectParam,
+		C3.Plugins.NinePatch.Exps.PickedCount,
 		C3.Plugins.Sprite.Exps.Width,
 		C3.Plugins.System.Exps.max,
 		C3.Plugins.System.Exps.min,
@@ -903,6 +917,10 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Arr.Exps.At,
 		C3.Plugins.Browser.Acts.InvokeDownloadString,
 		C3.Plugins.Dictionary.Acts.Clear,
+		C3.Plugins.Json.Acts.SetValue,
+		C3.Plugins.Json.Acts.SetPath,
+		C3.Plugins.Json.Exps.ToCompactString,
+		C3.Plugins.System.Exps.replace,
 		C3.Plugins.TextBox.Exps.PickedCount,
 		C3.Plugins.Spritefont2.Cnds.CompareText,
 		C3.Plugins.Spritefont2.Acts.Destroy,
@@ -923,7 +941,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Keyboard.Cnds.OnAnyKey,
 		C3.Plugins.Keyboard.Exps.StringFromKeyCode,
 		C3.Plugins.Keyboard.Exps.LastKeyCode,
-		C3.Plugins.System.Exps.replace,
 		C3.Plugins.System.Exps.regexmatchcount,
 		C3.Plugins.System.Exps.regexmatchat,
 		C3.Plugins.Arr.Cnds.ArrForEach,
@@ -1062,6 +1079,7 @@ self.C3_JsPropNameTable = [
 	{LevelFinder: 0},
 	{RightExit: 0},
 	{LeftExit: 0},
+	{JSON: 0},
 	{TextBox: 0},
 	{ResizeHandles: 0},
 	{GridTileHeight: 0},
@@ -1139,6 +1157,11 @@ self.C3_JsPropNameTable = [
 	{IntersectionStartY: 0},
 	{IntersectionEndY: 0},
 	{IntersectionHeight: 0},
+	{TopLeftExitName: 0},
+	{BottomLeftExitName: 0},
+	{CurrentLevel: 0},
+	{TopRightExitName: 0},
+	{BottomRightExitName: 0},
 	{FirstStart: 0},
 	{FirstEnd: 0},
 	{SecondStart: 0},
@@ -1177,13 +1200,15 @@ self.C3_JsPropNameTable = [
 	{LevelSeparator: 0},
 	{CurrentLevelSerialized: 0},
 	{ArrayIndex: 0},
-	{CompleteProgressionData: 0},
+	{UnityProgressionData: 0},
+	{FileProgressionData: 0},
 	{FileExtension: 0},
 	{FileName: 0},
 	{LevelsDataBeingProcessed: 0},
 	{CompleteHeaderData: 0},
 	{CompleteLevelsData: 0},
 	{HeaderAndLevelDataSeparator: 0},
+	{CurrentLevelInfoAsUnityJSON: 0},
 	{LowestX: 0},
 	{LowestY: 0},
 	{HighestX: 0},
@@ -1929,11 +1954,15 @@ self.C3_JsPropNameTable = [
 			const v4 = p._GetNode(4).GetVar();
 			return () => f0("FindCenterOfIntersection", v1.GetValue(), v2.GetValue(), v3.GetValue(), v4.GetValue());
 		},
+		() => "TopLeftExit",
+		() => "BottomLeftExit",
 		p => {
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
 			return () => ((n0.ExpObject() + n1.ExpObject()) + 2);
 		},
+		() => "TopRightExit",
+		() => "BottomRightExit",
 		() => 0.25,
 		() => "FindCenterOfIntersection",
 		p => {
@@ -2071,7 +2100,7 @@ self.C3_JsPropNameTable = [
 			return () => ((n0.ExpObject() + n1.ExpObject()) + " ");
 		},
 		() => "ClearSidebarInfo",
-		() => "Import",
+		() => "FileImport",
 		() => "LevelFile",
 		p => {
 			const n0 = p._GetNode(0);
@@ -2132,7 +2161,7 @@ self.C3_JsPropNameTable = [
 			const v2 = p._GetNode(2).GetVar();
 			return () => f0("DeSerializeDictionary", n1.ExpObject(v2.GetValue()));
 		},
-		() => "Export",
+		() => "FileExport",
 		() => "GreyoutOff",
 		() => "DestroyExportBox",
 		() => "DestroyDownloadButton",
@@ -2169,6 +2198,71 @@ self.C3_JsPropNameTable = [
 			const v2 = p._GetNode(2).GetVar();
 			return () => ((((((v0.GetValue() + "\n") + "\n") + v1.GetValue()) + "\n") + "\n") + v2.GetValue());
 		},
+		() => "ConvertLevelToUnityJSON",
+		() => "region",
+		() => "roomPosition.x",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("ZeroAdjustedX");
+		},
+		() => "roomPosition.y",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("ZeroAdjustedY");
+		},
+		() => "roomSize.x",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("Width");
+		},
+		() => "roomSize.y",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("Height");
+		},
+		() => "exitLeftTop",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("TopLeftExit");
+		},
+		() => "none",
+		() => "exitLeftBottom",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("BottomLeftExit");
+		},
+		() => "exitRightTop",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("TopRightExit");
+		},
+		() => "exitRightBottom",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("BottomRightExit");
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => and(and(n0.ExpObject("Name"), "="), n1.ExpObject());
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			return () => f0(v1.GetValue(), ",", ", ");
+		},
+		() => "GenerateUnityProgression",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			return () => f0("ConvertLevelToUnityJSON", n1.ExpObject());
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			return () => ((v0.GetValue() + v1.GetValue()) + "\n");
+		},
+		() => "Export",
 		() => "CreateExportBox",
 		() => "CreateDownloadButton",
 		() => "Download",
