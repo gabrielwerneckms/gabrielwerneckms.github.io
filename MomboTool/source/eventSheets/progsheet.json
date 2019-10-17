@@ -16654,6 +16654,17 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "TextTextBox",
+									"sid": 778084380952890,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "\"Prefix\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TextTextBox",
 									"sid": 486971812425694,
 									"parameters": {
 										"instance-variable": "Name",
@@ -19466,32 +19477,67 @@
 										{
 											"id": "load",
 											"objectClass": "GlobalTypesDictionary",
-											"sid": 394731289249919,
+											"sid": 115039636683138,
 											"parameters": {
 												"json": "f.Call(\"DeSerializeDictionary\",TempDictionary2.Get(\"ListOfAllTypes\"),\";\",\":\")"
 											}
-										},
-										{
-											"id": "call-function",
-											"objectClass": "f",
-											"sid": 165617801730402,
-											"parameters": {
-												"name": "\"UpdateTagTypeList\"",
-												"parameter-n": []
-											}
-										},
-										{
-											"id": "set-size",
-											"objectClass": "LevelsToCreateTempArray",
-											"sid": 465402264996477,
-											"parameters": {
-												"width": "0",
-												"height": "1",
-												"depth": "1"
-											}
 										}
 									],
-									"sid": 751590304580581
+									"sid": 751590304580581,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "TextTextBox",
+													"sid": 905814626616384,
+													"parameters": {
+														"instance-variable": "Name",
+														"comparison": 0,
+														"value": "\"Prefix\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "TextTextBox",
+													"sid": 839876834106728,
+													"parameters": {
+														"text": "TempDictionary2.Get(\"Prefix\")"
+													}
+												}
+											],
+											"sid": 793189802142689
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "f",
+													"sid": 165617801730402,
+													"parameters": {
+														"name": "\"UpdateTagTypeList\"",
+														"parameter-n": []
+													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "LevelsToCreateTempArray",
+													"sid": 465402264996477,
+													"parameters": {
+														"width": "0",
+														"height": "1",
+														"depth": "1"
+													}
+												}
+											],
+											"sid": 636872325425276
+										}
+									]
 								}
 							]
 						},
@@ -20120,18 +20166,54 @@
 										"key": "\"ListOfAllTypes\"",
 										"value": "f.Call(\"SerializeDictionary\",GlobalTypesDictionary.AsJSON,\";\",\":\")"
 									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 489223904501423,
-									"parameters": {
-										"variable": "CompleteHeaderData",
-										"value": "f.Call(\"SerializeDictionary\",TempDictionary2.AsJSON)"
-									}
 								}
 							],
-							"sid": 982279280382378
+							"sid": 982279280382378,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TextTextBox",
+											"sid": 960851310295573,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"Prefix\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-key",
+											"objectClass": "TempDictionary2",
+											"sid": 314803981532679,
+											"parameters": {
+												"key": "\"Prefix\"",
+												"value": "TextTextBox.Text"
+											}
+										}
+									],
+									"sid": 337817229031841
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 930545305524708,
+											"parameters": {
+												"variable": "CompleteHeaderData",
+												"value": "f.Call(\"SerializeDictionary\",TempDictionary2.AsJSON)"
+											}
+										}
+									],
+									"sid": 145442274505948
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -20277,6 +20359,43 @@
 							"sid": 559626790054500,
 							"children": [
 								{
+									"eventType": "variable",
+									"name": "Prefix",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 514279680139376
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TextTextBox",
+											"sid": 974191486277067,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"Prefix\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 305305607861359,
+											"parameters": {
+												"variable": "Prefix",
+												"value": "TextTextBox.Text"
+											}
+										}
+									],
+									"sid": 142611871320351
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -20292,10 +20411,10 @@
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 391307007041959,
+											"sid": 417234324794649,
 											"parameters": {
 												"path": "\"exitLeftTop\"",
-												"value": "LevelInfo.Get(\"TopLeftExit\")"
+												"value": "Prefix & LevelInfo.Get(\"TopLeftExit\")"
 											}
 										}
 									],
@@ -20339,10 +20458,10 @@
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 219481263891312,
+											"sid": 437721216796360,
 											"parameters": {
 												"path": "\"exitLeftBottom\"",
-												"value": "LevelInfo.Get(\"BottomLeftExit\")"
+												"value": "Prefix & LevelInfo.Get(\"BottomLeftExit\")"
 											}
 										}
 									],
@@ -20386,10 +20505,10 @@
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 914542715558679,
+											"sid": 146571652510488,
 											"parameters": {
 												"path": "\"exitRightTop\"",
-												"value": "LevelInfo.Get(\"TopRightExit\")"
+												"value": "Prefix & LevelInfo.Get(\"TopRightExit\")"
 											}
 										}
 									],
@@ -20433,10 +20552,10 @@
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 445904801599280,
+											"sid": 444693750187221,
 											"parameters": {
 												"path": "\"exitRightBottom\"",
-												"value": "LevelInfo.Get(\"BottomRightExit\")"
+												"value": "Prefix & LevelInfo.Get(\"BottomRightExit\")"
 											}
 										}
 									],
@@ -20481,10 +20600,10 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 774814530982003,
+											"sid": 213715966318686,
 											"parameters": {
 												"variable": "JSON",
-												"value": "LevelInfo.Get(\"Name\") & \"=\" & JSON.ToCompactString"
+												"value": "Prefix & LevelInfo.Get(\"Name\") & \"=\" & JSON.ToCompactString"
 											}
 										},
 										{
@@ -20524,6 +20643,15 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "f",
+							"sid": 832768500262673,
+							"parameters": {
+								"name": "\"UpdateExits\"",
+								"parameter-n": []
+							}
+						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
@@ -21388,15 +21516,93 @@
 								{
 									"id": "invoke-download-of-string",
 									"objectClass": "Browser",
-									"sid": 635094898835329,
+									"sid": 517130614353797,
 									"parameters": {
 										"string": "TextBox.Text",
 										"mime-type": "\"application/json\"",
-										"filename": "\"level.mql\""
+										"filename": "\"leveljson.txt\""
 									}
 								}
 							],
 							"sid": 531143557638069
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "f",
+							"sid": 570119897112327,
+							"parameters": {
+								"name": "\"ButtonClicked\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Button",
+							"sid": 444611165753872,
+							"parameters": {
+								"unique-id": "f.Param(0)"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 386617437306508,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
+									"sid": 414445831839908,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "\"Json\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 742375100086656,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "f",
+											"sid": 609443914134846,
+											"parameters": {
+												"name": "\"Greyout\"",
+												"parameter-n": []
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "f",
+											"sid": 988640814002789,
+											"parameters": {
+												"name": "\"CreateExportBox\"",
+												"parameter-n": []
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "f",
+											"sid": 824932332062726,
+											"parameters": {
+												"name": "\"CreateDownloadButton\"",
+												"parameter-n": []
+											}
+										}
+									],
+									"sid": 651202679326664
+								}
+							]
 						}
 					]
 				}

@@ -1208,6 +1208,7 @@ self.C3_JsPropNameTable = [
 	{CompleteHeaderData: 0},
 	{CompleteLevelsData: 0},
 	{HeaderAndLevelDataSeparator: 0},
+	{Prefix: 0},
 	{CurrentLevelInfoAsUnityJSON: 0},
 	{LowestX: 0},
 	{LowestY: 0},
@@ -2004,6 +2005,7 @@ self.C3_JsPropNameTable = [
 			return () => (f0() / v1.GetValue());
 		},
 		() => "Sidebar",
+		() => "Prefix",
 		() => "FileName",
 		() => "FileExtension",
 		() => "#6400bb",
@@ -2135,6 +2137,10 @@ self.C3_JsPropNameTable = [
 			return () => f0("DeSerializeDictionary", n1.ExpObject("ListOfAllTypes"), ";", ":");
 		},
 		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("Prefix");
+		},
+		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const v1 = p._GetNode(1).GetVar();
 			const v2 = p._GetNode(2).GetVar();
@@ -2222,29 +2228,34 @@ self.C3_JsPropNameTable = [
 		},
 		() => "exitLeftTop",
 		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpObject("TopLeftExit");
+			const v0 = p._GetNode(0).GetVar();
+			const n1 = p._GetNode(1);
+			return () => and(v0.GetValue(), n1.ExpObject("TopLeftExit"));
 		},
 		() => "none",
 		() => "exitLeftBottom",
 		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpObject("BottomLeftExit");
+			const v0 = p._GetNode(0).GetVar();
+			const n1 = p._GetNode(1);
+			return () => and(v0.GetValue(), n1.ExpObject("BottomLeftExit"));
 		},
 		() => "exitRightTop",
 		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpObject("TopRightExit");
+			const v0 = p._GetNode(0).GetVar();
+			const n1 = p._GetNode(1);
+			return () => and(v0.GetValue(), n1.ExpObject("TopRightExit"));
 		},
 		() => "exitRightBottom",
 		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpObject("BottomRightExit");
+			const v0 = p._GetNode(0).GetVar();
+			const n1 = p._GetNode(1);
+			return () => and(v0.GetValue(), n1.ExpObject("BottomRightExit"));
 		},
 		p => {
-			const n0 = p._GetNode(0);
+			const v0 = p._GetNode(0).GetVar();
 			const n1 = p._GetNode(1);
-			return () => and(and(n0.ExpObject("Name"), "="), n1.ExpObject());
+			const n2 = p._GetNode(2);
+			return () => ((and(v0.GetValue(), n1.ExpObject("Name")) + "=") + n2.ExpObject());
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -2278,7 +2289,8 @@ self.C3_JsPropNameTable = [
 			return () => (v0.GetValue() * 0.8);
 		},
 		() => "application/json",
-		() => "level.mql",
+		() => "leveljson.txt",
+		() => "Json",
 		() => "TagsAndTypes",
 		() => "Cursors",
 		() => "Coordinates",

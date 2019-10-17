@@ -91,6 +91,48 @@
 				"repeatCount": 1,
 				"repeatTo": 0,
 				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.6200000000000001,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 26,
+						"collisionPoly": {
+							"points": [
+								0.2899999999999999,
+								0.41000000000000003,
+								0.5,
+								0,
+								0.64,
+								0.41000000000000003,
+								0.7799999999999999,
+								0.6200000000000001,
+								0.99,
+								1,
+								0.5,
+								1,
+								0,
+								1,
+								0.15,
+								0.6200000000000001
+							]
+						},
+						"duration": 1
+					}
+				],
+				"sid": 237974722202485,
+				"name": "Json",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
 			}
 		],
 		"subfolders": []
