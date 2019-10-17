@@ -1555,6 +1555,12 @@
 			},
 			"uid": 111,
 			"instanceVariables": {}
+		},
+		{
+			"type": "JSON",
+			"properties": {},
+			"uid": 113,
+			"instanceVariables": {}
 		}
 	],
 	"effectTypes": [],

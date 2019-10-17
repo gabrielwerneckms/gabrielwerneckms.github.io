@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 17100,
+	"savedWithRelease": 17102,
 	"name": "Prog",
 	"runtime": "c3",
 	"useWorker": false,
@@ -11,7 +11,7 @@
 			"id": "Dictionary",
 			"name": "Dictionary",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
 			"bundled": false
 		},
 		{
@@ -19,7 +19,7 @@
 			"id": "NinePatch",
 			"name": "9-patch",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
 			"bundled": false
 		},
 		{
@@ -27,7 +27,7 @@
 			"id": "Arr",
 			"name": "Array",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
 			"bundled": false
 		},
 		{
@@ -35,7 +35,7 @@
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
 			"bundled": false
 		},
 		{
@@ -43,7 +43,7 @@
 			"id": "Spritefont2",
 			"name": "Sprite font",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
 			"bundled": false
 		},
 		{
@@ -51,7 +51,7 @@
 			"id": "Function",
 			"name": "Function",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
 			"bundled": false
 		},
 		{
@@ -59,7 +59,7 @@
 			"id": "Keyboard",
 			"name": "Keyboard",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
 			"bundled": false
 		},
 		{
@@ -67,7 +67,7 @@
 			"id": "Mouse",
 			"name": "Mouse",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
 			"bundled": false
 		},
 		{
@@ -75,7 +75,7 @@
 			"id": "TiledBg",
 			"name": "Tiled Background",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
 			"bundled": false
 		},
 		{
@@ -83,7 +83,7 @@
 			"id": "TextBox",
 			"name": "Text input",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
 			"bundled": false
 		},
 		{
@@ -91,7 +91,7 @@
 			"id": "Browser",
 			"name": "Browser",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
 			"bundled": false
 		},
 		{
@@ -99,7 +99,7 @@
 			"id": "Button",
 			"name": "Button",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
 			"bundled": false
 		},
 		{
@@ -107,7 +107,7 @@
 			"id": "filechooser",
 			"name": "File chooser",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
 			"bundled": false
 		},
 		{
@@ -115,7 +115,7 @@
 			"id": "AJAX",
 			"name": "AJAX",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
 			"bundled": false
 		},
 		{
@@ -123,7 +123,15 @@
 			"id": "iframe",
 			"name": "iframe",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
+			"author": "Scirra",
+			"version": "r171.2",
 			"bundled": false
 		},
 		{
@@ -131,7 +139,7 @@
 			"id": "DragnDrop",
 			"name": "Drag & Drop",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
 			"bundled": false
 		},
 		{
@@ -139,7 +147,7 @@
 			"id": "NoSave",
 			"name": "No save",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
 			"bundled": false
 		},
 		{
@@ -147,7 +155,7 @@
 			"id": "Pin",
 			"name": "Pin",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
 			"bundled": false
 		},
 		{
@@ -155,7 +163,7 @@
 			"id": "tint",
 			"name": "Tint",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
 			"bundled": false
 		},
 		{
@@ -163,7 +171,7 @@
 			"id": "hsladjust",
 			"name": "Adjust HSL",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
 			"bundled": false
 		},
 		{
@@ -171,7 +179,7 @@
 			"id": "inverse",
 			"name": "Inverse",
 			"author": "Scirra",
-			"version": "r171",
+			"version": "r171.2",
 			"bundled": false
 		}
 	],
@@ -212,7 +220,8 @@
 			"LevelColorIndicator",
 			"LevelFinder",
 			"RightExit",
-			"LeftExit"
+			"LeftExit",
+			"JSON"
 		],
 		"subfolders": [
 			{

@@ -18744,7 +18744,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Import",
+			"title": "FileImport",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -19193,22 +19193,42 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Export",
+			"title": "FileExport",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"eventType": "variable",
+					"name": "UnityProgressionData",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 829846436088018
+				},
+				{
+					"eventType": "variable",
+					"name": "FileProgressionData",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 635346734498788
+				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "on-any-click",
 							"objectClass": "Mouse",
-							"sid": 974166631508257
+							"sid": 639863560618173
 						},
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 792983939369757,
+							"sid": 824989686183240,
 							"parameters": {
 								"variable": "MouseOver",
 								"comparison": 0,
@@ -19219,7 +19239,7 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 364286442028347,
+							"sid": 110397910533545,
 							"parameters": {
 								"variable": "MouseOver",
 								"comparison": 0,
@@ -19230,7 +19250,7 @@
 						{
 							"id": "cursor-is-over-object",
 							"objectClass": "Mouse",
-							"sid": 157287977525510,
+							"sid": 621111897099821,
 							"parameters": {
 								"object": "PickableColor"
 							},
@@ -19241,7 +19261,7 @@
 						{
 							"id": "call-function",
 							"objectClass": "f",
-							"sid": 765105228782921,
+							"sid": 987420330184877,
 							"parameters": {
 								"name": "\"GreyoutOff\"",
 								"parameter-n": []
@@ -19250,7 +19270,7 @@
 						{
 							"id": "call-function",
 							"objectClass": "f",
-							"sid": 641878177823147,
+							"sid": 327241501954146,
 							"parameters": {
 								"name": "\"DestroyExportBox\"",
 								"parameter-n": []
@@ -19259,7 +19279,7 @@
 						{
 							"id": "call-function",
 							"objectClass": "f",
-							"sid": 728783595352067,
+							"sid": 122287285224222,
 							"parameters": {
 								"name": "\"DestroyDownloadButton\"",
 								"parameter-n": []
@@ -19268,7 +19288,7 @@
 						{
 							"id": "call-function",
 							"objectClass": "f",
-							"sid": 211528186516771,
+							"sid": 119854471022048,
 							"parameters": {
 								"name": "\"GreyoutOff\"",
 								"parameter-n": []
@@ -19277,7 +19297,7 @@
 						{
 							"id": "call-function",
 							"objectClass": "f",
-							"sid": 470632710305642,
+							"sid": 707280508289306,
 							"parameters": {
 								"name": "\"DestroyTextBox\"",
 								"parameter-n": [
@@ -19288,7 +19308,7 @@
 						{
 							"id": "call-function",
 							"objectClass": "f",
-							"sid": 860512471635580,
+							"sid": 964723010901620,
 							"parameters": {
 								"name": "\"DestroyTextBox\"",
 								"parameter-n": [
@@ -19299,7 +19319,7 @@
 						{
 							"id": "call-function",
 							"objectClass": "f",
-							"sid": 698418931310651,
+							"sid": 825813768109926,
 							"parameters": {
 								"name": "\"DestroyMenu\"",
 								"parameter-n": [
@@ -19310,7 +19330,7 @@
 						{
 							"id": "call-function",
 							"objectClass": "f",
-							"sid": 538661237151989,
+							"sid": 846844141261199,
 							"parameters": {
 								"name": "\"DestroyMenu\"",
 								"parameter-n": [
@@ -19319,17 +19339,7 @@
 							}
 						}
 					],
-					"sid": 325973481523744
-				},
-				{
-					"eventType": "variable",
-					"name": "CompleteProgressionData",
-					"type": "string",
-					"initialValue": "",
-					"comment": "",
-					"isStatic": true,
-					"isConstant": false,
-					"sid": 635346734498788
+					"sid": 464829226661284
 				},
 				{
 					"eventType": "block",
@@ -19470,7 +19480,7 @@
 									"objectClass": "Browser",
 									"sid": 535409353062557,
 									"parameters": {
-										"string": "CompleteProgressionData",
+										"string": "FileProgressionData",
 										"mime-type": "\"\"",
 										"filename": "FileName & FileExtension"
 									}
@@ -19498,7 +19508,7 @@
 							"objectClass": "System",
 							"sid": 398949142625722,
 							"parameters": {
-								"variable": "CompleteProgressionData",
+								"variable": "FileProgressionData",
 								"value": "\"\""
 							}
 						}
@@ -19634,12 +19644,233 @@
 									"objectClass": "System",
 									"sid": 485260345617115,
 									"parameters": {
-										"variable": "CompleteProgressionData",
+										"variable": "FileProgressionData",
 										"value": "CompleteHeaderData & newline & newline & HeaderAndLevelDataSeparator & newline & newline & CompleteLevelsData"
 									}
 								}
 							],
 							"sid": 980606396861267
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "f",
+							"sid": 676553357014211,
+							"parameters": {
+								"name": "\"ConvertLevelToUnityJSON\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 177595758941796,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Level",
+									"sid": 996948863592859,
+									"parameters": {
+										"unique-id": "f.Param(0)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-object",
+									"objectClass": "JSON",
+									"sid": 870294476354975,
+									"parameters": {
+										"path": "\"region\""
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "JSON",
+									"sid": 171297110914712,
+									"parameters": {
+										"path": "\"region\"",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-object",
+									"objectClass": "JSON",
+									"sid": 641005257442132,
+									"parameters": {
+										"path": "\"roomPosition\""
+									}
+								},
+								{
+									"id": "set-object",
+									"objectClass": "JSON",
+									"sid": 561777506613157,
+									"parameters": {
+										"path": "\"roomPosition.x\""
+									}
+								},
+								{
+									"id": "set-object",
+									"objectClass": "JSON",
+									"sid": 355973243863198,
+									"parameters": {
+										"path": "\"roomPosition.y\""
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "JSON",
+									"sid": 331461515893860,
+									"parameters": {
+										"path": "\"roomPosition.x\"",
+										"value": "LevelInfo.Get(\"ZeroAdjustedX\")"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "JSON",
+									"sid": 389542852922068,
+									"parameters": {
+										"path": "\"roomPosition.y\"",
+										"value": "LevelInfo.Get(\"ZeroAdjustedY\")"
+									}
+								},
+								{
+									"id": "set-object",
+									"objectClass": "JSON",
+									"sid": 586686003893427,
+									"parameters": {
+										"path": "\"roomSize\""
+									}
+								},
+								{
+									"id": "set-object",
+									"objectClass": "JSON",
+									"sid": 669511268920717,
+									"parameters": {
+										"path": "\"roomSize.x\""
+									}
+								},
+								{
+									"id": "set-object",
+									"objectClass": "JSON",
+									"sid": 116722667336354,
+									"parameters": {
+										"path": "\"roomSize.y\""
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "JSON",
+									"sid": 543449982664029,
+									"parameters": {
+										"path": "\"roomSize.x\"",
+										"value": "LevelInfo.Get(\"Width\")"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "JSON",
+									"sid": 134362436244468,
+									"parameters": {
+										"path": "\"roomSize.y\"",
+										"value": "LevelInfo.Get(\"Height\")"
+									}
+								},
+								{
+									"id": "set-path",
+									"objectClass": "JSON",
+									"sid": 297079864513198,
+									"parameters": {
+										"path": "\"\""
+									}
+								},
+								{
+									"id": "set-return-value",
+									"objectClass": "f",
+									"sid": 434228372526751,
+									"parameters": {
+										"value": "JSON.ToCompactString"
+									}
+								}
+							],
+							"sid": 559626790054500
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "f",
+							"sid": 364116077601678,
+							"parameters": {
+								"name": "\"GenerateUnityProgression\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 148595209960977,
+							"parameters": {
+								"variable": "UnityProgressionData",
+								"value": "\"\""
+							}
+						}
+					],
+					"sid": 673385243410298,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "CurrentLevelInfoAsUnityJSON",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 524026540342627
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 789920571740151,
+									"parameters": {
+										"object": "Level"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 768686935728028,
+									"parameters": {
+										"variable": "CurrentLevelInfoAsUnityJSON",
+										"value": "f.Call(\"ConvertLevelToUnityJSON\",Level.UID)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 448364660089221,
+									"parameters": {
+										"variable": "UnityProgressionData",
+										"value": "UnityProgressionData & CurrentLevelInfoAsUnityJSON & newline"
+									}
+								}
+							],
+							"sid": 345855100000790
 						}
 					]
 				},
@@ -20321,6 +20552,7 @@
 									"id": "call-function",
 									"objectClass": "f",
 									"sid": 743996013333958,
+									"disabled": true,
 									"parameters": {
 										"name": "\"SerializeProgression\"",
 										"parameter-n": []
@@ -20330,8 +20562,26 @@
 									"id": "set-text",
 									"objectClass": "TextBox",
 									"sid": 152096222556977,
+									"disabled": true,
 									"parameters": {
-										"text": "CompleteProgressionData"
+										"text": "FileProgressionData"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "f",
+									"sid": 202083623758814,
+									"parameters": {
+										"name": "\"GenerateUnityProgression\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "TextBox",
+									"sid": 360770606937225,
+									"parameters": {
+										"text": "UnityProgressionData"
 									}
 								}
 							],
