@@ -22890,10 +22890,10 @@
 								{
 									"id": "add-key",
 									"objectClass": "LevelInfo",
-									"sid": 314717760436518,
+									"sid": 160977976143967,
 									"parameters": {
 										"key": "\"Width\"",
-										"value": "Level.Width/GridTileHeight"
+										"value": "Level.Width/GridTileWidth"
 									}
 								},
 								{
