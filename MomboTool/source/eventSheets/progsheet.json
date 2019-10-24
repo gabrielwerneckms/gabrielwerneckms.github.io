@@ -22880,6 +22880,33 @@
 								{
 									"id": "add-key",
 									"objectClass": "LevelInfo",
+									"sid": 279870589046140,
+									"parameters": {
+										"key": "\"Height\"",
+										"value": "Level.Height/GridTileHeight"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "LevelInfo",
+									"sid": 314717760436518,
+									"parameters": {
+										"key": "\"Width\"",
+										"value": "Level.Width/GridTileHeight"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "LevelInfo",
+									"sid": 476521913046521,
+									"parameters": {
+										"key": "\"Y\"",
+										"value": "(Level.Y/GridTileHeight)"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "LevelInfo",
 									"sid": 109926316021182,
 									"parameters": {
 										"key": "\"X\"",
