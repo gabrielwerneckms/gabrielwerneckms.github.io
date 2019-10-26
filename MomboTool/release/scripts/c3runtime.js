@@ -919,7 +919,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Dictionary.Acts.Clear,
 		C3.Plugins.Json.Acts.SetValue,
 		C3.Plugins.Json.Acts.SetPath,
-		C3.Plugins.Json.Exps.ToCompactString,
+		C3.Plugins.Json.Exps.ToBeautifiedString,
 		C3.Plugins.System.Exps.replace,
 		C3.Plugins.TextBox.Exps.PickedCount,
 		C3.Plugins.Spritefont2.Cnds.CompareText,
@@ -1613,6 +1613,7 @@ self.C3_JsPropNameTable = [
 		},
 		() => 500,
 		() => 200,
+		() => 0.025,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject("Description");
@@ -1933,7 +1934,11 @@ self.C3_JsPropNameTable = [
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() - 4);
 		},
+		() => "TopRightExit",
+		() => "BottomRightExit",
 		() => -3,
+		() => "BottomLeftExit",
+		() => "TopLeftExit",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => (f0() + 1);
@@ -1955,15 +1960,11 @@ self.C3_JsPropNameTable = [
 			const v4 = p._GetNode(4).GetVar();
 			return () => f0("FindCenterOfIntersection", v1.GetValue(), v2.GetValue(), v3.GetValue(), v4.GetValue());
 		},
-		() => "TopLeftExit",
-		() => "BottomLeftExit",
 		p => {
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
 			return () => ((n0.ExpObject() + n1.ExpObject()) + 2);
 		},
-		() => "TopRightExit",
-		() => "BottomRightExit",
 		() => 0.25,
 		() => "FindCenterOfIntersection",
 		p => {

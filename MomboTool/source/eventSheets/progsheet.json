@@ -2491,6 +2491,14 @@
 													}
 												},
 												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 796107122034152,
+													"parameters": {
+														"seconds": "1/40"
+													}
+												},
+												{
 													"id": "set-focused",
 													"objectClass": "TextBox",
 													"sid": 834624617762467
@@ -14959,6 +14967,166 @@
 												{
 													"id": "pick-all",
 													"objectClass": "System",
+													"sid": 867360158910969,
+													"parameters": {
+														"object": "Level"
+													}
+												},
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 966034590557066,
+													"parameters": {
+														"object": "Level",
+														"expression": "Level.UID",
+														"comparison": 1,
+														"value": "LevelFinder.CurrentLevelUID"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 512615923013141,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-at-offset",
+															"objectClass": "LevelFinder",
+															"sid": 779672587881220,
+															"parameters": {
+																"object": "Level",
+																"offset-x": "3",
+																"offset-y": "0"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 134763517049590,
+													"isOrBlock": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 192538913282189
+														},
+														{
+															"id": "pick-all",
+															"objectClass": "System",
+															"sid": 320298479568377,
+															"parameters": {
+																"object": "Level"
+															}
+														},
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 997459828988647,
+															"parameters": {
+																"object": "Level",
+																"expression": "Level.UID",
+																"comparison": 0,
+																"value": "LevelFinder.CurrentLevelUID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "delete-key",
+															"objectClass": "LevelInfo",
+															"sid": 513091089770828,
+															"parameters": {
+																"key": "\"TopRightExit\""
+															}
+														},
+														{
+															"id": "delete-key",
+															"objectClass": "LevelInfo",
+															"sid": 505530913313206,
+															"parameters": {
+																"key": "\"BottomRightExit\""
+															}
+														}
+													],
+													"sid": 399218087839238
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-at-offset",
+															"objectClass": "LevelFinder",
+															"sid": 256790049921337,
+															"parameters": {
+																"object": "Level",
+																"offset-x": "-3",
+																"offset-y": "0"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 931190372723856,
+													"isOrBlock": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 623705125697214
+														},
+														{
+															"id": "pick-all",
+															"objectClass": "System",
+															"sid": 947704298746019,
+															"parameters": {
+																"object": "Level"
+															}
+														},
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 678412383856646,
+															"parameters": {
+																"object": "Level",
+																"expression": "Level.UID",
+																"comparison": 0,
+																"value": "LevelFinder.CurrentLevelUID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "delete-key",
+															"objectClass": "LevelInfo",
+															"sid": 826620578345935,
+															"parameters": {
+																"key": "\"BottomLeftExit\""
+															}
+														},
+														{
+															"id": "delete-key",
+															"objectClass": "LevelInfo",
+															"sid": 181032838291072,
+															"parameters": {
+																"key": "\"TopLeftExit\""
+															}
+														}
+													],
+													"sid": 870664816492986
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-all",
+													"objectClass": "System",
 													"sid": 160939047111753,
 													"parameters": {
 														"object": "Level"
@@ -15370,8 +15538,66 @@
 																}
 															],
 															"sid": 877034758436090
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 614700128876430,
+																	"parameters": {
+																		"first-value": "BottomLeftExitName",
+																		"comparison": 0,
+																		"second-value": "\"\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "delete-key",
+																	"objectClass": "LevelInfo",
+																	"sid": 665949484324723,
+																	"parameters": {
+																		"key": "\"BottomLeftExit\""
+																	}
+																}
+															],
+															"sid": 584317770833475
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 842837685058729,
+																	"parameters": {
+																		"first-value": "TopLeftExitName",
+																		"comparison": 0,
+																		"second-value": "\"\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "delete-key",
+																	"objectClass": "LevelInfo",
+																	"sid": 458180882728274,
+																	"parameters": {
+																		"key": "\"TopLeftExit\""
+																	}
+																}
+															],
+															"sid": 448327558103613
 														}
 													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [],
+													"sid": 677713533576023
 												}
 											]
 										},
@@ -15717,31 +15943,6 @@
 													"eventType": "block",
 													"conditions": [
 														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 491282419720620,
-															"parameters": {
-																"first-value": "Level.PickedCount",
-																"comparison": 0,
-																"second-value": "0"
-															}
-														}
-													],
-													"actions": [],
-													"sid": 797355913152587,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [],
-															"actions": [],
-															"sid": 745563561156893
-														}
-													]
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
 															"id": "pick-all",
 															"objectClass": "System",
 															"sid": 148053909288821,
@@ -15817,6 +16018,58 @@
 																}
 															],
 															"sid": 301172914201867
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 948240828478738,
+																	"parameters": {
+																		"first-value": "TopRightExitName",
+																		"comparison": 0,
+																		"second-value": "\"\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "delete-key",
+																	"objectClass": "LevelInfo",
+																	"sid": 313857816885770,
+																	"parameters": {
+																		"key": "\"TopRightExit\""
+																	}
+																}
+															],
+															"sid": 784554660428594
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 368051424994268,
+																	"parameters": {
+																		"first-value": "BottomRightExitName",
+																		"comparison": 0,
+																		"second-value": "\"\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "delete-key",
+																	"objectClass": "LevelInfo",
+																	"sid": 950666418845602,
+																	"parameters": {
+																		"key": "\"BottomRightExit\""
+																	}
+																}
+															],
+															"sid": 325274348126830
 														}
 													]
 												}
@@ -20601,10 +20854,10 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 213715966318686,
+											"sid": 899215620662116,
 											"parameters": {
 												"variable": "JSON",
-												"value": "Prefix & LevelInfo.Get(\"Name\") & \"=\" & JSON.ToCompactString"
+												"value": "Prefix & LevelInfo.Get(\"Name\") & \"=\" & JSON.ToBeautifiedString"
 											}
 										},
 										{
