@@ -919,7 +919,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Dictionary.Acts.Clear,
 		C3.Plugins.Json.Acts.SetValue,
 		C3.Plugins.Json.Acts.SetPath,
-		C3.Plugins.Json.Exps.ToBeautifiedString,
+		C3.Plugins.Json.Exps.ToCompactString,
 		C3.Plugins.System.Exps.replace,
 		C3.Plugins.TextBox.Exps.PickedCount,
 		C3.Plugins.Spritefont2.Cnds.CompareText,

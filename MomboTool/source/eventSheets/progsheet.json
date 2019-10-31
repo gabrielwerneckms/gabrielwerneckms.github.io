@@ -20854,10 +20854,10 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 899215620662116,
+											"sid": 195995018926129,
 											"parameters": {
 												"variable": "JSON",
-												"value": "Prefix & LevelInfo.Get(\"Name\") & \"=\" & JSON.ToBeautifiedString"
+												"value": "Prefix & LevelInfo.Get(\"Name\") & \"=\" & JSON.ToCompactString"
 											}
 										},
 										{
