@@ -1468,7 +1468,7 @@ self.C3_JsPropNameTable = [
 		p => {
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
-			return () => ((and((n0.ExpInstVar() + "\"y\":"), n1.ExpInstVar()) + "},") + "\n");
+			return () => ((and((n0.ExpInstVar() + "\"y\":"), (n1.ExpInstVar() - 0.5)) + "},") + "\n");
 		},
 		p => {
 			const n0 = p._GetNode(0);
@@ -1482,13 +1482,13 @@ self.C3_JsPropNameTable = [
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
 			const n2 = p._GetNode(2);
-			return () => (and((and((n0.ExpInstVar() + "{\"delay\":"), n1.ExpInstVar()) + ",\"enemyType\":"), n2.ExpObject()) + "},\n                ");
+			return () => (and((and((n0.ExpInstVar() + "{\"delay\":"), n1.ExpInstVar()) + ",\"enemyType\":"), (n2.ExpObject() % 5)) + "},\n                ");
 		},
 		p => {
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
 			const n2 = p._GetNode(2);
-			return () => (and((and((n0.ExpInstVar() + "{\"delay\":"), n1.ExpInstVar()) + ",\"enemyType\":"), n2.ExpObject()) + "} ]");
+			return () => (and((and((n0.ExpInstVar() + "{\"delay\":"), n1.ExpInstVar()) + ",\"enemyType\":"), (n2.ExpObject() % 5)) + "} ]");
 		},
 		p => {
 			const n0 = p._GetNode(0);
