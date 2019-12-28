@@ -16255,6 +16255,24 @@
 																"key": "\"TopLeftExitID\"",
 																"value": "LeftExit.ExitID"
 															}
+														},
+														{
+															"id": "add-key",
+															"objectClass": "LevelInfo",
+															"sid": 716434205462882,
+															"parameters": {
+																"key": "\"TopLeftExitX\"",
+																"value": "f.Call(\"ConvertXToUnity\",LeftExit.X)"
+															}
+														},
+														{
+															"id": "add-key",
+															"objectClass": "LevelInfo",
+															"sid": 569365260674945,
+															"parameters": {
+																"key": "\"TopLeftExitY\"",
+																"value": "f.Call(\"ConvertYToUnity\",LeftExit.Y)"
+															}
 														}
 													],
 													"sid": 436289379376235
@@ -16301,6 +16319,24 @@
 																	}
 																},
 																{
+																	"id": "add-key",
+																	"objectClass": "LevelInfo",
+																	"sid": 963143115298779,
+																	"parameters": {
+																		"key": "\"TopLeftExitX\"",
+																		"value": "f.Call(\"ConvertXToUnity\",LeftExit.X)"
+																	}
+																},
+																{
+																	"id": "add-key",
+																	"objectClass": "LevelInfo",
+																	"sid": 264593146495690,
+																	"parameters": {
+																		"key": "\"TopLeftExitY\"",
+																		"value": "f.Call(\"ConvertYToUnity\",LeftExit.Y)"
+																	}
+																},
+																{
 																	"id": "stop-loop",
 																	"objectClass": "System",
 																	"sid": 605121641677890
@@ -16330,6 +16366,24 @@
 																	"parameters": {
 																		"key": "\"BottomLeftExitID\"",
 																		"value": "LeftExit.ExitID"
+																	}
+																},
+																{
+																	"id": "add-key",
+																	"objectClass": "LevelInfo",
+																	"sid": 353553653359068,
+																	"parameters": {
+																		"key": "\"BottomLeftExitX\"",
+																		"value": "f.Call(\"ConvertXToUnity\",LeftExit.X)"
+																	}
+																},
+																{
+																	"id": "add-key",
+																	"objectClass": "LevelInfo",
+																	"sid": 618677326519999,
+																	"parameters": {
+																		"key": "\"BottomLeftExitY\"",
+																		"value": "f.Call(\"ConvertYToUnity\",LeftExit.Y)"
 																	}
 																},
 																{
@@ -16393,6 +16447,24 @@
 																"key": "\"TopRightExitID\"",
 																"value": "RightExit.ExitID"
 															}
+														},
+														{
+															"id": "add-key",
+															"objectClass": "LevelInfo",
+															"sid": 503445542836076,
+															"parameters": {
+																"key": "\"TopRightExitX\"",
+																"value": "f.Call(\"ConvertXToUnity\",RightExit.X)"
+															}
+														},
+														{
+															"id": "add-key",
+															"objectClass": "LevelInfo",
+															"sid": 453510718445158,
+															"parameters": {
+																"key": "\"TopRightExitY\"",
+																"value": "f.Call(\"ConvertYToUnity\",LeftExit.Y)"
+															}
 														}
 													],
 													"sid": 316243984401619
@@ -16439,6 +16511,24 @@
 																	}
 																},
 																{
+																	"id": "add-key",
+																	"objectClass": "LevelInfo",
+																	"sid": 320070108632036,
+																	"parameters": {
+																		"key": "\"TopRightExitX\"",
+																		"value": "f.Call(\"ConvertXToUnity\",RightExit.X)"
+																	}
+																},
+																{
+																	"id": "add-key",
+																	"objectClass": "LevelInfo",
+																	"sid": 100208033433997,
+																	"parameters": {
+																		"key": "\"TopRightExitY\"",
+																		"value": "f.Call(\"ConvertYToUnity\",LeftExit.Y)"
+																	}
+																},
+																{
 																	"id": "stop-loop",
 																	"objectClass": "System",
 																	"sid": 228896948409405
@@ -16468,6 +16558,24 @@
 																	"parameters": {
 																		"key": "\"BottomRightExitID\"",
 																		"value": "RightExit.ExitID"
+																	}
+																},
+																{
+																	"id": "add-key",
+																	"objectClass": "LevelInfo",
+																	"sid": 120010874976669,
+																	"parameters": {
+																		"key": "\"BottomRightExitX\"",
+																		"value": "f.Call(\"ConvertXToUnity\",RightExit.X)"
+																	}
+																},
+																{
+																	"id": "add-key",
+																	"objectClass": "LevelInfo",
+																	"sid": 334224613022969,
+																	"parameters": {
+																		"key": "\"BottomRightExitY\"",
+																		"value": "f.Call(\"ConvertYToUnity\",LeftExit.Y)"
 																	}
 																},
 																{
@@ -21050,6 +21158,14 @@
 									],
 									"actions": [
 										{
+											"id": "set-object",
+											"objectClass": "JSON",
+											"sid": 499240173991914,
+											"parameters": {
+												"path": "\"exitLeftTop\""
+											}
+										},
+										{
 											"id": "set-value",
 											"objectClass": "JSON",
 											"sid": 258918362755734,
@@ -21061,28 +21177,28 @@
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 258784658744881,
+											"sid": 387873716842666,
 											"parameters": {
 												"path": "\"exitLeftTop.exitId\"",
-												"value": "0"
+												"value": "LevelInfo.Get(\"TopLeftExitID\")"
 											}
 										},
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 350964240947085,
+											"sid": 638036904831956,
 											"parameters": {
 												"path": "\"exitLeftTop.exitPosition.x\"",
-												"value": "0"
+												"value": "LevelInfo.Get(\"TopLeftExitX\")"
 											}
 										},
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 646074998475547,
+											"sid": 836129714473848,
 											"parameters": {
 												"path": "\"exitLeftTop.exitPosition.y\"",
-												"value": "0"
+												"value": "LevelInfo.Get(\"TopLeftExitY\")"
 											}
 										}
 									],
@@ -21099,6 +21215,14 @@
 									],
 									"actions": [
 										{
+											"id": "set-object",
+											"objectClass": "JSON",
+											"sid": 829867128028233,
+											"parameters": {
+												"path": "\"exitLeftTop\""
+											}
+										},
+										{
 											"id": "set-value",
 											"objectClass": "JSON",
 											"sid": 333961018103983,
@@ -21110,28 +21234,31 @@
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 406545471430625,
+											"sid": 174815097590713,
+											"disabled": true,
 											"parameters": {
 												"path": "\"exitLeftTop.exitId\"",
-												"value": "0"
+												"value": "-999"
 											}
 										},
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 274472235430760,
+											"sid": 434545019875240,
+											"disabled": true,
 											"parameters": {
 												"path": "\"exitLeftTop.exitPosition.x\"",
-												"value": "0"
+												"value": "-999"
 											}
 										},
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 173469643346207,
+											"sid": 231660582791610,
+											"disabled": true,
 											"parameters": {
 												"path": "\"exitLeftTop.exitPosition.y\"",
-												"value": "0"
+												"value": "-999"
 											}
 										}
 									],
@@ -21151,6 +21278,14 @@
 									],
 									"actions": [
 										{
+											"id": "set-object",
+											"objectClass": "JSON",
+											"sid": 821306314160500,
+											"parameters": {
+												"path": "\"exitLeftBottom\""
+											}
+										},
+										{
 											"id": "set-value",
 											"objectClass": "JSON",
 											"sid": 459558151546900,
@@ -21162,28 +21297,28 @@
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 171793497468061,
+											"sid": 318406327139757,
 											"parameters": {
 												"path": "\"exitLeftBottom.exitId\"",
-												"value": "0"
+												"value": "LevelInfo.Get(\"BottomLeftExitID\")"
 											}
 										},
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 178075802494264,
+											"sid": 684882905725730,
 											"parameters": {
 												"path": "\"exitLeftBottom.exitPosition.x\"",
-												"value": "0"
+												"value": "LevelInfo.Get(\"BottomLeftExitX\")"
 											}
 										},
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 799492421211798,
+											"sid": 397404304398123,
 											"parameters": {
 												"path": "\"exitLeftBottom.exitPosition.y\"",
-												"value": "0"
+												"value": "LevelInfo.Get(\"BottomLeftExitY\")"
 											}
 										}
 									],
@@ -21200,6 +21335,14 @@
 									],
 									"actions": [
 										{
+											"id": "set-object",
+											"objectClass": "JSON",
+											"sid": 563180410540511,
+											"parameters": {
+												"path": "\"exitLeftBottom\""
+											}
+										},
+										{
 											"id": "set-value",
 											"objectClass": "JSON",
 											"sid": 535467194785438,
@@ -21211,28 +21354,31 @@
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 705799962826530,
+											"sid": 277362423750487,
+											"disabled": true,
 											"parameters": {
 												"path": "\"exitLeftBottom.exitId\"",
-												"value": "0"
+												"value": "-999"
 											}
 										},
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 973363022232173,
+											"sid": 704945016455607,
+											"disabled": true,
 											"parameters": {
 												"path": "\"exitLeftBottom.exitPosition.x\"",
-												"value": "0"
+												"value": "-999"
 											}
 										},
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 164913353959248,
+											"sid": 829826014077933,
+											"disabled": true,
 											"parameters": {
 												"path": "\"exitLeftBottom.exitPosition.y\"",
-												"value": "0"
+												"value": "-999"
 											}
 										}
 									],
@@ -21252,6 +21398,14 @@
 									],
 									"actions": [
 										{
+											"id": "set-object",
+											"objectClass": "JSON",
+											"sid": 735936686446725,
+											"parameters": {
+												"path": "\"exitRightTop\""
+											}
+										},
+										{
 											"id": "set-value",
 											"objectClass": "JSON",
 											"sid": 797628629042009,
@@ -21263,28 +21417,28 @@
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 363709826596706,
+											"sid": 981033071402474,
 											"parameters": {
 												"path": "\"exitRightTop.exitId\"",
-												"value": "0"
+												"value": "LevelInfo.Get(\"TopRightExitID\")"
 											}
 										},
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 295046359074561,
+											"sid": 227341928920179,
 											"parameters": {
 												"path": "\"exitRightTop.exitPosition.x\"",
-												"value": "0"
+												"value": "LevelInfo.Get(\"TopRightExitX\")"
 											}
 										},
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 860996448716608,
+											"sid": 992605339314764,
 											"parameters": {
 												"path": "\"exitRightTop.exitPosition.y\"",
-												"value": "0"
+												"value": "LevelInfo.Get(\"TopRightExitY\")"
 											}
 										}
 									],
@@ -21301,6 +21455,14 @@
 									],
 									"actions": [
 										{
+											"id": "set-object",
+											"objectClass": "JSON",
+											"sid": 764202859794322,
+											"parameters": {
+												"path": "\"exitRightTop\""
+											}
+										},
+										{
 											"id": "set-value",
 											"objectClass": "JSON",
 											"sid": 753006744406023,
@@ -21312,28 +21474,31 @@
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 639429850884546,
+											"sid": 295489176902069,
+											"disabled": true,
 											"parameters": {
 												"path": "\"exitRightTop.exitId\"",
-												"value": "0"
+												"value": "-999"
 											}
 										},
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 103257943173237,
+											"sid": 153864915890817,
+											"disabled": true,
 											"parameters": {
 												"path": "\"exitRightTop.exitPosition.x\"",
-												"value": "0"
+												"value": "-999"
 											}
 										},
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 131258470503884,
+											"sid": 858145973093530,
+											"disabled": true,
 											"parameters": {
 												"path": "\"exitRightTop.exitPosition.y\"",
-												"value": "0"
+												"value": "-999"
 											}
 										}
 									],
@@ -21353,6 +21518,14 @@
 									],
 									"actions": [
 										{
+											"id": "set-object",
+											"objectClass": "JSON",
+											"sid": 286656187692490,
+											"parameters": {
+												"path": "\"exitRightBottom\""
+											}
+										},
+										{
 											"id": "set-value",
 											"objectClass": "JSON",
 											"sid": 457963876198555,
@@ -21364,28 +21537,28 @@
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 838865271271133,
+											"sid": 757246437639830,
 											"parameters": {
 												"path": "\"exitRightBottom.exitId\"",
-												"value": "0"
+												"value": "LevelInfo.Get(\"BottomRightExitID\")"
 											}
 										},
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 974297425405898,
+											"sid": 713750544562741,
 											"parameters": {
 												"path": "\"exitRightBottom.exitPosition.x\"",
-												"value": "0"
+												"value": "LevelInfo.Get(\"BottomRightExitX\")"
 											}
 										},
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 340726658933178,
+											"sid": 476648837512844,
 											"parameters": {
 												"path": "\"exitRightBottom.exitPosition.y\"",
-												"value": "0"
+												"value": "LevelInfo.Get(\"BottomRightExitY\")"
 											}
 										}
 									],
@@ -21402,6 +21575,14 @@
 									],
 									"actions": [
 										{
+											"id": "set-object",
+											"objectClass": "JSON",
+											"sid": 575485039219408,
+											"parameters": {
+												"path": "\"exitRightBottom\""
+											}
+										},
+										{
 											"id": "set-value",
 											"objectClass": "JSON",
 											"sid": 293770499604408,
@@ -21413,28 +21594,31 @@
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 712176512476710,
+											"sid": 385066557242157,
+											"disabled": true,
 											"parameters": {
 												"path": "\"exitRightBottom.exitId\"",
-												"value": "0"
+												"value": "-999"
 											}
 										},
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 949284857918590,
+											"sid": 805219258534423,
+											"disabled": true,
 											"parameters": {
 												"path": "\"exitRightBottom.exitPosition.x\"",
-												"value": "0"
+												"value": "-999"
 											}
 										},
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 303430108469776,
+											"sid": 783161338112863,
+											"disabled": true,
 											"parameters": {
 												"path": "\"exitRightBottom.exitPosition.y\"",
-												"value": "0"
+												"value": "-999"
 											}
 										}
 									],
@@ -23825,6 +24009,166 @@
 								}
 							],
 							"sid": 836688289191532
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "f",
+							"sid": 582758299726884,
+							"parameters": {
+								"name": "\"ConvertXtoUnity\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "f",
+							"sid": 172463968953494,
+							"parameters": {
+								"name": "\"UpdateGrid\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 806968984230406,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "ConstructX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 507635699479703
+						},
+						{
+							"eventType": "variable",
+							"name": "UnityX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 191215650811353
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 950620252352939,
+									"parameters": {
+										"variable": "ConstructX",
+										"value": "f.Param(0)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 256594377139308,
+									"parameters": {
+										"variable": "UnityX",
+										"value": "(ConstructX/GridTileWidth)-LowestX_InTiles"
+									}
+								},
+								{
+									"id": "set-return-value",
+									"objectClass": "f",
+									"sid": 540030187845771,
+									"parameters": {
+										"value": "UnityX"
+									}
+								}
+							],
+							"sid": 823984798381597
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "f",
+							"sid": 785530867894203,
+							"parameters": {
+								"name": "\"ConvertYtoUnity\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "f",
+							"sid": 548085655186578,
+							"parameters": {
+								"name": "\"UpdateGrid\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 599801550956016,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "ConstructY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 943337807947048
+						},
+						{
+							"eventType": "variable",
+							"name": "UnityY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 766696818664255
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 727665390185555,
+									"parameters": {
+										"variable": "ConstructY",
+										"value": "f.Param(0)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 547494468094953,
+									"parameters": {
+										"variable": "UnityY",
+										"value": "(-ConstructY/GridTileHeight)+HighestY_InTiles"
+									}
+								},
+								{
+									"id": "set-return-value",
+									"objectClass": "f",
+									"sid": 193379382503001,
+									"parameters": {
+										"value": "UnityY"
+									}
+								}
+							],
+							"sid": 498519718398772
 						}
 					]
 				}

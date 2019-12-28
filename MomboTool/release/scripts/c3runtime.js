@@ -890,6 +890,10 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Acts.SetEffectParam,
 		C3.Plugins.NinePatch.Exps.PickedCount,
 		C3.Plugins.Sprite.Exps.Width,
+		C3.Plugins.Sprite.Exps.LayerName,
+		C3.Plugins.Sprite.Cnds.IsOverlapping,
+		C3.Plugins.Sprite.Exps.IID,
+		C3.Plugins.Sprite.Exps.PickedCount,
 		C3.Plugins.System.Exps.max,
 		C3.Plugins.System.Exps.min,
 		C3.Plugins.Mouse.Exps.AbsoluteX,
@@ -919,6 +923,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Dictionary.Acts.Clear,
 		C3.Plugins.Json.Acts.SetValue,
 		C3.Plugins.Json.Acts.SetPath,
+		C3.Plugins.Json.Acts.SetObject,
 		C3.Plugins.Json.Exps.ToCompactString,
 		C3.Plugins.System.Exps.replace,
 		C3.Plugins.TextBox.Exps.PickedCount,
@@ -1077,11 +1082,14 @@ self.C3_JsPropNameTable = [
 	{LevelColorIndicator: 0},
 	{CurrentLevelUID: 0},
 	{LevelFinder: 0},
+	{ExitID: 0},
 	{RightExit: 0},
 	{LeftExit: 0},
 	{JSON: 0},
+	{ExitDot: 0},
 	{TextBox: 0},
 	{ResizeHandles: 0},
+	{Exit: 0},
 	{GridTileHeight: 0},
 	{GridTileWidth: 0},
 	{MaxLevelHeightInScreens: 0},
@@ -1218,6 +1226,10 @@ self.C3_JsPropNameTable = [
 	{LowestY_InTiles: 0},
 	{HighesX_InTiles: 0},
 	{HighestY_InTiles: 0},
+	{ConstructX: 0},
+	{UnityX: 0},
+	{ConstructY: 0},
+	{UnityY: 0},
 	{ScrollIncrement: 0},
 	{OriginalX: 0},
 	{OriginalY: 0},
@@ -1966,6 +1978,28 @@ self.C3_JsPropNameTable = [
 			return () => ((n0.ExpObject() + n1.ExpObject()) + 2);
 		},
 		() => 0.25,
+		() => "TopLeftExitID",
+		() => "TopLeftExitX",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			return () => f0("ConvertXToUnity", n1.ExpObject());
+		},
+		() => "TopLeftExitY",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			return () => f0("ConvertYToUnity", n1.ExpObject());
+		},
+		() => "BottomLeftExitID",
+		() => "BottomLeftExitX",
+		() => "BottomLeftExitY",
+		() => "TopRightExitID",
+		() => "TopRightExitX",
+		() => "TopRightExitY",
+		() => "BottomRightExitID",
+		() => "BottomRightExitX",
+		() => "BottomRightExitY",
 		() => "FindCenterOfIntersection",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -2228,29 +2262,93 @@ self.C3_JsPropNameTable = [
 			return () => n0.ExpObject("Height");
 		},
 		() => "exitLeftTop",
+		() => "exitLeftTop.roomName",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			const n1 = p._GetNode(1);
 			return () => and(v0.GetValue(), n1.ExpObject("TopLeftExit"));
 		},
+		() => "exitLeftTop.exitId",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("TopLeftExitID");
+		},
+		() => "exitLeftTop.exitPosition.x",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("TopLeftExitX");
+		},
+		() => "exitLeftTop.exitPosition.y",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("TopLeftExitY");
+		},
 		() => "none",
 		() => "exitLeftBottom",
+		() => "exitLeftBottom.roomName",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			const n1 = p._GetNode(1);
 			return () => and(v0.GetValue(), n1.ExpObject("BottomLeftExit"));
 		},
+		() => "exitLeftBottom.exitId",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("BottomLeftExitID");
+		},
+		() => "exitLeftBottom.exitPosition.x",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("BottomLeftExitX");
+		},
+		() => "exitLeftBottom.exitPosition.y",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("BottomLeftExitY");
+		},
 		() => "exitRightTop",
+		() => "exitRightTop.roomName",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			const n1 = p._GetNode(1);
 			return () => and(v0.GetValue(), n1.ExpObject("TopRightExit"));
 		},
+		() => "exitRightTop.exitId",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("TopRightExitID");
+		},
+		() => "exitRightTop.exitPosition.x",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("TopRightExitX");
+		},
+		() => "exitRightTop.exitPosition.y",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("TopRightExitY");
+		},
 		() => "exitRightBottom",
+		() => "exitRightBottom.roomName",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			const n1 = p._GetNode(1);
 			return () => and(v0.GetValue(), n1.ExpObject("BottomRightExit"));
+		},
+		() => "exitRightBottom.exitId",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("BottomRightExitID");
+		},
+		() => "exitRightBottom.exitPosition.x",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("BottomRightExitX");
+		},
+		() => "exitRightBottom.exitPosition.y",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("BottomRightExitY");
 		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -2365,6 +2463,20 @@ self.C3_JsPropNameTable = [
 			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
 			return () => add(n0.ExpObject("InvertedY"), v1.GetValue());
+		},
+		() => "ConvertXtoUnity",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			return () => ((v0.GetValue() / v1.GetValue()) - v2.GetValue());
+		},
+		() => "ConvertYtoUnity",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			return () => (((-v0.GetValue()) / v1.GetValue()) + v2.GetValue());
 		},
 		() => "Input",
 		() => "InitializeWordboard",
