@@ -16178,6 +16178,311 @@
 										}
 									],
 									"sid": 588187703464120
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 663875069614202,
+											"parameters": {
+												"object": "Level"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 477024404312364,
+											"parameters": {
+												"object-to-create": "ExitDot",
+												"layer": "LeftExit.LayerName",
+												"x": "LeftExit.X",
+												"y": "LeftExit.Y"
+											}
+										}
+									],
+									"sid": 763313651182955,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "LeftExit",
+													"sid": 189363119329411,
+													"parameters": {
+														"object": "Level"
+													}
+												},
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 422383158133712,
+													"parameters": {
+														"object": "LeftExit",
+														"expression": "LeftExit.ParentLevelUID",
+														"comparison": 0,
+														"value": "Level.UID"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 124210354185224,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 128453947665957,
+															"parameters": {
+																"first-value": "LeftExit.PickedCount",
+																"comparison": 0,
+																"second-value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "add-key",
+															"objectClass": "LevelInfo",
+															"sid": 807144571156818,
+															"parameters": {
+																"key": "\"TopLeftExitID\"",
+																"value": "LeftExit.ExitID"
+															}
+														}
+													],
+													"sid": 436289379376235
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 323190922066906,
+															"parameters": {
+																"first-value": "LeftExit.PickedCount",
+																"comparison": 0,
+																"second-value": "2"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 381683634375959,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "for-each-ordered",
+																	"objectClass": "System",
+																	"sid": 392835081798453,
+																	"parameters": {
+																		"object": "LeftExit",
+																		"expression": "LeftExit.Y",
+																		"order": "ascending"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "add-key",
+																	"objectClass": "LevelInfo",
+																	"sid": 759646955710632,
+																	"parameters": {
+																		"key": "\"TopLeftExitID\"",
+																		"value": "LeftExit.ExitID"
+																	}
+																},
+																{
+																	"id": "stop-loop",
+																	"objectClass": "System",
+																	"sid": 605121641677890
+																}
+															],
+															"sid": 278654253996357
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "for-each-ordered",
+																	"objectClass": "System",
+																	"sid": 100755863800666,
+																	"parameters": {
+																		"object": "LeftExit",
+																		"expression": "LeftExit.Y",
+																		"order": "descending"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "add-key",
+																	"objectClass": "LevelInfo",
+																	"sid": 160618511691227,
+																	"parameters": {
+																		"key": "\"BottomLeftExitID\"",
+																		"value": "LeftExit.ExitID"
+																	}
+																},
+																{
+																	"id": "stop-loop",
+																	"objectClass": "System",
+																	"sid": 369370637687101
+																}
+															],
+															"sid": 478831575611924
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "RightExit",
+													"sid": 146820696006263,
+													"parameters": {
+														"object": "Level"
+													}
+												},
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 478570332268286,
+													"parameters": {
+														"object": "RightExit",
+														"expression": "RightExit.ParentLevelUID",
+														"comparison": 0,
+														"value": "Level.UID"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 529401509022991,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 808371111673512,
+															"parameters": {
+																"first-value": "RightExit.PickedCount",
+																"comparison": 0,
+																"second-value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "add-key",
+															"objectClass": "LevelInfo",
+															"sid": 436593786919152,
+															"parameters": {
+																"key": "\"TopRightExitID\"",
+																"value": "RightExit.ExitID"
+															}
+														}
+													],
+													"sid": 316243984401619
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 430966744588200,
+															"parameters": {
+																"first-value": "RightExit.PickedCount",
+																"comparison": 0,
+																"second-value": "2"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 648566969505767,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "for-each-ordered",
+																	"objectClass": "System",
+																	"sid": 983146474469093,
+																	"parameters": {
+																		"object": "RightExit",
+																		"expression": "RightExit.Y",
+																		"order": "ascending"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "add-key",
+																	"objectClass": "LevelInfo",
+																	"sid": 457280969200966,
+																	"parameters": {
+																		"key": "\"TopRightExitID\"",
+																		"value": "RightExit.ExitID"
+																	}
+																},
+																{
+																	"id": "stop-loop",
+																	"objectClass": "System",
+																	"sid": 228896948409405
+																}
+															],
+															"sid": 560584641271595
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "for-each-ordered",
+																	"objectClass": "System",
+																	"sid": 625845625623428,
+																	"parameters": {
+																		"object": "RightExit",
+																		"expression": "RightExit.Y",
+																		"order": "descending"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "add-key",
+																	"objectClass": "LevelInfo",
+																	"sid": 727393759212011,
+																	"parameters": {
+																		"key": "\"BottomRightExitID\"",
+																		"value": "RightExit.ExitID"
+																	}
+																},
+																{
+																	"id": "stop-loop",
+																	"objectClass": "System",
+																	"sid": 498817924921868
+																}
+															],
+															"sid": 369748412639899
+														}
+													]
+												}
+											]
+										}
+									]
 								}
 							]
 						}
