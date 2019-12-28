@@ -16098,6 +16098,88 @@
 									]
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 836783072385990,
+									"parameters": {
+										"seconds": "0"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "ExitDot",
+									"sid": 984572853302631
+								}
+							],
+							"sid": 436598832356769,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 134297503943501,
+											"parameters": {
+												"object": "LeftExit"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 866394242927590,
+											"parameters": {
+												"object-to-create": "ExitDot",
+												"layer": "LeftExit.LayerName",
+												"x": "LeftExit.X",
+												"y": "LeftExit.Y"
+											}
+										}
+									],
+									"sid": 308336147560195
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 298372308001034,
+											"parameters": {
+												"object": "Exit"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Exit",
+											"sid": 216613340284248,
+											"parameters": {
+												"object": "ExitDot"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Exit",
+											"sid": 899456524607879,
+											"parameters": {
+												"instance-variable": "ExitID",
+												"value": "ExitDot.IID"
+											}
+										}
+									],
+									"sid": 588187703464120
+								}
+							]
 						}
 					]
 				},
@@ -20665,10 +20747,37 @@
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 417234324794649,
+											"sid": 258918362755734,
 											"parameters": {
-												"path": "\"exitLeftTop\"",
+												"path": "\"exitLeftTop.roomName\"",
 												"value": "Prefix & LevelInfo.Get(\"TopLeftExit\")"
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 258784658744881,
+											"parameters": {
+												"path": "\"exitLeftTop.exitId\"",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 350964240947085,
+											"parameters": {
+												"path": "\"exitLeftTop.exitPosition.x\"",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 646074998475547,
+											"parameters": {
+												"path": "\"exitLeftTop.exitPosition.y\"",
+												"value": "0"
 											}
 										}
 									],
@@ -20687,10 +20796,37 @@
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 847093141206467,
+											"sid": 333961018103983,
 											"parameters": {
-												"path": "\"exitLeftTop\"",
+												"path": "\"exitLeftTop.roomName\"",
 												"value": "\"none\""
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 406545471430625,
+											"parameters": {
+												"path": "\"exitLeftTop.exitId\"",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 274472235430760,
+											"parameters": {
+												"path": "\"exitLeftTop.exitPosition.x\"",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 173469643346207,
+											"parameters": {
+												"path": "\"exitLeftTop.exitPosition.y\"",
+												"value": "0"
 											}
 										}
 									],
@@ -20712,10 +20848,37 @@
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 437721216796360,
+											"sid": 459558151546900,
 											"parameters": {
-												"path": "\"exitLeftBottom\"",
+												"path": "\"exitLeftBottom.roomName\"",
 												"value": "Prefix & LevelInfo.Get(\"BottomLeftExit\")"
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 171793497468061,
+											"parameters": {
+												"path": "\"exitLeftBottom.exitId\"",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 178075802494264,
+											"parameters": {
+												"path": "\"exitLeftBottom.exitPosition.x\"",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 799492421211798,
+											"parameters": {
+												"path": "\"exitLeftBottom.exitPosition.y\"",
+												"value": "0"
 											}
 										}
 									],
@@ -20734,10 +20897,37 @@
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 169019319203479,
+											"sid": 535467194785438,
 											"parameters": {
-												"path": "\"exitLeftBottom\"",
+												"path": "\"exitLeftBottom.roomName\"",
 												"value": "\"none\""
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 705799962826530,
+											"parameters": {
+												"path": "\"exitLeftBottom.exitId\"",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 973363022232173,
+											"parameters": {
+												"path": "\"exitLeftBottom.exitPosition.x\"",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 164913353959248,
+											"parameters": {
+												"path": "\"exitLeftBottom.exitPosition.y\"",
+												"value": "0"
 											}
 										}
 									],
@@ -20759,10 +20949,37 @@
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 146571652510488,
+											"sid": 797628629042009,
 											"parameters": {
-												"path": "\"exitRightTop\"",
+												"path": "\"exitRightTop.roomName\"",
 												"value": "Prefix & LevelInfo.Get(\"TopRightExit\")"
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 363709826596706,
+											"parameters": {
+												"path": "\"exitRightTop.exitId\"",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 295046359074561,
+											"parameters": {
+												"path": "\"exitRightTop.exitPosition.x\"",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 860996448716608,
+											"parameters": {
+												"path": "\"exitRightTop.exitPosition.y\"",
+												"value": "0"
 											}
 										}
 									],
@@ -20781,10 +20998,37 @@
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 790655057711387,
+											"sid": 753006744406023,
 											"parameters": {
-												"path": "\"exitRightTop\"",
+												"path": "\"exitRightTop.roomName\"",
 												"value": "\"none\""
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 639429850884546,
+											"parameters": {
+												"path": "\"exitRightTop.exitId\"",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 103257943173237,
+											"parameters": {
+												"path": "\"exitRightTop.exitPosition.x\"",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 131258470503884,
+											"parameters": {
+												"path": "\"exitRightTop.exitPosition.y\"",
+												"value": "0"
 											}
 										}
 									],
@@ -20806,10 +21050,37 @@
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 444693750187221,
+											"sid": 457963876198555,
 											"parameters": {
-												"path": "\"exitRightBottom\"",
+												"path": "\"exitRightBottom.roomName\"",
 												"value": "Prefix & LevelInfo.Get(\"BottomRightExit\")"
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 838865271271133,
+											"parameters": {
+												"path": "\"exitRightBottom.exitId\"",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 974297425405898,
+											"parameters": {
+												"path": "\"exitRightBottom.exitPosition.x\"",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 340726658933178,
+											"parameters": {
+												"path": "\"exitRightBottom.exitPosition.y\"",
+												"value": "0"
 											}
 										}
 									],
@@ -20828,10 +21099,37 @@
 										{
 											"id": "set-value",
 											"objectClass": "JSON",
-											"sid": 386437277392867,
+											"sid": 293770499604408,
 											"parameters": {
-												"path": "\"exitRightBottom\"",
+												"path": "\"exitRightBottom.roomName\"",
 												"value": "\"none\""
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 712176512476710,
+											"parameters": {
+												"path": "\"exitRightBottom.exitId\"",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 949284857918590,
+											"parameters": {
+												"path": "\"exitRightBottom.exitPosition.x\"",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-value",
+											"objectClass": "JSON",
+											"sid": 303430108469776,
+											"parameters": {
+												"path": "\"exitRightBottom.exitPosition.y\"",
+												"value": "0"
 											}
 										}
 									],

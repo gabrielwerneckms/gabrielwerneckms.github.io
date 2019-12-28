@@ -1,0 +1,48 @@
+{
+	"name": "ExitDot",
+	"plugin-id": "Sprite",
+	"sid": 921736021906646,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 18,
+						"height": 18,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 28,
+						"collisionPoly": {
+							"points": [
+								0.05555555555555555,
+								0.05555555555555555,
+								1,
+								0.05555555555555555,
+								1,
+								1,
+								0.05555555555555555,
+								1
+							]
+						},
+						"duration": 1
+					}
+				],
+				"sid": 109396721162795,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"name": "Exit",
+	"plugin-id": "Sprite",
+	"sid": 493386645177820,
+	"instanceVariables": [
+		{
+			"name": "ExitID",
+			"type": "number",
+			"desc": "",
+			"sid": 462087529028965
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"LeftExit",
+		"RightExit"
+	]
+}
