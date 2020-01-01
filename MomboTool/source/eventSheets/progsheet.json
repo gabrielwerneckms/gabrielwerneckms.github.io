@@ -16098,7 +16098,24 @@
 									]
 								}
 							]
-						},
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "f",
+							"sid": 827950978876224,
+							"parameters": {
+								"name": "\"UpdateExitDrawingData\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 845717555416207,
+					"children": [
 						{
 							"eventType": "block",
 							"conditions": [],
@@ -16106,7 +16123,7 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 836783072385990,
+									"sid": 972535573119104,
 									"parameters": {
 										"seconds": "0"
 									}
@@ -16114,10 +16131,10 @@
 								{
 									"id": "destroy",
 									"objectClass": "ExitDot",
-									"sid": 984572853302631
+									"sid": 619431531080412
 								}
 							],
-							"sid": 436598832356769,
+							"sid": 600560139625502,
 							"children": [
 								{
 									"eventType": "block",
@@ -16125,7 +16142,7 @@
 										{
 											"id": "for-each",
 											"objectClass": "System",
-											"sid": 134297503943501,
+											"sid": 657977260895558,
 											"parameters": {
 												"object": "LeftExit"
 											}
@@ -16135,7 +16152,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 866394242927590,
+											"sid": 595003171285275,
 											"parameters": {
 												"object-to-create": "ExitDot",
 												"layer": "LeftExit.LayerName",
@@ -16144,7 +16161,7 @@
 											}
 										}
 									],
-									"sid": 308336147560195
+									"sid": 782631988632219
 								},
 								{
 									"eventType": "block",
@@ -16152,7 +16169,7 @@
 										{
 											"id": "for-each",
 											"objectClass": "System",
-											"sid": 298372308001034,
+											"sid": 236932464415143,
 											"parameters": {
 												"object": "Exit"
 											}
@@ -16160,7 +16177,7 @@
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "Exit",
-											"sid": 216613340284248,
+											"sid": 395637310836920,
 											"parameters": {
 												"object": "ExitDot"
 											}
@@ -16170,14 +16187,14 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "Exit",
-											"sid": 899456524607879,
+											"sid": 876584366499528,
 											"parameters": {
 												"instance-variable": "ExitID",
 												"value": "ExitDot.IID"
 											}
 										}
 									],
-									"sid": 588187703464120
+									"sid": 305408581443906
 								},
 								{
 									"eventType": "block",
@@ -16185,26 +16202,14 @@
 										{
 											"id": "for-each",
 											"objectClass": "System",
-											"sid": 663875069614202,
+											"sid": 745208449087815,
 											"parameters": {
 												"object": "Level"
 											}
 										}
 									],
-									"actions": [
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 477024404312364,
-											"parameters": {
-												"object-to-create": "ExitDot",
-												"layer": "LeftExit.LayerName",
-												"x": "LeftExit.X",
-												"y": "LeftExit.Y"
-											}
-										}
-									],
-									"sid": 763313651182955,
+									"actions": [],
+									"sid": 527966639229472,
 									"children": [
 										{
 											"eventType": "block",
@@ -16212,7 +16217,7 @@
 												{
 													"id": "is-overlapping-another-object",
 													"objectClass": "LeftExit",
-													"sid": 189363119329411,
+													"sid": 528467200143093,
 													"parameters": {
 														"object": "Level"
 													}
@@ -16220,7 +16225,7 @@
 												{
 													"id": "pick-by-comparison",
 													"objectClass": "System",
-													"sid": 422383158133712,
+													"sid": 700138358090131,
 													"parameters": {
 														"object": "LeftExit",
 														"expression": "LeftExit.ParentLevelUID",
@@ -16230,7 +16235,7 @@
 												}
 											],
 											"actions": [],
-											"sid": 124210354185224,
+											"sid": 520842220797810,
 											"children": [
 												{
 													"eventType": "block",
@@ -16238,7 +16243,7 @@
 														{
 															"id": "compare-two-values",
 															"objectClass": "System",
-															"sid": 128453947665957,
+															"sid": 733526780123610,
 															"parameters": {
 																"first-value": "LeftExit.PickedCount",
 																"comparison": 0,
@@ -16250,7 +16255,7 @@
 														{
 															"id": "add-key",
 															"objectClass": "LevelInfo",
-															"sid": 807144571156818,
+															"sid": 264242890053964,
 															"parameters": {
 																"key": "\"TopLeftExitID\"",
 																"value": "LeftExit.ExitID"
@@ -16259,7 +16264,7 @@
 														{
 															"id": "add-key",
 															"objectClass": "LevelInfo",
-															"sid": 716434205462882,
+															"sid": 344723300780234,
 															"parameters": {
 																"key": "\"TopLeftExitX\"",
 																"value": "f.Call(\"ConvertXToUnity\",LeftExit.X)"
@@ -16268,14 +16273,14 @@
 														{
 															"id": "add-key",
 															"objectClass": "LevelInfo",
-															"sid": 569365260674945,
+															"sid": 771803714477698,
 															"parameters": {
 																"key": "\"TopLeftExitY\"",
 																"value": "f.Call(\"ConvertYToUnity\",LeftExit.Y)"
 															}
 														}
 													],
-													"sid": 436289379376235
+													"sid": 321000087148404
 												},
 												{
 													"eventType": "block",
@@ -16283,7 +16288,7 @@
 														{
 															"id": "compare-two-values",
 															"objectClass": "System",
-															"sid": 323190922066906,
+															"sid": 342653875130931,
 															"parameters": {
 																"first-value": "LeftExit.PickedCount",
 																"comparison": 0,
@@ -16292,7 +16297,7 @@
 														}
 													],
 													"actions": [],
-													"sid": 381683634375959,
+													"sid": 806759947995262,
 													"children": [
 														{
 															"eventType": "block",
@@ -16300,7 +16305,7 @@
 																{
 																	"id": "for-each-ordered",
 																	"objectClass": "System",
-																	"sid": 392835081798453,
+																	"sid": 843611584404825,
 																	"parameters": {
 																		"object": "LeftExit",
 																		"expression": "LeftExit.Y",
@@ -16312,7 +16317,7 @@
 																{
 																	"id": "add-key",
 																	"objectClass": "LevelInfo",
-																	"sid": 759646955710632,
+																	"sid": 686947038508710,
 																	"parameters": {
 																		"key": "\"TopLeftExitID\"",
 																		"value": "LeftExit.ExitID"
@@ -16321,7 +16326,7 @@
 																{
 																	"id": "add-key",
 																	"objectClass": "LevelInfo",
-																	"sid": 963143115298779,
+																	"sid": 981254042661846,
 																	"parameters": {
 																		"key": "\"TopLeftExitX\"",
 																		"value": "f.Call(\"ConvertXToUnity\",LeftExit.X)"
@@ -16330,7 +16335,7 @@
 																{
 																	"id": "add-key",
 																	"objectClass": "LevelInfo",
-																	"sid": 264593146495690,
+																	"sid": 479765915547624,
 																	"parameters": {
 																		"key": "\"TopLeftExitY\"",
 																		"value": "f.Call(\"ConvertYToUnity\",LeftExit.Y)"
@@ -16339,10 +16344,10 @@
 																{
 																	"id": "stop-loop",
 																	"objectClass": "System",
-																	"sid": 605121641677890
+																	"sid": 869776670778721
 																}
 															],
-															"sid": 278654253996357
+															"sid": 711558678491594
 														},
 														{
 															"eventType": "block",
@@ -16350,7 +16355,7 @@
 																{
 																	"id": "for-each-ordered",
 																	"objectClass": "System",
-																	"sid": 100755863800666,
+																	"sid": 204253197993170,
 																	"parameters": {
 																		"object": "LeftExit",
 																		"expression": "LeftExit.Y",
@@ -16362,7 +16367,7 @@
 																{
 																	"id": "add-key",
 																	"objectClass": "LevelInfo",
-																	"sid": 160618511691227,
+																	"sid": 835141026578428,
 																	"parameters": {
 																		"key": "\"BottomLeftExitID\"",
 																		"value": "LeftExit.ExitID"
@@ -16371,7 +16376,7 @@
 																{
 																	"id": "add-key",
 																	"objectClass": "LevelInfo",
-																	"sid": 353553653359068,
+																	"sid": 902316715603127,
 																	"parameters": {
 																		"key": "\"BottomLeftExitX\"",
 																		"value": "f.Call(\"ConvertXToUnity\",LeftExit.X)"
@@ -16380,7 +16385,7 @@
 																{
 																	"id": "add-key",
 																	"objectClass": "LevelInfo",
-																	"sid": 618677326519999,
+																	"sid": 542017372907481,
 																	"parameters": {
 																		"key": "\"BottomLeftExitY\"",
 																		"value": "f.Call(\"ConvertYToUnity\",LeftExit.Y)"
@@ -16389,10 +16394,10 @@
 																{
 																	"id": "stop-loop",
 																	"objectClass": "System",
-																	"sid": 369370637687101
+																	"sid": 214740624611497
 																}
 															],
-															"sid": 478831575611924
+															"sid": 346447364948940
 														}
 													]
 												}
@@ -16404,7 +16409,7 @@
 												{
 													"id": "is-overlapping-another-object",
 													"objectClass": "RightExit",
-													"sid": 146820696006263,
+													"sid": 744885904639554,
 													"parameters": {
 														"object": "Level"
 													}
@@ -16412,7 +16417,7 @@
 												{
 													"id": "pick-by-comparison",
 													"objectClass": "System",
-													"sid": 478570332268286,
+													"sid": 176174025298728,
 													"parameters": {
 														"object": "RightExit",
 														"expression": "RightExit.ParentLevelUID",
@@ -16422,7 +16427,7 @@
 												}
 											],
 											"actions": [],
-											"sid": 529401509022991,
+											"sid": 283666557507236,
 											"children": [
 												{
 													"eventType": "block",
@@ -16430,7 +16435,7 @@
 														{
 															"id": "compare-two-values",
 															"objectClass": "System",
-															"sid": 808371111673512,
+															"sid": 156093899282654,
 															"parameters": {
 																"first-value": "RightExit.PickedCount",
 																"comparison": 0,
@@ -16442,7 +16447,7 @@
 														{
 															"id": "add-key",
 															"objectClass": "LevelInfo",
-															"sid": 436593786919152,
+															"sid": 321989390238415,
 															"parameters": {
 																"key": "\"TopRightExitID\"",
 																"value": "RightExit.ExitID"
@@ -16451,7 +16456,7 @@
 														{
 															"id": "add-key",
 															"objectClass": "LevelInfo",
-															"sid": 503445542836076,
+															"sid": 684308751379037,
 															"parameters": {
 																"key": "\"TopRightExitX\"",
 																"value": "f.Call(\"ConvertXToUnity\",RightExit.X)"
@@ -16460,14 +16465,14 @@
 														{
 															"id": "add-key",
 															"objectClass": "LevelInfo",
-															"sid": 453510718445158,
+															"sid": 916790302742637,
 															"parameters": {
 																"key": "\"TopRightExitY\"",
 																"value": "f.Call(\"ConvertYToUnity\",LeftExit.Y)"
 															}
 														}
 													],
-													"sid": 316243984401619
+													"sid": 771817830320716
 												},
 												{
 													"eventType": "block",
@@ -16475,7 +16480,7 @@
 														{
 															"id": "compare-two-values",
 															"objectClass": "System",
-															"sid": 430966744588200,
+															"sid": 273940744193676,
 															"parameters": {
 																"first-value": "RightExit.PickedCount",
 																"comparison": 0,
@@ -16484,7 +16489,7 @@
 														}
 													],
 													"actions": [],
-													"sid": 648566969505767,
+													"sid": 455236441294603,
 													"children": [
 														{
 															"eventType": "block",
@@ -16492,7 +16497,7 @@
 																{
 																	"id": "for-each-ordered",
 																	"objectClass": "System",
-																	"sid": 983146474469093,
+																	"sid": 411740053772939,
 																	"parameters": {
 																		"object": "RightExit",
 																		"expression": "RightExit.Y",
@@ -16504,7 +16509,7 @@
 																{
 																	"id": "add-key",
 																	"objectClass": "LevelInfo",
-																	"sid": 457280969200966,
+																	"sid": 572429740956240,
 																	"parameters": {
 																		"key": "\"TopRightExitID\"",
 																		"value": "RightExit.ExitID"
@@ -16513,7 +16518,7 @@
 																{
 																	"id": "add-key",
 																	"objectClass": "LevelInfo",
-																	"sid": 320070108632036,
+																	"sid": 179579291470238,
 																	"parameters": {
 																		"key": "\"TopRightExitX\"",
 																		"value": "f.Call(\"ConvertXToUnity\",RightExit.X)"
@@ -16522,7 +16527,7 @@
 																{
 																	"id": "add-key",
 																	"objectClass": "LevelInfo",
-																	"sid": 100208033433997,
+																	"sid": 672168558718460,
 																	"parameters": {
 																		"key": "\"TopRightExitY\"",
 																		"value": "f.Call(\"ConvertYToUnity\",LeftExit.Y)"
@@ -16531,10 +16536,10 @@
 																{
 																	"id": "stop-loop",
 																	"objectClass": "System",
-																	"sid": 228896948409405
+																	"sid": 178304439929888
 																}
 															],
-															"sid": 560584641271595
+															"sid": 912658910261536
 														},
 														{
 															"eventType": "block",
@@ -16542,7 +16547,7 @@
 																{
 																	"id": "for-each-ordered",
 																	"objectClass": "System",
-																	"sid": 625845625623428,
+																	"sid": 380972106850832,
 																	"parameters": {
 																		"object": "RightExit",
 																		"expression": "RightExit.Y",
@@ -16554,7 +16559,7 @@
 																{
 																	"id": "add-key",
 																	"objectClass": "LevelInfo",
-																	"sid": 727393759212011,
+																	"sid": 342217758714394,
 																	"parameters": {
 																		"key": "\"BottomRightExitID\"",
 																		"value": "RightExit.ExitID"
@@ -16563,7 +16568,7 @@
 																{
 																	"id": "add-key",
 																	"objectClass": "LevelInfo",
-																	"sid": 120010874976669,
+																	"sid": 256185635044011,
 																	"parameters": {
 																		"key": "\"BottomRightExitX\"",
 																		"value": "f.Call(\"ConvertXToUnity\",RightExit.X)"
@@ -16572,7 +16577,7 @@
 																{
 																	"id": "add-key",
 																	"objectClass": "LevelInfo",
-																	"sid": 334224613022969,
+																	"sid": 152528083399454,
 																	"parameters": {
 																		"key": "\"BottomRightExitY\"",
 																		"value": "f.Call(\"ConvertYToUnity\",LeftExit.Y)"
@@ -16581,10 +16586,10 @@
 																{
 																	"id": "stop-loop",
 																	"objectClass": "System",
-																	"sid": 498817924921868
+																	"sid": 290000799040292
 																}
 															],
-															"sid": 369748412639899
+															"sid": 650472032720125
 														}
 													]
 												}
@@ -21694,6 +21699,23 @@
 							}
 						},
 						{
+							"id": "call-function",
+							"objectClass": "f",
+							"sid": 664595641368820,
+							"parameters": {
+								"name": "\"UpdateExitDrawingData\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 913758615594507,
+							"parameters": {
+								"seconds": "0"
+							}
+						},
+						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 148595209960977,
@@ -22451,6 +22473,14 @@
 									"parameters": {
 										"name": "\"GenerateUnityProgression\"",
 										"parameter-n": []
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 573596777623506,
+									"parameters": {
+										"seconds": "0"
 									}
 								},
 								{
