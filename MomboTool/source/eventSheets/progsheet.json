@@ -16465,10 +16465,10 @@
 														{
 															"id": "add-key",
 															"objectClass": "LevelInfo",
-															"sid": 916790302742637,
+															"sid": 274377562340374,
 															"parameters": {
 																"key": "\"TopRightExitY\"",
-																"value": "f.Call(\"ConvertYToUnity\",LeftExit.Y)"
+																"value": "f.Call(\"ConvertYToUnity\",RightExit.Y)"
 															}
 														}
 													],
@@ -16527,10 +16527,10 @@
 																{
 																	"id": "add-key",
 																	"objectClass": "LevelInfo",
-																	"sid": 672168558718460,
+																	"sid": 202252674478452,
 																	"parameters": {
 																		"key": "\"TopRightExitY\"",
-																		"value": "f.Call(\"ConvertYToUnity\",LeftExit.Y)"
+																		"value": "f.Call(\"ConvertYToUnity\",rightExit.Y)"
 																	}
 																},
 																{
@@ -16577,10 +16577,10 @@
 																{
 																	"id": "add-key",
 																	"objectClass": "LevelInfo",
-																	"sid": 152528083399454,
+																	"sid": 407916797960504,
 																	"parameters": {
 																		"key": "\"BottomRightExitY\"",
-																		"value": "f.Call(\"ConvertYToUnity\",LeftExit.Y)"
+																		"value": "f.Call(\"ConvertYToUnity\",RightExit.Y)"
 																	}
 																},
 																{
