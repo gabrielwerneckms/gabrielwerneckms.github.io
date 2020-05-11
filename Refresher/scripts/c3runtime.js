@@ -629,6 +629,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Button.Cnds.OnClicked,
 		C3.Plugins.iframe.Acts.NavigateURL,
 		C3.Plugins.Sprite.Acts.SetOpacity,
+		C3.Plugins.Browser.Acts.Vibrate,
 		C3.Plugins.System.Cnds.TriggerOnce,
 		C3.Plugins.System.Exps.time,
 		C3.Plugins.sliderbar.Cnds.OnChanged,
@@ -788,6 +789,7 @@ self.C3_JsPropNameTable = [
 		() => 200,
 		() => 1,
 		() => 100,
+		() => "400",
 		() => 0,
 		() => 5,
 		p => {
