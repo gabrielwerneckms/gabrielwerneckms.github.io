@@ -531,6 +531,16 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.TextBox.Acts.SetCSSStyle,
 		C3.Plugins.AJAX.Acts.RequestFile,
+		C3.Plugins.Text.Acts.SetX,
+		C3.Plugins.TextBox.Exps.X,
+		C3.Plugins.TextBox.Exps.Width,
+		C3.Plugins.System.Cnds.Every,
+		C3.Plugins.System.Acts.Scroll,
+		C3.Plugins.TextBox.Exps.Y,
+		C3.Plugins.TextBox.Exps.Height,
+		C3.Plugins.System.Acts.ScrollY,
+		C3.Plugins.System.Exps.scrolly,
+		C3.Plugins.System.Exps.viewportheight,
 		C3.Plugins.AJAX.Cnds.OnComplete,
 		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.AJAX.Exps.LastData,
@@ -645,8 +655,19 @@ self.C3_JsPropNameTable = [
 
 	self.C3_ExpressionFuncs = [
 		() => "font-size",
-		() => "30pt",
+		() => "40pt",
 		() => "",
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => (n0.ExpObject() + (n1.ExpObject() / 2));
+		},
+		() => 0.1,
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => (f0() + (f1(0) * (1 / 4)));
+		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0();
