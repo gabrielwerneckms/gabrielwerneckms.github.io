@@ -641,8 +641,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.PlatformInfo.Exps.DevicePixelRatio,
 		C3.Plugins.Text.Acts.SetText,
 		C3.Plugins.SpeechRecognition.Exps.InterimTranscript,
-		C3.Plugins.SpeechRecognition.Cnds.IsRecognisingSpeech,
 		C3.Plugins.System.Cnds.TriggerOnce,
+		C3.Plugins.SpeechRecognition.Cnds.IsRecognisingSpeech,
 		C3.Plugins.SpeechRecognition.Acts.RequestSpeechRecognition,
 		C3.Plugins.SpeechRecognition.Exps.FinalTranscript,
 		C3.Plugins.SpeechRecognition.Acts.StopSpeechRecognition,
@@ -654,7 +654,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Arr.Exps.Width,
 		C3.Plugins.Arr.Exps.At,
 		C3.Plugins.System.Acts.SetBoolVar,
-		C3.ScriptsInEvents.EventSheet1_Event74,
+		C3.ScriptsInEvents.EventSheet1_Event75,
 		C3.Plugins.System.Exps.len,
 		C3.Plugins.Keyboard.Cnds.OnAnyKey,
 		C3.Plugins.Keyboard.Exps.TypedKey,
@@ -983,8 +983,8 @@ self.C3_JsPropNameTable = [
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() + 50);
 		},
-		() => "pt",
 		() => "",
+		() => "pt",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const v1 = p._GetNode(1).GetVar();
@@ -1134,7 +1134,7 @@ self.C3_JsPropNameTable = [
 			localVars.MaxScroll=textBox.scrollHeight;
 		},
 
-		async EventSheet1_Event74(runtime, localVars)
+		async EventSheet1_Event75(runtime, localVars)
 		{
 			console.log("Pressed key" & localVars.Key)
 		}
