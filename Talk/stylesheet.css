@@ -4,7 +4,9 @@
 	font-size: 30px;
 	font-family: "LexendDeca-Regular";
 	background-color: transparent;
-	overflow: hidden
+	overflow: hidden;
+	resize: none;
+	position: absolute;
 }
 
 

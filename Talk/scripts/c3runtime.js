@@ -597,18 +597,25 @@ self.C3_GetObjectRefTable = function () {
 		C3.ScriptsInEvents.EventSheet1_Event2_Act1,
 		C3.ScriptsInEvents.EventSheet1_Event4,
 		C3.ScriptsInEvents.EventSheet1_Event6,
+		C3.Plugins.System.Acts.SetVar,
+		C3.ScriptsInEvents.EventSheet1_Event10,
+		C3.ScriptsInEvents.EventSheet1_Event12,
+		C3.Plugins.Mouse.Cnds.OnWheel,
+		C3.Plugins.System.Cnds.CompareBoolVar,
+		C3.Plugins.System.Cnds.Else,
+		C3.ScriptsInEvents.EventSheet1_Event21,
+		C3.Plugins.TextBox.Exps.Height,
+		C3.Plugins.Text.Acts.SetPos,
+		C3.Plugins.TextBox.Exps.X,
+		C3.Plugins.TextBox.Exps.Y,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.TextBox.Acts.SetInstanceVar,
-		C3.Plugins.TextBox.Exps.Height,
 		C3.Plugins.TextBox.Exps.Width,
 		C3.Plugins.Browser.Acts.LoadStyleSheet,
 		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.System.Acts.SetCanvasSize,
 		C3.Plugins.PlatformInfo.Exps.WindowInnerWidth,
 		C3.Plugins.PlatformInfo.Exps.WindowInnerHeight,
-		C3.Plugins.Mouse.Cnds.OnWheel,
-		C3.Plugins.Keyboard.Cnds.IsKeyDown,
-		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.TextBox.Acts.SetFocus,
 		C3.Plugins.System.Cnds.Compare,
 		C3.Plugins.Text.Acts.SetLineHeight,
@@ -616,22 +623,21 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Exps.min,
 		C3.Plugins.PlatformInfo.Exps.ScreenWidth,
 		C3.Plugins.PlatformInfo.Exps.ScreenHeight,
-		C3.Plugins.TextBox.Acts.SetPosToObject,
 		C3.Plugins.TextBox.Acts.SetY,
-		C3.Plugins.TextBox.Exps.Y,
 		C3.Plugins.Text.Acts.SetFontSize,
 		C3.Plugins.TextBox.Acts.SetText,
 		C3.Plugins.System.Exps.replace,
 		C3.Plugins.Text.Exps.Text,
 		C3.Plugins.System.Acts.ScrollX,
 		C3.Plugins.System.Exps.scrollx,
-		C3.Plugins.TextBox.Exps.X,
 		C3.Plugins.System.Acts.ScrollY,
 		C3.Plugins.System.Exps.scrolly,
+		C3.Plugins.System.Exps.viewportheight,
 		C3.Plugins.TextBox.Acts.SetSize,
 		C3.Plugins.System.Exps.viewportwidth,
-		C3.Plugins.System.Exps.viewportheight,
+		C3.Plugins.System.Exps.viewporttop,
 		C3.Plugins.Text.Acts.SetSize,
+		C3.Plugins.Text.Exps.TextHeight,
 		C3.Plugins.PlatformInfo.Exps.DevicePixelRatio,
 		C3.Plugins.Text.Acts.SetText,
 		C3.Plugins.SpeechRecognition.Exps.InterimTranscript,
@@ -647,9 +653,9 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Arr.Acts.SetX,
 		C3.Plugins.Arr.Exps.Width,
 		C3.Plugins.Arr.Exps.At,
-		C3.ScriptsInEvents.EventSheet1_Event53,
+		C3.Plugins.System.Acts.SetBoolVar,
+		C3.ScriptsInEvents.EventSheet1_Event74,
 		C3.Plugins.System.Exps.len,
-		C3.Plugins.System.Cnds.Else,
 		C3.Plugins.Keyboard.Cnds.OnAnyKey,
 		C3.Plugins.Keyboard.Exps.TypedKey,
 		C3.Plugins.Arr.Cnds.ArrForEach,
@@ -657,8 +663,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.SetFunctionReturnValue,
 		C3.Plugins.System.Exps.right,
 		C3.Plugins.System.Exps.trim,
-		C3.ScriptsInEvents.EventSheet1_Event73_Act2,
-		C3.ScriptsInEvents.EventSheet1_Event74_Act2,
 		C3.Plugins.System.Exps.left,
 		C3.Plugins.System.Exps.uppercase,
 		C3.Plugins.System.Exps.lowercase
@@ -685,6 +689,10 @@ self.C3_JsPropNameTable = [
 	{FontSizeInPT: 0},
 	{KeyPressed: 0},
 	{KeyReleased: 0},
+	{TargetScroll: 0},
+	{ScrollIncrement: 0},
+	{TextboxScrollY: 0},
+	{MaxScroll: 0},
 	{Remainder: 0},
 	{LerpSpeed: 0},
 	{PixelRatio: 0},
@@ -694,7 +702,9 @@ self.C3_JsPropNameTable = [
 	{NewSegmentCooldownCounter: 0},
 	{SegmentText: 0},
 	{TextToAppend: 0},
+	{ControlKeyIsDown: 0},
 	{Key: 0},
+	{Text: 0},
 	{LastCharacterInString: 0},
 	{StringToCheck: 0},
 	{PhraseInSentenceCase: 0},
@@ -803,17 +813,15 @@ self.C3_JsPropNameTable = [
 			const v0 = p._GetNode(0).GetVar();
 			return () => v0.GetValue();
 		},
-		() => "Invisible Textbox Aligment",
 		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpObject();
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			return () => (v0.GetValue() - v1.GetValue());
 		},
-		() => "Stylesheet.css",
-		() => 0.1,
-		() => 0,
 		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0();
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			return () => (v0.GetValue() + v1.GetValue());
 		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -822,6 +830,48 @@ self.C3_JsPropNameTable = [
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue() + 0.5);
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const n1 = p._GetNode(1);
+			return () => (v0.GetValue() - n1.ExpObject());
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			return () => C3.clamp(v0.GetValue(), (-25), (v1.GetValue() + 25));
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			return () => C3.lerp(v0.GetValue(), v1.GetValue(), v2.GetValue());
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			return () => C3.clamp(v0.GetValue(), 0, v1.GetValue());
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject();
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			return () => (n0.ExpObject() - v1.GetValue());
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (v0.GetValue() + 25);
+		},
+		() => "Invisible Textbox Aligment",
+		() => "Stylesheet.css",
+		() => 0.1,
+		() => 0,
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0();
 		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -891,8 +941,6 @@ self.C3_JsPropNameTable = [
 		},
 		() => "line-height",
 		() => "1",
-		() => "overflow",
-		() => "hidden",
 		() => "border",
 		() => "solid 0px white",
 		p => {
@@ -909,10 +957,31 @@ self.C3_JsPropNameTable = [
 			return () => C3.lerp(f0(), (n1.ExpObject() + (n2.ExpObject() / 2)), v3.GetValue());
 		},
 		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			const f2 = p._GetNode(2).GetBoundMethod();
+			const v3 = p._GetNode(3).GetVar();
+			return () => C3.lerp(f0(), (n1.ExpObject() + (f2(0) / 2)), v3.GetValue());
+		},
+		p => {
 			const n0 = p._GetNode(0);
 			const f1 = p._GetNode(1).GetBoundMethod();
 			const v2 = p._GetNode(2).GetVar();
 			return () => C3.lerp(n0.ExpObject(), Math.round((f1(0) * 0.8)), v2.GetValue());
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const f1 = p._GetNode(1).GetBoundMethod();
+			const v2 = p._GetNode(2).GetVar();
+			return () => C3.lerp(n0.ExpObject(), f1(0), v2.GetValue());
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0(0);
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpObject() + 50);
 		},
 		() => "pt",
 		() => "",
@@ -931,27 +1000,36 @@ self.C3_JsPropNameTable = [
 			const v2 = p._GetNode(2).GetVar();
 			return () => and(n0.ExpObject((n1.ExpObject() - 1)), v2.GetValue());
 		},
+		() => "Control",
 		() => ".",
 		() => ":",
 		() => ",",
 		() => "!",
 		() => "?",
 		() => "Enter",
-		() => "Space",
+		() => " ",
 		() => "Backspace",
 		() => "\n",
-		() => " ",
+		() => "\n\n",
 		p => {
-			const n0 = p._GetNode(0);
-			const n1 = p._GetNode(1);
-			const v2 = p._GetNode(2).GetVar();
-			return () => (and(n0.ExpObject(), n1.ExpObject()) + v2.GetValue());
+			const v0 = p._GetNode(0).GetVar();
+			return () => ((v0.GetValue() + "\n") + "\n");
 		},
 		p => {
-			const n0 = p._GetNode(0);
+			const v0 = p._GetNode(0).GetVar();
+			const n1 = p._GetNode(1);
+			const v2 = p._GetNode(2).GetVar();
+			return () => (and(v0.GetValue(), n1.ExpObject()) + v2.GetValue());
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
 			const f1 = p._GetNode(1).GetBoundMethod();
 			const f2 = p._GetNode(2).GetBoundMethod();
-			return () => (n0.ExpObject() + f1(f2()));
+			return () => (v0.GetValue() + f1(f2()));
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (v0.GetValue() + " ");
 		},
 		() => "Functions",
 		p => {
@@ -1015,6 +1093,18 @@ self.C3_JsPropNameTable = [
 			   runtime.callFunction("KeyReleasedInTextbox",event.key);
 			  }
 			);;
+			
+			textBox.addEventListener('wheel', function(event)
+			{
+			 if (event.deltaY < 0)
+			 {
+			  runtime.callFunction("MouseWheelUpInTextbox",event.key);
+			 }
+			 else if (event.deltaY > 0)
+			 {
+			  runtime.callFunction("MouseWheelDownInTextbox",event.key);
+			 }
+			});
 		},
 
 		async EventSheet1_Event4(runtime, localVars)
@@ -1027,19 +1117,26 @@ self.C3_JsPropNameTable = [
 			console.log(localVars.KeyReleased + " released in textbox");
 		},
 
-		async EventSheet1_Event53(runtime, localVars)
+		async EventSheet1_Event10(runtime, localVars)
+		{
+			console.log("Wheel up in textbox");
+		},
+
+		async EventSheet1_Event12(runtime, localVars)
+		{
+			console.log("Wheel down in textbox");
+		},
+
+		async EventSheet1_Event21(runtime, localVars)
+		{
+			var textBox =  document.getElementById('Textbox');
+			textBox.scrollTop=localVars.TextboxScrollY;
+			localVars.MaxScroll=textBox.scrollHeight;
+		},
+
+		async EventSheet1_Event74(runtime, localVars)
 		{
 			console.log("Pressed key" & localVars.Key)
-		},
-
-		async EventSheet1_Event73_Act2(runtime, localVars)
-		{
-			console.log("String ends with punctuation.")
-		},
-
-		async EventSheet1_Event74_Act2(runtime, localVars)
-		{
-			console.log("String does not end with punctuation.")
 		}
 
 	};
