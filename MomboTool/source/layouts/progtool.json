@@ -190,7 +190,9 @@
 					"instanceVariables": {},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -223,7 +225,9 @@
 					"instanceVariables": {},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -256,7 +260,9 @@
 					"instanceVariables": {},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -289,7 +295,9 @@
 					"instanceVariables": {},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -322,7 +330,9 @@
 					"instanceVariables": {},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -355,7 +365,9 @@
 					"instanceVariables": {},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -388,7 +400,9 @@
 					"instanceVariables": {},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -421,7 +435,9 @@
 					"instanceVariables": {},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -454,7 +470,9 @@
 					"instanceVariables": {},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -487,7 +505,9 @@
 					"instanceVariables": {},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -520,7 +540,9 @@
 					"instanceVariables": {},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -553,7 +575,9 @@
 					"instanceVariables": {},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -586,7 +610,9 @@
 					"instanceVariables": {},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -619,7 +645,9 @@
 					"instanceVariables": {},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -652,7 +680,9 @@
 					"instanceVariables": {},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -685,7 +715,9 @@
 					"instanceVariables": {},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -799,7 +831,9 @@
 					},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -837,7 +871,9 @@
 					},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -875,7 +911,9 @@
 					},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -913,7 +951,9 @@
 					},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -951,7 +991,9 @@
 					},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -989,7 +1031,9 @@
 					},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -1027,7 +1071,9 @@
 					},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -1065,7 +1111,9 @@
 					},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -1303,7 +1351,9 @@
 					},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -1341,7 +1391,9 @@
 					},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -1424,7 +1476,9 @@
 					},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
@@ -1462,14 +1516,16 @@
 					},
 					"behaviors": {
 						"Pin": {
-							"properties": {}
+							"properties": {
+								"destroy": false
+							}
 						}
 					},
 					"world": {
 						"x": 764.2478022176854,
 						"y": 27.200670343703038,
 						"width": 44.91680516576618,
-						"height": 14.23708331964458,
+						"height": 15.188238674447359,
 						"originX": 0,
 						"originY": 0,
 						"color": [

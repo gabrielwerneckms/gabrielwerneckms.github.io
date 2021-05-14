@@ -1,9 +1,9 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 17103,
+	"savedWithRelease": 21002,
 	"name": "Prog",
 	"runtime": "c3",
-	"useWorker": false,
+	"useWorker": "dom",
 	"bundleAddons": false,
 	"usedAddons": [
 		{
@@ -11,7 +11,7 @@
 			"id": "Dictionary",
 			"name": "Dictionary",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -19,7 +19,7 @@
 			"id": "NinePatch",
 			"name": "9-patch",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -27,7 +27,7 @@
 			"id": "Arr",
 			"name": "Array",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -35,7 +35,7 @@
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -43,7 +43,7 @@
 			"id": "Spritefont2",
 			"name": "Sprite font",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -51,7 +51,7 @@
 			"id": "Function",
 			"name": "Function",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -59,7 +59,7 @@
 			"id": "Keyboard",
 			"name": "Keyboard",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -67,7 +67,7 @@
 			"id": "Mouse",
 			"name": "Mouse",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -75,7 +75,7 @@
 			"id": "TiledBg",
 			"name": "Tiled Background",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -83,7 +83,7 @@
 			"id": "TextBox",
 			"name": "Text input",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -91,7 +91,7 @@
 			"id": "Browser",
 			"name": "Browser",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -99,7 +99,7 @@
 			"id": "Button",
 			"name": "Button",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -107,7 +107,7 @@
 			"id": "filechooser",
 			"name": "File chooser",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -115,7 +115,7 @@
 			"id": "AJAX",
 			"name": "AJAX",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -123,7 +123,7 @@
 			"id": "iframe",
 			"name": "iframe",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -131,7 +131,7 @@
 			"id": "Json",
 			"name": "JSON",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -139,7 +139,7 @@
 			"id": "DragnDrop",
 			"name": "Drag & Drop",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -147,7 +147,7 @@
 			"id": "NoSave",
 			"name": "No save",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -155,7 +155,7 @@
 			"id": "Pin",
 			"name": "Pin",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -163,7 +163,7 @@
 			"id": "tint",
 			"name": "Tint",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -171,7 +171,7 @@
 			"id": "hsladjust",
 			"name": "Adjust HSL",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		},
 		{
@@ -179,7 +179,7 @@
 			"id": "inverse",
 			"name": "Inverse",
 			"author": "Scirra",
-			"version": "r171.3",
+			"version": "r210.2",
 			"bundled": false
 		}
 	],
@@ -403,27 +403,51 @@
 			"items": [
 				{
 					"name": "icon-16.png",
-					"type": "image/png"
+					"type": "image/png",
+					"sid": 437456063809655,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				},
 				{
 					"name": "icon-32.png",
-					"type": "image/png"
+					"type": "image/png",
+					"sid": 532185827464478,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				},
 				{
 					"name": "icon-114.png",
-					"type": "image/png"
+					"type": "image/png",
+					"sid": 921015716313462,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				},
 				{
 					"name": "icon-128.png",
-					"type": "image/png"
+					"type": "image/png",
+					"sid": 117481178544962,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				},
 				{
 					"name": "icon-256.png",
-					"type": "image/png"
+					"type": "image/png",
+					"sid": 432137888880837,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				},
 				{
 					"name": "loading-logo.png",
-					"type": "image/png"
+					"type": "image/png",
+					"sid": 397143984980207,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
 				}
 			],
 			"subfolders": []
@@ -432,11 +456,13 @@
 			"items": [
 				{
 					"name": "New Array.json",
-					"type": "application/json"
+					"type": "application/json",
+					"sid": 410111722158458
 				},
 				{
 					"name": "HTML Colors.json",
-					"type": "application/json"
+					"type": "application/json",
+					"sid": 110816873837716
 				}
 			],
 			"subfolders": []
@@ -486,6 +512,7 @@
 		"orientations": "any",
 		"enableWebGL": true,
 		"gpuPreference": "default",
+		"framerateMode": "vsync",
 		"compositingMode": "standard",
 		"sampling": "bilinear",
 		"downscaling": "medium",
@@ -493,7 +520,8 @@
 		"loaderStyle": "splash",
 		"preloadSounds": true,
 		"clearBackground": true,
-		"enhancedAccelerationPrecision": true
+		"enhancedAccelerationPrecision": true,
+		"cordovaiOSScheme": "file"
 	},
 	"viewportWidth": 854,
 	"viewportHeight": 480,
