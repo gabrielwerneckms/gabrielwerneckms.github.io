@@ -1,10 +1,10 @@
 {
-	"name": "New project",
-	"short_name": "New project",
+	"name": "Adventure Llama 2",
+	"short_name": "Adventure Llama 2",
 	"description": "",
 	"start_url": "index.html",
 	"display": "fullscreen",
-	"orientation": "any",
+	"orientation": "landscape",
 	"background_color": "#ffffff",
 	"icons": [
 		{
