@@ -3,7 +3,7 @@
 
 const scriptsInEvents = {
 
-		async EventSheet1_Event9(runtime, localVars)
+		async Uploadsheet_Event9(runtime, localVars)
 		{
 			var imgfile = await runtime.assets.fetchBlob(localVars.ImageURL);
 			
@@ -33,14 +33,14 @@ const scriptsInEvents = {
 			
 		},
 
-		async EventSheet1_Event19(runtime, localVars)
+		async Uploadsheet_Event19(runtime, localVars)
 		{
 			console.log(localVars.iftUrlWithQuery);
 			
 			fetch(localVars.iftUrlWithQuery, {method: "POST", mode: 'no-cors'});
 		},
 
-		async Lojasheet_Event3_Act5(runtime, localVars)
+		async Lojasheet_Event3_Act4(runtime, localVars)
 		{
 			
 			runtime.callFunction("GotData",await Get(localVars.URL))

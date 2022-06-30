@@ -3720,7 +3720,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.AJAX.Cnds.OnComplete,
 		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.BinaryData.Exps.GetURL,
-		C3.ScriptsInEvents.EventSheet1_Event9,
+		C3.ScriptsInEvents.Uploadsheet_Event9,
 		C3.Plugins.Browser.Acts.ConsoleLog,
 		C3.Plugins.System.Acts.GoToLayout,
 		C3.Plugins.Browser.Acts.GoToURLWindow,
@@ -3735,10 +3735,10 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Button.Acts.Destroy,
 		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.Text.Exps.Text,
-		C3.ScriptsInEvents.EventSheet1_Event19,
+		C3.ScriptsInEvents.Uploadsheet_Event19,
 		C3.Plugins.Sprite.Acts.SetAnimFrame,
 		C3.Plugins.Sprite.Exps.IID,
-		C3.ScriptsInEvents.Lojasheet_Event3_Act5,
+		C3.ScriptsInEvents.Lojasheet_Event3_Act4,
 		C3.Plugins.System.Cnds.ForEach,
 		C3.Plugins.Sprite.Acts.SetInstanceVar,
 		C3.Plugins.System.Exps.tokenat,
@@ -3932,7 +3932,6 @@ self.C3_ExpressionFuncs = [
 		},
 		() => "Group2",
 		() => "14pt",
-		() => 1,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const v1 = p._GetNode(1).GetVar();
