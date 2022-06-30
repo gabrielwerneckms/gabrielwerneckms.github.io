@@ -3745,7 +3745,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.AJAX.Cnds.OnError,
 		C3.Plugins.AJAX.Exps.LastData,
 		C3.Plugins.Touch.Cnds.OnTouchObject,
-		C3.Plugins.Sprite.Exps.AnimationFrame
+		C3.Plugins.Sprite.Exps.AnimationFrame,
+		C3.Plugins.Browser.Acts.GoToURL
 	];
 };
 self.C3_JsPropNameTable = [
