@@ -4144,6 +4144,12 @@ VALID_AXES.indexOf(str);if(a===-1)throw new Error("invalid axes");map.get(this).
 }
 
 {
+'use strict';{const C3=self.C3;C3.Behaviors.Persist=class PersistBehavior extends C3.SDKBehaviorBase{constructor(opts){super(opts)}Release(){super.Release()}}}{const C3=self.C3;C3.Behaviors.Persist.Type=class PersistType extends C3.SDKBehaviorTypeBase{constructor(behaviorType){super(behaviorType)}Release(){super.Release()}OnCreate(){}}}{const C3=self.C3;C3.Behaviors.Persist.Instance=class PersistInstance extends C3.SDKBehaviorInstanceBase{constructor(behInst,properties){super(behInst)}Release(){super.Release()}}}
+{const C3=self.C3;C3.Behaviors.Persist.Cnds={}}{const C3=self.C3;C3.Behaviors.Persist.Acts={}}{const C3=self.C3;C3.Behaviors.Persist.Exps={}};
+
+}
+
+{
 const C3 = self.C3;
 self.C3_GetObjectRefTable = function () {
 	return [
@@ -4158,6 +4164,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Button,
 		C3.Plugins.DrawingCanvas,
 		C3.Plugins.Multiplayer,
+		C3.Behaviors.Persist,
 		C3.Plugins.List,
 		C3.Plugins.Browser,
 		C3.Plugins.AJAX,
@@ -4170,41 +4177,43 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.NinePatch.Exps.Width,
 		C3.Plugins.NinePatch.Exps.Height,
 		C3.Plugins.TextBox.Acts.SetCSSStyle,
-		C3.Plugins.List.Acts.SetCSSStyle,
+		C3.Plugins.TextBox.Acts.SetText,
+		C3.Plugins.TextBox.Acts.SetVisible,
 		C3.Plugins.System.Cnds.ForEachOrdered,
 		C3.Plugins.NinePatch.Exps.Y,
 		C3.Plugins.NinePatch.Exps.X,
 		C3.Plugins.NinePatch.Acts.SetInstanceVar,
 		C3.Plugins.System.Exps.loopindex,
+		C3.Plugins.System.Cnds.CompareVar,
 		C3.Plugins.Sprite.Cnds.IsOverlapping,
-		C3.Behaviors.DragnDrop.Cnds.OnDrop,
+		C3.Plugins.System.Cnds.Else,
+		C3.Plugins.Keyboard.Cnds.OnKey,
+		C3.Plugins.Keyboard.Cnds.IsKeyDown,
 		C3.Plugins.System.Acts.SetVar,
+		C3.Plugins.TextBox.Exps.Text,
+		C3.Plugins.System.Acts.GoToLayout,
+		C3.Behaviors.DragnDrop.Cnds.OnDrop,
 		C3.Plugins.Sprite.Exps.X,
 		C3.Plugins.Sprite.Exps.Y,
 		C3.Plugins.Sprite.Exps.Width,
 		C3.Plugins.System.Cnds.PickAll,
 		C3.Plugins.System.Cnds.ForEach,
 		C3.Plugins.Sprite.Acts.SetPos,
+		C3.Plugins.Sprite.Acts.SetSize,
 		C3.Behaviors.DragnDrop.Cnds.IsDragging,
 		C3.Plugins.Mouse.Cnds.OnWheel,
 		C3.Plugins.Sprite.Acts.SetWidth,
 		C3.Plugins.Sprite.Acts.SetHeight,
 		C3.Plugins.Sprite.Exps.Height,
 		C3.Plugins.Sprite.Acts.SetInstanceVar,
-		C3.Plugins.Keyboard.Cnds.OnKey,
-		C3.Plugins.Keyboard.Cnds.IsKeyDown,
 		C3.Plugins.TextBox.Cnds.IsVisible,
-		C3.Plugins.TextBox.Acts.SetVisible,
 		C3.Plugins.Text.Acts.SetVisible,
-		C3.Plugins.List.Acts.SetVisible,
-		C3.Plugins.System.Cnds.Else,
 		C3.Plugins.System.Cnds.IsGroupActive,
 		C3.Plugins.System.Cnds.PickByComparison,
 		C3.Plugins.System.Acts.Scroll,
 		C3.Plugins.Sprite.Acts.SetDefaultColor,
 		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.TextBox.Acts.SetPos,
-		C3.Plugins.List.Acts.SetPos,
 		C3.Plugins.TextBox.Exps.BBoxRight,
 		C3.Plugins.TextBox.Exps.BBoxTop,
 		C3.Plugins.Text.Acts.SetPos,
@@ -4233,7 +4242,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.TextBox.Exps.Width,
 		C3.Plugins.Text.Acts.SetHeight,
 		C3.Plugins.Text.Acts.SetText,
-		C3.Plugins.TextBox.Exps.Text,
 		C3.Plugins.Sprite.Cnds.PickDistance,
 		C3.Plugins.Text.Acts.SetFontColor,
 		C3.Plugins.DrawingCanvas.Acts.ClearCanvas,
@@ -4258,7 +4266,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.DrawingCanvas.Exps.SnapshotBlueAt,
 		C3.Plugins.Mouse.Acts.SetCursor,
 		C3.Plugins.Mouse.Cnds.OnRelease,
-		C3.Plugins.Sprite.Acts.SetSize,
 		C3.Plugins.Sprite.Cnds.IsBoolInstanceVarSet,
 		C3.Plugins.Sprite.Cnds.PickTopBottom,
 		C3.Plugins.Sprite.Acts.SetBoolInstanceVar,
@@ -4266,12 +4273,14 @@ self.C3_GetObjectRefTable = function () {
 		C3.ScriptsInEvents.WebrtcEvents_Event2,
 		C3.Plugins.System.Exps.replace,
 		C3.Plugins.Multiplayer.Acts.SignallingConnect,
+		C3.Plugins.System.Cnds.Every,
+		C3.Plugins.System.Cnds.For,
+		C3.Plugins.Multiplayer.Exps.PeerCount,
+		C3.Plugins.Multiplayer.Exps.PeerAliasAt,
 		C3.Plugins.System.Cnds.Compare,
 		C3.Plugins.System.Exps.layoutname,
 		C3.Plugins.Browser.Acts.ConsoleLog,
-		C3.Plugins.System.Cnds.CompareVar,
 		C3.Plugins.System.Acts.AddVar,
-		C3.Plugins.TextBox.Acts.SetText,
 		C3.Plugins.System.Exps.left,
 		C3.Plugins.TextBox.Acts.ScrollToBottom,
 		C3.Plugins.Multiplayer.Cnds.OnSignallingConnected,
@@ -4288,7 +4297,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.PlatformInfo.Exps.Renderer,
 		C3.Plugins.PlatformInfo.Exps.RendererDetail,
 		C3.Plugins.PlatformInfo.Exps.DeviceMemory,
-		C3.ScriptsInEvents.WebrtcEvents_Event18_Act2,
+		C3.ScriptsInEvents.WebrtcEvents_Event20_Act2,
 		C3.Plugins.Multiplayer.Cnds.OnSignallingLeftRoom,
 		C3.Plugins.List.Acts.Clear,
 		C3.Plugins.Multiplayer.Cnds.OnSignallingDisconnected,
@@ -4343,10 +4352,9 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.UserMedia.Exps.SnapshotURL,
 		C3.Plugins.AJAX.Cnds.OnComplete,
 		C3.Plugins.BinaryData.Exps.GetBase64,
-		C3.Plugins.System.Acts.GoToLayout,
-		C3.Plugins.Button.Acts.Destroy,
 		C3.Plugins.Browser.Acts.Reload,
 		C3.Plugins.Button.Acts.SetEnabled,
+		C3.Plugins.List.Acts.SetVisible,
 		C3.Plugins.Browser.Acts.RequestFullScreen
 	];
 };
@@ -4447,6 +4455,7 @@ self.C3_JsPropNameTable = [
 	{Sprite12: 0},
 	{Multiplayer: 0},
 	{MessageCount: 0},
+	{Persist: 0},
 	{MessageLog: 0},
 	{PeerList: 0},
 	{DraggableSprite: 0},
@@ -4464,6 +4473,9 @@ self.C3_JsPropNameTable = [
 	{Fullscreen: 0},
 	{View: 0},
 	{Refresh: 0},
+	{UserLog: 0},
+	{UserLogText: 0},
+	{MessageLogData: 0},
 	{OffsetY: 0},
 	{OffsetX: 0},
 	{Scale: 0},
@@ -4617,6 +4629,10 @@ self.C3_ExpressionFuncs = [
 		() => "font-size",
 		() => "13pt",
 		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => v0.GetValue();
+		},
+		p => {
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
 			const n2 = p._GetNode(2);
@@ -4627,6 +4643,7 @@ self.C3_ExpressionFuncs = [
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0();
 		},
+		() => -1,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpInstVar();
@@ -4649,6 +4666,11 @@ self.C3_ExpressionFuncs = [
 		},
 		p => {
 			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			return () => (n0.ExpInstVar() * v1.GetValue());
+		},
+		p => {
+			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() / 1.05);
 		},
 		p => {
@@ -4663,10 +4685,6 @@ self.C3_ExpressionFuncs = [
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue() - 1);
-		},
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => v0.GetValue();
 		},
 		p => {
 			const n0 = p._GetNode(0);
@@ -4694,7 +4712,6 @@ self.C3_ExpressionFuncs = [
 			const n2 = p._GetNode(2);
 			return () => C3.clamp(n0.ExpObject(), n1.ExpInstVar(), n2.ExpInstVar());
 		},
-		() => -1,
 		p => {
 			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
@@ -4799,6 +4816,16 @@ self.C3_ExpressionFuncs = [
 		},
 		() => "Connecting to server...",
 		() => "wss://multiplayer.scirra.com",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => (f0() - 1);
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const f1 = p._GetNode(1).GetBoundMethod();
+			const f2 = p._GetNode(2).GetBoundMethod();
+			return () => ((n0.ExpObject() + "\n") + f1(f2()));
+		},
 		() => "Layout 1",
 		() => "Chat log",
 		p => {
@@ -4830,10 +4857,14 @@ self.C3_ExpressionFuncs = [
 		() => "Joined app as the host",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => (f0() + " (host)");
+			return () => (f0() + " (you - host)");
 		},
 		() => "Peer",
 		() => "Joined app as a peer",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => (f0() + " (you)");
+		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const f1 = p._GetNode(1).GetBoundMethod();

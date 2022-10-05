@@ -9,7 +9,7 @@ const scriptsInEvents = {
 		platform.name + " " + platform.os + ".";
 	},
 
-	async WebrtcEvents_Event18_Act2(runtime, localVars)
+	async WebrtcEvents_Event20_Act2(runtime, localVars)
 	{
 		localVars.BrowserData = JSON.stringify(platform);
 	}
